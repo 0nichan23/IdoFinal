@@ -5,7 +5,10 @@ using UnityEngine.Events;
 
 public class DamageDealer : MonoBehaviour
 {
+    public UnityEvent<Damageable, AnimalAttack> OnHit;
+
     public UnityEvent<AnimalAttack> OnDealDamage;
+
     public UnityEvent<AnimalAttack> OnDealDamageFinal;
 
     public UnityEvent<StatusEffect> OnApplyStatus;

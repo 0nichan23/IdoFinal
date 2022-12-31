@@ -133,6 +133,9 @@ GameObject:
   m_Component:
   - component: {fileID: 688698465}
   - component: {fileID: 688698464}
+  - component: {fileID: 688698468}
+  - component: {fileID: 688698467}
+  - component: {fileID: 688698466}
   m_Layer: 0
   m_Name: testanimal
   m_TagString: Untagged
@@ -154,9 +157,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalClass: 0
   habitat: 6
-  damageable: {fileID: 0}
-  statSheet: {fileID: 0}
-  attack: {fileID: 0}
+  damageable: {fileID: 688698468}
+  damageDealer: {fileID: 688698467}
+  effectable: {fileID: 688698466}
+  statSheet: {fileID: 11400000, guid: f31d57a1d5a45394691693239cb10e4d, type: 2}
+  attack: {fileID: 11400000, guid: 48e92ed21f8b0af4e9a22d8ca5623911, type: 2}
   passive: {fileID: 0}
 --- !u!4 &688698465
 Transform:
@@ -173,6 +178,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &688698466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688698463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9dc86ce38a07e4485c390b16caf9cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnObtainEffect:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRemoveEffect:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &688698467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688698463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84f58c9ac9e678458d3476ad36f8c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDealDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDealDamageFinal:
+    m_PersistentCalls:
+      m_Calls: []
+  OnApplyStatus:
+    m_PersistentCalls:
+      m_Calls: []
+  OnKill:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &688698468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688698463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e962f0fab887441b16548eac0dea57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTakeDamageFinal:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTakeDamageGFX:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

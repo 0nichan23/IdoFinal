@@ -5,6 +5,8 @@ public class Animal : MonoBehaviour
     [SerializeField] private AnimalClass animalClass;
     [SerializeField] private Habitat habitat;
     [SerializeField] private Damageable damageable;
+    [SerializeField] private DamageDealer damageDealer;
+    [SerializeField] private Effectable effectable;
     [SerializeField] private StatSheet statSheet;
     [SerializeField] private AnimalAttack attack;
     [SerializeField] private AnimalPassive passive;
@@ -16,17 +18,19 @@ public class Animal : MonoBehaviour
     public Damageable Damageable { get => damageable; }
     public StatSheet StatSheet { get => statSheet; }
     public AnimalPassive Passive { get => passive; }
+    public DamageDealer DamageDealer { get => damageDealer; }
+    public Effectable Effectable { get => effectable; }
 
     private void Start()
     {
-        Damageable.SetStats(StatSheet.MaxHp);
+        Damageable.SetStats(this);
     }
 
 }
 
 public enum AnimalClass
 {
-    Mammel,
+    Mammel, 
     Bird,
     Fish,
     Reptile,
@@ -35,7 +39,7 @@ public enum AnimalClass
 
 public enum Habitat
 {
-    Deset,
+    Desert,
     Forest,
     Jungle,
     FreshWater,

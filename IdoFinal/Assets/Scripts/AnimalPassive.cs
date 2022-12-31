@@ -7,13 +7,19 @@ public abstract class AnimalPassive : ScriptableObject
     //on damage, stat boost, on death, on take damage, on beat level?, on lose level?
 
     //synergy passives -> if 3 or more animals are from the same habitat
+    protected Animal host;
+    public virtual void SubscribePassive()
+    {
 
-    public virtual void SubscribePassive(PlayerTeam givenTeam)
-    {
-        //sub to event
     }
-    public virtual void UnSubscribePassive(PlayerTeam givenTeam)
+    public virtual void UnSubscribePassive()
     {
-        //unsub from event
+
+    }
+
+    public void CacheHost(Animal givenAnimal)
+    {
+        host = givenAnimal;
+        SubscribePassive();    
     }
 }

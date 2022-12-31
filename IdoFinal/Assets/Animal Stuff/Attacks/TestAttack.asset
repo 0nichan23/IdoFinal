@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b49c892f672a145a38ee2b2b166add, type: 3}
   m_Name: TestAttack
   m_EditorClassIdentifier: 
+  damage:
+    baseAmount: 5
+  statusEffects:
+  - Effect: 0
+    Chance: 50

@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Damageable : MonoBehaviour
 {
-    [SerializeField] private Effectable effectable;
+    private Effectable effectable;
 
     private float currentHp;
     private float maxHp;
@@ -15,10 +15,16 @@ public class Damageable : MonoBehaviour
     public UnityEvent OnDeath;
 
     public UnityEvent OnTakeDamageGFX;
-    
-    public void SetStats(float maxHp)
+
+    private Animal refAnimal;
+
+    public Animal RefAnimal { get => refAnimal; }
+
+    public void SetStats(Animal givenAnimal)
     {
-        this.maxHp = maxHp;
+        this.maxHp = givenAnimal.StatSheet.MaxHp;
+        this.effectable = givenAnimal.Effectable;
+        refAnimal = givenAnimal;
     }
 
     public void GetHit(AnimalAttack attack, DamageDealer dealer)
@@ -27,6 +33,7 @@ public class Damageable : MonoBehaviour
         {
             effectable.UpdateStatuses(attack, dealer);
         }
+        dealer.OnHit?.Invoke(this, attack);
         TakeDamage(attack, dealer);
     }
 
@@ -34,8 +41,10 @@ public class Damageable : MonoBehaviour
     {
         OnTakeDamage?.Invoke(attack);
         dealer.OnDealDamage?.Invoke(attack);
-        OnTakeDamageGFX?.Invoke();
+        OnTakeDamageFinal?.Invoke(attack);
+        dealer.OnDealDamageFinal?.Invoke(attack);
         currentHp -= attack.Damage.CalcFinalDamage();
+        OnTakeDamageGFX?.Invoke();
         if (currentHp <= 0)
         {
             OnDeath?.Invoke();
