@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private TileData currentTile;
     [SerializeField] private bool canMove;
+    [SerializeField] private float movementMod = 1;
     public TileData CurrentTile { get => currentTile; }
 
     private void Update()
@@ -22,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        
+
         TileData destTile = GameManager.Instance.LevemManager.CurrentLevel.GetTile(to);
         if (!ReferenceEquals(destTile, null))
         {
@@ -42,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 positionLerp = Vector3.Lerp(startPosition, worldPos, counter);
             transform.position = positionLerp;
-            counter += Time.deltaTime;
+            counter += Time.deltaTime * movementMod;
             yield return new WaitForEndOfFrame();
         }
         canMove = true;

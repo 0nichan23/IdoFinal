@@ -27,9 +27,9 @@ public class Level : MonoBehaviour
     private void SetTraversableGround()
     {
         BoundsInt bounds = tilemap.cellBounds;
-        //get all of the tilemaps children,
+        //get all of the tilemap's children,
         //loop over them and check if the gameobject is walkable,
-        //if it is add it to the dictionary and with its local pos as v3int as the key and the object as the value
+        //if it is add it to the list with its local pos as v3int as the key and the object as the value
         for (int i = 0; i < tilemap.transform.childCount; i++)
         {
             Transform child = tilemap.transform.GetChild(i);
