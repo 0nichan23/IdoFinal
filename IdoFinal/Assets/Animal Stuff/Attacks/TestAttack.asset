@@ -17,3 +17,5 @@ MonoBehaviour:
   statusEffects:
   - Effect: 0
     Chance: 50
+  hitbox:
+  - {x: 0, y: 0, z: 0}

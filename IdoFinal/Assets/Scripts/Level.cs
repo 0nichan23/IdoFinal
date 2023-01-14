@@ -40,6 +40,15 @@ public class Level : MonoBehaviour
                 Debug.Log("added " + child.gameObject.name + " at pos " + tilePos);
             }
         }
+/*
+        foreach (var tile in traversableGround)
+        {
+            InteractableTile interTile = Instantiate(GameManager.Instance.InteractableTilePrefab, tile.GetObj.transform);
+            interTile.transform.position = new Vector3(tile.GetStandingPos.x, tile.GetStandingPos.y + 0.2f, tile.GetStandingPos.z);
+            interTile.CacheRefTile(tile);
+            //interTile.gameObject.SetActive(false);
+        }
+*/
         SetStartTile();
         PlacePlayerAtStart();
     }
@@ -81,6 +90,16 @@ public class TileData
     {
         Obj = obj;
         Pos = pos;
+    }
+
+
+    public bool ComparePositons(Vector3Int otherPos)
+    {
+        if (Pos.x == otherPos.x && Pos.z == otherPos.z)
+        {
+            return true;
+        }
+        return false;
     }
 }
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerWrapper : MonoBehaviour
+public class PlayerWrapper : Character
 {
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerAnimationHandler playerAnimationHandler;

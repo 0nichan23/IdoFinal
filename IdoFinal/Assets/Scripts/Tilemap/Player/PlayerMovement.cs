@@ -1,12 +1,23 @@
 using System.Collections;
 using UnityEngine;
 
+
+public enum LookDirections
+{
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
+}
+
 public class PlayerMovement : MonoBehaviour
 {
     private TileData currentTile;
     [SerializeField] private bool canMove;
     [SerializeField] private float movementMod = 1;
+    [SerializeField] private LookDirections lookingTowards;
     public TileData CurrentTile { get => currentTile; }
+    public LookDirections LookingTowards { get => lookingTowards; }
 
     private void Update()
     {
@@ -59,18 +70,22 @@ public class PlayerMovement : MonoBehaviour
     private void RotatePlayerToMoveDirection(Vector3Int givenDir)
     {
         float yRotation = 0;
+        lookingTowards = LookDirections.UP;
 
         if (givenDir.z == -1)
         {
             yRotation = 180;
+            lookingTowards = LookDirections.DOWN;
         }
         else if (givenDir.x == 1)
         {
             yRotation = 90;
+            lookingTowards = LookDirections.RIGHT;
         }
         else if (givenDir.x == -1)
         {
             yRotation = -90;
+            lookingTowards = LookDirections.LEFT;
         }
 
         GameManager.Instance.PlayerWrapper.Gfx.eulerAngles = new Vector3(0, yRotation, 0);
