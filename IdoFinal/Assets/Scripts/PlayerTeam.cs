@@ -1,17 +1,14 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerTeam : MonoBehaviour
 {
-    private Animal activeAnimal;
-    private List<Animal> backLineAnimals = new List<Animal>();
-    public void SetActiveAnimal(Animal givenAnimal)
-    {
-        activeAnimal = givenAnimal;
-    }
+    [SerializeField] private Animal activeAnimal;
+    [SerializeField] private Animal[] backLineAnimals = new Animal[4];
 
-
-
+    public UnityEvent OnSwitchActiveAnimal;
+    public Animal ActiveAnimal { get => activeAnimal; }
+    public Animal[] BackLineAnimals { get => backLineAnimals; }
 }
 
 

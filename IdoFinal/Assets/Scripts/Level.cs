@@ -37,18 +37,17 @@ public class Level : MonoBehaviour
             {
                 Vector3Int tilePos = new Vector3Int(Mathf.FloorToInt(child.localPosition.x), 0, Mathf.FloorToInt(child.localPosition.z));
                 traversableGround.Add(new TileData(tilePos, child.gameObject));
-                Debug.Log("added " + child.gameObject.name + " at pos " + tilePos);
             }
         }
-/*
+
         foreach (var tile in traversableGround)
         {
             InteractableTile interTile = Instantiate(GameManager.Instance.InteractableTilePrefab, tile.GetObj.transform);
             interTile.transform.position = new Vector3(tile.GetStandingPos.x, tile.GetStandingPos.y + 0.2f, tile.GetStandingPos.z);
-            interTile.CacheRefTile(tile);
-            //interTile.gameObject.SetActive(false);
+            tile.CacheOverlayObject(interTile);
+            interTile.gameObject.SetActive(false);
         }
-*/
+
         SetStartTile();
         PlacePlayerAtStart();
     }
@@ -80,11 +79,13 @@ public class Level : MonoBehaviour
 public class TileData
 {
     [SerializeField] private GameObject Obj;
+    [SerializeField] private InteractableTile overlay;
     [SerializeField] private Vector3Int Pos;
 
     public GameObject GetObj { get => Obj; }
     public Vector3Int GetPos { get => Pos; }
     public Vector3 GetStandingPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 0.6f, Obj.transform.position.z); }
+    public InteractableTile Overly { get => overlay; }
 
     public TileData(Vector3Int pos, GameObject obj)
     {
@@ -92,7 +93,10 @@ public class TileData
         Pos = pos;
     }
 
-
+    public void CacheOverlayObject(InteractableTile givenTile)
+    {
+        overlay = givenTile;
+    }
     public bool ComparePositons(Vector3Int otherPos)
     {
         if (Pos.x == otherPos.x && Pos.z == otherPos.z)

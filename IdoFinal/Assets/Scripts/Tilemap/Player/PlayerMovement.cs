@@ -22,7 +22,9 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.InputManager.OnTurnLeft.AddListener(TurnLeft);
+        GameManager.Instance.InputManager.OnTurnLeft.AddListener(SetLookDir);
         GameManager.Instance.InputManager.OnTurnRight.AddListener(TurnRight);
+        GameManager.Instance.InputManager.OnTurnRight.AddListener(SetLookDir);
     }
 
     private void Update()
@@ -36,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         Vector3Int to = currentTile.GetPos + GameManager.Instance.InputManager.GetMoveVector();
-        if (GameManager.Instance.InputManager.GetMoveVector() == Vector3.zero)
+        if (GameManager.Instance.InputManager.GetMoveVector() == Vector3.zero || (GameManager.Instance.InputManager.GetMoveVector().x != 0 && GameManager.Instance.InputManager.GetMoveVector().z != 0))
         {
             return;
         }
@@ -86,25 +88,41 @@ public class PlayerMovement : MonoBehaviour
     private void RotatePlayerToMoveDirection(Vector3Int givenDir)
     {
         float yRotation = 0;
-        lookingTowards = LookDirections.UP;
 
         if (givenDir.z == -1)
         {
             yRotation = 180;
-            lookingTowards = LookDirections.DOWN;
         }
         else if (givenDir.x == 1)
         {
             yRotation = 90;
-            lookingTowards = LookDirections.RIGHT;
         }
         else if (givenDir.x == -1)
         {
             yRotation = -90;
-            lookingTowards = LookDirections.LEFT;
         }
 
         GameManager.Instance.PlayerWrapper.Gfx.eulerAngles = new Vector3(0, yRotation, 0);
+        SetLookDir();
+    }
+
+    private void SetLookDir()
+    {
+        switch (Mathf.FloorToInt(GameManager.Instance.PlayerWrapper.Gfx.eulerAngles.y))
+        {
+            case 270:
+                lookingTowards = LookDirections.LEFT;
+                break;
+            case 0:
+                lookingTowards = LookDirections.UP;
+                break;
+            case 180:
+                lookingTowards = LookDirections.DOWN;
+                break;
+            case 90:
+                lookingTowards = LookDirections.RIGHT;
+                break;
+        }
     }
 
 }

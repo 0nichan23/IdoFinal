@@ -1,12 +1,10 @@
 using UnityEngine;
 
-public class Animal : MonoBehaviour
+[CreateAssetMenu(fileName = "Animal", menuName = "Animal")]
+public class Animal : ScriptableObject
 {
     [SerializeField] private AnimalClass animalClass;
     [SerializeField] private Habitat habitat;
-    [SerializeField] private Damageable damageable;
-    [SerializeField] private DamageDealer damageDealer;
-    [SerializeField] private Effectable effectable;
     [SerializeField] private StatSheet statSheet;
     [SerializeField] private AnimalAttack attack;
     [SerializeField] private AnimalPassive passive;
@@ -15,22 +13,14 @@ public class Animal : MonoBehaviour
     //animal attack -> this is the attack itself, has additional effects and base damage
     public AnimalClass AnimalClass { get => animalClass; }
     public Habitat Habitat { get => habitat; }
-    public Damageable Damageable { get => damageable; }
     public StatSheet StatSheet { get => statSheet; }
     public AnimalPassive Passive { get => passive; }
-    public DamageDealer DamageDealer { get => damageDealer; }
-    public Effectable Effectable { get => effectable; }
-
-    private void Start()
-    {
-        Damageable.SetStats(this);
-    }
-
+    public AnimalAttack Attack { get => attack; }
 }
 
 public enum AnimalClass
 {
-    Mammel, 
+    Mammel,
     Bird,
     Fish,
     Reptile,

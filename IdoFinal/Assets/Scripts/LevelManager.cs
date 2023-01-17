@@ -8,8 +8,6 @@ public class LevelManager : MonoBehaviour
 
     public Level CurrentLevel { get => currentLevel; }
 
-
-
     public void DealDamageOnTiles(List<Vector3Int> givenPositions, AnimalAttack givenAttack, DamageDealer dealer = null)
     {
         foreach (var item in givenPositions)
@@ -19,14 +17,15 @@ public class LevelManager : MonoBehaviour
             {
                 continue;
             }
-            //loop over all enemeis
+
 
             if (GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.ComparePositons(tile.GetPos))
             {
                 GameManager.Instance.PlayerWrapper.Damageable.GetHit(givenAttack, dealer);
-
             }
-
+            tile.Overly.gameObject.SetActive(true);
+            tile.Overly.DamageColor();
+            Debug.Log(tile + " took " + givenAttack.Damage.CalcFinalDamage());
             //loop over all enemies, + player
             //comapre positoins witht the targeted position
             //deal damage if its the same.

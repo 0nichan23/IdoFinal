@@ -396,6 +396,11 @@ GameObject:
   - component: {fileID: 460538558}
   - component: {fileID: 460538559}
   - component: {fileID: 460538561}
+  - component: {fileID: 460538564}
+  - component: {fileID: 460538563}
+  - component: {fileID: 460538562}
+  - component: {fileID: 460538565}
+  - component: {fileID: 460538566}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -415,9 +420,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebd1fe38cf21fa4b8a92efe3f661e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageable: {fileID: 460538564}
+  damageDealer: {fileID: 460538563}
+  effectable: {fileID: 460538562}
   playerMovement: {fileID: 460538559}
   playerAnimationHandler: {fileID: 460538561}
   gfx: {fileID: 1391377724}
+  team: {fileID: 460538565}
+  attackHandler: {fileID: 460538566}
 --- !u!114 &460538559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,6 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 0
   movementMod: 3
+  lookingTowards: 0
 --- !u!4 &460538560
 Transform:
   m_ObjectHideFlags: 0
@@ -440,7 +451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460538557}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.3, y: 2.66, z: 1.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -460,6 +471,110 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86bbd5626f32a6043bf40df968c126a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &460538562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460538557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9dc86ce38a07e4485c390b16caf9cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnObtainEffect:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRemoveEffect:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &460538563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460538557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84f58c9ac9e678458d3476ad36f8c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDealDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDealDamageFinal:
+    m_PersistentCalls:
+      m_Calls: []
+  OnApplyStatus:
+    m_PersistentCalls:
+      m_Calls: []
+  OnKill:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &460538564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460538557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e962f0fab887441b16548eac0dea57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTakeDamageFinal:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTakeDamageGFX:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &460538565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460538557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2079e0f7f62c59a41930a446abb230a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeAnimal: {fileID: 11400000, guid: 1a6e951983e0eff4e8ee3f4be597b608, type: 2}
+  backLineAnimals: []
+  OnSwitchActiveAnimal:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &460538566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460538557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b81c9a459ae13e42b19c8eba37640dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnAttackPreformed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAttackSwitched:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &525978104
 GameObject:
   m_ObjectHideFlags: 3
@@ -1093,7 +1208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.10452846, y: 0, z: 0, w: 0.9945219}
-  m_LocalPosition: {x: 0, y: 3.61, z: -5.28}
+  m_LocalPosition: {x: 3.3, y: 6.27, z: -3.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1163,7 +1278,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5424a4d7f11b004d82323783d857da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnAttackPanelOpen:
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTurnRight:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTurnLeft:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1272919297
@@ -1592,7 +1713,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622147290}
   m_LocalRotation: {x: 0.10452846, y: 0, z: 0, w: 0.9945219}
-  m_LocalPosition: {x: 0, y: 3.61, z: -5.28}
+  m_LocalPosition: {x: 3.3, y: 6.27, z: -3.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1663,7 +1784,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708942066}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
+  m_LocalPosition: {x: 3.3, y: 7.16, z: 1.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

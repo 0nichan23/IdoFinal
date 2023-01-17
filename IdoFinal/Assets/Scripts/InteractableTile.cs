@@ -4,32 +4,29 @@ using UnityEngine.EventSystems;
 using UnityEngine;
 using System;
 
-public class InteractableTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class InteractableTile : MonoBehaviour
 {
-    private TileData refTile;
-    [SerializeField] private SpriteRenderer border;
+    [SerializeField] private SpriteRenderer rend;
+    [SerializeField] Color damageColor;
+    [SerializeField, Range(1,5)] float damageLerpTimeMod = 1;
     Color startColor;
-    public TileData RefTile { get => refTile; }
 
-    public void CacheRefTile(TileData givenTile)
+    public void DamageColor()
     {
-        refTile = givenTile;
+        startColor = rend.color;
+        StartCoroutine(DamageColorChange());
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    IEnumerator DamageColorChange()
     {
-        Debug.Log("clicked " + gameObject.name);
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        startColor = border.color;
-        border.color = Color.red;
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        border.color = startColor;
-
+        float counter = 0;
+        while (counter < 1)
+        {
+            counter += Time.deltaTime * damageLerpTimeMod;
+            rend.color = Color.Lerp(startColor, damageColor, counter);
+            yield return new WaitForEndOfFrame();
+        }
+        rend.color = startColor;
+        gameObject.SetActive(false);
     }
 }

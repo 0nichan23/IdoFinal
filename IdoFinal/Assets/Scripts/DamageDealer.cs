@@ -13,5 +13,5 @@ public class DamageDealer : MonoBehaviour
 
     public UnityEvent<StatusEffect> OnApplyStatus;
 
-    public UnityEvent OnKill;
+    public UnityEvent<Damageable> OnKill;
 }

@@ -16,15 +16,15 @@ public class Damageable : MonoBehaviour
 
     public UnityEvent OnTakeDamageGFX;
 
-    private Animal refAnimal;
-
-    public Animal RefAnimal { get => refAnimal; }
-
     public void SetStats(Animal givenAnimal)
     {
-        this.maxHp = givenAnimal.StatSheet.MaxHp;
-        this.effectable = givenAnimal.Effectable;
-        refAnimal = givenAnimal;
+        maxHp = givenAnimal.StatSheet.MaxHp;
+        currentHp = maxHp;
+    }
+
+    public void CacheEffectable(Effectable givenEffectable)
+    {
+        effectable = givenEffectable;
     }
 
     public void GetHit(AnimalAttack attack, DamageDealer dealer)
@@ -48,7 +48,7 @@ public class Damageable : MonoBehaviour
         if (currentHp <= 0)
         {
             OnDeath?.Invoke();
-            dealer.OnKill?.Invoke();
+            dealer.OnKill?.Invoke(this);
         }
         attack.Damage.ClearMods();
         ClampHp();
