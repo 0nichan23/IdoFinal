@@ -19,6 +19,12 @@ public class PlayerMovement : MonoBehaviour
     public TileData CurrentTile { get => currentTile; }
     public LookDirections LookingTowards { get => lookingTowards; }
 
+    private void Start()
+    {
+        GameManager.Instance.InputManager.OnTurnLeft.AddListener(TurnLeft);
+        GameManager.Instance.InputManager.OnTurnRight.AddListener(TurnRight);
+    }
+
     private void Update()
     {
         if (canMove)
@@ -42,6 +48,16 @@ public class PlayerMovement : MonoBehaviour
             currentTile = destTile;
             RotatePlayerToMoveDirection(GameManager.Instance.InputManager.GetMoveVector());
         }
+    }
+
+    private void TurnRight()
+    {
+        GameManager.Instance.PlayerWrapper.Gfx.eulerAngles = new Vector3(0, GameManager.Instance.PlayerWrapper.Gfx.eulerAngles.y + 90, 0);
+    }
+
+    private void TurnLeft()
+    {
+        GameManager.Instance.PlayerWrapper.Gfx.eulerAngles = new Vector3(0, GameManager.Instance.PlayerWrapper.Gfx.eulerAngles.y - 90, 0);
     }
 
     private IEnumerator MovePlayerTo(Vector3 worldPos)

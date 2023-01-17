@@ -37,7 +37,7 @@ public partial class @BasicActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""AttackPanel"",
+                    ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""4fda58f6-f95f-4046-b130-fd5c4ba4a5fa"",
                     ""expectedControlType"": ""Button"",
@@ -49,6 +49,24 @@ public partial class @BasicActions : IInputActionCollection2, IDisposable
                     ""name"": ""TeamPanel"",
                     ""type"": ""Button"",
                     ""id"": ""5353cd44-de7b-4ba7-86da-8aad4ca64834"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TurnRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""26c88619-34a7-49a0-930e-93b8dcabfecb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TurnLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""66f7ba45-ee3a-4a98-bb2a-e7a834568cdc"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -114,22 +132,44 @@ public partial class @BasicActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a3f39c59-b4e7-45ff-a62d-07f62c779c66"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""AttackPanel"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""33011200-01ed-49a7-925c-388468b363dc"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""TeamPanel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""12b86d08-11fb-47d1-849e-4a7cdf69cb66"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TurnRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e90ee0f-c137-412a-9990-039c1ae4afd6"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TurnLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -141,8 +181,10 @@ public partial class @BasicActions : IInputActionCollection2, IDisposable
         // Actions
         m_Actions = asset.FindActionMap("Actions", throwIfNotFound: true);
         m_Actions_Movement = m_Actions.FindAction("Movement", throwIfNotFound: true);
-        m_Actions_AttackPanel = m_Actions.FindAction("AttackPanel", throwIfNotFound: true);
+        m_Actions_Attack = m_Actions.FindAction("Attack", throwIfNotFound: true);
         m_Actions_TeamPanel = m_Actions.FindAction("TeamPanel", throwIfNotFound: true);
+        m_Actions_TurnRight = m_Actions.FindAction("TurnRight", throwIfNotFound: true);
+        m_Actions_TurnLeft = m_Actions.FindAction("TurnLeft", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -203,15 +245,19 @@ public partial class @BasicActions : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Actions;
     private IActionsActions m_ActionsActionsCallbackInterface;
     private readonly InputAction m_Actions_Movement;
-    private readonly InputAction m_Actions_AttackPanel;
+    private readonly InputAction m_Actions_Attack;
     private readonly InputAction m_Actions_TeamPanel;
+    private readonly InputAction m_Actions_TurnRight;
+    private readonly InputAction m_Actions_TurnLeft;
     public struct ActionsActions
     {
         private @BasicActions m_Wrapper;
         public ActionsActions(@BasicActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Actions_Movement;
-        public InputAction @AttackPanel => m_Wrapper.m_Actions_AttackPanel;
+        public InputAction @Attack => m_Wrapper.m_Actions_Attack;
         public InputAction @TeamPanel => m_Wrapper.m_Actions_TeamPanel;
+        public InputAction @TurnRight => m_Wrapper.m_Actions_TurnRight;
+        public InputAction @TurnLeft => m_Wrapper.m_Actions_TurnLeft;
         public InputActionMap Get() { return m_Wrapper.m_Actions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -224,12 +270,18 @@ public partial class @BasicActions : IInputActionCollection2, IDisposable
                 @Movement.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnMovement;
-                @AttackPanel.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnAttackPanel;
-                @AttackPanel.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnAttackPanel;
-                @AttackPanel.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnAttackPanel;
+                @Attack.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnAttack;
                 @TeamPanel.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnTeamPanel;
                 @TeamPanel.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnTeamPanel;
                 @TeamPanel.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnTeamPanel;
+                @TurnRight.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnTurnRight;
+                @TurnRight.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnTurnRight;
+                @TurnRight.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnTurnRight;
+                @TurnLeft.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnTurnLeft;
+                @TurnLeft.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnTurnLeft;
+                @TurnLeft.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnTurnLeft;
             }
             m_Wrapper.m_ActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -237,12 +289,18 @@ public partial class @BasicActions : IInputActionCollection2, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
-                @AttackPanel.started += instance.OnAttackPanel;
-                @AttackPanel.performed += instance.OnAttackPanel;
-                @AttackPanel.canceled += instance.OnAttackPanel;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
                 @TeamPanel.started += instance.OnTeamPanel;
                 @TeamPanel.performed += instance.OnTeamPanel;
                 @TeamPanel.canceled += instance.OnTeamPanel;
+                @TurnRight.started += instance.OnTurnRight;
+                @TurnRight.performed += instance.OnTurnRight;
+                @TurnRight.canceled += instance.OnTurnRight;
+                @TurnLeft.started += instance.OnTurnLeft;
+                @TurnLeft.performed += instance.OnTurnLeft;
+                @TurnLeft.canceled += instance.OnTurnLeft;
             }
         }
     }
@@ -250,7 +308,9 @@ public partial class @BasicActions : IInputActionCollection2, IDisposable
     public interface IActionsActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnAttackPanel(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
         void OnTeamPanel(InputAction.CallbackContext context);
+        void OnTurnRight(InputAction.CallbackContext context);
+        void OnTurnLeft(InputAction.CallbackContext context);
     }
 }

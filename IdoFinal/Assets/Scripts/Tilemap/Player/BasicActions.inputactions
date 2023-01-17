@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "AttackPanel",
+                    "name": "Attack",
                     "type": "Button",
                     "id": "4fda58f6-f95f-4046-b130-fd5c4ba4a5fa",
                     "expectedControlType": "Button",
@@ -27,6 +27,24 @@
                     "name": "TeamPanel",
                     "type": "Button",
                     "id": "5353cd44-de7b-4ba7-86da-8aad4ca64834",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TurnRight",
+                    "type": "Button",
+                    "id": "26c88619-34a7-49a0-930e-93b8dcabfecb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TurnLeft",
+                    "type": "Button",
+                    "id": "66f7ba45-ee3a-4a98-bb2a-e7a834568cdc",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -92,22 +110,44 @@
                 {
                     "name": "",
                     "id": "a3f39c59-b4e7-45ff-a62d-07f62c779c66",
-                    "path": "<Keyboard>/space",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "AttackPanel",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "33011200-01ed-49a7-925c-388468b363dc",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "TeamPanel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "12b86d08-11fb-47d1-849e-4a7cdf69cb66",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TurnRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1e90ee0f-c137-412a-9990-039c1ae4afd6",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TurnLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

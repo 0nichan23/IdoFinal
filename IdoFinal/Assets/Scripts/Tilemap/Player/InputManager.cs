@@ -7,20 +7,30 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     BasicActions basicActions;
-
-
-    public UnityEvent OnAttackPanelOpen;
+    public UnityEvent OnAttack;
+    public UnityEvent OnTurnRight;
+    public UnityEvent OnTurnLeft;
 
     private void Start()
     {
         basicActions = new BasicActions();
         basicActions.Enable();
-        basicActions.Actions.AttackPanel.started += InvokeOnAttackPanelOpen;
+        basicActions.Actions.Attack.started += InvokeOnAttack;
+        basicActions.Actions.TurnRight.started += InvokeOnTurnRight;
+        basicActions.Actions.TurnLeft.started += InvokeOnTurnLeft;
     }
 
-    public void InvokeOnAttackPanelOpen(InputAction.CallbackContext obj)
+    public void InvokeOnAttack(InputAction.CallbackContext obj)
     {
-        OnAttackPanelOpen?.Invoke();
+        OnAttack?.Invoke();
+    }
+    public void InvokeOnTurnRight(InputAction.CallbackContext obj)
+    {
+        OnTurnRight?.Invoke();
+    }
+    public void InvokeOnTurnLeft(InputAction.CallbackContext obj)
+    {
+        OnTurnLeft?.Invoke();
     }
 
     public Vector3Int GetMoveVector()
