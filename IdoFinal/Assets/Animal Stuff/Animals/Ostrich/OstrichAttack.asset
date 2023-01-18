@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3b49c892f672a145a38ee2b2b166add, type: 3}
-  m_Name: TestAttack
+  m_Name: OstrichAttack
   m_EditorClassIdentifier: 
   damage:
-    baseAmount: 5
+    baseAmount: 7.5
   statusEffects: []
   hitbox:
   - {x: 1, y: 0, z: 0}
   - {x: 2, y: 0, z: 0}
-  - {x: 2, y: 0, z: 1}
-  - {x: 2, y: 0, z: -1}
-  coolDown: 1
+  coolDown: 2

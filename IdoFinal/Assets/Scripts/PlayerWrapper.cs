@@ -19,12 +19,22 @@ public class PlayerWrapper : Character
         team.OnSwitchActiveAnimal.AddListener(SetAnimalStatsOnComps);
         attackHandler.OnAttackPreformed.AddListener(playerAnimationHandler.AttackAnim);
         GameManager.Instance.LevemManager.CurrentLevel.OnDoneCreatingRoom.AddListener(playerMovement.ResetCanMove);
+        attackHandler.CacheDealer(DamageDealer);
         attackHandler.EquipAttack(team.ActiveAnimal.Attack);
+        Damageable.CacheEffectable(Effectable);
     }
 
     private void SetAnimalStatsOnComps()
     {
         Damageable.SetStats(team.ActiveAnimal);
+        Damageable.Heal(new DamageHandler() { BaseAmount = Damageable.MaxHp });
+        attackHandler.EquipAttack(team.ActiveAnimal.Attack);
+        DamageDealer.SetStats(team.ActiveAnimal);
     }
 
+
+
+    //items 
+    //oncrits remove mods
+    //reset crits afer subscribing trinkets
 }

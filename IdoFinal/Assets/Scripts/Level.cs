@@ -11,9 +11,11 @@ public class Level : MonoBehaviour
     [SerializeField] private List<TileData> traversableGround = new List<TileData>();
     [SerializeField] private TileData startTile;
     public UnityEvent OnDoneCreatingRoom;
+    [SerializeField] List<Enemy> enemies = new List<Enemy>();
     public Tilemap Tilemap { get => tilemap; }
     public List<TileData> TraversableGround { get => traversableGround; }
     public TileData StartTile { get => startTile; }
+    public List<Enemy> Enemies { get => enemies; }
 
     private void Start()
     {
@@ -50,16 +52,29 @@ public class Level : MonoBehaviour
             interTile.gameObject.SetActive(false);
         }
 
-        SetStartTile();
+        SetPlayerStartTile();
         PlacePlayerAtStart();
+        PlaceEnemies();
         OnDoneCreatingRoom?.Invoke();
     }
 
-    private void SetStartTile()
+    private void SetPlayerStartTile()
     {
-        startTile = traversableGround[Random.Range(0, traversableGround.Count)];
+        startTile = GetRandomTile();
     }
-
+    private void PlaceEnemies()
+    {
+        foreach (var item in enemies)
+        {
+            item.CurrentPos = GetRandomTile();
+            item.transform.position = item.CurrentPos.GetStandingPos;
+        }
+    }
+    private TileData GetRandomTile()
+    {
+        TileData tile = traversableGround[Random.Range(0, traversableGround.Count)];
+        return tile;
+    }
     private void PlacePlayerAtStart()
     {
         GameManager.Instance.PlayerWrapper.PlayerMovement.SetCurrentTile(startTile);
@@ -84,11 +99,12 @@ public class TileData
     [SerializeField] private GameObject Obj;
     [SerializeField] private InteractableTile overlay;
     [SerializeField] private Vector3Int Pos;
-
+    private bool occupied = false;
     public GameObject GetObj { get => Obj; }
     public Vector3Int GetPos { get => Pos; }
     public Vector3 GetStandingPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 0.6f, Obj.transform.position.z); }
     public InteractableTile Overly { get => overlay; }
+    public bool Occupied { get => occupied; set => occupied = value; }
 
     public TileData(Vector3Int pos, GameObject obj)
     {

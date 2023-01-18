@@ -4,13 +4,22 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Animal", menuName = "Passives/Test")]
 public class TestPassive : AnimalPassive
 {
-    public override void SubscribePassive()
+    public override void SubscribePassive(Character givenCharacter)
     {
-        throw new System.NotImplementedException();
+        givenCharacter.DamageDealer.OnHit.AddListener(ExtraDamageOnDesertCreatures);
     }
 
-    public override void UnSubscribePassive()
+    public override void UnSubscribePassive(Character givenCharacter)
     {
-        throw new System.NotImplementedException();
+        givenCharacter.DamageDealer.OnHit.RemoveListener(ExtraDamageOnDesertCreatures);
     }
+
+    private void ExtraDamageOnDesertCreatures(Damageable target, AnimalAttack attack)
+    {
+        if (target.RefAnimal.Habitat == Habitat.Desert)
+        {
+            attack.Damage.AddMod(1.2f);
+        }
+    }
+
 }

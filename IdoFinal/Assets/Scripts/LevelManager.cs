@@ -1,6 +1,5 @@
-using UnityEngine;
-using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
@@ -23,9 +22,17 @@ public class LevelManager : MonoBehaviour
             {
                 GameManager.Instance.PlayerWrapper.Damageable.GetHit(givenAttack, dealer);
             }
+
+            foreach (var enemy in currentLevel.Enemies)
+            {
+                if (enemy.CurrentPos.ComparePositons(tile.GetPos))
+                {
+                    enemy.Damageable.GetHit(givenAttack, dealer);
+                }
+            }
+
             tile.Overly.gameObject.SetActive(true);
             tile.Overly.DamageColor();
-            Debug.Log(tile + " took " + givenAttack.Damage.CalcFinalDamage());
             //loop over all enemies, + player
             //comapre positoins witht the targeted position
             //deal damage if its the same.
