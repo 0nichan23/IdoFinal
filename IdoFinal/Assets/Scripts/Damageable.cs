@@ -13,7 +13,6 @@ public class Damageable : MonoBehaviour
     public UnityEvent<AnimalAttack> OnTakeDamage;
     public UnityEvent<AnimalAttack> OnTakeDamageFinal;
     public UnityEvent OnDeath;
-
     public UnityEvent OnTakeDamageGFX;
 
     public void SetStats(Animal givenAnimal)

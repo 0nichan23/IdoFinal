@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AttackTarget
 {
-    public void AttackTiles(Vector3Int originPos ,AnimalAttack givenAttack, DamageDealer dealer = null)
+    public void AttackTiles(Vector3Int originPos, AnimalAttack givenAttack, DamageDealer dealer = null)
     {
         List<Vector3Int> finalPositions = new List<Vector3Int>();
 
@@ -15,7 +15,6 @@ public class AttackTarget
                 case LookDirections.UP:
                     newPos = new Vector3Int(item.z * -1, 0, item.x);
                     newPos += originPos;
-
                     break;
                 case LookDirections.DOWN:
                     newPos = new Vector3Int(item.z, 0, item.x * -1);
