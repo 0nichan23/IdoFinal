@@ -18,6 +18,7 @@ public class PlayerWrapper : Character
         SetAnimalStatsOnComps();
         team.OnSwitchActiveAnimal.AddListener(SetAnimalStatsOnComps);
         attackHandler.OnAttackPreformed.AddListener(playerAnimationHandler.AttackAnim);
+        GameManager.Instance.LevemManager.CurrentLevel.OnDoneCreatingRoom.AddListener(playerMovement.ResetCanMove);
         attackHandler.EquipAttack(team.ActiveAnimal.Attack);
     }
 

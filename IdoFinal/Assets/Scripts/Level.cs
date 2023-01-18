@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 
 public class Level : MonoBehaviour
@@ -9,6 +10,7 @@ public class Level : MonoBehaviour
 
     [SerializeField] private List<TileData> traversableGround = new List<TileData>();
     [SerializeField] private TileData startTile;
+    public UnityEvent OnDoneCreatingRoom;
     public Tilemap Tilemap { get => tilemap; }
     public List<TileData> TraversableGround { get => traversableGround; }
     public TileData StartTile { get => startTile; }
@@ -50,6 +52,7 @@ public class Level : MonoBehaviour
 
         SetStartTile();
         PlacePlayerAtStart();
+        OnDoneCreatingRoom?.Invoke();
     }
 
     private void SetStartTile()

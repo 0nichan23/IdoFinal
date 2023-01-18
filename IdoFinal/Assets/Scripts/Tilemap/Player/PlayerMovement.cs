@@ -125,4 +125,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void ResetCanMove()
+    {
+        canMove = true;
+    }
 }

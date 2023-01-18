@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage:
     baseAmount: 5
-  statusEffects: []
+  statusEffects:
+  - Effect: 1
+    Chance: 0
   hitbox:
   - {x: 1, y: 0, z: 0}
   - {x: 2, y: 0, z: 0}
