@@ -14,6 +14,11 @@ public class AnimalAttack : ScriptableObject
     public float CoolDown { get => coolDown; }
 
     public List<Vector3Int> Hitbox { get => hitbox; }
+
+    private void OnEnable()
+    {
+        damage.ClearMods();
+    }
 }
 
 [System.Serializable]

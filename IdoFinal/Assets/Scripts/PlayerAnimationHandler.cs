@@ -6,16 +6,6 @@ public class PlayerAnimationHandler : MonoBehaviour
 {
 
     private List<Animator> controllers = new List<Animator>();
-
-    private void Start()
-    {
-        Animator[] anims = GetComponentsInChildren<Animator>();
-        foreach (var anim in anims)
-        {
-            controllers.Add(anim);
-        }
-    }
-
     public void StartSwimAnim()
     {
         foreach (var anim in controllers)
@@ -42,7 +32,6 @@ public class PlayerAnimationHandler : MonoBehaviour
         foreach (var anim in controllers)
         {
             anim.SetBool("Walk", false);
-
         }
     }
     public void AttackAnim()
@@ -50,6 +39,15 @@ public class PlayerAnimationHandler : MonoBehaviour
         foreach (var anim in controllers)
         {
             anim.SetTrigger("Attack");
+        }
+    }
+
+    public void AddAnims(Transform model)
+    {
+        Animator[] anims = model.GetComponentsInChildren<Animator>();
+        foreach (var anim in anims)
+        {
+            controllers.Add(anim);
         }
     }
 }

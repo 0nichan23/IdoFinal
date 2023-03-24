@@ -42,13 +42,14 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-
+        currentTile.UnSubscribeCharacter();
         TileData destTile = GameManager.Instance.LevemManager.CurrentLevel.GetTile(to);
-        if (!ReferenceEquals(destTile, null))
+        if (!ReferenceEquals(destTile, null) && !destTile.Occupied)
         {
             StartCoroutine(MovePlayerTo(destTile.GetStandingPos));
             currentTile.Occupied = false;
             currentTile = destTile;
+            destTile.SubscribeCharacter(GameManager.Instance.PlayerWrapper);
             currentTile.Occupied = true;
             RotatePlayerToMoveDirection(GameManager.Instance.InputManager.GetMoveVector());
         }

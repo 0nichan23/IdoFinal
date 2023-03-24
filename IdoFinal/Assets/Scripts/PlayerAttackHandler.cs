@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +9,40 @@ public class PlayerAttackHandler : MonoBehaviour
     private float lastAttacked;
     private DamageDealer dealer;
     private AttackTarget targeter = new AttackTarget();
+
+    private float attackSpeedMod;
+    private float baseAttackSpeedMod;
+
+    public AnimalAttack CurrentAttack { get => currentAttack; }
+
+    public void SetStats(Animal givenActiveAnimal)
+    {
+        baseAttackSpeedMod = GetAttackSpeedModBase(givenActiveAnimal.StatSheet.Speed);
+        EquipAttack(givenActiveAnimal.Attack);
+    }
+
+    private float GetAttackSpeedModBase(int baseSpeed)
+    {
+        //10 speed = 100% faster attack speed/ half cool down
+        float speedMod = 0f;
+        for (int i = 0; i < baseSpeed; i++)
+        {
+            speedMod += 0.05f;
+        }
+        return speedMod;
+    }
+
+    public void AddAttackSpeed(float givenMod)
+    {
+        attackSpeedMod += givenMod;
+    }
+
+    public float GetAttackCoolDown()
+    {
+        float cd = currentAttack.CoolDown;
+        cd -= cd * (baseAttackSpeedMod + attackSpeedMod);
+        return cd;
+    }
 
     private void Start()
     {
@@ -25,22 +57,20 @@ public class PlayerAttackHandler : MonoBehaviour
 
     private void Attack()
     {
-        if (Time.time - lastAttacked < currentAttack.CoolDown)
+        if (Time.time - lastAttacked < GetAttackCoolDown())
         {
             return;
         }
         lastAttacked = Time.time;
         OnAttackPreformed?.Invoke();
-        targeter.AttackTiles(GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.GetPos ,currentAttack, dealer);
+        targeter.AttackTiles(GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.GetPos, currentAttack, dealer);
     }
-
-
 
 
     public void EquipAttack(AnimalAttack givenAttack)
     {
         currentAttack = givenAttack;
-        lastAttacked = currentAttack.CoolDown * -1;
+        lastAttacked = GetAttackCoolDown() * -1;
         OnAttackSwitched?.Invoke();
     }
 }

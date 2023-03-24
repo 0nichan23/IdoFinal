@@ -17,27 +17,13 @@ public class LevelManager : MonoBehaviour
                 continue;
             }
 
-
-            if (GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.ComparePositons(tile.GetPos))
-            {
-                GameManager.Instance.PlayerWrapper.Damageable.GetHit(givenAttack, dealer);
-            }
-
-            foreach (var enemy in currentLevel.Enemies)
-            {
-                if (enemy.CurrentPos.ComparePositons(tile.GetPos))
-                {
-                    enemy.Damageable.GetHit(givenAttack, dealer);
-                }
-            }
+            tile.HitTile(givenAttack, dealer);
 
             tile.Overly.gameObject.SetActive(true);
             tile.Overly.DamageColor();
-            //loop over all enemies, + player
-            //comapre positoins witht the targeted position
-            //deal damage if its the same.
-
         }
     }
+
+
 
 }

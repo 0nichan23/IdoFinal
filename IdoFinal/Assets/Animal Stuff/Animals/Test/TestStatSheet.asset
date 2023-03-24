@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TestStatSheet
   m_EditorClassIdentifier: 
   maxHp: 50
-  power: 10
+  power: 8
   toughness: 8
-  instinct: 5
+  instinct: 10
+  speed: 5

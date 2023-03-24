@@ -16,7 +16,7 @@ public class TestPassive : AnimalPassive
 
     private void ExtraDamageOnDesertCreatures(Damageable target, AnimalAttack attack)
     {
-        if (target.RefAnimal.Habitat == Habitat.Desert)
+        if (target.RefAnimal.Habitat == Habitat.Desert || target.RefAnimal.Habitat == Habitat.FreshWater)
         {
             attack.Damage.AddMod(1.2f);
         }

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: OstrichAttack
   m_EditorClassIdentifier: 
   damage:
-    baseAmount: 7.5
+    baseAmount: 6
   statusEffects: []
   hitbox:
   - {x: 1, y: 0, z: 0}
-  - {x: 2, y: 0, z: 0}
-  coolDown: 2
+  coolDown: 0.6

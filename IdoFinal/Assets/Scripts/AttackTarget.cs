@@ -26,9 +26,6 @@ public class AttackTarget
                 case LookDirections.RIGHT:
                     newPos = originPos + item;
                     break;
-                default:
-
-                    break;
             }
             finalPositions.Add(newPos);
         }

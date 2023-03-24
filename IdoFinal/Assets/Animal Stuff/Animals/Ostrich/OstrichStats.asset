@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: OstrichStats
   m_EditorClassIdentifier: 
   maxHp: 120
-  power: 6
-  toughness: 5
-  instinct: 2
+  power: 5
+  toughness: 2
+  instinct: 4
+  speed: 8
