@@ -5,10 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "OstrichPassive", menuName = "Passives/Ostrich")]
 public class OstrichPassive : AnimalPassive
 {
+
+    //add dodge chance (in desert and plains once we implement the level system)
     public override void SubscribePassive(Character givenCaharacter)
     {
         givenCaharacter.Damageable.AddDodgeChance(0.2f);
-        Debug.Log("added dodge chance from ostritch passive and is now at " + givenCaharacter.Damageable.DodgeChance);
     }
 
     public override void UnSubscribePassive(Character givenCaharacter)

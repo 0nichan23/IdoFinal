@@ -1174,10 +1174,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeAnimal:
-    Animal: {fileID: 11400000, guid: a95c071037c8576419018a9a49ea3074, type: 2}
+    Animal: {fileID: 11400000, guid: cf28aa0b57526e24681d296251950468, type: 2}
     Model: {fileID: 0}
   backLineAnimals:
-  - Animal: {fileID: 11400000, guid: e26e841b26b887c4dbbdbe09de57c453, type: 2}
+  - Animal: {fileID: 11400000, guid: 0d33c1b9119de7c44a6acd414d000b3a, type: 2}
     Model: {fileID: 0}
   OnSwitchActiveAnimal:
     m_PersistentCalls:
@@ -1685,6 +1685,51 @@ RectTransform:
   m_AnchoredPosition: {x: -98, y: 116}
   m_SizeDelta: {x: 274.35022, y: 96.069}
   m_Pivot: {x: 1, y: 0}
+--- !u!1 &744592580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 744592581}
+  - component: {fileID: 744592582}
+  m_Layer: 0
+  m_Name: pathfinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &744592581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744592580}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1544730834}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &744592582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744592580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcdb6bee93661a34ab05a9d7cc9fb491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  test: {fileID: 1816605667}
 --- !u!1 &848680638
 GameObject:
   m_ObjectHideFlags: 3
@@ -2383,6 +2428,7 @@ Transform:
   - {fileID: 1272919297}
   - {fileID: 926474125}
   - {fileID: 93923893}
+  - {fileID: 744592581}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3254,7 +3300,7 @@ MonoBehaviour:
   damageable: {fileID: 1816605665}
   damageDealer: {fileID: 1816605666}
   effectable: {fileID: 1816605664}
-  RefAnimal: {fileID: 11400000, guid: e26e841b26b887c4dbbdbe09de57c453, type: 2}
+  RefAnimal: {fileID: 11400000, guid: 0d33c1b9119de7c44a6acd414d000b3a, type: 2}
 --- !u!1 &1876426124
 GameObject:
   m_ObjectHideFlags: 0

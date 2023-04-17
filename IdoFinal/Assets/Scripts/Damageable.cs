@@ -108,7 +108,7 @@ public class Damageable : MonoBehaviour
         if (critHit)
         {
             OnTakeCriticalDamage?.Invoke(attack);
-            dealer.OnDealCritDamage?.Invoke(attack);
+            dealer.OnDealCritDamage?.Invoke(attack, this);
         }
         OnTakeDamageFinal?.Invoke(attack);
         dealer.OnDealDamageFinal?.Invoke(attack);

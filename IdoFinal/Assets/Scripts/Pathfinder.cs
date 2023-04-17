@@ -1,64 +1,63 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Pathfinder : MonoBehaviour
 {
-    List<TileData> openList;
+    Heap<TileData> openList;
     List<TileData> closedList;
 
     [SerializeField] private Enemy test;
 
-    List<TileData> path;
+    List<TileData> path = new List<TileData>();
 
-    private void Update()
+    [ContextMenu("find path")]
+    public void AttempFindingPath()
     {
         FindPathToDest(test.CurrentPos, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile);
     }
 
-
-
     public void FindPathToDest(TileData startingPoint, TileData destenation)
     {
-        openList = new List<TileData>();
+        Stopwatch sw = new Stopwatch();
+        sw.Start();
+        openList = new Heap<TileData>(GameManager.Instance.LevemManager.CurrentLevel.TraversableGround.Count);
         closedList = new List<TileData>();
         TileData currentTile;
         openList.Add(startingPoint);
-
-        int imr =0;
-        while (openList.Count > 0)
+        int imr = 0;
+        while (openList.CurrentItemCount > 0)
         {
             imr++;
             if (imr == 100000)
             {
-                Debug.LogError("weewoo");
                 return;
             }
-            currentTile = openList[0];
-            foreach (TileData openTile in openList)
-            {
-                if (openTile.totalCost < currentTile.totalCost || (openTile.totalCost == currentTile.totalCost && openTile.totalCost < currentTile.totalCost))
-                {
-                    currentTile = openTile;
-                }
-            }
-
-            openList.Remove(currentTile);
+            currentTile = openList.RemoveFirst();
             closedList.Add(currentTile);
 
             if (ReferenceEquals(currentTile, destenation))
             {
-                //retract and walk along path
+                //found path
+                sw.Stop();
+                UnityEngine.Debug.Log("found path in " + sw.Elapsed + " ms");
                 RetracePath(startingPoint, destenation);
                 return;
             }
 
             foreach (TileData neighbour in GameManager.Instance.LevemManager.CurrentLevel.GetNeighbours(currentTile))
             {
+                if (closedList.Contains(neighbour))
+                {
+                    //if the neighbour was already the current tile.
+                    continue;
+                } 
+
                 int newNeighbourMovementCost = currentTile.costToStart + GetDistanceOfTiles(currentTile.GetPos, neighbour.GetPos);
                 if (newNeighbourMovementCost < neighbour.costToStart || !openList.Contains(neighbour))
                 {
                     neighbour.costToStart = newNeighbourMovementCost;
-                    neighbour.costToEnd = GetDistanceOfTiles(currentTile.GetPos, destenation.GetPos);
+                    neighbour.costToEnd = GetDistanceOfTiles(neighbour.GetPos, destenation.GetPos);
                     neighbour.PathParent = currentTile;
                     if (!openList.Contains(neighbour))
                     {
@@ -75,13 +74,23 @@ public class Pathfinder : MonoBehaviour
     {
         List<TileData> path = new List<TileData>();
         TileData cur = end;
-        while(!ReferenceEquals(cur, start))
+        UnityEngine.Debug.Log("from " + start.GetPos);
+        UnityEngine.Debug.Log("to " + end.GetPos);
+        while (!ReferenceEquals(cur, start))
         {
+            if (cur.GetPos == start.GetPos)
+            {
+                break;
+            }
             path.Add(cur);
             cur = cur.PathParent;
         }
         path.Reverse();
-        this.path = path;
+        foreach (var item in path)
+        {
+            item.Overly.gameObject.SetActive(true);
+            item.Overly.DamageColor();
+        }
     }
 
 
@@ -91,15 +100,6 @@ public class Pathfinder : MonoBehaviour
         int distY = Mathf.Abs(destenation.y - origin.y);
 
         return distX + distY;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        foreach (var item in path)
-        {
-            Gizmos.color = Color.black;
-            Gizmos.DrawSphere(item.GetStandingPos, 1);
-        }
     }
 }
 

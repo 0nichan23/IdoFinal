@@ -7,7 +7,7 @@ public class DamageDealer : MonoBehaviour
 
     public UnityEvent<AnimalAttack> OnDealDamage;
 
-    public UnityEvent<AnimalAttack> OnDealCritDamage;
+    public UnityEvent<AnimalAttack, Damageable> OnDealCritDamage;
 
     public UnityEvent<AnimalAttack> OnDealDamageFinal;
 
@@ -114,7 +114,7 @@ public class DamageDealer : MonoBehaviour
     {
         givenAttack.Damage.AddMod(PowerDamageMod);
     }
-    private void CriticalDamageBoost(AnimalAttack givenAttack)
+    private void CriticalDamageBoost(AnimalAttack givenAttack, Damageable target)
     {
         givenAttack.Damage.AddMod(CritDamage);
     }
@@ -124,6 +124,11 @@ public class DamageDealer : MonoBehaviour
         givenAttack.Damage.AddMod(GetArmorPen(target));
     }
   
+
+    public void AddArmorPenetration(int amount)
+    {
+        armorPenetration += amount;
+    }
 
     public void AddCritChance(float amount)
     {

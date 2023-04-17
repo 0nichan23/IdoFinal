@@ -17,7 +17,7 @@ public class Level : MonoBehaviour
     public List<TileData> TraversableGround { get => traversableGround; }
     public TileData StartTile { get => startTile; }
     public List<Enemy> Enemies { get => enemies; }
-    public Habitat Habitat { get => habitat;  }
+    public Habitat Habitat { get => habitat; }
 
     private void Start()
     {
@@ -65,25 +65,35 @@ public class Level : MonoBehaviour
         List<TileData> validNeighbours = new List<TileData>();
         for (int x = -1; x <= 1; x++)
         {
-            for (int z = -1; z <= 1; z++)
+            if (x == 0)
             {
-                if (x == 0 && z == 0)
-                {
-                    continue;
-                }
-
-                Vector3Int neighbourPos = givenTile.GetPos + new Vector3Int(x, 0, z);
-                TileData neighbour = GetTile(neighbourPos);
-                if (ReferenceEquals(neighbour, null))
-                {
-                    continue;
-                }
-                else
-                {
-                    validNeighbours.Add(neighbour);
-                }
+                continue;
             }
+            Vector3Int tilePos = givenTile.GetPos + new Vector3Int(x, 0, 0);
+            TileData newTile = GameManager.Instance.LevemManager.CurrentLevel.GetTile(tilePos);
+
+            if (ReferenceEquals(newTile, null))
+            {
+                continue;
+            }
+            validNeighbours.Add(newTile);
         }
+        for (int z = -1; z <= 1; z++)
+        {
+            if (z == 0)
+            {
+                continue;
+            }
+            Vector3Int tilePos = givenTile.GetPos + new Vector3Int(0, 0, z);
+            TileData newTile = GameManager.Instance.LevemManager.CurrentLevel.GetTile(tilePos);
+
+            if (ReferenceEquals(newTile, null))
+            {
+                continue;
+            }
+            validNeighbours.Add(newTile);
+        }
+
         return validNeighbours;
     }
 
@@ -124,14 +134,14 @@ public class Level : MonoBehaviour
 }
 
 [System.Serializable]
-public class TileData
+public class TileData : IHeapItem<TileData>
 {
     [SerializeField] private GameObject Obj;
     [SerializeField] private InteractableTile overlay;
     [SerializeField] private Vector3Int Pos;
     private bool occupied = false;
     private Character subscribedCharacter;
-
+    private int heapIndex;
     public int costToEnd;
     public int costToStart;
     public TileData PathParent;
@@ -141,6 +151,7 @@ public class TileData
     public Vector3 GetStandingPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 0.6f, Obj.transform.position.z); }
     public InteractableTile Overly { get => overlay; }
     public bool Occupied { get => occupied; set => occupied = value; }
+    public int HeapIndex { get => heapIndex; set => heapIndex = value; }
 
     public TileData(Vector3Int pos, GameObject obj)
     {
@@ -175,6 +186,16 @@ public class TileData
     public void HitTile(AnimalAttack givenAttack, DamageDealer Dealer = null)
     {
         subscribedCharacter?.Damageable.GetHit(givenAttack, Dealer);
+    }
+
+    public int CompareTo(TileData other)
+    {
+        int compare = totalCost.CompareTo(other.totalCost);
+        if (compare == 0)
+        {
+            compare = costToEnd.CompareTo(other.costToEnd);
+        }
+        return -compare;
     }
 }
 
