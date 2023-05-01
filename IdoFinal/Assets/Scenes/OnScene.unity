@@ -2302,8 +2302,13 @@ MonoBehaviour:
   testTileMap: {fileID: 658580766}
   testGrid: {fileID: 65061314}
   fillTile: {fileID: 11400000, guid: 8f7b6fd33f0b91f4098e26ae81a51f78, type: 2}
-  width: 10
-  length: 10
+  width: 30
+  length: 30
+  scale: 2
+  octaves: 8
+  persistence: 15
+  lacunarity: 2
+  offset: {x: 10, y: 10}
   biomeLayer: {fileID: 11400000, guid: 5aae15c6923f3e844b4aa1a31ea9f339, type: 2}
 --- !u!1 &1391377723
 GameObject:

@@ -12,12 +12,18 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private MyTile fillTile;
     [SerializeField] private int width;
     [SerializeField] private int length;
+    [SerializeField] private float scale;
+    [SerializeField] private int octaves;
+    [SerializeField] private float persistence;
+    [SerializeField] private float lacunarity;
+    [SerializeField] private Vector2 offset;
     [SerializeField] private BiomeLayer biomeLayer;
-    PerlinNoiseTest noise = new PerlinNoiseTest(15, 15, 5, 5, 5, 5, Vector2.one);
+    PerlinNoiseTest noise;
   
     [ContextMenu("test spawning prefab")]
     private void TestSpawn()
     {
+        noise = new PerlinNoiseTest(width, length, scale, octaves, persistence, lacunarity, offset);
         float[,] heightMap = noise.Generate();
         for (int i = 0; i < heightMap.GetLength(0); i++)
         {

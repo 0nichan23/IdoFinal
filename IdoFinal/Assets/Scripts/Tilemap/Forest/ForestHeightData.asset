@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heightData:
   - RefTile: {fileID: 11400000, guid: d84ff2e79d58f654ebc4faf0ba95cd7d, type: 2}
-    MaxHeight: 0.3
+    MaxHeight: 0.5
   - RefTile: {fileID: 11400000, guid: bc0e93fe09b0a2c46988aade34effdcb, type: 2}
     MaxHeight: 0.7
   - RefTile: {fileID: 11400000, guid: 92bed6ae74f7f424f9cd0f9c44d7cf1d, type: 2}
