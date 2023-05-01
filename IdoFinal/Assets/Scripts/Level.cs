@@ -13,6 +13,7 @@ public class Level : MonoBehaviour
     public UnityEvent OnDoneCreatingRoom;
     [SerializeField] List<Enemy> enemies = new List<Enemy>();
     [SerializeField] private Habitat habitat;
+    [SerializeField] private bool setupOnAwake;
     public Tilemap Tilemap { get => tilemap; }
     public List<TileData> TraversableGround { get => traversableGround; }
     public TileData StartTile { get => startTile; }
@@ -21,6 +22,10 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
+        if (!setupOnAwake)
+        {
+            return;
+        }
         StartCoroutine(StartUpLevel());
     }
 

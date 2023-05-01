@@ -96,6 +96,8 @@ MonoBehaviour:
     Obj: {fileID: 0}
     overlay: {fileID: 0}
     Pos: {x: 0, y: 0, z: 0}
+    costToEnd: 0
+    costToStart: 0
   OnDoneCreatingRoom:
     m_PersistentCalls:
       m_Calls: []
