@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cada1bd48a7ab47b891675e278256e, type: 3}
+  m_Name: ForestHeightData
+  m_EditorClassIdentifier: 
+  heightData:
+  - RefTile: {fileID: 11400000, guid: d84ff2e79d58f654ebc4faf0ba95cd7d, type: 2}
+    MaxHeight: 0.25
+  - RefTile: {fileID: 11400000, guid: bc0e93fe09b0a2c46988aade34effdcb, type: 2}
+    MaxHeight: 0.45
+  - RefTile: {fileID: 11400000, guid: 92bed6ae74f7f424f9cd0f9c44d7cf1d, type: 2}
+    MaxHeight: 0.6
+  - RefTile: {fileID: 11400000, guid: 2e482a1cac41bc54f975f34dcf060186, type: 2}
+    MaxHeight: 0.7
+  - RefTile: {fileID: 11400000, guid: fe43f4af75e26d447934e59a4b71949d, type: 2}
+    MaxHeight: 0.8
+  - RefTile: {fileID: 11400000, guid: 3ee7d7604f2dd874a888a1ae35ff2a32, type: 2}
+    MaxHeight: 0.9
+  - RefTile: {fileID: 11400000, guid: 1574c601abafcb2428f48f756b076efb, type: 2}
+    MaxHeight: 1
