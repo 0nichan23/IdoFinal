@@ -9,7 +9,11 @@ public class BiomeLayer : ScriptableObject
     public MyTile GetTileFromHeight(float height)
     {
         BiomeHeightData closesMaxvalue = heightData[0];
-        for (int i = 1; i < heightData.Count; i++)
+        if (height <= closesMaxvalue.MaxHeight)
+        {
+            return closesMaxvalue.RefTile;
+        }
+        for (int i = 0; i < heightData.Count; i++)
         {
             if (height > heightData[i].MaxHeight)
             {

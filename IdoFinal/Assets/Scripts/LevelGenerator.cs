@@ -19,8 +19,14 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private Vector2 offset;
     [SerializeField] private BiomeLayer biomeLayer;
     PerlinNoiseTest noise;
-  
+
     [ContextMenu("test spawning prefab")]
+
+    private void Start()
+    {
+        TestSpawn();
+    }
+
     private void TestSpawn()
     {
         noise = new PerlinNoiseTest(width, length, scale, octaves, persistence, lacunarity, offset);
@@ -32,6 +38,7 @@ public class LevelGenerator : MonoBehaviour
                 testTileMap.SetTile(new Vector3Int(i, j, 0), biomeLayer.GetTileFromHeight(heightMap[i,j]));
             }
         }
+        StartCoroutine(GameManager.Instance.LevemManager.CurrentLevel.StartUpLevel());
     }
 
 }

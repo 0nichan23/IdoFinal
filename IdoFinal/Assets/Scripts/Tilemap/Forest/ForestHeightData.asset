@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heightData:
   - RefTile: {fileID: 11400000, guid: d84ff2e79d58f654ebc4faf0ba95cd7d, type: 2}
-    MaxHeight: 0.5
+    MaxHeight: 0.25
   - RefTile: {fileID: 11400000, guid: bc0e93fe09b0a2c46988aade34effdcb, type: 2}
-    MaxHeight: 0.7
+    MaxHeight: 0.45
   - RefTile: {fileID: 11400000, guid: 92bed6ae74f7f424f9cd0f9c44d7cf1d, type: 2}
-    MaxHeight: 0.8
+    MaxHeight: 0.6
   - RefTile: {fileID: 11400000, guid: 2e482a1cac41bc54f975f34dcf060186, type: 2}
-    MaxHeight: 0.85
+    MaxHeight: 0.7
   - RefTile: {fileID: 11400000, guid: fe43f4af75e26d447934e59a4b71949d, type: 2}
-    MaxHeight: 0.89
+    MaxHeight: 0.8
   - RefTile: {fileID: 11400000, guid: 3ee7d7604f2dd874a888a1ae35ff2a32, type: 2}
-    MaxHeight: 0.92
+    MaxHeight: 0.9
   - RefTile: {fileID: 11400000, guid: 1574c601abafcb2428f48f756b076efb, type: 2}
-    MaxHeight: 0.95
+    MaxHeight: 1

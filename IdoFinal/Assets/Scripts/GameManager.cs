@@ -10,6 +10,10 @@ public class GameManager : MonoSingleton<GameManager>
     [Header("Asset Dump")]
     public InteractableTile InteractableTilePrefab;
 
+    private void Start()
+    {
+        Application.targetFrameRate = 300;
+    }
 
     public InputManager InputManager { get => inputManager; }
     public PlayerWrapper PlayerWrapper { get => playerWrapper; }

@@ -29,7 +29,7 @@ public class Level : MonoBehaviour
         StartCoroutine(StartUpLevel());
     }
 
-    private IEnumerator StartUpLevel()
+    public IEnumerator StartUpLevel()
     {
         yield return new WaitForSecondsRealtime(1f);
         SetTraversableGround();
