@@ -19,7 +19,7 @@ public class PlayerWrapper : Character
         SetAnimalStatsOnComps();
         team.OnSwitchActiveAnimal.AddListener(SetAnimalStatsOnComps);
         attackHandler.OnAttackPreformed.AddListener(playerAnimationHandler.AttackAnim);
-        GameManager.Instance.LevemManager.CurrentLevel.OnDoneCreatingRoom.AddListener(playerMovement.ResetCanMove);
+        //GameManager.Instance.LevemManager.CurrentLevel.OnDoneCreatingRoom.AddListener(playerMovement.ResetCanMove);
         attackHandler.CacheDealer(DamageDealer);
         Damageable.CacheEffectable(Effectable);
         //DamageDealer.OnKill.AddListener(team.TryCatchAnimal);

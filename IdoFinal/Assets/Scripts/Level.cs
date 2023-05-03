@@ -18,20 +18,11 @@ public class Level : MonoBehaviour
     public List<TileData> TraversableGround { get => traversableGround; }
     public TileData StartTile { get => startTile; }
     public List<Enemy> Enemies { get => enemies; }
-    public Habitat Habitat { get => habitat; }
+    public Habitat Habitat { get => habitat; set => habitat = value; }
 
-    private void Start()
-    {
-        if (!setupOnAwake)
-        {
-            return;
-        }
-        StartCoroutine(StartUpLevel());
-    }
 
-    public IEnumerator StartUpLevel()
+    public void SetUpLevel()
     {
-        yield return new WaitForSecondsRealtime(1f);
         SetTraversableGround();
     }
 
@@ -59,9 +50,9 @@ public class Level : MonoBehaviour
             interTile.gameObject.SetActive(false);
         }
 
-        SetPlayerStartTile();
+    /*    SetPlayerStartTile();
         PlacePlayerAtStart();
-        PlaceEnemies();
+        PlaceEnemies();*/
         OnDoneCreatingRoom?.Invoke();
     }
 
@@ -102,7 +93,7 @@ public class Level : MonoBehaviour
         return validNeighbours;
     }
 
-    private void SetPlayerStartTile()
+    public void SetPlayerStartTile()
     {
         startTile = GetRandomTile();
     }
@@ -120,7 +111,7 @@ public class Level : MonoBehaviour
         TileData tile = traversableGround[Random.Range(0, traversableGround.Count)];
         return tile;
     }
-    private void PlacePlayerAtStart()
+    public void PlacePlayerAtStart()
     {
         GameManager.Instance.PlayerWrapper.PlayerMovement.SetCurrentTile(startTile);
     }

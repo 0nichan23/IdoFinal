@@ -1,40 +1,42 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System;
+using System.Collections.Generic;
 
 
 public class LevelGenerator : MonoBehaviour
 {
-    [SerializeField] private Tilemap testTileMap;
-    [SerializeField] private Grid testGrid;
-    [SerializeField] private MyTile fillTile;
     [SerializeField] private int width;
     [SerializeField] private int length;
-    [SerializeField] private int seed;
     [SerializeField] private float scale;
     [SerializeField] private int octaves;
     [SerializeField, Range(0, 1)] private float persistence;
     [SerializeField] private float lacunarity;
     [SerializeField] private Vector2 offset;
-    [SerializeField] private BiomeLayer biomeLayer;
+    [SerializeField] private List<BiomeData> biomeData = new List<BiomeData>();
+    [SerializeField] private Level levelPrefab;
 
     [ContextMenu("test spawning prefab")]
 
-    private void Start()
+    public Level CreateLevel()
     {
-        TestSpawn();
+        Level newLevel = Instantiate(levelPrefab, transform);
+        Filllevel(newLevel, biomeData[UnityEngine.Random.Range(0, biomeData.Count)]);
+        return newLevel;
     }
 
-    private void TestSpawn()
+    private void Filllevel(Level givenLevel, BiomeData biome)
     {
+        givenLevel.Habitat = biome.BiomeType;
+        int seed = UnityEngine.Random.Range(0, 100000);
         float[,] heightMap = Noise.GenerateNoiseMap(width, length, seed, scale, octaves, persistence, lacunarity, offset);
         for (int i = 0; i < heightMap.GetLength(0); i++)
         {
             for (int j = 0; j < heightMap.GetLength(1); j++)
             {
-                testTileMap.SetTile(new Vector3Int(i, j, 0), biomeLayer.GetTileFromHeight(heightMap[i, j]));
+                givenLevel.Tilemap.SetTile(new Vector3Int(i, j, 0), biome.HeightData.GetTileFromHeight(heightMap[i, j]));
             }
         }
-        StartCoroutine(GameManager.Instance.LevemManager.CurrentLevel.StartUpLevel());
     }
 
     private void OnValidate()
@@ -58,4 +60,11 @@ public class LevelGenerator : MonoBehaviour
 
     }
 
+}
+
+[System.Serializable]
+public class BiomeData
+{
+    public BiomeLayer HeightData;
+    public Habitat BiomeType;
 }
