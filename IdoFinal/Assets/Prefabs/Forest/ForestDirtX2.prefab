@@ -89,6 +89,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 205174739348729274, guid: f935ccb6d1a6a854197abbdd5a69eefb, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f935ccb6d1a6a854197abbdd5a69eefb, type: 3}
 --- !u!4 &3171886737496937178 stripped
@@ -151,6 +155,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 205174739348729274, guid: f935ccb6d1a6a854197abbdd5a69eefb, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f935ccb6d1a6a854197abbdd5a69eefb, type: 3}
 --- !u!4 &5272549476468146544 stripped
@@ -212,6 +220,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d0d3a399b1fad4126b5b52cc7fae9829, type: 3}
       propertyPath: m_Name
       value: grasstop2_deco_LOD_group
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: d0d3a399b1fad4126b5b52cc7fae9829, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0d3a399b1fad4126b5b52cc7fae9829, type: 3}
