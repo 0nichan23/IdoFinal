@@ -47,3 +47,4 @@ MonoBehaviour:
     MaxHeight: 0.99
   - RefTile: {fileID: 11400000, guid: 3ee7d7604f2dd874a888a1ae35ff2a32, type: 2}
     MaxHeight: 1
+  enemyCreator: {fileID: 11400000, guid: aaec15c5e57e1a04dbd70bb3f6619f81, type: 2}

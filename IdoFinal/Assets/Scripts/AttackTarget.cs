@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class AttackTarget
 {
-    public void AttackTiles(Vector3Int originPos, AnimalAttack givenAttack, DamageDealer dealer = null)
+    public void AttackTiles(Character character ,Vector3Int originPos, AnimalAttack givenAttack, DamageDealer dealer = null)
     {
         List<Vector3Int> finalPositions = new List<Vector3Int>();
 
         foreach (var item in givenAttack.Hitbox)
         {
             Vector3Int newPos = new Vector3Int();
-            switch (GameManager.Instance.PlayerWrapper.PlayerMovement.LookingTowards)
+            switch (character.LookingTowards)
             {
                 case LookDirections.UP:
                     newPos = new Vector3Int(item.z * -1, 0, item.x);
@@ -29,7 +29,7 @@ public class AttackTarget
             }
             finalPositions.Add(newPos);
         }
-        GameManager.Instance.LevemManager.DealDamageOnTiles(finalPositions, givenAttack, dealer);
+        GameManager.Instance.LevelManager.DealDamageOnTiles(finalPositions, givenAttack, dealer);
     }
 
 

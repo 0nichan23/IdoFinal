@@ -21,7 +21,7 @@ public class Pathfinder : MonoBehaviour
     {
         Stopwatch sw = new Stopwatch();
         sw.Start();
-        openList = new Heap<TileData>(GameManager.Instance.LevemManager.CurrentLevel.TraversableGround.Count);
+        openList = new Heap<TileData>(GameManager.Instance.LevelManager.CurrentLevel.TraversableGround.Count);
         closedList = new List<TileData>();
         TileData currentTile;
         openList.Add(startingPoint);
@@ -45,7 +45,7 @@ public class Pathfinder : MonoBehaviour
                 return;
             }
 
-            foreach (TileData neighbour in GameManager.Instance.LevemManager.CurrentLevel.GetNeighbours(currentTile))
+            foreach (TileData neighbour in GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(currentTile))
             {
                 if (closedList.Contains(neighbour))
                 {

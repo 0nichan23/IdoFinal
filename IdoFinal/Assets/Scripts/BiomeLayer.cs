@@ -5,6 +5,8 @@ using UnityEngine;
 public class BiomeLayer : ScriptableObject
 {
     [SerializeField] private List<BiomeHeightData> heightData = new List<BiomeHeightData>();
+    [SerializeField] private EnemyCreator enemyCreator;
+    public EnemyCreator EnemyCreator { get => enemyCreator; }
 
     public MyTile GetTileFromHeight(float height)
     {
@@ -24,7 +26,7 @@ public class BiomeLayer : ScriptableObject
         }
         return closesMaxvalue.RefTile;
     }
-
+    
     public List<BiomeHeightData> HeightData { get => heightData; }
 }
 

@@ -6,13 +6,18 @@ using UnityEngine;
 public class BaseStateHandler : MonoBehaviour
 {
     [SerializeField] private List<CoroutineState> states = new List<CoroutineState>();
+    [SerializeField] private Enemy refEnemy;
     private CoroutineState activeState;
+
+    public Enemy RefEnemy { get => refEnemy; }
 
     private void Start()
     {
         SortStates();
         SubscribeHandler();
+        StartCoroutine(RunStateMachine());
     }
+
 
     private IEnumerator RunStateMachine()
     {
@@ -26,11 +31,7 @@ public class BaseStateHandler : MonoBehaviour
             activeState = GetNextState();
             activeState.OnStateEnter();
             yield return StartCoroutine(activeState.RunState());
-
         }
-
-        // run new state?
-        //loop until object is turned off?
     }
     private void SortStates()
     {

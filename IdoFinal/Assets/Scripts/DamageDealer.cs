@@ -47,6 +47,7 @@ public class DamageDealer : MonoBehaviour
     {
         OnDealDamage.RemoveListener(PowerDamageBoost);
         OnDealCritDamage.RemoveListener(CriticalDamageBoost);
+        OnHit.RemoveListener(ArmorPenBoost);
         refAnimal = givenActiveAnimal;
         basepowerDamageMod = GetDamageMod(refAnimal.StatSheet.Power);
         basecritChance = GetBaseCritCahcne(refAnimal.StatSheet.Instinct);

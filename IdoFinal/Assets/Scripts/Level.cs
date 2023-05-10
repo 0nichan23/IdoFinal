@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,16 +13,18 @@ public class Level : MonoBehaviour
     [SerializeField] List<Enemy> enemies = new List<Enemy>();
     [SerializeField] private Habitat habitat;
     [SerializeField] private bool setupOnAwake;
+    private EnemyCreator enemyCreator;
     public Tilemap Tilemap { get => tilemap; }
     public List<TileData> TraversableGround { get => traversableGround; }
     public TileData StartTile { get => startTile; }
     public List<Enemy> Enemies { get => enemies; }
     public Habitat Habitat { get => habitat; set => habitat = value; }
-
+    public EnemyCreator EnemyCreator { get => enemyCreator; set => enemyCreator = value; }
 
     public void SetUpLevel()
     {
         SetTraversableGround();
+        SpawnEnemy();
     }
 
     private void SetTraversableGround()
@@ -50,9 +51,7 @@ public class Level : MonoBehaviour
             interTile.gameObject.SetActive(false);
         }
 
-    /*    SetPlayerStartTile();
-        PlacePlayerAtStart();
-        PlaceEnemies();*/
+
         OnDoneCreatingRoom?.Invoke();
     }
 
@@ -66,7 +65,7 @@ public class Level : MonoBehaviour
                 continue;
             }
             Vector3Int tilePos = givenTile.GetPos + new Vector3Int(x, 0, 0);
-            TileData newTile = GameManager.Instance.LevemManager.CurrentLevel.GetTile(tilePos);
+            TileData newTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(tilePos);
 
             if (ReferenceEquals(newTile, null))
             {
@@ -81,7 +80,7 @@ public class Level : MonoBehaviour
                 continue;
             }
             Vector3Int tilePos = givenTile.GetPos + new Vector3Int(0, 0, z);
-            TileData newTile = GameManager.Instance.LevemManager.CurrentLevel.GetTile(tilePos);
+            TileData newTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(tilePos);
 
             if (ReferenceEquals(newTile, null))
             {
@@ -92,12 +91,15 @@ public class Level : MonoBehaviour
 
         return validNeighbours;
     }
-
+    public void AddEnemy(Enemy enemy)
+    {
+        enemies.Add(enemy);
+    }
     public void SetPlayerStartTile()
     {
         startTile = GetRandomTile();
     }
-    private void PlaceEnemies()
+    public void PlaceEnemies()
     {
         foreach (var item in enemies)
         {
@@ -110,6 +112,17 @@ public class Level : MonoBehaviour
     {
         TileData tile = traversableGround[Random.Range(0, traversableGround.Count)];
         return tile;
+       /* while (true)
+        {
+            TileData tile = null;
+            if (!ReferenceEquals(tile, null) && !tile.Occupied)
+            {
+                return tile;
+            }
+            tile = traversableGround[Random.Range(0, traversableGround.Count)];
+        }
+        tile = traversableGround[Random.Range(0, traversableGround.Count)];
+*/
     }
     public void PlacePlayerAtStart()
     {
@@ -126,6 +139,13 @@ public class Level : MonoBehaviour
             }
         }
         return null;
+    }
+
+    private void SpawnEnemy()
+    {
+        Enemy newEnemy = Instantiate(GameManager.Instance.enemyPrefab, transform);
+        newEnemy.SetUpEnemy(EnemyCreator.GetEnemyAnimalFromValue(Random.Range(0f, 1f)));
+        enemies.Add(newEnemy);
     }
 }
 
@@ -194,4 +214,3 @@ public class TileData : IHeapItem<TileData>
         return -compare;
     }
 }
-

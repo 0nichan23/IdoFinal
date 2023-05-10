@@ -1,7 +1,6 @@
-using UnityEngine;
-using UnityEngine.Tilemaps;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 
 public class LevelGenerator : MonoBehaviour
@@ -17,7 +16,6 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private Level levelPrefab;
 
     [ContextMenu("test spawning prefab")]
-
     public Level CreateLevel()
     {
         Level newLevel = Instantiate(levelPrefab, transform);
@@ -28,6 +26,7 @@ public class LevelGenerator : MonoBehaviour
     private void Filllevel(Level givenLevel, BiomeData biome)
     {
         givenLevel.Habitat = biome.BiomeType;
+        givenLevel.EnemyCreator = biome.HeightData.EnemyCreator;
         int seed = UnityEngine.Random.Range(0, 100000);
         float[,] heightMap = Noise.GenerateNoiseMap(width, length, seed, scale, octaves, persistence, lacunarity, offset);
         for (int i = 0; i < heightMap.GetLength(0); i++)

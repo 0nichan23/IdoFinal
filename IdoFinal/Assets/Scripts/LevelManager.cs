@@ -38,6 +38,7 @@ public class LevelManager : MonoBehaviour
         currentLevel.gameObject.SetActive(true);
         currentLevel.SetPlayerStartTile();
         currentLevel.PlacePlayerAtStart();
+        currentLevel.PlaceEnemies();
     }
 
     [ContextMenu("Move To Next")]
@@ -48,6 +49,7 @@ public class LevelManager : MonoBehaviour
         currentLevel.gameObject.SetActive(true);
         currentLevel.SetPlayerStartTile();
         currentLevel.PlacePlayerAtStart();
+        currentLevel.PlaceEnemies();
     }
 
     public void DealDamageOnTiles(List<Vector3Int> givenPositions, AnimalAttack givenAttack, DamageDealer dealer = null)

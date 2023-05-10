@@ -6,25 +6,27 @@ public class AttackState : CoroutineState
 {
     public override bool IsLegal()
     {
-        return true;
-       //player must ne withing range && attack must not be in cool down
+        if (GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(handler.RefEnemy.CurrentPos).Contains(GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile))
+        {
+            return true;
+        }
+        return false;
     }
 
     public override IEnumerator RunState()
     {
-        //play attack animation and mark time stamp
-        throw new System.NotImplementedException();
+        handler.RefEnemy.AttackHandler.Attack();
+        yield return new WaitForEndOfFrame();
     }
 
     public override void OnStateEnter()
     {
-        //nothing 
-        throw new System.NotImplementedException();
+        //nothing on state enter here
     }
 
     public override void OnStateExit()
     {
-        //nothing
-        throw new System.NotImplementedException();
+        //nothing on state exit here
     }
+
 }

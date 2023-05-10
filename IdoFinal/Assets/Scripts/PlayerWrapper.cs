@@ -9,6 +9,7 @@ public class PlayerWrapper : Character
     [SerializeField] private PlayerAttackHandler attackHandler;
     [SerializeField] private PlayerHud playerHud;
 
+    public override LookDirections LookingTowards { get => playerMovement.LookingTowards;}
     public PlayerMovement PlayerMovement { get => playerMovement; }
     public PlayerAnimationHandler PlayerAnimationHandler { get => playerAnimationHandler; }
     public Transform Gfx { get => gfx; }
@@ -19,10 +20,8 @@ public class PlayerWrapper : Character
         SetAnimalStatsOnComps();
         team.OnSwitchActiveAnimal.AddListener(SetAnimalStatsOnComps);
         attackHandler.OnAttackPreformed.AddListener(playerAnimationHandler.AttackAnim);
-        //GameManager.Instance.LevemManager.CurrentLevel.OnDoneCreatingRoom.AddListener(playerMovement.ResetCanMove);
         attackHandler.CacheDealer(DamageDealer);
         Damageable.CacheEffectable(Effectable);
-        //DamageDealer.OnKill.AddListener(team.TryCatchAnimal);
     }
 
     private void SetAnimalStatsOnComps()

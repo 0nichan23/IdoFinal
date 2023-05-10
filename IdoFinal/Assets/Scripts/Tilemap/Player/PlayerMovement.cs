@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
         currentTile.UnSubscribeCharacter();
-        TileData destTile = GameManager.Instance.LevemManager.CurrentLevel.GetTile(to);
+        TileData destTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(to);
         if (!ReferenceEquals(destTile, null) && !destTile.Occupied)
         {
             StartCoroutine(MovePlayerTo(destTile.GetStandingPos));

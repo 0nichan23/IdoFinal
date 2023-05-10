@@ -11,6 +11,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     [Header("Asset Dump")]
     public InteractableTile InteractableTilePrefab;
+    public Enemy enemyPrefab;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public InputManager InputManager { get => inputManager; }
     public PlayerWrapper PlayerWrapper { get => playerWrapper; }
-    public LevelManager LevemManager { get => levelManager; }
+    public LevelManager LevelManager { get => levelManager; }
     public Pathfinder Pathfinder { get => pathfinder; }
     public LevelGenerator LevelGenerator { get => levelGenerator; }
 }
