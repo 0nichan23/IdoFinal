@@ -67,15 +67,6 @@ public class PlayerTeam : MonoBehaviour
         model.SetActive(state);
     }
 
-  /*  public void TryCatchAnimal(Damageable target)
-    {
-        if (!CheckAnimalCaught(target.RefAnimal))
-        {
-            CacheAnimal(target.RefAnimal);
-            OnAnimalCaught?.Invoke();
-        }
-    }*/
-
     public void SwitchActiveAnimal(int index)
     {
         activeAnimal.Model.gameObject.SetActive(false);

@@ -110,19 +110,17 @@ public class Level : MonoBehaviour
     }
     private TileData GetRandomTile()
     {
-        TileData tile = traversableGround[Random.Range(0, traversableGround.Count)];
-        return tile;
-       /* while (true)
+        /*  TileData tile = traversableGround[Random.Range(0, traversableGround.Count)];
+          return tile;*/
+        TileData tile = null;
+        while (true)
         {
-            TileData tile = null;
             if (!ReferenceEquals(tile, null) && !tile.Occupied)
             {
                 return tile;
             }
             tile = traversableGround[Random.Range(0, traversableGround.Count)];
         }
-        tile = traversableGround[Random.Range(0, traversableGround.Count)];
-*/
     }
     public void PlacePlayerAtStart()
     {
