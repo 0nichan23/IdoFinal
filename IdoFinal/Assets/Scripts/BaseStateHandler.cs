@@ -21,6 +21,7 @@ public class BaseStateHandler : MonoBehaviour
 
     private IEnumerator RunStateMachine()
     {
+        yield return new WaitForSeconds(5f);
         while (gameObject.activeInHierarchy)
         {
             if (!ReferenceEquals(activeState, null))

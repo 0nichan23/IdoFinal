@@ -6,7 +6,11 @@ public class ChaseState : CoroutineState
 {
     public override bool IsLegal()
     {
-        return true;
+        if (GameManager.Instance.Pathfinder.GetDistanceOfTiles(handler.RefEnemy.Movement.CurrentTile.GetPos, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.GetPos) <= handler.RefEnemy.DetectionRange)
+        {
+            return true;
+        }
+        return false;
     }
 
     public override void OnStateEnter()
@@ -19,7 +23,8 @@ public class ChaseState : CoroutineState
 
     public override IEnumerator RunState()
     {
-        Debug.Log("chasing");
+        List<TileData> path = GameManager.Instance.Pathfinder.FindPathToDest(handler.RefEnemy.Movement.CurrentTile, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile);
+        yield return StartCoroutine(handler.RefEnemy.Movement.MoveEnemyTo(path[0]));
         yield return new WaitForEndOfFrame();
     }
 }

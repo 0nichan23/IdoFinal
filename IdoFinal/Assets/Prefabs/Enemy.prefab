@@ -48,6 +48,8 @@ GameObject:
   - component: {fileID: 661058106940519120}
   - component: {fileID: 2531860179119824948}
   - component: {fileID: -1413638807751984595}
+  - component: {fileID: 457804999088089789}
+  - component: {fileID: 5871384239029913501}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -89,6 +91,8 @@ MonoBehaviour:
   refAnimal: {fileID: 0}
   attackHandler: {fileID: 586724961199811942}
   gfx: {fileID: 7477012478708441849}
+  movement: {fileID: 457804999088089789}
+  detectionRange: 25
 --- !u!114 &7477012478839064908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +203,7 @@ MonoBehaviour:
   states:
   - {fileID: 2531860179119824948}
   - {fileID: -1413638807751984595}
+  - {fileID: 5871384239029913501}
   refEnemy: {fileID: 7477012478839064909}
 --- !u!114 &2531860179119824948
 MonoBehaviour:
@@ -226,3 +231,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 3
+--- !u!114 &457804999088089789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7477012478839064944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e46af8427a7d3a49aa6778d6fbaab6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5871384239029913501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7477012478839064944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9400f5217dc244b8da164c14a88fd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 100

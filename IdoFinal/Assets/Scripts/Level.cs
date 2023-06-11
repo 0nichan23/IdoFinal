@@ -103,9 +103,8 @@ public class Level : MonoBehaviour
     {
         foreach (var item in enemies)
         {
-            item.CurrentPos = GetRandomTile();
-            item.transform.position = item.CurrentPos.GetStandingPos;
-            item.CurrentPos.SubscribeCharacter(item);
+            TileData startingTile = GetRandomTile();
+            item.Movement.SetEnemyStartPosition(startingTile);
         }
     }
     private TileData GetRandomTile()

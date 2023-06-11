@@ -14,10 +14,10 @@ public class Pathfinder : MonoBehaviour
     [ContextMenu("find path")]
     public void AttempFindingPath()
     {
-        FindPathToDest(test.CurrentPos, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile);
+        //FindPathToDest(test.CurrentPos, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile);
     }
 
-    public void FindPathToDest(TileData startingPoint, TileData destenation)
+    public List<TileData> FindPathToDest(TileData startingPoint, TileData destenation)
     {
         Stopwatch sw = new Stopwatch();
         sw.Start();
@@ -31,7 +31,7 @@ public class Pathfinder : MonoBehaviour
             imr++;
             if (imr == 100000)
             {
-                return;
+                return null;
             }
             currentTile = openList.RemoveFirst();
             closedList.Add(currentTile);
@@ -41,8 +41,8 @@ public class Pathfinder : MonoBehaviour
                 //found path
                 sw.Stop();
                 UnityEngine.Debug.Log("found path in " + sw.Elapsed + " ms");
-                RetracePath(startingPoint, destenation);
-                return;
+                return RetracePath(startingPoint, destenation);
+
             }
 
             foreach (TileData neighbour in GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(currentTile))
@@ -51,7 +51,7 @@ public class Pathfinder : MonoBehaviour
                 {
                     //if the neighbour was already the current tile.
                     continue;
-                } 
+                }
 
                 int newNeighbourMovementCost = currentTile.costToStart + GetDistanceOfTiles(currentTile.GetPos, neighbour.GetPos);
                 if (newNeighbourMovementCost < neighbour.costToStart || !openList.Contains(neighbour))
@@ -67,10 +67,11 @@ public class Pathfinder : MonoBehaviour
             }
 
         }
+        return null;
     }
 
 
-    private void RetracePath(TileData start, TileData end)
+    private List<TileData> RetracePath(TileData start, TileData end)
     {
         List<TileData> path = new List<TileData>();
         TileData cur = end;
@@ -86,18 +87,14 @@ public class Pathfinder : MonoBehaviour
             cur = cur.PathParent;
         }
         path.Reverse();
-        foreach (var item in path)
-        {
-            item.Overly.gameObject.SetActive(true);
-            item.Overly.DamageColor();
-        }
+        return path;
     }
 
 
     public int GetDistanceOfTiles(Vector3Int origin, Vector3Int destenation)
     {
         int distX = Mathf.Abs(destenation.x - origin.x);
-        int distY = Mathf.Abs(destenation.y - origin.y);
+        int distY = Mathf.Abs(destenation.z - origin.z);
 
         return distX + distY;
     }

@@ -16,6 +16,13 @@ public class PlayerHud : MonoBehaviour
     [SerializeField] public TextMeshProUGUI armorPen;
     [SerializeField] public TextMeshProUGUI hitChance;
     [SerializeField] public TextMeshProUGUI dodgeChance;
+    
+
+    public void ToggleCharacterScreen()
+    {
+        gameObject.SetActive(!gameObject.activeSelf);
+        GameManager.Instance.PlayerWrapper.UpdatePlayerHud();
+    }
 
 
 }
