@@ -40,7 +40,6 @@ public class Pathfinder : MonoBehaviour
             {
                 //found path
                 sw.Stop();
-                UnityEngine.Debug.Log("found path in " + sw.Elapsed + " ms");
                 return RetracePath(startingPoint, destenation);
 
             }
@@ -75,8 +74,6 @@ public class Pathfinder : MonoBehaviour
     {
         List<TileData> path = new List<TileData>();
         TileData cur = end;
-        UnityEngine.Debug.Log("from " + start.GetPos);
-        UnityEngine.Debug.Log("to " + end.GetPos);
         while (!ReferenceEquals(cur, start))
         {
             if (cur.GetPos == start.GetPos)

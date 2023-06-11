@@ -153,7 +153,7 @@ public class TileData : IHeapItem<TileData>
     [SerializeField] private InteractableTile overlay;
     [SerializeField] private Vector3Int Pos;
     private bool occupied = false;
-    private Character subscribedCharacter;
+    [SerializeField] private Character subscribedCharacter;
     private int heapIndex;
     public int costToEnd;
     public int costToStart;

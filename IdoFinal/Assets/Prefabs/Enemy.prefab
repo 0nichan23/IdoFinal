@@ -92,7 +92,7 @@ MonoBehaviour:
   attackHandler: {fileID: 586724961199811942}
   gfx: {fileID: 7477012478708441849}
   movement: {fileID: 457804999088089789}
-  detectionRange: 25
+  detectionRange: 8
 --- !u!114 &7477012478839064908
 MonoBehaviour:
   m_ObjectHideFlags: 0

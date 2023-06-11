@@ -3,14 +3,19 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private TileData currentTile;
-    private float movementMod = 3f;
+    [SerializeField] private TileData currentTile;
+    private float movementMod = 1f;
     private LookDirections lookingTowards;
     private Enemy enemy;
 
     public TileData CurrentTile { get => currentTile; }
     public LookDirections LookingTowards { get => lookingTowards; }
 
+
+    public void CacheEnemy(Enemy givenEnemy)
+    {
+        enemy = givenEnemy;
+    }
 
     public void SetEnemyStartPosition(TileData startTile)
     {
@@ -23,11 +28,11 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!ReferenceEquals(givenTile, null) && !givenTile.Occupied)
         {
-            //LookTowardsMoveDirection(givenTile);
-            currentTile?.UnSubscribeCharacter();
-            yield return StartCoroutine(MoveEnemy(givenTile));
+            LookTowardsMoveDirection(givenTile);
+            currentTile.UnSubscribeCharacter();
             givenTile.SubscribeCharacter(enemy);
             currentTile = givenTile;
+            yield return StartCoroutine(MoveEnemy(givenTile));
         }
     }
 
@@ -67,7 +72,7 @@ public class EnemyMovement : MonoBehaviour
         enemy.Gfx.eulerAngles = new Vector3(0, 90, 0);
     }
 
-    private void LookTowardsMoveDirection(TileData dest)
+    public void LookTowardsMoveDirection(TileData dest)
     {
         if (dest.GetPos.x > currentTile.GetPos.x)
         {

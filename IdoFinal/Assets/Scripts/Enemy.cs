@@ -21,6 +21,7 @@ public class Enemy : Character
         refAnimal = givenAnimal;
         DamageDealer.SetStats(refAnimal);
         Damageable.SetStats(refAnimal);
+        movement.CacheEnemy(this);
         attackHandler.SetUp(this);
         CreateModel();
     }

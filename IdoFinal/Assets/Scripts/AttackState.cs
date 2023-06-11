@@ -15,6 +15,7 @@ public class AttackState : CoroutineState
 
     public override IEnumerator RunState()
     {
+        handler.RefEnemy.Movement.LookTowardsMoveDirection(GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile);
         handler.RefEnemy.AttackHandler.Attack();
         yield return new WaitForEndOfFrame();
     }
