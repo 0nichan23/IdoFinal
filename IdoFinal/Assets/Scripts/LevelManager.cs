@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private Level currentLevel;
     [SerializeField] private Queue<Level> levels = new Queue<Level>();
     [SerializeField] private int Amount;
+    public UnityEvent<Level> OnMoveToNextLevel;
 
     public Level CurrentLevel { get => currentLevel; }
     public Queue<Level> Levels { get => levels; }
@@ -45,11 +47,14 @@ public class LevelManager : MonoBehaviour
     public void MoveToNextLevel()
     {
         currentLevel.gameObject.SetActive(false);
+        GameManager.Instance.PlayerWrapper.OnExitLevel?.Invoke(CurrentLevel, GameManager.Instance.PlayerWrapper);
+        ExitEnemies();
         currentLevel = levels.Dequeue();
         currentLevel.gameObject.SetActive(true);
         currentLevel.SetPlayerStartTile();
         currentLevel.PlacePlayerAtStart();
         currentLevel.PlaceEnemies();
+        OnMoveToNextLevel?.Invoke(CurrentLevel);
     }
 
     public void DealDamageOnTiles(List<Vector3Int> givenPositions, AnimalAttack givenAttack, DamageDealer dealer = null)
@@ -69,6 +74,12 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-
+    private void ExitEnemies()
+    {
+        foreach (var item in currentLevel.Enemies)
+        {
+            item.OnExitLevel?.Invoke(CurrentLevel, item);
+        }
+    }
 
 }

@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: -1413638807751984595}
   - component: {fileID: 457804999088089789}
   - component: {fileID: 5871384239029913501}
+  - component: {fileID: 4456592564308203964}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -93,6 +94,7 @@ MonoBehaviour:
   gfx: {fileID: 7477012478708441849}
   movement: {fileID: 457804999088089789}
   detectionRange: 8
+  anim: {fileID: 4456592564308203964}
 --- !u!114 &7477012478839064908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +245,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e46af8427a7d3a49aa6778d6fbaab6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTile:
+    Obj: {fileID: 0}
+    overlay: {fileID: 0}
+    Pos: {x: 0, y: 0, z: 0}
+    subscribedCharacter: {fileID: 0}
+    costToEnd: 0
+    costToStart: 0
 --- !u!114 &5871384239029913501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,3 +265,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 100
+--- !u!114 &4456592564308203964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7477012478839064944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86bbd5626f32a6043bf40df968c126a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

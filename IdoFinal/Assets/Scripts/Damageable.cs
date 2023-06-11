@@ -8,6 +8,7 @@ public class Damageable : MonoBehaviour
     [SerializeField] private float currentHp;
     [SerializeField] private float maxHp;
     private Animal refAnimal;
+    private Character refCharacter;
 
     public UnityEvent<AnimalAttack, Damageable, DamageDealer> OnGetHit;
     public UnityEvent<AnimalAttack> OnTakeDamage;
@@ -29,8 +30,9 @@ public class Damageable : MonoBehaviour
     public float CurrentHp { get => currentHp; }
     public float DamageReduction { get => basedamageReduction + damageReduction; }
     public float DodgeChance { get => basedodgeChance + dodgeChance; }
+    public Character RefCharacter { get => refCharacter;}
 
-    public void SetStats(Animal givenAnimal)
+    public void SetStats(Animal givenAnimal, Character givenCharacter)
     {
         OnTakeDamage.RemoveListener(DamageReductionBoost);
         maxHp = givenAnimal.StatSheet.MaxHp;
@@ -90,7 +92,7 @@ public class Damageable : MonoBehaviour
             effectable.UpdateStatuses(attack, dealer);
         }
         OnGetHit?.Invoke(attack, this, dealer);
-        dealer.OnHit?.Invoke(this, attack);
+        dealer.OnHit?.Invoke(this, attack, dealer);
         if (CheckForCritHit(dealer.CritChance))
         {
             TakeDamage(attack, dealer, true);

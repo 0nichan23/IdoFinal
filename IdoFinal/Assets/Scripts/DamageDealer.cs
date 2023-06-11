@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class DamageDealer : MonoBehaviour
 {
-    public UnityEvent<Damageable, AnimalAttack> OnHit;
+    public UnityEvent<Damageable, AnimalAttack, DamageDealer> OnHit;
 
     public UnityEvent<AnimalAttack> OnDealDamage;
 
@@ -16,6 +16,8 @@ public class DamageDealer : MonoBehaviour
     public UnityEvent<Damageable> OnKill;
 
     private Animal refAnimal;
+
+    private Character refCharacter;
 
 
     //base stats depend on the active animal,
@@ -42,9 +44,11 @@ public class DamageDealer : MonoBehaviour
     public float PowerDamageMod { get => powerDamageMod + basepowerDamageMod; }
     public float HitChance { get => hitChance + basehitChance; }
     public int ArmorPenetration { get => Mathf.Clamp(armorPenetration, 0, 10);}
+    public Character RefCharacter { get => refCharacter;}
 
-    public void SetStats(Animal givenActiveAnimal)
+    public void SetStats(Animal givenActiveAnimal, Character givenCharacter)
     {
+        refCharacter = givenCharacter;
         OnDealDamage.RemoveListener(PowerDamageBoost);
         OnDealCritDamage.RemoveListener(CriticalDamageBoost);
         OnHit.RemoveListener(ArmorPenBoost);
@@ -120,7 +124,7 @@ public class DamageDealer : MonoBehaviour
         givenAttack.Damage.AddMod(CritDamage);
     }
 
-    private void ArmorPenBoost(Damageable target, AnimalAttack givenAttack)
+    private void ArmorPenBoost(Damageable target, AnimalAttack givenAttack, DamageDealer dealer)
     {
         givenAttack.Damage.AddMod(GetArmorPen(target));
     }

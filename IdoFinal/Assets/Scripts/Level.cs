@@ -105,6 +105,7 @@ public class Level : MonoBehaviour
         {
             TileData startingTile = GetRandomTile();
             item.Movement.SetEnemyStartPosition(startingTile);
+            item.OnEnteredLevel?.Invoke(this, item);
         }
     }
     private TileData GetRandomTile()
@@ -124,6 +125,7 @@ public class Level : MonoBehaviour
     public void PlacePlayerAtStart()
     {
         GameManager.Instance.PlayerWrapper.PlayerMovement.SetCurrentTile(startTile);
+        GameManager.Instance.PlayerWrapper.OnEnteredLevel?.Invoke(this, GameManager.Instance.PlayerWrapper);
     }
 
     public TileData GetTile(Vector3Int givenPos)

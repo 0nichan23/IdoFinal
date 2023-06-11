@@ -8,18 +8,35 @@ public class PolarBearPassive : AnimalPassive
 {
     //polar bear recieves damage and crit chance buff if the active level is a snow biome
 
-    [SerializeField] private float damageBuff;
-    [SerializeField] private float critChance;
-    //no level system yet. when the system is implemented, subscribe to on level enter and exit to add or remove buffs.
+    [SerializeField, Range(0,1)] private float damageBuff;
+    [SerializeField, Range(0, 1)] private float critChance;
     public override void SubscribePassive(Character givenCaharacter)
     {
-        GameManager.Instance.PlayerWrapper.DamageDealer.AddCritChance(critChance);
-        GameManager.Instance.PlayerWrapper.DamageDealer.AddAttackDamage(damageBuff);
+        givenCaharacter.OnEnteredLevel.AddListener(AddStats);
+        givenCaharacter.OnExitLevel.AddListener(RemoveStats);
     }
 
     public override void UnSubscribePassive(Character givenCaharacter)
     {
-        GameManager.Instance.PlayerWrapper.DamageDealer.AddCritChance(-critChance);
-        GameManager.Instance.PlayerWrapper.DamageDealer.AddAttackDamage(-damageBuff);
+        givenCaharacter.OnEnteredLevel.RemoveListener(AddStats);
+        givenCaharacter.OnExitLevel.RemoveListener(RemoveStats);
+    }
+
+    private void AddStats(Level active, Character givenCaharacter)
+    {
+        if (active.Habitat == Habitat.Arctic)
+        {
+            givenCaharacter.DamageDealer.AddAttackDamage(givenCaharacter.DamageDealer.PowerDamageMod * damageBuff);
+            givenCaharacter.DamageDealer.AddCritChance(critChance);
+        }
+    }
+
+    private void RemoveStats(Level active, Character givenCaharacter)
+    {
+        if (active.Habitat == Habitat.Arctic)
+        {
+            givenCaharacter.DamageDealer.AddAttackDamage(-(givenCaharacter.DamageDealer.PowerDamageMod * damageBuff));
+            givenCaharacter.DamageDealer.AddCritChance(-critChance);
+        }
     }
 }

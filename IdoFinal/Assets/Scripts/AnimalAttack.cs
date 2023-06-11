@@ -24,7 +24,7 @@ public class AnimalAttack : ScriptableObject
 [System.Serializable]
 public class StatusEffectActivationData
 {
-    public StatusEffectsEnum Effect;
+    public StatusEffectEnum Effect;
     [Range(0, 100)] public float Chance;
 }
 

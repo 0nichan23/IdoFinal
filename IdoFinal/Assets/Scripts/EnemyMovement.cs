@@ -41,6 +41,7 @@ public class EnemyMovement : MonoBehaviour
         float counter = 0;
         Vector3 startPos = transform.position;
         Vector3 dest = givenTile.GetStandingPos;
+        enemy.Anim.StartWalkAnim();
         while (counter < 1)
         {
             Vector3 posLerp = Vector3.Lerp(startPos, dest, counter);
@@ -48,6 +49,8 @@ public class EnemyMovement : MonoBehaviour
             counter += Time.deltaTime * movementMod;
             yield return new WaitForEndOfFrame();
         }
+        enemy.Anim.EndWalkAnim();
+
     }
 
     public void LookUp()

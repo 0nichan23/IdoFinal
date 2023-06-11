@@ -5,16 +5,33 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "OstrichPassive", menuName = "Passives/Ostrich")]
 public class OstrichPassive : AnimalPassive
 {
-
+    [SerializeField, Range(0,1)] private float dodgeChance;
     //add dodge chance (in desert and plains once we implement the level system)
     public override void SubscribePassive(Character givenCaharacter)
     {
-        givenCaharacter.Damageable.AddDodgeChance(0.2f);
+        givenCaharacter.OnEnteredLevel.AddListener(AddStats);
+        givenCaharacter.OnExitLevel.AddListener(ReduceStats);
     }
 
     public override void UnSubscribePassive(Character givenCaharacter)
     {
-        givenCaharacter.Damageable.AddDodgeChance(-0.2f);
+        givenCaharacter.OnEnteredLevel.RemoveListener(AddStats);
+        givenCaharacter.OnExitLevel.RemoveListener(ReduceStats);
+    }
+
+    private void AddStats(Level level, Character character)
+    {
+        if (level.Habitat == Habitat.Desert || level.Habitat == Habitat.Plains)
+        {
+            character.Damageable.AddDodgeChance(dodgeChance);
+        }
+    }
+    private void ReduceStats(Level level, Character character)
+    {
+        if (level.Habitat == Habitat.Desert || level.Habitat == Habitat.Plains)
+        {
+            character.Damageable.AddDodgeChance(-dodgeChance);
+        }
     }
 
 }

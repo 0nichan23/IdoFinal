@@ -7,7 +7,7 @@ using UnityEngine;
 public class RhinoPassive : AnimalPassive
 {
     //chance to ignore damage from birds
-    [SerializeField] private float chance;
+    [SerializeField, Range(0,100)] private float chance;
     public override void SubscribePassive(Character givenCaharacter)
     {
         givenCaharacter.Damageable.OnGetHit.AddListener(IgnoreDamageFromBirds);

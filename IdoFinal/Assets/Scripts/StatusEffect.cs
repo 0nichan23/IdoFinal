@@ -4,7 +4,13 @@ using UnityEngine;
 
 public abstract class StatusEffect
 {
+    protected Character host;
     
+    public void CacheHost(Character givenCharacter)
+    {
+        host = givenCharacter;
+    }
+
     public virtual void Activate()
     {
         Subscribe();

@@ -7,6 +7,7 @@ using UnityEngine;
 public class HippoPassive : AnimalPassive
 {
     //take 30% less damage from aquatic creatures.
+    [SerializeField, Range(0,1)] private float damageReduction;
     public override void SubscribePassive(Character givenCaharacter)
     {
         givenCaharacter.Damageable.OnGetHit.AddListener(ReduceDamageFromAquaticCreatures);
@@ -22,7 +23,7 @@ public class HippoPassive : AnimalPassive
     {
         if (dealer.RefAnimal.Habitat == Habitat.FreshWater || dealer.RefAnimal.Habitat == Habitat.SaltWater)
         {
-            givenAttack.Damage.AddMod(0.7f);
+            givenAttack.Damage.AddMod(1 - damageReduction);
         }
     }
 
