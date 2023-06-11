@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SnowyOwlPassive", menuName = "Passives/SnowyOwl")]
@@ -7,7 +5,8 @@ using UnityEngine;
 public class SnowOwlPassive : AnimalPassive
 {
     //crit strikes inflict bleed and deal extra damage to mammels and birds
-    [SerializeField, Range(0,1)] private float damageMod;
+    [SerializeField, Range(0, 1)] private float damageMod;
+    [SerializeField, Range(5, 10)] private float bleedDuration;
     public override void SubscribePassive(Character givenCaharacter)
     {
         givenCaharacter.DamageDealer.OnDealCritDamage.AddListener(BleedAndExtraCritDamageOnMammelsAndBirds);
@@ -15,7 +14,8 @@ public class SnowOwlPassive : AnimalPassive
 
     public override void UnSubscribePassive(Character givenCaharacter)
     {
-        throw new System.NotImplementedException();
+        givenCaharacter.DamageDealer.OnDealCritDamage.RemoveListener(BleedAndExtraCritDamageOnMammelsAndBirds);
+
     }
 
     private void BleedAndExtraCritDamageOnMammelsAndBirds(AnimalAttack attack, Damageable target)
@@ -23,7 +23,7 @@ public class SnowOwlPassive : AnimalPassive
         if (target.RefAnimal.AnimalClass == AnimalClass.Mammel || target.RefAnimal.AnimalClass == AnimalClass.Bird)
         {
             attack.Damage.AddMod(1 + damageMod);
-           // target.RefCharacter.Effectable.AddStatus;
+            target.RefCharacter.Effectable.AddStatus(new Bleed(bleedDuration));
         }
     }
 }

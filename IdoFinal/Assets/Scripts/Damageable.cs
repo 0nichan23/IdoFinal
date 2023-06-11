@@ -34,6 +34,7 @@ public class Damageable : MonoBehaviour
 
     public void SetStats(Animal givenAnimal, Character givenCharacter)
     {
+        refCharacter = givenCharacter;
         OnTakeDamage.RemoveListener(DamageReductionBoost);
         maxHp = givenAnimal.StatSheet.MaxHp;
         currentHp = maxHp;
@@ -127,6 +128,15 @@ public class Damageable : MonoBehaviour
 
     }
 
+    public void TakeTrueDamage(float fixedAmount)
+    {
+        currentHp -= fixedAmount;
+        if (currentHp <= 0)
+        {
+            OnDeath?.Invoke();
+        }
+        ClampHp();
+    }
     private void ClampHp()
     {
         currentHp = Mathf.Clamp(currentHp, 0, maxHp);

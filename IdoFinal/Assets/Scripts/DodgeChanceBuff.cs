@@ -11,7 +11,6 @@ public class DodgeChanceBuff : StatusEffect
     {
         duration = givenDuration;
         amount = givenAmount;
-        
     }
     protected override void Subscribe()
     {
