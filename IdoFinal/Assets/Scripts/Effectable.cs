@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,6 +11,8 @@ public class Effectable : MonoBehaviour
     private List<StatusEffect> activeEffects = new List<StatusEffect>();
 
     private Character owner;
+
+    public List<StatusEffect> ActiveEffects { get => activeEffects; }
 
     public void CahceOwner(Character givenCharacter)
     {

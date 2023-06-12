@@ -9,6 +9,7 @@ public class Animal : ScriptableObject
     [SerializeField] private AnimalAttack attack;
     [SerializeField] private AnimalPassive passive;
     [SerializeField] private GameObject animalModel;
+    [SerializeField] private Diet diet;
     //animal stats -> this needs to hold hp, base attack, defense, speed?
     //animal passive -> this needs to subscribe to an according event/ change some stat
     //animal attack -> this is the attack itself, has additional effects and base damage
@@ -18,6 +19,7 @@ public class Animal : ScriptableObject
     public AnimalPassive Passive { get => passive; }
     public AnimalAttack Attack { get => attack; }
     public GameObject AnimalModel { get => animalModel; }
+    public Diet Diet { get => diet; }
 }
 
 public enum AnimalClass
@@ -40,5 +42,12 @@ public enum Habitat
     Mountain,
     Arctic,
     Domestic
+}
+
+public enum Diet
+{
+    Carnivore,
+    Herbivore,
+    Omnivore
 }
 

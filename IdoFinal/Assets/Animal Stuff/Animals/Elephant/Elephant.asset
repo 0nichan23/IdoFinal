@@ -18,3 +18,4 @@ MonoBehaviour:
   attack: {fileID: 11400000, guid: ed8cdee3e7d2ab94d8e17b1db9f8ff2d, type: 2}
   passive: {fileID: 11400000, guid: b6ae508c7e1b08f4190f4429a568140e, type: 2}
   animalModel: {fileID: 2910515581111630684, guid: f2471e07d670c5e4694db663baa1eb2b, type: 3}
+  diet: 1
