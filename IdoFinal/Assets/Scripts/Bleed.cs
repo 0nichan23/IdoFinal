@@ -29,6 +29,7 @@ public class Bleed : StatusEffect
             yield return new WaitForSeconds(1);
             counter += 1;
         }
+        host.Effectable.RemoveStatus(this);
     }
 
 }

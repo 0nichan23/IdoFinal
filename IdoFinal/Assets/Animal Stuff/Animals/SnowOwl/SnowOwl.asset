@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c45ec9e403434347b4fce6492f33a49, type: 3}
   m_Name: SnowOwl
   m_EditorClassIdentifier: 
-  animalClass: 0
-  habitat: 0
-  statSheet: {fileID: 0}
-  attack: {fileID: 0}
-  passive: {fileID: 0}
-  animalModel: {fileID: 0}
+  animalClass: 1
+  habitat: 7
+  statSheet: {fileID: 11400000, guid: f9b1d95755ed39c48bb8e230432fb6f5, type: 2}
+  attack: {fileID: 11400000, guid: 6deac70a07369f145848eb641afdc856, type: 2}
+  passive: {fileID: 11400000, guid: a3392168d81855e40ac89b4c2144aaa4, type: 2}
+  animalModel: {fileID: 7476178818532739715, guid: 634621baf25bee446aa4118c5f65e196, type: 3}
