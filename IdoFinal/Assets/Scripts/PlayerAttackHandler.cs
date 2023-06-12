@@ -9,11 +9,13 @@ public class PlayerAttackHandler : MonoBehaviour
     private float lastAttacked;
     private DamageDealer dealer;
     private AttackTarget targeter = new AttackTarget();
+    private AttackCounter attackCounter = new AttackCounter();
 
     private float attackSpeedMod;
     private float baseAttackSpeedMod;
 
     public AnimalAttack CurrentAttack { get => currentAttack; }
+    public AttackCounter AttackCounter { get => attackCounter;}
 
     public void SetStats(Animal givenActiveAnimal)
     {
@@ -47,6 +49,7 @@ public class PlayerAttackHandler : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.InputManager.OnAttack.AddListener(Attack);
+        OnAttackPreformed.AddListener(attackCounter.CountAttacks);
     }
 
 

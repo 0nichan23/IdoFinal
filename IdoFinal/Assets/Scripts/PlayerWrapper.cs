@@ -10,6 +10,7 @@ public class PlayerWrapper : Character
     [SerializeField] private PlayerHud playerHud;
 
     public override LookDirections LookingTowards { get => playerMovement.LookingTowards; }
+    public override AttackCounter Counter => attackHandler.AttackCounter;
     public PlayerMovement PlayerMovement { get => playerMovement; }
     public AnimationHandler PlayerAnimationHandler { get => playerAnimationHandler; }
     public Transform Gfx { get => gfx; }

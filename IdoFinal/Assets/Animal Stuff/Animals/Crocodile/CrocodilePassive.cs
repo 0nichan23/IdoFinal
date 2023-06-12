@@ -18,7 +18,7 @@ public class CrocodilePassive : AnimalPassive
         givenCaharacter.DamageDealer.OnDealCritDamage.RemoveListener(CritDamageOnAquaticCreatures);
     }
 
-    private void CritDamageOnAquaticCreatures(AnimalAttack attack, Damageable target)
+    private void CritDamageOnAquaticCreatures(AnimalAttack attack, Damageable target, DamageDealer dealer)
     {
         if (target.RefAnimal.Habitat == Habitat.FreshWater || target.RefAnimal.Habitat == Habitat.SaltWater)
         {

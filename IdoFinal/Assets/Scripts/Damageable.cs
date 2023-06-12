@@ -88,10 +88,6 @@ public class Damageable : MonoBehaviour
             Debug.Log("Miss");
             return;
         }
-        if (!ReferenceEquals(effectable, null))
-        {
-            effectable.UpdateStatuses(attack, dealer);
-        }
         OnGetHit?.Invoke(attack, this, dealer);
         dealer.OnHit?.Invoke(this, attack, dealer);
         if (CheckForCritHit(dealer.CritChance))
@@ -111,7 +107,7 @@ public class Damageable : MonoBehaviour
         if (critHit)
         {
             OnTakeCriticalDamage?.Invoke(attack);
-            dealer.OnDealCritDamage?.Invoke(attack, this);
+            dealer.OnDealCritDamage?.Invoke(attack, this, dealer);
         }
         OnTakeDamageFinal?.Invoke(attack);
         dealer.OnDealDamageFinal?.Invoke(attack);

@@ -13,6 +13,8 @@ public class Enemy : Character
 
     public override LookDirections LookingTowards => movement.LookingTowards;
 
+    public override AttackCounter Counter => attackHandler.AttackCounter;
+
     public Transform Gfx { get => gfx; }
     public EnemyMovement Movement { get => movement; }
     public int DetectionRange { get => detectionRange; }

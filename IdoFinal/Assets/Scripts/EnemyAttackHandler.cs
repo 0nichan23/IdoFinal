@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyAttackHandler : MonoBehaviour
 {
@@ -10,10 +11,19 @@ public class EnemyAttackHandler : MonoBehaviour
     private float baseAttackSpeedMod;
     private float lastAttacked;
     private AttackTarget targeter = new AttackTarget();
+    private AttackCounter attackCounter = new AttackCounter();
+
+    public UnityEvent OnAttackPerformed;
+    public AttackCounter AttackCounter { get => attackCounter;}
+
     public void SetUp(Enemy givenEnemy)
     {
         refEnemy = givenEnemy;
         baseAttackSpeedMod = GetAttackSpeedModBase(refEnemy.RefAnimal.StatSheet.Speed);
+    }
+    private void Start()
+    {
+        OnAttackPerformed.AddListener(attackCounter.CountAttacks);
     }
     private float GetAttackSpeedModBase(int baseSpeed)
     {
@@ -42,6 +52,7 @@ public class EnemyAttackHandler : MonoBehaviour
         {
             refEnemy.Anim.AttackAnim();
             targeter.AttackTiles(refEnemy, refEnemy.Movement.CurrentTile.GetPos, refEnemy.RefAnimal.Attack, refEnemy.DamageDealer);
+            OnAttackPerformed?.Invoke();
             lastAttacked = Time.time;
         }
     }

@@ -17,7 +17,7 @@ public class Effectable : MonoBehaviour
     {
         owner = givenCharacter;
     }
-    public void AddStatus(StatusEffect givenEffect)
+    public void AddStatus(StatusEffect givenEffect, DamageDealer dealer = null)
     {
         foreach (var item in activeEffects)
         {
@@ -31,6 +31,7 @@ public class Effectable : MonoBehaviour
         givenEffect.CacheHost(owner);
         givenEffect.Activate();
         OnObtainEffect?.Invoke(givenEffect);
+        dealer.OnApplyStatus?.Invoke(givenEffect);
     }
     public void RemoveStatus(StatusEffect givenEffect)
     {
@@ -45,69 +46,7 @@ public class Effectable : MonoBehaviour
         }
     }
 
-    public void UpdateStatuses(AnimalAttack givenAttack, DamageDealer dealer)
-    {
-        foreach (var item in givenAttack.StatusEffects)
-        {
-            if (Random.Range(0, 100) >= item.Chance)
-            {
-                AddStatus(GetEffectFromEnum(item.Effect));
-                dealer.OnApplyStatus?.Invoke(GetEffectFromEnum(item.Effect));
-            }
-        }
-    }
-
-
-    public StatusEffect GetEffectFromEnum(StatusEffectEnum givenStatus)
-    {
-        switch (givenStatus)
-        {
-            case StatusEffectEnum.Bleed:
-                break;
-            case StatusEffectEnum.Poison:
-                break;
-            case StatusEffectEnum.Blind:
-                break;
-            case StatusEffectEnum.Strangled:
-                break;
-            case StatusEffectEnum.Stunned:
-                break;
-            case StatusEffectEnum.DodgeBuff:
-                break;
-            case StatusEffectEnum.AttackSpeedBuff:
-                break;
-            case StatusEffectEnum.AttackDamageBuff:
-                break;
-            case StatusEffectEnum.CritHitBuff:
-                break;
-            case StatusEffectEnum.CritDmgBuff:
-                break;
-            case StatusEffectEnum.SpeedBuff:
-                break;
-            case StatusEffectEnum.DefenseBuff:
-                break;
-            default:
-                break;
-        }
-        return new DodgeChanceBuff(0, 0);
-    }
-
 }
 
-public enum StatusEffectEnum
-{
-    Bleed,
-    Poison,
-    Blind,
-    Strangled,
-    Stunned,
-    DodgeBuff,
-    AttackSpeedBuff,
-    AttackDamageBuff,
-    CritHitBuff,
-    CritDmgBuff,
-    SpeedBuff,
-    DefenseBuff
-}
 
 

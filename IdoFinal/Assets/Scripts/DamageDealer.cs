@@ -7,7 +7,7 @@ public class DamageDealer : MonoBehaviour
 
     public UnityEvent<AnimalAttack> OnDealDamage;
 
-    public UnityEvent<AnimalAttack, Damageable> OnDealCritDamage;
+    public UnityEvent<AnimalAttack, Damageable, DamageDealer> OnDealCritDamage;
 
     public UnityEvent<AnimalAttack> OnDealDamageFinal;
 
@@ -119,7 +119,7 @@ public class DamageDealer : MonoBehaviour
     {
         givenAttack.Damage.AddMod(PowerDamageMod);
     }
-    private void CriticalDamageBoost(AnimalAttack givenAttack, Damageable target)
+    private void CriticalDamageBoost(AnimalAttack givenAttack, Damageable target, DamageDealer dealer)
     {
         givenAttack.Damage.AddMod(CritDamage);
     }
