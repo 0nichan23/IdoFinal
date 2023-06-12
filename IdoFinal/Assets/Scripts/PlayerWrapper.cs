@@ -27,6 +27,7 @@ public class PlayerWrapper : Character
         attackHandler.CacheDealer(DamageDealer);
         Damageable.CacheEffectable(Effectable);
         Effectable.CahceOwner(this);
+        DamageDealer.OnDealDamageFinal.AddListener(DamagePopupTest);
     }
 
     private void SetAnimalStatsOnComps()
@@ -63,6 +64,10 @@ public class PlayerWrapper : Character
         attackHandler.AddAttackSpeed(amount);
     }
 
+    private void DamagePopupTest(AnimalAttack attack)
+    {
+        GameManager.Instance.PopupSpawner.SpawnDamagePopup(transform.position, attack.Damage.CalcFinalDamageMult());
+    }
   
 
 
