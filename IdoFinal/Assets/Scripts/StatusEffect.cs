@@ -5,7 +5,10 @@ using UnityEngine;
 public abstract class StatusEffect
 {
     protected Character host;
-    
+    protected EffectOrientation effectOri;
+
+    public EffectOrientation EffectOri { get => effectOri; }
+
     public void CacheHost(Character givenCharacter)
     {
         host = givenCharacter;
@@ -36,6 +39,12 @@ public abstract class StatusEffect
     }
 
 
+}
+
+public enum EffectOrientation
+{
+    POS,
+    NEG
 }
    
 

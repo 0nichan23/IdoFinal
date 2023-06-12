@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c45ec9e403434347b4fce6492f33a49, type: 3}
+  m_Name: Penguin
+  m_EditorClassIdentifier: 
+  animalClass: 1
+  habitat: 7
+  statSheet: {fileID: 11400000, guid: 4675a9def13835146845f24d8f32faca, type: 2}
+  attack: {fileID: 11400000, guid: ebccef44eb53a8f479b90f9ae0929156, type: 2}
+  passive: {fileID: 11400000, guid: 800b5583244206c44a22dcd350f9cc47, type: 2}
+  animalModel: {fileID: 6309944962466278699, guid: add5ab1cca4ee994d9f396d44d51bc66, type: 3}

@@ -14,7 +14,7 @@ public class Enemy : Character
     public override LookDirections LookingTowards => movement.LookingTowards;
 
     public override AttackCounter Counter => attackHandler.AttackCounter;
-
+    public override float AttackSpeed => attackHandler.AttackSpeed;
     public Transform Gfx { get => gfx; }
     public EnemyMovement Movement { get => movement; }
     public int DetectionRange { get => detectionRange; }
@@ -35,6 +35,11 @@ public class Enemy : Character
     {
         GameObject model = Instantiate(refAnimal.AnimalModel, gfx);
         anim.AddAnims(model.transform);
+    }
+
+    public override void AddAttackSpeed(float amount)
+    {
+        attackHandler.AddAttackSpeed(amount);
     }
 
 }

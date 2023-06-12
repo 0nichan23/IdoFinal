@@ -15,6 +15,7 @@ public class EnemyAttackHandler : MonoBehaviour
 
     public UnityEvent OnAttackPerformed;
     public AttackCounter AttackCounter { get => attackCounter;}
+    public float AttackSpeed { get => baseAttackSpeedMod + attackSpeedMod; }
 
     public void SetUp(Enemy givenEnemy)
     {

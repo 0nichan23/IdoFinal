@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeAnimal:
-    Animal: {fileID: 11400000, guid: fe0b5d1fd2a12f84fa8a00b08fcd5588, type: 2}
+    Animal: {fileID: 11400000, guid: a8c9aedc5be393b44b3e8eaeec24fd7b, type: 2}
     Model: {fileID: 0}
   backLineAnimals:
   - Animal: {fileID: 11400000, guid: b8332aaf3cbacb84fa6a92acbf930bdb, type: 2}

@@ -11,10 +11,13 @@ public class PlayerWrapper : Character
 
     public override LookDirections LookingTowards { get => playerMovement.LookingTowards; }
     public override AttackCounter Counter => attackHandler.AttackCounter;
+    public override float AttackSpeed => attackHandler.AttackSpeed;
     public PlayerMovement PlayerMovement { get => playerMovement; }
     public AnimationHandler PlayerAnimationHandler { get => playerAnimationHandler; }
     public Transform Gfx { get => gfx; }
     public PlayerTeam Team { get => team; }
+    public PlayerAttackHandler AttackHandler { get => attackHandler;}
+
 
     private void Start()
     {
@@ -46,12 +49,26 @@ public class PlayerWrapper : Character
     {
         playerHud.hp.text = (Damageable.CurrentHp).ToString() + "/" + (Damageable.MaxHp).ToString() + " hp";
         playerHud.attackDamage.text = (attackHandler.CurrentAttack.Damage.BaseAmount * DamageDealer.PowerDamageMod).ToString("F0") + " damage";
-        playerHud.critChance.text = (DamageDealer.CritChance).ToString() + " crit chance";
-        playerHud.critDamage.text = (DamageDealer.CritDamage).ToString() + " crit damage";
-        playerHud.dodgeChance.text = (Damageable.DodgeChance).ToString() + " dodge chance";
+        playerHud.critChance.text = (DamageDealer.CritChance).ToString("F1") + " crit chance";
+        playerHud.critDamage.text = (DamageDealer.CritDamage).ToString("F1") + " crit damage";
+        playerHud.dodgeChance.text = (Damageable.DodgeChance).ToString("F1") + " dodge chance";
         playerHud.damageReduction.text = (1 - Damageable.DamageReduction).ToString("F1") + " damage reduction";
-        playerHud.hitChance.text = (DamageDealer.HitChance).ToString() + " hit chance";
-        playerHud.armorPen.text = (DamageDealer.ArmorPenetration).ToString() + " armor pen";
-        playerHud.attackCoolDown.text = (attackHandler.GetAttackCoolDown()).ToString() + " attack CoolDown";
+        playerHud.hitChance.text = (DamageDealer.HitChance).ToString("F1") + " hit chance";
+        playerHud.armorPen.text = (DamageDealer.ArmorPenetration).ToString("F1") + " armor pen";
+        playerHud.attackCoolDown.text = (attackHandler.GetAttackCoolDown()).ToString("F1") + " attack CoolDown";
+    }
+
+    public override void AddAttackSpeed(float amount)
+    {
+        attackHandler.AddAttackSpeed(amount);
+    }
+
+  
+
+
+    [ContextMenu("test cleanse")]
+    public void BleedPlayer()
+    {
+        Effectable.AddStatus(new Bleed(5), DamageDealer);
     }
 }

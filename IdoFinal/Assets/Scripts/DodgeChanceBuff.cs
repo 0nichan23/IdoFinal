@@ -11,6 +11,7 @@ public class DodgeChanceBuff : StatusEffect
     {
         duration = givenDuration;
         amount = givenAmount;
+        effectOri = EffectOrientation.POS;
     }
     protected override void Subscribe()
     {
@@ -19,6 +20,11 @@ public class DodgeChanceBuff : StatusEffect
     public override void Reset()
     {
         counter = 0f;
+    }
+    public override void Remove()
+    {
+        base.Remove();
+        counter = duration;
     }
 
     private IEnumerator ApplyDodgeBuff()

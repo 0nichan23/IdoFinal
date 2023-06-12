@@ -6,9 +6,11 @@ public class Bleed : StatusEffect
 {
     private float counter;
     private float duration;
+    private float amount = 1f;
     public Bleed(float duration)
     {
         this.duration = duration;
+        effectOri = EffectOrientation.NEG;
     }
     protected override void Subscribe()
     {
@@ -19,14 +21,19 @@ public class Bleed : StatusEffect
     {
         counter = 0f;
     }
-
+    public override void Remove()
+    {
+        base.Remove();
+        counter = duration;
+        amount = 0f;
+    }
     private IEnumerator BleedDamage()
     {
         counter = 0f;
         while (counter < duration)
         {
-            host.Damageable.TakeTrueDamage(1f);
             yield return new WaitForSeconds(1);
+            host.Damageable.TakeTrueDamage(amount);
             counter += 1;
         }
         host.Effectable.RemoveStatus(this);

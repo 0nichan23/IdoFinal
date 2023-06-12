@@ -5,9 +5,9 @@ using UnityEngine.Events;
 
 public class Effectable : MonoBehaviour
 {
-    public UnityEvent<StatusEffect> OnObtainEffect;
+    public UnityEvent<StatusEffect, Effectable> OnObtainEffect;
 
-    public UnityEvent<StatusEffect> OnRemoveEffect;
+    public UnityEvent<StatusEffect, Effectable> OnRemoveEffect;
 
     private List<StatusEffect> activeEffects = new List<StatusEffect>();
 
@@ -17,7 +17,7 @@ public class Effectable : MonoBehaviour
     {
         owner = givenCharacter;
     }
-    public void AddStatus(StatusEffect givenEffect, DamageDealer dealer = null)
+    public void AddStatus(StatusEffect givenEffect, DamageDealer dealer)
     {
         foreach (var item in activeEffects)
         {
@@ -30,8 +30,8 @@ public class Effectable : MonoBehaviour
         activeEffects.Add(givenEffect);
         givenEffect.CacheHost(owner);
         givenEffect.Activate();
-        OnObtainEffect?.Invoke(givenEffect);
-        dealer.OnApplyStatus?.Invoke(givenEffect);
+        OnObtainEffect?.Invoke(givenEffect, this);
+        dealer.OnApplyStatus?.Invoke(givenEffect, this, dealer);
     }
     public void RemoveStatus(StatusEffect givenEffect)
     {
@@ -41,6 +41,7 @@ public class Effectable : MonoBehaviour
             {
                 item.Remove();
                 activeEffects.Remove(item);
+                OnRemoveEffect?.Invoke(givenEffect, this);
                 return;
             }
         }

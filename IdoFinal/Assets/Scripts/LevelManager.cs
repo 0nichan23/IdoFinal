@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour
         currentLevel = levels.Dequeue();
         currentLevel.gameObject.SetActive(true);
         currentLevel.SetPlayerStartTile();
-        currentLevel.PlacePlayerAtStart();
+        StartCoroutine(currentLevel.PlacePlayerAtStart());
         currentLevel.PlaceEnemies();
     }
 
@@ -52,7 +52,7 @@ public class LevelManager : MonoBehaviour
         currentLevel = levels.Dequeue();
         currentLevel.gameObject.SetActive(true);
         currentLevel.SetPlayerStartTile();
-        currentLevel.PlacePlayerAtStart();
+        StartCoroutine(currentLevel.PlacePlayerAtStart());
         currentLevel.PlaceEnemies();
         OnMoveToNextLevel?.Invoke(CurrentLevel);
     }

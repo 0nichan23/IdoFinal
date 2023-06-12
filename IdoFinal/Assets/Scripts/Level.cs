@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
@@ -119,12 +120,13 @@ public class Level : MonoBehaviour
             {
                 return tile;
             }
-            tile = traversableGround[Random.Range(0, traversableGround.Count)];
+            tile = traversableGround[UnityEngine.Random.Range(0, traversableGround.Count)];
         }
     }
-    public void PlacePlayerAtStart()
+    public IEnumerator PlacePlayerAtStart()
     {
         GameManager.Instance.PlayerWrapper.PlayerMovement.SetCurrentTile(startTile);
+        yield return new WaitForEndOfFrame();
         GameManager.Instance.PlayerWrapper.OnEnteredLevel?.Invoke(this, GameManager.Instance.PlayerWrapper);
     }
 
@@ -143,7 +145,7 @@ public class Level : MonoBehaviour
     private void SpawnEnemy()
     {
         Enemy newEnemy = Instantiate(GameManager.Instance.enemyPrefab, transform);
-        newEnemy.SetUpEnemy(EnemyCreator.GetEnemyAnimalFromValue(Random.Range(0f, 1f)));
+        newEnemy.SetUpEnemy(EnemyCreator.GetEnemyAnimalFromValue(UnityEngine.Random.Range(0f, 1f)));
         enemies.Add(newEnemy);
     }
 }

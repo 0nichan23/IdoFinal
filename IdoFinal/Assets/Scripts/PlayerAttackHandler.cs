@@ -14,6 +14,8 @@ public class PlayerAttackHandler : MonoBehaviour
     private float attackSpeedMod;
     private float baseAttackSpeedMod;
 
+    public float AttackSpeed { get => baseAttackSpeedMod + attackSpeedMod; }
+
     public AnimalAttack CurrentAttack { get => currentAttack; }
     public AttackCounter AttackCounter { get => attackCounter;}
 

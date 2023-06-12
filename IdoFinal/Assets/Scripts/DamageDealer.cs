@@ -11,7 +11,7 @@ public class DamageDealer : MonoBehaviour
 
     public UnityEvent<AnimalAttack> OnDealDamageFinal;
 
-    public UnityEvent<StatusEffect> OnApplyStatus;
+    public UnityEvent<StatusEffect, Effectable, DamageDealer> OnApplyStatus;
 
     public UnityEvent<Damageable> OnKill;
 
@@ -75,7 +75,7 @@ public class DamageDealer : MonoBehaviour
     private float GetBaseCritDamage(int instinct)
     {
         float baseDamage = 1;
-        for (int i = 0; i <= instinct; i++)
+        for (int i = 0; i < instinct; i++)
         {
             baseDamage += 0.1f;
         }
