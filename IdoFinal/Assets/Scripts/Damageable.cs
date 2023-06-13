@@ -127,7 +127,16 @@ public class Damageable : MonoBehaviour
     public void TakeTrueDamage(float fixedAmount)
     {
         currentHp -= fixedAmount;
-        Debug.Log("took " + fixedAmount + " true damage");
+        if (currentHp <= 0)
+        {
+            OnDeath?.Invoke();
+        }
+        ClampHp();
+    }
+
+    public void HealTrueDamage(float fixedAmount)
+    {
+        currentHp += fixedAmount;
         if (currentHp <= 0)
         {
             OnDeath?.Invoke();

@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LookDirections lookingTowards;
     public TileData CurrentTile { get => currentTile; }
     public LookDirections LookingTowards { get => lookingTowards; }
+    public bool CanMove { get => canMove; set => canMove = value; }
 
     private void Start()
     {

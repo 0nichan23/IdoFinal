@@ -71,10 +71,21 @@ public class PlayerWrapper : Character
         playerHud.EffectsBar.AddEffect(effect);
     }
 
+    public override void Stun()
+    {
+        playerMovement.CanMove = false;
+        attackHandler.CanAttack = false;
+    }
+    public override void EndStun()
+    {
+        playerMovement.CanMove = true;
+        attackHandler.CanAttack = true;
+    }
+
 
     [ContextMenu("test cleanse")]
     public void BleedPlayer()
     {
-        Effectable.AddStatus(new Bleed(5), DamageDealer);
+        Effectable.AddStatus(new Stun(5), DamageDealer);
     }
 }

@@ -1048,7 +1048,7 @@ MonoBehaviour:
   hitChanceBuff: {fileID: 21300000, guid: d73e2d95b2f517448a96a48ab6d977a1, type: 3}
   poison: {fileID: 21300000, guid: 48184135cd7dc3e4cbe5cfcda8362d28, type: 3}
   bleed: {fileID: 21300000, guid: b7e5e63ebefca554180bac9a3e9b37c3, type: 3}
-  stunned: {fileID: 21300000, guid: c99e9844549406048828be385ff2e351, type: 3}
+  stunned: {fileID: 21300000, guid: f8da86b3c0dc97d408b614a5a3f5df6b, type: 3}
   regeneration: {fileID: 21300000, guid: 8e3fa29209b69d0409b35c99e0b6ddb9, type: 3}
 --- !u!114 &1488265770
 MonoBehaviour:
@@ -1711,7 +1711,7 @@ PrefabInstance:
     - target: {fileID: 733277437919210404, guid: 43b07e6245311564abfd101a8c712882, type: 3}
       propertyPath: activeAnimal.Animal
       value: 
-      objectReference: {fileID: 11400000, guid: 9bc8f65b1793ac74e813263bc83ebc1f, type: 2}
+      objectReference: {fileID: 11400000, guid: 893ab35359ef9a246887b0c06278e9a6, type: 2}
     - target: {fileID: 733277437919210404, guid: 43b07e6245311564abfd101a8c712882, type: 3}
       propertyPath: backLineAnimals.Array.data[0].Animal
       value: 

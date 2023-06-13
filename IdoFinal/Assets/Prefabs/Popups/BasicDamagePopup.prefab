@@ -362,12 +362,12 @@ MonoBehaviour:
     fromNumber: 10
     toNumber: 100
   durationFadeIn: 0.2
-  enableOffsetFadeIn: 0
+  enableOffsetFadeIn: 1
   offsetFadeIn: {x: 0.5, y: 0}
-  enableScaleFadeIn: 0
+  enableScaleFadeIn: 1
   scaleFadeIn: {x: 2, y: 2}
-  enableCrossScaleFadeIn: 1
-  crossScaleFadeIn: {x: 3, y: 3}
+  enableCrossScaleFadeIn: 0
+  crossScaleFadeIn: {x: 1, y: 1.5}
   enableShakeFadeIn: 0
   shakeOffsetFadeIn: {x: 0, y: 1.5}
   shakeFrequencyFadeIn: 4
@@ -381,15 +381,15 @@ MonoBehaviour:
   enableShakeFadeOut: 1
   shakeOffsetFadeOut: {x: 0, y: 1.5}
   shakeFrequencyFadeOut: 2
-  enableLerp: 0
+  enableLerp: 1
   lerpSettings:
     speed: 5
-    minX: -0.7
-    maxX: 0.7
-    minY: 1
-    maxY: 2
+    minX: -0.4
+    maxX: 0.4
+    minY: 0.5
+    maxY: 1
     randomFlip: 0
-  enableVelocity: 1
+  enableVelocity: 0
   velocitySettings:
     minX: -1
     maxX: 1
@@ -629,7 +629,7 @@ MonoBehaviour:
   enablePush: 0
   pushSettings:
     radius: 3
-    pushOffset: 0.8
+    pushOffset: 1
   updateDelay: 0.0125
   enablePooling: 0
   poolSize: 50

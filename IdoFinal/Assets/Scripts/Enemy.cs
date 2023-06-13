@@ -8,6 +8,8 @@ public class Enemy : Character
     [SerializeField] private EnemyMovement movement;
     [SerializeField] private int detectionRange;
     [SerializeField] private AnimationHandler anim;
+    [SerializeField] private BaseStateHandler stateHandler;
+
     public Animal RefAnimal { get => refAnimal; }
     public EnemyAttackHandler AttackHandler { get => attackHandler; }
 
@@ -19,6 +21,7 @@ public class Enemy : Character
     public EnemyMovement Movement { get => movement; }
     public int DetectionRange { get => detectionRange; }
     public AnimationHandler Anim { get => anim; }
+    public BaseStateHandler StateHandler { get => stateHandler; }
 
     public void SetUpEnemy(Animal givenAnimal)
     {
@@ -44,4 +47,12 @@ public class Enemy : Character
         attackHandler.AddAttackSpeed(amount);
     }
 
+    public override void Stun()
+    {
+        stateHandler.Stunned = true;
+    }
+    public override void EndStun()
+    {
+        stateHandler.Stunned = false;
+    }
 }

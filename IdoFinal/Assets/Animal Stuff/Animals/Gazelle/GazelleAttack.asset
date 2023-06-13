@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 664408a9716405944aaa1e9609d62321, type: 3}
-  m_Name: EnemyCreator
+  m_Script: {fileID: 11500000, guid: d3b49c892f672a145a38ee2b2b166add, type: 3}
+  m_Name: GazelleAttack
   m_EditorClassIdentifier: 
-  spawnData:
-  - MaxChacne: 1
-    AnimalToSpawn: {fileID: 11400000, guid: 893ab35359ef9a246887b0c06278e9a6, type: 2}
+  damage:
+    baseAmount: 3
+  hitbox:
+  - {x: 1, y: 0, z: 0}
+  coolDown: 2

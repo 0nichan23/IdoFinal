@@ -28,4 +28,13 @@ public class Character : MonoBehaviour
     {
         GameManager.Instance.PopupSpawner.SpawnDamagePopup(target.transform.position, attack.Damage.CalcFinalDamageMult());
     }
+
+    public virtual void Stun()
+    {
+
+    }
+    public virtual void EndStun()
+    {
+
+    }
 }

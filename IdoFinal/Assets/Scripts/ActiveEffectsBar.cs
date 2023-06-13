@@ -72,6 +72,14 @@ public class ActiveEffectsBar : MonoBehaviour
         {
             return bleed;
         }
+        else if (effect is Regeneration)
+        {
+            return regeneration;
+        }
+        else if (effect is Stun)
+        {
+            return stunned;
+        }
         return null;
     }
 

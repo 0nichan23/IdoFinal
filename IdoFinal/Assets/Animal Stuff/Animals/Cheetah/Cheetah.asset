@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c45ec9e403434347b4fce6492f33a49, type: 3}
+  m_Name: Cheetah
+  m_EditorClassIdentifier: 
+  animalClass: 0
+  habitat: 5
+  statSheet: {fileID: 11400000, guid: 106b29ae5ec9fff47964eb35158ca4cd, type: 2}
+  attack: {fileID: 11400000, guid: 3b1146e4714079d40adacadfa5443f0c, type: 2}
+  passive: {fileID: 11400000, guid: efb3669e55e35ae47ade8b93e181bce8, type: 2}
+  animalModel: {fileID: 7301065166965055437, guid: e57f0172d2a349d4894cfebf5c716d90, type: 3}
+  diet: 0

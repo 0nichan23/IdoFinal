@@ -8,11 +8,14 @@ public class BaseStateHandler : MonoBehaviour
     [SerializeField] private List<CoroutineState> states = new List<CoroutineState>();
     [SerializeField] private Enemy refEnemy;
     private CoroutineState activeState;
+    private bool stunned;
 
     public Enemy RefEnemy { get => refEnemy; }
+    public bool Stunned { get => stunned; set => stunned = value; }
 
     private void Start()
     {
+        stunned = false;
         SortStates();
         SubscribeHandler();
         StartCoroutine(RunStateMachine());
@@ -21,9 +24,10 @@ public class BaseStateHandler : MonoBehaviour
 
     private IEnumerator RunStateMachine()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
         while (gameObject.activeInHierarchy)
         {
+            yield return new WaitUntil(() => !stunned);
             if (!ReferenceEquals(activeState, null))
             {
                 StopCoroutine(activeState.RunState());

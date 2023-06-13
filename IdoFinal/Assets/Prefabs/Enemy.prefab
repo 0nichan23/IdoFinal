@@ -89,12 +89,19 @@ MonoBehaviour:
   damageable: {fileID: 7477012478839064911}
   damageDealer: {fileID: 7477012478839064908}
   effectable: {fileID: 7477012478839064910}
+  OnEnteredLevel:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitLevel:
+    m_PersistentCalls:
+      m_Calls: []
   refAnimal: {fileID: 0}
   attackHandler: {fileID: 586724961199811942}
   gfx: {fileID: 7477012478708441849}
   movement: {fileID: 457804999088089789}
   detectionRange: 8
   anim: {fileID: 4456592564308203964}
+  stateHandler: {fileID: 661058106940519120}
 --- !u!114 &7477012478839064908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b654c4c7677414496fd647e2899d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnAttackPerformed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &661058106940519120
 MonoBehaviour:
   m_ObjectHideFlags: 0
