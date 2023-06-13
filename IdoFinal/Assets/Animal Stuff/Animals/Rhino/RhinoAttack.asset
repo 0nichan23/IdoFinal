@@ -13,13 +13,7 @@ MonoBehaviour:
   m_Name: RhinoAttack
   m_EditorClassIdentifier: 
   damage:
-    baseAmount: 5
-  statusEffects: []
+    baseAmount: 6
   hitbox:
   - {x: 1, y: 0, z: 0}
-  - {x: 2, y: 0, z: 0}
-  - {x: 2, y: 0, z: 1}
-  - {x: 2, y: 0, z: -1}
-  - {x: 1, y: 0, z: -1}
-  - {x: 1, y: 0, z: 1}
-  coolDown: 1.5
+  coolDown: 4

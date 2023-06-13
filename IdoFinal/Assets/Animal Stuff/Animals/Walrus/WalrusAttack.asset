@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WalrusAttack
   m_EditorClassIdentifier: 
   damage:
-    baseAmount: 12
+    baseAmount: 6
   hitbox:
   - {x: 1, y: 0, z: 0}
-  coolDown: 1.5
+  coolDown: 4

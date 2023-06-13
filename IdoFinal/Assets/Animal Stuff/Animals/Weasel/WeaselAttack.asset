@@ -16,4 +16,4 @@ MonoBehaviour:
     baseAmount: 2
   hitbox:
   - {x: 1, y: 0, z: 0}
-  coolDown: 0.4
+  coolDown: 1

@@ -24,18 +24,17 @@ public class DamageHandler
         float amount = baseAmount;
         foreach (var item in mods)
         {
-            amount *= item;
+            if (item >= 1)
+            {
+                amount += (item * BaseAmount) - BaseAmount;//add damage
+            }
+            else
+            {
+                amount -= BaseAmount - (item * BaseAmount);//reduce damage
+            }
         }
         return amount;
     }
 
-    public float CalcFinalDamageAdd()
-    {
-        float amount = baseAmount;
-        foreach (var item in mods)
-        {
-            amount += item;
-        }
-        return amount;
-    }
+
 }

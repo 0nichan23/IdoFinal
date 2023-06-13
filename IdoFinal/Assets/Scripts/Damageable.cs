@@ -117,7 +117,7 @@ public class Damageable : MonoBehaviour
         if (currentHp <= 0)
         {
             OnDeath?.Invoke();
-            dealer.OnKill?.Invoke(this);
+            dealer.OnKill?.Invoke(this, dealer);
         }
         attack.Damage.ClearMods();
         ClampHp();

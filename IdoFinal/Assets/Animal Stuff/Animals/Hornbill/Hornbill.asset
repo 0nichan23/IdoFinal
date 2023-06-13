@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c45ec9e403434347b4fce6492f33a49, type: 3}
+  m_Name: Hornbill
+  m_EditorClassIdentifier: 
+  animalClass: 1
+  habitat: 2
+  statSheet: {fileID: 11400000, guid: 3691f9a5136c0cf4c989ef1ccb8681c2, type: 2}
+  attack: {fileID: 11400000, guid: 3ae9b12a28f096a4989902915b784299, type: 2}
+  passive: {fileID: 11400000, guid: 6be155065f89c1b41acb2c9983d43780, type: 2}
+  animalModel: {fileID: 3451855274789771464, guid: 55dd14251c96e2d48934c529bd31dc23, type: 3}
+  diet: 1

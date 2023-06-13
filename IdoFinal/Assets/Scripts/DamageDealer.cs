@@ -13,7 +13,7 @@ public class DamageDealer : MonoBehaviour
 
     public UnityEvent<StatusEffect, Effectable, DamageDealer> OnApplyStatus;
 
-    public UnityEvent<Damageable> OnKill;
+    public UnityEvent<Damageable, DamageDealer> OnKill;
 
     private Animal refAnimal;
 
@@ -77,7 +77,7 @@ public class DamageDealer : MonoBehaviour
         float baseDamage = 1;
         for (int i = 0; i < instinct; i++)
         {
-            baseDamage += 0.1f;
+            baseDamage += 0.05f;
         }
         return baseDamage;
     }
@@ -86,14 +86,14 @@ public class DamageDealer : MonoBehaviour
         float baseDamage = 0f;
         for (int i = 0; i <= instinct; i++)
         {
-            baseDamage += 0.05f;
+            baseDamage += 0.03f;
         }
         return baseDamage;
     }
 
     private float GetBaseHitChanceMod(int instinct)
     {
-        float baseChance = 0.9f; //base chance to hit is always 90% 
+        float baseChance = 0.75f; //base chance to hit is always 75% 
         for (int i = 0; i <= instinct; i++)
         {
             baseChance += 0.05f;//will get up to 100% if instinct is 10
@@ -112,8 +112,6 @@ public class DamageDealer : MonoBehaviour
         pen += 1;
         return pen;
     }
-
-
 
     private void PowerDamageBoost(AnimalAttack givenAttack)
     {

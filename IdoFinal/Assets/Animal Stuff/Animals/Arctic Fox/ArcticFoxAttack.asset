@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: ArcticFoxAttack
   m_EditorClassIdentifier: 
   damage:
-    baseAmount: 3
-  statusEffects: []
+    baseAmount: 4
   hitbox:
   - {x: 1, y: 0, z: 0}
-  coolDown: 0.5
+  coolDown: 2

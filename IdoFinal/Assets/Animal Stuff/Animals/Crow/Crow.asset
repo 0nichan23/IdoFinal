@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c45ec9e403434347b4fce6492f33a49, type: 3}
+  m_Name: Crow
+  m_EditorClassIdentifier: 
+  animalClass: 1
+  habitat: 1
+  statSheet: {fileID: 11400000, guid: 5e127bce6b015f547b96e9ba4def7c06, type: 2}
+  attack: {fileID: 11400000, guid: ef2f0a9bf0aac774fb90f61bcdc1365c, type: 2}
+  passive: {fileID: 11400000, guid: 7c40c31fd4f8f7144bab26d996bb49dd, type: 2}
+  animalModel: {fileID: 8248778497725930904, guid: fa50db19d0dce9b44876d7669360071e, type: 3}
+  diet: 2

@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage:
     baseAmount: 5
-  statusEffects: []
   hitbox:
   - {x: 1, y: 0, z: 0}
-  - {x: 2, y: 0, z: 0}
-  coolDown: 0.9
+  coolDown: 2

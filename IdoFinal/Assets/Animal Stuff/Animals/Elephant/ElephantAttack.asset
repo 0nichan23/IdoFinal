@@ -13,10 +13,7 @@ MonoBehaviour:
   m_Name: ElephantAttack
   m_EditorClassIdentifier: 
   damage:
-    baseAmount: 8
-  statusEffects: []
+    baseAmount: 7
   hitbox:
   - {x: 1, y: 0, z: 0}
-  - {x: 2, y: 0, z: 0}
-  - {x: 3, y: 0, z: 0}
-  coolDown: 3
+  coolDown: 4
