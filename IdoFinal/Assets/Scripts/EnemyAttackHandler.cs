@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,8 +12,8 @@ public class EnemyAttackHandler : MonoBehaviour
     private AttackCounter attackCounter = new AttackCounter();
 
     public UnityEvent OnAttackPerformed;
-    public AttackCounter AttackCounter { get => attackCounter;}
-    public float AttackSpeed { get => baseAttackSpeedMod + attackSpeedMod; }
+    public AttackCounter AttackCounter { get => attackCounter; }
+    public float AttackSpeed { get => Mathf.Clamp(baseAttackSpeedMod + attackSpeedMod, 0f, 0.9f); }
 
     public void SetUp(Enemy givenEnemy)
     {
@@ -36,7 +34,7 @@ public class EnemyAttackHandler : MonoBehaviour
         }
         return speedMod;
     }
-            
+
     public void AddAttackSpeed(float givenMod)
     {
         attackSpeedMod += givenMod;
@@ -44,7 +42,7 @@ public class EnemyAttackHandler : MonoBehaviour
     public float GetAttackCoolDown()
     {
         float cd = refEnemy.RefAnimal.Attack.CoolDown;
-        cd -= cd * (baseAttackSpeedMod + attackSpeedMod);
+        cd -= cd * AttackSpeed;
         return cd;
     }
     public void Attack()//attack the side the enemy is looking at

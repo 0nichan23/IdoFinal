@@ -28,8 +28,8 @@ public class Damageable : MonoBehaviour
     public Animal RefAnimal { get => refAnimal; }
     public float MaxHp { get => maxHp; }
     public float CurrentHp { get => currentHp; }
-    public float DamageReduction { get => basedamageReduction + damageReduction; }
-    public float DodgeChance { get => basedodgeChance + dodgeChance; }
+    public float DamageReduction { get => Mathf.Clamp(basedamageReduction + damageReduction, 0.1f, 1f); }
+    public float DodgeChance { get => Mathf.Clamp(basedodgeChance + dodgeChance, 0f, 0.9f); }
     public Character RefCharacter { get => refCharacter;}
 
     public void SetStats(Animal givenAnimal, Character givenCharacter)
@@ -58,7 +58,7 @@ public class Damageable : MonoBehaviour
         float baseAmount = 0f;
         for (int i = 0; i < speed; i++)
         {
-            baseAmount += 0.05f;//a total of 50% chance to dodge if speed is at 10
+            baseAmount += 0.03f;//a total of 30% chance to dodge if speed is at 10
         }
         return baseAmount;
     }
@@ -69,7 +69,7 @@ public class Damageable : MonoBehaviour
     }
     public void AddDamageReduction(float amount)
     {
-        damageReduction += amount;
+        damageReduction -= amount;
     }
     private void DamageReductionBoost(AnimalAttack givenAttack)
     {

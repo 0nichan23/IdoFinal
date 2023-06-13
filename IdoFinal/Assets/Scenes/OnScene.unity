@@ -1711,7 +1711,7 @@ PrefabInstance:
     - target: {fileID: 733277437919210404, guid: 43b07e6245311564abfd101a8c712882, type: 3}
       propertyPath: activeAnimal.Animal
       value: 
-      objectReference: {fileID: 11400000, guid: 893ab35359ef9a246887b0c06278e9a6, type: 2}
+      objectReference: {fileID: 11400000, guid: 06c45dde471835d4b8843670bedac947, type: 2}
     - target: {fileID: 733277437919210404, guid: 43b07e6245311564abfd101a8c712882, type: 3}
       propertyPath: backLineAnimals.Array.data[0].Animal
       value: 

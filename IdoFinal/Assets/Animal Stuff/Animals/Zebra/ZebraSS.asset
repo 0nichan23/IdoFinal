@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 664408a9716405944aaa1e9609d62321, type: 3}
-  m_Name: ForestEnemyCreator
+  m_Script: {fileID: 11500000, guid: 7cb35bfd3404c594c83d2420d300119a, type: 3}
+  m_Name: ZebraSS
   m_EditorClassIdentifier: 
-  spawnData:
-  - MaxChacne: 1
-    AnimalToSpawn: {fileID: 11400000, guid: 893ab35359ef9a246887b0c06278e9a6, type: 2}
+  maxHp: 140
+  power: 6
+  toughness: 6
+  instinct: 4
+  speed: 8

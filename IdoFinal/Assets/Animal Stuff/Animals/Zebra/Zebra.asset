@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c45ec9e403434347b4fce6492f33a49, type: 3}
+  m_Name: Zebra
+  m_EditorClassIdentifier: 
+  animalClass: 0
+  habitat: 5
+  statSheet: {fileID: 11400000, guid: a585d6bb8059b824696de6e8d47dd64a, type: 2}
+  attack: {fileID: 11400000, guid: 63b9555f35e450f4babcd375ea8747e0, type: 2}
+  passive: {fileID: 11400000, guid: b1f37a3cadd0e0f43bc5fe0695b1ecf5, type: 2}
+  animalModel: {fileID: 2803559715083080753, guid: 1274a7c0f67515a4c8754026faddbbbc, type: 3}
+  diet: 1

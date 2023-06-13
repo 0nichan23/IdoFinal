@@ -15,7 +15,7 @@ public class PlayerAttackHandler : MonoBehaviour
     private float attackSpeedMod;
     private float baseAttackSpeedMod;
 
-    public float AttackSpeed { get => baseAttackSpeedMod + attackSpeedMod; }
+    public float AttackSpeed { get => Mathf.Clamp(baseAttackSpeedMod + attackSpeedMod, 0f, 0.9f); }
 
     public AnimalAttack CurrentAttack { get => currentAttack; }
     public AttackCounter AttackCounter { get => attackCounter;}
@@ -46,7 +46,7 @@ public class PlayerAttackHandler : MonoBehaviour
     public float GetAttackCoolDown()
     {
         float cd = currentAttack.CoolDown;
-        cd -= cd * (baseAttackSpeedMod + attackSpeedMod);
+        cd -= cd * AttackSpeed;
         return cd;
     }
 
