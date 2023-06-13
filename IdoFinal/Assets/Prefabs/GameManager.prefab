@@ -211,6 +211,8 @@ MonoBehaviour:
   biomeData:
   - HeightData: {fileID: 11400000, guid: 5aae15c6923f3e844b4aa1a31ea9f339, type: 2}
     BiomeType: 1
+  - HeightData: {fileID: 11400000, guid: f08ad45e0f6965d4bac25a8bbcc859bb, type: 2}
+    BiomeType: 0
   levelPrefab: {fileID: 5982319109278562232, guid: aa70fe11a2b298f49b233c10ccd88726, type: 3}
 --- !u!1 &7457097704239078807
 GameObject:

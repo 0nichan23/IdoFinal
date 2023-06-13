@@ -13,5 +13,17 @@ MonoBehaviour:
   m_Name: ForestEnemyCreator
   m_EditorClassIdentifier: 
   spawnData:
-  - MaxChacne: 1
+  - MaxChacne: 0.2
+    AnimalToSpawn: {fileID: 11400000, guid: 829fed895edf8c94296f4b449f53bf34, type: 2}
+  - MaxChacne: 0.4
+    AnimalToSpawn: {fileID: 11400000, guid: a8c9aedc5be393b44b3e8eaeec24fd7b, type: 2}
+  - MaxChacne: 0.6
+    AnimalToSpawn: {fileID: 11400000, guid: e26e841b26b887c4dbbdbe09de57c453, type: 2}
+  - MaxChacne: 0.7
+    AnimalToSpawn: {fileID: 11400000, guid: b8332aaf3cbacb84fa6a92acbf930bdb, type: 2}
+  - MaxChacne: 0.8
     AnimalToSpawn: {fileID: 11400000, guid: 9bc8f65b1793ac74e813263bc83ebc1f, type: 2}
+  - MaxChacne: 0.9
+    AnimalToSpawn: {fileID: 11400000, guid: a95c071037c8576419018a9a49ea3074, type: 2}
+  - MaxChacne: 1
+    AnimalToSpawn: {fileID: 11400000, guid: f5b339e792983a54cb19716cefef73b5, type: 2}

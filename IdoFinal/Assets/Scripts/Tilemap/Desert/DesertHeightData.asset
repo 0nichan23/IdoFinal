@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cada1bd48a7ab47b891675e278256e, type: 3}
+  m_Name: DesertHeightData
+  m_EditorClassIdentifier: 
+  heightData:
+  - RefTile: {fileID: 11400000, guid: d792fb21373476347b9088bfefcd650f, type: 2}
+    MaxHeight: 0.05
+  - RefTile: {fileID: 11400000, guid: bc06ec1d6bf21d34f9f72ed64235a7bf, type: 2}
+    MaxHeight: 0.08
+  - RefTile: {fileID: 11400000, guid: 092a914a20700314bb9ab56d6482f733, type: 2}
+    MaxHeight: 0.11
+  - RefTile: {fileID: 11400000, guid: 78b1d7494cd155747a8e00b19d93ea29, type: 2}
+    MaxHeight: 0.14
+  - RefTile: {fileID: 11400000, guid: d792fb21373476347b9088bfefcd650f, type: 2}
+    MaxHeight: 0.15
+  - RefTile: {fileID: 11400000, guid: bc06ec1d6bf21d34f9f72ed64235a7bf, type: 2}
+    MaxHeight: 0.18
+  - RefTile: {fileID: 11400000, guid: 092a914a20700314bb9ab56d6482f733, type: 2}
+    MaxHeight: 0.21
+  - RefTile: {fileID: 11400000, guid: 78b1d7494cd155747a8e00b19d93ea29, type: 2}
+    MaxHeight: 0.24
+  - RefTile: {fileID: 11400000, guid: 3ba8f1fbacf19284c8ab8076cd2e7ee8, type: 2}
+    MaxHeight: 0.25
+  - RefTile: {fileID: 11400000, guid: 1df374a2a059d98448d98359d4086b8a, type: 2}
+    MaxHeight: 0.26
+  - RefTile: {fileID: 11400000, guid: d0917ed64be3845489a97aa2dcf67899, type: 2}
+    MaxHeight: 0.27
+  - RefTile: {fileID: 11400000, guid: d792fb21373476347b9088bfefcd650f, type: 2}
+    MaxHeight: 0.3
+  - RefTile: {fileID: 11400000, guid: bc06ec1d6bf21d34f9f72ed64235a7bf, type: 2}
+    MaxHeight: 0.33
+  - RefTile: {fileID: 11400000, guid: 092a914a20700314bb9ab56d6482f733, type: 2}
+    MaxHeight: 0.36
+  - RefTile: {fileID: 11400000, guid: 78b1d7494cd155747a8e00b19d93ea29, type: 2}
+    MaxHeight: 0.39
+  - RefTile: {fileID: 11400000, guid: d792fb21373476347b9088bfefcd650f, type: 2}
+    MaxHeight: 0.42
+  - RefTile: {fileID: 11400000, guid: bc06ec1d6bf21d34f9f72ed64235a7bf, type: 2}
+    MaxHeight: 0.45
+  - RefTile: {fileID: 11400000, guid: 092a914a20700314bb9ab56d6482f733, type: 2}
+    MaxHeight: 0.48
+  - RefTile: {fileID: 11400000, guid: 78b1d7494cd155747a8e00b19d93ea29, type: 2}
+    MaxHeight: 0.51
+  - RefTile: {fileID: 11400000, guid: d792fb21373476347b9088bfefcd650f, type: 2}
+    MaxHeight: 0.8
+  - RefTile: {fileID: 11400000, guid: bc06ec1d6bf21d34f9f72ed64235a7bf, type: 2}
+    MaxHeight: 0.83
+  - RefTile: {fileID: 11400000, guid: 092a914a20700314bb9ab56d6482f733, type: 2}
+    MaxHeight: 0.86
+  - RefTile: {fileID: 11400000, guid: 78b1d7494cd155747a8e00b19d93ea29, type: 2}
+    MaxHeight: 0.89
+  - RefTile: {fileID: 11400000, guid: d792fb21373476347b9088bfefcd650f, type: 2}
+    MaxHeight: 0.97
+  - RefTile: {fileID: 11400000, guid: 3422164ee12e011478d540497c5edcc4, type: 2}
+    MaxHeight: 0.975
+  - RefTile: {fileID: 11400000, guid: 203212014add74440b873e573dfd0cfd, type: 2}
+    MaxHeight: 0.98
+  - RefTile: {fileID: 11400000, guid: 1b0bb05a56fdc4e4387759244d24d8cb, type: 2}
+    MaxHeight: 0.99
+  - RefTile: {fileID: 11400000, guid: 502c43eb64708204787d1976ea782df9, type: 2}
+    MaxHeight: 1
+  enemyCreator: {fileID: 11400000, guid: b27cb4ac61e436b4bbf188662e23ccab, type: 2}

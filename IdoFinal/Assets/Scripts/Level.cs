@@ -146,6 +146,7 @@ public class Level : MonoBehaviour
     {
         Enemy newEnemy = Instantiate(GameManager.Instance.enemyPrefab, transform);
         newEnemy.SetUpEnemy(EnemyCreator.GetEnemyAnimalFromValue(UnityEngine.Random.Range(0f, 1f)));
+        Debug.Log("spawned " + newEnemy.RefAnimal);
         enemies.Add(newEnemy);
     }
 }
