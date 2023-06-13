@@ -51,13 +51,13 @@ public class PlayerWrapper : Character
     {
         playerHud.hp.text = (Damageable.CurrentHp).ToString() + "/" + (Damageable.MaxHp).ToString() + " hp";
         playerHud.attackDamage.text = (attackHandler.CurrentAttack.Damage.BaseAmount * DamageDealer.PowerDamageMod).ToString("F0") + " damage";
-        playerHud.critChance.text = (DamageDealer.CritChance).ToString("F1") + " crit chance";
-        playerHud.critDamage.text = (DamageDealer.CritDamage).ToString("F1") + " crit damage";
-        playerHud.dodgeChance.text = (Damageable.DodgeChance).ToString("F1") + " dodge chance";
-        playerHud.damageReduction.text = (1 - Damageable.DamageReduction).ToString("F1") + " damage reduction";
-        playerHud.hitChance.text = (DamageDealer.HitChance).ToString("F1") + " hit chance";
-        playerHud.armorPen.text = (DamageDealer.ArmorPenetration).ToString("F1") + " armor pen";
-        playerHud.attackCoolDown.text = (attackHandler.GetAttackCoolDown()).ToString("F1") + " attack CoolDown";
+        playerHud.critChance.text = (DamageDealer.CritChance * 100).ToString("F0") + "% crit chance";
+        playerHud.critDamage.text = (DamageDealer.CritDamage * 100).ToString("F0") + "% crit damage";
+        playerHud.dodgeChance.text = (Damageable.DodgeChance * 100).ToString("F0") + "% dodge chance";
+        playerHud.damageReduction.text = ((1 - Damageable.DamageReduction) * 100).ToString("F0") + "% damage reduction";
+        playerHud.hitChance.text = (DamageDealer.HitChance * 100).ToString("F0") + " % hit chance";
+        playerHud.armorPen.text = (DamageDealer.ArmorPenetration *100).ToString("F0") + "% armor pen";
+        playerHud.attackCoolDown.text = (attackHandler.GetAttackCoolDown()).ToString("F1") + " seconds";
         playerHud.EffectsBar.UpdateCounters();
     }
 
