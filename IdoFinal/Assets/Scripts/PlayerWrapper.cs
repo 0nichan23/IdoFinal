@@ -27,7 +27,8 @@ public class PlayerWrapper : Character
         attackHandler.CacheDealer(DamageDealer);
         Damageable.CacheEffectable(Effectable);
         Effectable.CahceOwner(this);
-        DamageDealer.OnDealDamageFinal.AddListener(DamagePopupTest);
+        DamageDealer.OnDealDamageFinal.AddListener(SpawnDamagePopup);
+        Effectable.OnObtainEffect.AddListener(AddEffectIcon);
     }
 
     private void SetAnimalStatsOnComps()
@@ -57,6 +58,7 @@ public class PlayerWrapper : Character
         playerHud.hitChance.text = (DamageDealer.HitChance).ToString("F1") + " hit chance";
         playerHud.armorPen.text = (DamageDealer.ArmorPenetration).ToString("F1") + " armor pen";
         playerHud.attackCoolDown.text = (attackHandler.GetAttackCoolDown()).ToString("F1") + " attack CoolDown";
+        playerHud.EffectsBar.UpdateCounters();
     }
 
     public override void AddAttackSpeed(float amount)
@@ -64,11 +66,10 @@ public class PlayerWrapper : Character
         attackHandler.AddAttackSpeed(amount);
     }
 
-    private void DamagePopupTest(AnimalAttack attack)
+    private void AddEffectIcon(StatusEffect effect, Effectable host)
     {
-        GameManager.Instance.PopupSpawner.SpawnDamagePopup(transform.position, attack.Damage.CalcFinalDamageMult());
+        playerHud.EffectsBar.AddEffect(effect);
     }
-  
 
 
     [ContextMenu("test cleanse")]

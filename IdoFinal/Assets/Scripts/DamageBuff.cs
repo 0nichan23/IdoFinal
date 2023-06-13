@@ -3,9 +3,7 @@ using UnityEngine;
 
 public class DamageBuff : StatusEffect
 {
-    private float duration;
     private float amount;
-    private float counter;
 
     public DamageBuff(float duration, float amount)
     {

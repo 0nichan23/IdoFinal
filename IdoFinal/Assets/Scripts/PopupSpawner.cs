@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using DamageNumbersPro;
+using UnityEngine;
 
 public class PopupSpawner : MonoBehaviour
 {
@@ -12,6 +10,11 @@ public class PopupSpawner : MonoBehaviour
     public void SpawnDamagePopup(Vector3 position, float amount)
     {
         DamageNumber number = damagePopup.Spawn(position, amount);
+    }
+
+    public void SpawnDamagePopup(Vector3 position, float amount, Color givenColor)
+    {
+        DamageNumber number = damagePopup.Spawn(position, amount, givenColor);
     }
     public void SpawnCritDamagePopup(Vector3 position, float amount)
     {

@@ -9,7 +9,7 @@ public class DamageDealer : MonoBehaviour
 
     public UnityEvent<AnimalAttack, Damageable, DamageDealer> OnDealCritDamage;
 
-    public UnityEvent<AnimalAttack> OnDealDamageFinal;
+    public UnityEvent<AnimalAttack, Damageable, DamageDealer> OnDealDamageFinal;
 
     public UnityEvent<StatusEffect, Effectable, DamageDealer> OnApplyStatus;
 

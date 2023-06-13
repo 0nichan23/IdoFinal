@@ -110,7 +110,7 @@ public class Damageable : MonoBehaviour
             dealer.OnDealCritDamage?.Invoke(attack, this, dealer);
         }
         OnTakeDamageFinal?.Invoke(attack);
-        dealer.OnDealDamageFinal?.Invoke(attack);
+        dealer.OnDealDamageFinal?.Invoke(attack, this, dealer);
         Debug.Log(Mathf.RoundToInt(attack.Damage.CalcFinalDamageMult()));
         currentHp -= Mathf.RoundToInt(attack.Damage.CalcFinalDamageMult());
         OnTakeDamageGFX?.Invoke();

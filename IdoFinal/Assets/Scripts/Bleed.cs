@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Bleed : StatusEffect
 {
-    private float counter;
-    private float duration;
     private float amount = 1f;
     public Bleed(float duration)
     {

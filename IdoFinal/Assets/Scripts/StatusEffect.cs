@@ -6,8 +6,13 @@ public abstract class StatusEffect
 {
     protected Character host;
     protected EffectOrientation effectOri;
+    protected float counter;
+    protected float duration;
 
     public EffectOrientation EffectOri { get => effectOri; }
+    public Character Host { get => host; }
+    public float Counter { get => counter; }
+    public float Duration { get => duration; }
 
     public void CacheHost(Character givenCharacter)
     {

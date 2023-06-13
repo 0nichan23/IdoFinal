@@ -1,26 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 
 public class PlayerHud : MonoBehaviour
 {
     [Header("Stat Sheet")]
-    [SerializeField] public TextMeshProUGUI attackDamage;
-    [SerializeField] public TextMeshProUGUI critChance;
-    [SerializeField] public TextMeshProUGUI hp;
-    [SerializeField] public TextMeshProUGUI critDamage;
-    [SerializeField] public TextMeshProUGUI damageReduction;
-    [SerializeField] public TextMeshProUGUI attackCoolDown;
-    [SerializeField] public TextMeshProUGUI armorPen;
-    [SerializeField] public TextMeshProUGUI hitChance;
-    [SerializeField] public TextMeshProUGUI dodgeChance;
-    
+    [SerializeField] private GameObject sheet;
+    public TextMeshProUGUI attackDamage;
+    public TextMeshProUGUI critChance;
+    public TextMeshProUGUI hp;
+    public TextMeshProUGUI critDamage;
+    public TextMeshProUGUI damageReduction;
+    public TextMeshProUGUI attackCoolDown;
+    public TextMeshProUGUI armorPen;
+    public TextMeshProUGUI hitChance;
+    public TextMeshProUGUI dodgeChance;
+
+
+    [Header("Status Effects Bar")]
+    public ActiveEffectsBar EffectsBar;
 
     public void ToggleCharacterScreen()
     {
-        gameObject.SetActive(!gameObject.activeSelf);
+        sheet.SetActive(!sheet.activeSelf);
         GameManager.Instance.PlayerWrapper.UpdatePlayerHud();
     }
 

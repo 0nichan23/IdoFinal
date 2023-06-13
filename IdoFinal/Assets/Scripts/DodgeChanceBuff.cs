@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class DodgeChanceBuff : StatusEffect
 {
-    private float duration;
     private float amount;
-    private float counter;
     public DodgeChanceBuff(float givenDuration, float givenAmount)
     {
         duration = givenDuration;

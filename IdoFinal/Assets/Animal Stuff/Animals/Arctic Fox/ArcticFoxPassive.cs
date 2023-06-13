@@ -24,7 +24,6 @@ public class ArcticFoxPassive : AnimalPassive
         if (target.RefAnimal.Habitat == Habitat.Arctic)
         {
             dealer.RefCharacter.Effectable.AddStatus(new DodgeChanceBuff(duration, amount), dealer);
-            Debug.Log("added dodge chance for 5s");
         }
     }
 }

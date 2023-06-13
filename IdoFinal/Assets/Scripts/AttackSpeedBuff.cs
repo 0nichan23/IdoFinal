@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class AttackSpeedBuff : StatusEffect
 {
-    private float duration;
     private float amount;
-    private float counter;
     public AttackSpeedBuff(float givenDuration, float givenAmount)
     {
         duration = givenDuration;
