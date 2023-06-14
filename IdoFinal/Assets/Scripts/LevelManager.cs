@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     public Level CurrentLevel { get => currentLevel; }
     public Queue<Level> Levels { get => levels; }
 
-    private void Start()
+    public void StartGame()
     {
         CreateLevels();
         StartRun();

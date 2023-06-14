@@ -12,11 +12,6 @@ public class PlayerTeam : MonoBehaviour
     public AnimalModelData ActiveAnimal { get => activeAnimal; }
     public List<AnimalModelData> BackLineAnimals { get => backLineAnimals; }
 
-    private void Start()
-    {
-        CacheStartTeam();
-    }
-
     private void SubscirbeTeamPassives()
     {
         activeAnimal.Animal.Passive.SubscribePassive(GameManager.Instance.PlayerWrapper);
@@ -39,7 +34,7 @@ public class PlayerTeam : MonoBehaviour
         }
     }
 
-    private void CacheStartTeam()
+    public void CacheStartTeam()
     {
         SetNewTeam(startingTeam);
         GameManager.Instance.PlayerWrapper.SetAnimalStatsOnComps();

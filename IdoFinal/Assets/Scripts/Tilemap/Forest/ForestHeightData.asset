@@ -12,39 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4cada1bd48a7ab47b891675e278256e, type: 3}
   m_Name: ForestHeightData
   m_EditorClassIdentifier: 
-  heightData:
-  - RefTile: {fileID: 11400000, guid: d84ff2e79d58f654ebc4faf0ba95cd7d, type: 2}
-    MaxHeight: 0.18
-  - RefTile: {fileID: 11400000, guid: bc0e93fe09b0a2c46988aade34effdcb, type: 2}
-    MaxHeight: 0.32
-  - RefTile: {fileID: 11400000, guid: 92bed6ae74f7f424f9cd0f9c44d7cf1d, type: 2}
-    MaxHeight: 0.35
-  - RefTile: {fileID: 11400000, guid: 2e482a1cac41bc54f975f34dcf060186, type: 2}
-    MaxHeight: 0.355
-  - RefTile: {fileID: 11400000, guid: 87ea557ef9cc0cc438fab8b19b077b63, type: 2}
-    MaxHeight: 0.36
-  - RefTile: {fileID: 11400000, guid: e764055d1a319e847bc1b4f1c428d0bf, type: 2}
-    MaxHeight: 0.362
-  - RefTile: {fileID: 11400000, guid: bc0e93fe09b0a2c46988aade34effdcb, type: 2}
-    MaxHeight: 0.56
-  - RefTile: {fileID: 11400000, guid: 92bed6ae74f7f424f9cd0f9c44d7cf1d, type: 2}
-    MaxHeight: 0.6
-  - RefTile: {fileID: 11400000, guid: bc0e93fe09b0a2c46988aade34effdcb, type: 2}
-    MaxHeight: 0.62
-  - RefTile: {fileID: 11400000, guid: 87ea557ef9cc0cc438fab8b19b077b63, type: 2}
-    MaxHeight: 0.623
-  - RefTile: {fileID: 11400000, guid: 92bed6ae74f7f424f9cd0f9c44d7cf1d, type: 2}
-    MaxHeight: 0.64
-  - RefTile: {fileID: 11400000, guid: 2e482a1cac41bc54f975f34dcf060186, type: 2}
-    MaxHeight: 0.643
-  - RefTile: {fileID: 11400000, guid: bc0e93fe09b0a2c46988aade34effdcb, type: 2}
-    MaxHeight: 0.78
-  - RefTile: {fileID: 11400000, guid: fe43f4af75e26d447934e59a4b71949d, type: 2}
-    MaxHeight: 0.8
-  - RefTile: {fileID: 11400000, guid: bc0e93fe09b0a2c46988aade34effdcb, type: 2}
-    MaxHeight: 0.95
-  - RefTile: {fileID: 11400000, guid: 92bed6ae74f7f424f9cd0f9c44d7cf1d, type: 2}
-    MaxHeight: 0.99
-  - RefTile: {fileID: 11400000, guid: 3ee7d7604f2dd874a888a1ae35ff2a32, type: 2}
-    MaxHeight: 1
+  heightData: []
   enemyCreator: {fileID: 11400000, guid: aaec15c5e57e1a04dbd70bb3f6619f81, type: 2}

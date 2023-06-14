@@ -23,6 +23,13 @@ public class PlayerWrapper : Character
 
     private void Start()
     {
+        CreateExistingAnimalSlots();
+    }
+
+    public void StartGame()
+    {
+        EndStun();
+        SetAnimalStatsOnComps();
         team.OnSwitchActiveAnimal.AddListener(SetAnimalStatsOnComps);
         attackHandler.OnAttackPreformed.AddListener(playerAnimationHandler.AttackAnim);
         attackHandler.CacheDealer(DamageDealer);
@@ -30,7 +37,6 @@ public class PlayerWrapper : Character
         Effectable.CahceOwner(this);
         Effectable.OnObtainEffect.AddListener(AddEffectIcon);
         animalInventory.OnAnimalAdded.AddListener(playerHud.TeamPanel.InventoryPanel.AddSlot);
-        CreateExistingAnimalSlots();
     }
 
     public void SetAnimalStatsOnComps()
@@ -45,7 +51,7 @@ public class PlayerWrapper : Character
 
     private void FixedUpdate()
     {
-        UpdatePlayerHud();
+        playerHud.EffectsBar.UpdateCounters();
     }
 
     [ContextMenu("update character stat screen")]
@@ -60,7 +66,6 @@ public class PlayerWrapper : Character
         playerHud.hitChance.text = (DamageDealer.HitChance * 100).ToString("F0") + " % hit chance";
         playerHud.armorPen.text = (DamageDealer.ArmorPenetration * 5).ToString("F0") + "% armor pen";
         playerHud.attackCoolDown.text = (attackHandler.GetAttackCoolDown()).ToString("F1") + " seconds";
-        playerHud.EffectsBar.UpdateCounters();
     }
 
     public override void AddAttackSpeed(float amount)

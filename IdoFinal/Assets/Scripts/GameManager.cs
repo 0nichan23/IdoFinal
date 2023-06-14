@@ -19,6 +19,11 @@ public class GameManager : MonoSingleton<GameManager>
         Application.targetFrameRate = 300;
     }
 
+    public void StartGame()
+    {
+        LevelManager.StartGame();
+        playerWrapper.StartGame();
+    }
     public InputManager InputManager { get => inputManager; }
     public PlayerWrapper PlayerWrapper { get => playerWrapper; }
     public LevelManager LevelManager { get => levelManager; }

@@ -54,7 +54,6 @@ public class PlayerAttackHandler : MonoBehaviour
     {
         GameManager.Instance.InputManager.OnAttack.AddListener(Attack);
         OnAttackPreformed.AddListener(attackCounter.CountAttacks);
-        canAttack = true;
     }
 
 
