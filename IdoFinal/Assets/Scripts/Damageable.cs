@@ -24,7 +24,7 @@ public class Damageable : MonoBehaviour
     private float basedodgeChance;
     private float dodgeChance;
 
-
+    public bool EmitPopups;
     public Animal RefAnimal { get => refAnimal; }
     public float MaxHp { get => maxHp; }
     public float CurrentHp { get => currentHp; }
@@ -43,6 +43,7 @@ public class Damageable : MonoBehaviour
         basedodgeChance = GetBaseDodgeChance(RefAnimal.StatSheet.Speed);
         OnTakeDamage.AddListener(DamageReductionBoost);
     }
+
     private float GetBaseDamageReduction(int toughness)
     {
         float baseAmount = 0f;
@@ -111,7 +112,17 @@ public class Damageable : MonoBehaviour
         }
         OnTakeDamageFinal?.Invoke(attack);
         dealer.OnDealDamageFinal?.Invoke(attack, this, dealer);
-        Debug.Log(Mathf.RoundToInt(attack.Damage.CalcFinalDamageMult()));
+        if (EmitPopups)
+        {
+            if (critHit)
+            {
+                GameManager.Instance.PopupSpawner.SpawnCritDamagePopup(transform.position, attack.Damage.CalcFinalDamageMult());
+            }
+            else
+            {
+                GameManager.Instance.PopupSpawner.SpawnDamagePopup(transform.position, attack.Damage.CalcFinalDamageMult());
+            }
+        }
         currentHp -= Mathf.RoundToInt(attack.Damage.CalcFinalDamageMult());
         OnTakeDamageGFX?.Invoke();
         if (currentHp <= 0)

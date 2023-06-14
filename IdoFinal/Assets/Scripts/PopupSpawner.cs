@@ -9,7 +9,7 @@ public class PopupSpawner : MonoBehaviour
 
     public void SpawnDamagePopup(Vector3 position, float amount)
     {
-        DamageNumber number = damagePopup.Spawn(position, amount);
+        DamageNumber number = damagePopup.Spawn(position, amount, Color.white);
     }
 
     public void SpawnDamagePopup(Vector3 position, float amount, Color givenColor)
@@ -18,6 +18,6 @@ public class PopupSpawner : MonoBehaviour
     }
     public void SpawnCritDamagePopup(Vector3 position, float amount)
     {
-        DamageNumber number = criticalDamagePopup.Spawn(position, amount);
+        DamageNumber number = criticalDamagePopup.Spawn(position, amount, Color.red);
     }
 }

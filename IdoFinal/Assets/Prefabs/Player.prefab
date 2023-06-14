@@ -162,6 +162,7 @@ MonoBehaviour:
   OnHeal:
     m_PersistentCalls:
       m_Calls: []
+  EmitPopups: 1
 --- !u!114 &733277437919210402
 MonoBehaviour:
   m_ObjectHideFlags: 0

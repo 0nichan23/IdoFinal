@@ -878,5 +878,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8009625438188516486, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
+      propertyPath: criticalDamagePopup
+      value: 
+      objectReference: {fileID: 7385081533699502700, guid: 112da70c4c5dd33439bb99d4edaf9e31, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}

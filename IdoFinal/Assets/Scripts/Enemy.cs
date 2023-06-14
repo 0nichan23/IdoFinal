@@ -32,7 +32,6 @@ public class Enemy : Character
         attackHandler.SetUp(this);
         Effectable.CahceOwner(this);
         CreateModel();
-        DamageDealer.OnDealDamageFinal.AddListener(SpawnDamagePopup);
         refAnimal.Passive.SubscribePassive(this);
     }
 

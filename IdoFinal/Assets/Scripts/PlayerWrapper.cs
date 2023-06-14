@@ -28,7 +28,6 @@ public class PlayerWrapper : Character
         attackHandler.CacheDealer(DamageDealer);
         Damageable.CacheEffectable(Effectable);
         Effectable.CahceOwner(this);
-        DamageDealer.OnDealDamageFinal.AddListener(SpawnDamagePopup);
         Effectable.OnObtainEffect.AddListener(AddEffectIcon);
         animalInventory.OnAnimalAdded.AddListener(playerHud.TeamPanel.InventoryPanel.AddSlot);
         CreateExistingAnimalSlots();
@@ -59,7 +58,7 @@ public class PlayerWrapper : Character
         playerHud.dodgeChance.text = (Damageable.DodgeChance * 100).ToString("F0") + "% dodge chance";
         playerHud.damageReduction.text = ((1 - Damageable.DamageReduction) * 100).ToString("F0") + "% damage reduction";
         playerHud.hitChance.text = (DamageDealer.HitChance * 100).ToString("F0") + " % hit chance";
-        playerHud.armorPen.text = (DamageDealer.ArmorPenetration * 100).ToString("F0") + "% armor pen";
+        playerHud.armorPen.text = (DamageDealer.ArmorPenetration * 5).ToString("F0") + "% armor pen";
         playerHud.attackCoolDown.text = (attackHandler.GetAttackCoolDown()).ToString("F1") + " seconds";
         playerHud.EffectsBar.UpdateCounters();
     }

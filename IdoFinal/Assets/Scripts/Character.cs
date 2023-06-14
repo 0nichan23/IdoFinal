@@ -24,11 +24,6 @@ public class Character : MonoBehaviour
 
     }
 
-    protected virtual void SpawnDamagePopup(AnimalAttack attack, Damageable target, DamageDealer dealer)
-    {
-        GameManager.Instance.PopupSpawner.SpawnDamagePopup(target.transform.position, attack.Damage.CalcFinalDamageMult());
-    }
-
     public virtual void Stun()
     {
 
