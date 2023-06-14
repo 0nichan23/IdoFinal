@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 733277437919210403}
   - component: {fileID: 733277437919210404}
   - component: {fileID: 733277437919210407}
+  - component: {fileID: 733277437559368035}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -98,6 +99,7 @@ MonoBehaviour:
   team: {fileID: 733277437919210404}
   attackHandler: {fileID: 733277437919210407}
   playerHud: {fileID: 0}
+  animalInventory: {fileID: 733277437559368035}
 --- !u!114 &733277437919210462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,15 +223,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeAnimal:
-    Animal: {fileID: 11400000, guid: 3e9ea67be8840694cbe45b9e6b792dab, type: 2}
+    Animal: {fileID: 0}
     Model: {fileID: 0}
-  backLineAnimals:
-  - Animal: {fileID: 11400000, guid: 6a73f6f8f595b514ea5e189c131318f9, type: 2}
-    Model: {fileID: 0}
+  backLineAnimals: []
+  startingTeam:
+  - {fileID: 11400000, guid: 829fed895edf8c94296f4b449f53bf34, type: 2}
+  - {fileID: 11400000, guid: cdb960f6b3a3a534996a5c2e98421e5a, type: 2}
+  - {fileID: 11400000, guid: 3e9ea67be8840694cbe45b9e6b792dab, type: 2}
   OnSwitchActiveAnimal:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAnimalCaught:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &733277437919210407
@@ -248,5 +249,28 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnAttackSwitched:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &733277437559368035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733277437919210460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d00438efbe4d2429ebc39c892e7abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caughtAnimals:
+  - {fileID: 11400000, guid: 829fed895edf8c94296f4b449f53bf34, type: 2}
+  - {fileID: 11400000, guid: cdb960f6b3a3a534996a5c2e98421e5a, type: 2}
+  - {fileID: 11400000, guid: 3e9ea67be8840694cbe45b9e6b792dab, type: 2}
+  - {fileID: 11400000, guid: 2947469935a1bbd4c9193ac088cd938c, type: 2}
+  - {fileID: 11400000, guid: f5b339e792983a54cb19716cefef73b5, type: 2}
+  - {fileID: 11400000, guid: 283830e3bedd2f846b18d26388178924, type: 2}
+  - {fileID: 11400000, guid: cf28aa0b57526e24681d296251950468, type: 2}
+  OnAnimalAdded:
     m_PersistentCalls:
       m_Calls: []

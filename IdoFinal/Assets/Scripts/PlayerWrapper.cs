@@ -8,6 +8,7 @@ public class PlayerWrapper : Character
     [SerializeField] private PlayerTeam team;
     [SerializeField] private PlayerAttackHandler attackHandler;
     [SerializeField] private PlayerHud playerHud;
+    [SerializeField] private AnimalInventory animalInventory;
 
     public override LookDirections LookingTowards { get => playerMovement.LookingTowards; }
     public override AttackCounter Counter => attackHandler.AttackCounter;
@@ -16,12 +17,12 @@ public class PlayerWrapper : Character
     public AnimationHandler PlayerAnimationHandler { get => playerAnimationHandler; }
     public Transform Gfx { get => gfx; }
     public PlayerTeam Team { get => team; }
-    public PlayerAttackHandler AttackHandler { get => attackHandler;}
-
+    public PlayerAttackHandler AttackHandler { get => attackHandler; }
+    public AnimalInventory AnimalInventory { get => animalInventory; }
+    public PlayerHud PlayerHud { get => playerHud;  }
 
     private void Start()
     {
-        SetAnimalStatsOnComps();
         team.OnSwitchActiveAnimal.AddListener(SetAnimalStatsOnComps);
         attackHandler.OnAttackPreformed.AddListener(playerAnimationHandler.AttackAnim);
         attackHandler.CacheDealer(DamageDealer);
@@ -29,9 +30,11 @@ public class PlayerWrapper : Character
         Effectable.CahceOwner(this);
         DamageDealer.OnDealDamageFinal.AddListener(SpawnDamagePopup);
         Effectable.OnObtainEffect.AddListener(AddEffectIcon);
+        animalInventory.OnAnimalAdded.AddListener(playerHud.TeamPanel.InventoryPanel.AddSlot);
+        CreateExistingAnimalSlots();
     }
 
-    private void SetAnimalStatsOnComps()
+    public void SetAnimalStatsOnComps()
     {
         Damageable.SetStats(team.ActiveAnimal.Animal, this);
         DamageDealer.SetStats(team.ActiveAnimal.Animal, this);
@@ -56,7 +59,7 @@ public class PlayerWrapper : Character
         playerHud.dodgeChance.text = (Damageable.DodgeChance * 100).ToString("F0") + "% dodge chance";
         playerHud.damageReduction.text = ((1 - Damageable.DamageReduction) * 100).ToString("F0") + "% damage reduction";
         playerHud.hitChance.text = (DamageDealer.HitChance * 100).ToString("F0") + " % hit chance";
-        playerHud.armorPen.text = (DamageDealer.ArmorPenetration *100).ToString("F0") + "% armor pen";
+        playerHud.armorPen.text = (DamageDealer.ArmorPenetration * 100).ToString("F0") + "% armor pen";
         playerHud.attackCoolDown.text = (attackHandler.GetAttackCoolDown()).ToString("F1") + " seconds";
         playerHud.EffectsBar.UpdateCounters();
     }
@@ -82,6 +85,13 @@ public class PlayerWrapper : Character
         attackHandler.CanAttack = true;
     }
 
+    private void CreateExistingAnimalSlots()
+    {
+        foreach (var item in animalInventory.CaughtAnimals)
+        {
+            PlayerHud.TeamPanel.InventoryPanel.AddSlot(item);
+        }
+    }
 
     [ContextMenu("test cleanse")]
     public void BleedPlayer()

@@ -5,17 +5,16 @@ using UnityEngine.Events;
 public class PlayerTeam : MonoBehaviour
 {
     [SerializeField] private AnimalModelData activeAnimal;
-    [SerializeField] private AnimalModelData[] backLineAnimals = new AnimalModelData[4];
-    private List<AnimalModelData> caughtAnimalData = new List<AnimalModelData>();
+    [SerializeField] private List<AnimalModelData> backLineAnimals = new List<AnimalModelData>();
+    [SerializeField] private List<Animal> startingTeam = new List<Animal>();
+    private List<AnimalModelData> createdAnimalData = new List<AnimalModelData>();
     public UnityEvent OnSwitchActiveAnimal;
-    public UnityEvent OnAnimalCaught;
     public AnimalModelData ActiveAnimal { get => activeAnimal; }
-    public AnimalModelData[] BackLineAnimals { get => backLineAnimals; }
+    public List<AnimalModelData> BackLineAnimals { get => backLineAnimals; }
 
     private void Start()
     {
         CacheStartTeam();
-        SubscirbeTeamPassives();
     }
 
     private void SubscirbeTeamPassives()
@@ -29,6 +28,10 @@ public class PlayerTeam : MonoBehaviour
 
     public void UnSubscribeTeamPassives()
     {
+        if (ReferenceEquals(activeAnimal, null))
+        {
+            return;
+        }
         activeAnimal.Animal.Passive.UnSubscribePassive(GameManager.Instance.PlayerWrapper);
         foreach (var item in BackLineAnimals)
         {
@@ -38,33 +41,17 @@ public class PlayerTeam : MonoBehaviour
 
     private void CacheStartTeam()
     {
-        CacheAnimal(ActiveAnimal, true);
-        foreach (var item in BackLineAnimals)
-        {
-            CacheAnimal(item);
-        }
+        SetNewTeam(startingTeam);
+        GameManager.Instance.PlayerWrapper.SetAnimalStatsOnComps();
     }
 
-    public bool CheckAnimalCaught(Animal givenAnimal)
+    public GameObject CreateModel(Animal animal, bool state = false)
     {
-        foreach (var item in caughtAnimalData)
-        {
-            if (item.Animal == givenAnimal)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void CacheAnimal(AnimalModelData givenAniamlData, bool state = false)
-    {
-        GameObject model = Instantiate(givenAniamlData.Animal.AnimalModel, GameManager.Instance.PlayerWrapper.Gfx.transform);
+        GameObject model = Instantiate(animal.AnimalModel, GameManager.Instance.PlayerWrapper.Gfx.transform);
         model.transform.localPosition = Vector3.zero;
-        givenAniamlData.Model = model;
-        caughtAnimalData.Add(givenAniamlData);
         GameManager.Instance.PlayerWrapper.PlayerAnimationHandler.AddAnims(model.transform);
         model.SetActive(state);
+        return model;
     }
 
     public void SwitchActiveAnimal(int index)
@@ -79,6 +66,48 @@ public class PlayerTeam : MonoBehaviour
         activeAnimal = temp;
         activeAnimal.Model.gameObject.SetActive(true);
         OnSwitchActiveAnimal?.Invoke();
+    }
+
+    public AnimalModelData GetAnimalModelDataFromAnimal(Animal animal, bool state = false)
+    {
+        foreach (var modelData in createdAnimalData)
+        {
+            if (ReferenceEquals(modelData.Animal, animal))
+            {
+                return modelData;//in case the animal was already used before
+            }
+        }
+        AnimalModelData amd = new AnimalModelData(animal, CreateModel(animal, state));//first time using the animal
+        createdAnimalData.Add(amd);
+
+        return amd;
+    }
+
+    public void SetNewTeam(List<Animal> givenTeam)
+    {
+        activeAnimal = null;
+        UnSubscribeTeamPassives();
+        backLineAnimals.Clear();
+        foreach (var item in createdAnimalData)
+        {
+            item.Model.SetActive(false);
+        }
+        for (int i = 0; i < givenTeam.Count; i++)
+        {
+            AnimalModelData md;
+            if (i == 0)
+            {
+                md = GetAnimalModelDataFromAnimal(givenTeam[i], true);
+                activeAnimal = md;
+                OnSwitchActiveAnimal?.Invoke();
+            }
+            else
+            {
+                md = GetAnimalModelDataFromAnimal(givenTeam[i]);
+                backLineAnimals.Add(md);
+            }
+        }
+        SubscirbeTeamPassives();
     }
 
 }

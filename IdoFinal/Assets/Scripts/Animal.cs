@@ -10,6 +10,7 @@ public class Animal : ScriptableObject
     [SerializeField] private AnimalPassive passive;
     [SerializeField] private GameObject animalModel;
     [SerializeField] private Diet diet;
+    [SerializeField] private Sprite portrait;
     //animal stats -> this needs to hold hp, base attack, defense, speed?
     //animal passive -> this needs to subscribe to an according event/ change some stat
     //animal attack -> this is the attack itself, has additional effects and base damage
@@ -20,6 +21,7 @@ public class Animal : ScriptableObject
     public AnimalAttack Attack { get => attack; }
     public GameObject AnimalModel { get => animalModel; }
     public Diet Diet { get => diet; }
+    public Sprite Portrait { get => portrait;}
 }
 
 public enum AnimalClass

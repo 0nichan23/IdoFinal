@@ -19,6 +19,8 @@ public class PlayerHud : MonoBehaviour
     [Header("Status Effects Bar")]
     public ActiveEffectsBar EffectsBar;
 
+    [Header("Team")]
+    public TeamPanel TeamPanel;
     public void ToggleCharacterScreen()
     {
         sheet.SetActive(!sheet.activeSelf);

@@ -19,3 +19,4 @@ MonoBehaviour:
   passive: {fileID: 11400000, guid: 31209011fdac12a47a908e586d17208c, type: 2}
   animalModel: {fileID: 872212068676433915, guid: e03b5f376965dcd4d874c221395ac67e, type: 3}
   diet: 2
+  portrait: {fileID: 21300000, guid: 9c0e990353891f3418527e697afb83ae, type: 3}
