@@ -13,6 +13,7 @@ public class ActiveEffectsBar : MonoBehaviour
     [SerializeField] private Sprite critChanceBuff;
     [SerializeField] private Sprite critDamageBuff;
     [SerializeField] private Sprite hitChanceBuff;
+    [SerializeField] private Sprite armorPenBuff;
     [SerializeField] private Sprite poison;
     [SerializeField] private Sprite bleed;
     [SerializeField] private Sprite stunned;
@@ -41,7 +42,6 @@ public class ActiveEffectsBar : MonoBehaviour
     }
     private void RemoveIcon(StatusEffect effect, Effectable host)
     {
-        Debug.Log("removing effect icon");
         foreach (var item in activeIcons)
         {
             if (item.Effect.GetType() == effect.GetType())
@@ -79,6 +79,14 @@ public class ActiveEffectsBar : MonoBehaviour
         else if (effect is Stun)
         {
             return stunned;
+        }
+        else if (effect is Poison)
+        {
+            return poison;
+        }
+        else if (effect is ArmorPenBuff)
+        {
+            return armorPenBuff;
         }
         return null;
     }

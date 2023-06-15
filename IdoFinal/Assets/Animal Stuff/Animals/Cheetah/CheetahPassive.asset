@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cc41e9ba29a544c826dec74e3d7fda, type: 3}
   m_Name: CheetahPassive
   m_EditorClassIdentifier: 
+  effect: gain a bonus (up to a max) to attack power based on speed every 3 attacks
   maxDamageBoost: 0.75

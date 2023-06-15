@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4dc7e6ea0a926e45987b97a7eda5927, type: 3}
   m_Name: SnowyOwlPassive
   m_EditorClassIdentifier: 
+  effect: crit strikes inflict bleed and deal extra damage to mammels and birds
   damageMod: 0.5
   bleedDuration: 6

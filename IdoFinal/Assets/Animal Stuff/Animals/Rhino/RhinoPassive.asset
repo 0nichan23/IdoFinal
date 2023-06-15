@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801205a7cd9272b4eb535901729f7cf4, type: 3}
   m_Name: RhinoPassive
   m_EditorClassIdentifier: 
+  effect: chance to ignore damage from birds
   chance: 30

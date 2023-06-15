@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce9566fea89f57d48913dca81e8ad339, type: 3}
   m_Name: ZebraPassive
   m_EditorClassIdentifier: 
+  effect: gain defense in plains and desert
   amount: 0.2

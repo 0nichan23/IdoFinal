@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0ebb8f749c8984da531f12d57ccee1, type: 3}
   m_Name: GazellePassive
   m_EditorClassIdentifier: 
+  effect: gain a dodge chance buff after being struck by a carnivore
   duration: 8
   amount: 0.8

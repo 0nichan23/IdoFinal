@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7154d734945754d44aaa14c089e70d6f, type: 3}
   m_Name: OstrichPassive
   m_EditorClassIdentifier: 
+  effect: 'add dodge chance '
+  dodgeChance: 0.3

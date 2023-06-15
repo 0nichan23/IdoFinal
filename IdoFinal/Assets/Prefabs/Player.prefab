@@ -227,10 +227,7 @@ MonoBehaviour:
     Animal: {fileID: 0}
     Model: {fileID: 0}
   backLineAnimals: []
-  startingTeam:
-  - {fileID: 11400000, guid: 829fed895edf8c94296f4b449f53bf34, type: 2}
-  - {fileID: 11400000, guid: cdb960f6b3a3a534996a5c2e98421e5a, type: 2}
-  - {fileID: 11400000, guid: 3e9ea67be8840694cbe45b9e6b792dab, type: 2}
+  startingTeam: []
   OnSwitchActiveAnimal:
     m_PersistentCalls:
       m_Calls: []
@@ -272,6 +269,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f5b339e792983a54cb19716cefef73b5, type: 2}
   - {fileID: 11400000, guid: 283830e3bedd2f846b18d26388178924, type: 2}
   - {fileID: 11400000, guid: cf28aa0b57526e24681d296251950468, type: 2}
+  - {fileID: 11400000, guid: 58202809ab73c614e99984a24d07ca06, type: 2}
+  - {fileID: 11400000, guid: d72256eb56af5de4baa4981a3dd8636e, type: 2}
+  - {fileID: 11400000, guid: 71321f6f773f5744aa61d2c95aa1d188, type: 2}
+  - {fileID: 11400000, guid: 349e4e3946c16e64987d450b4a1b8990, type: 2}
+  - {fileID: 11400000, guid: ad367c4cad6054a4bb5c2aea1a8aa5c1, type: 2}
   OnAnimalAdded:
     m_PersistentCalls:
       m_Calls: []

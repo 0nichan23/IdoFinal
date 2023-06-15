@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5113a79fd63bffc40bac8bb1e0d2e48f, type: 3}
   m_Name: HornbillPassive
   m_EditorClassIdentifier: 
+  effect: 'resotre health after killing herbivores '
   amount: 0.25

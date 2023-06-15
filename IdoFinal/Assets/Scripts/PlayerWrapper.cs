@@ -100,6 +100,8 @@ public class PlayerWrapper : Character
     [ContextMenu("test cleanse")]
     public void BleedPlayer()
     {
-        Effectable.AddStatus(new Stun(5), DamageDealer);
+        Effectable.AddStatus(new Bleed(5), DamageDealer);
+        Effectable.AddStatus(new Poison(5, 20), DamageDealer);
+        Effectable.AddStatus(new Stun(3), DamageDealer);
     }
 }

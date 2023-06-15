@@ -30,7 +30,7 @@ public class Damageable : MonoBehaviour
     public float CurrentHp { get => currentHp; }
     public float DamageReduction { get => Mathf.Clamp(basedamageReduction + damageReduction, 0.1f, 1f); }
     public float DodgeChance { get => Mathf.Clamp(basedodgeChance + dodgeChance, 0f, 0.9f); }
-    public Character RefCharacter { get => refCharacter;}
+    public Character RefCharacter { get => refCharacter; }
 
     public void SetStats(Animal givenAnimal, Character givenCharacter)
     {
@@ -137,7 +137,11 @@ public class Damageable : MonoBehaviour
 
     public void TakeTrueDamage(float fixedAmount)
     {
-        currentHp -= fixedAmount;
+        currentHp -= Mathf.RoundToInt(fixedAmount);
+        if (EmitPopups)
+        {
+            GameManager.Instance.PopupSpawner.SpawnDamagePopup(transform.position, Mathf.RoundToInt(fixedAmount), Color.yellow);
+        }
         if (currentHp <= 0)
         {
             OnDeath?.Invoke();
@@ -148,6 +152,10 @@ public class Damageable : MonoBehaviour
     public void HealTrueDamage(float fixedAmount)
     {
         currentHp += fixedAmount;
+        if (EmitPopups)
+        {
+            GameManager.Instance.PopupSpawner.SpawnDamagePopup(transform.position, fixedAmount, Color.green);
+        }
         if (currentHp <= 0)
         {
             OnDeath?.Invoke();
@@ -163,6 +171,10 @@ public class Damageable : MonoBehaviour
     {
         OnHeal?.Invoke(givenDamage);
         currentHp += givenDamage.CalcFinalDamageMult();
+        if (EmitPopups)
+        {
+            GameManager.Instance.PopupSpawner.SpawnDamagePopup(transform.position, givenDamage.CalcFinalDamageMult(), Color.green);
+        }
         ClampHp();
     }
 

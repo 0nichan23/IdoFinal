@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c609d5f29b8984c9764989329b441c, type: 3}
   m_Name: CrowPassive
   m_EditorClassIdentifier: 
+  effect: gain a damage buff after taking damage from birds
   duration: 8
   amount: 0.3

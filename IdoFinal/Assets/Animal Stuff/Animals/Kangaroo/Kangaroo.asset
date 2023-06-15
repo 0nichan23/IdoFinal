@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c45ec9e403434347b4fce6492f33a49, type: 3}
+  m_Name: Kangaroo
+  m_EditorClassIdentifier: 
+  animalClass: 0
+  habitat: 5
+  statSheet: {fileID: 11400000, guid: 1239e4363d980454aaa9573878e1390d, type: 2}
+  attack: {fileID: 11400000, guid: 2f70cf281b17cc042a8fd579627ba14c, type: 2}
+  passive: {fileID: 11400000, guid: 471c432963ca4404ca580b3cac0092c5, type: 2}
+  animalModel: {fileID: 7487283964861201135, guid: 957e3954319f9ee48a7de6c945f1b38d, type: 3}
+  diet: 1
+  portrait: {fileID: 21300000, guid: c55ce9377d177cf49b44b979b94aa167, type: 3}
+  size: 1
+  rarity: 2

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49cda26c049089244af39108c4804f45, type: 3}
   m_Name: CrocodilePassive
   m_EditorClassIdentifier: 
+  effect: add crit damage on aquatic creatures
   DamageMod: 1.3

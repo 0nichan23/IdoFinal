@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8abbd1d4966be4980bc7787ff047ea, type: 3}
   m_Name: PolarBearPassive
   m_EditorClassIdentifier: 
+  effect: recieve damage and crit chance if the active level is a snow biome
   damageBuff: 0.3
   critChance: 0.15

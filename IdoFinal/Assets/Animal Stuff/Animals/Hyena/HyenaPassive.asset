@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f99ade67cca274d4baeec3f96309abcb, type: 3}
   m_Name: HyenaPassive
   m_EditorClassIdentifier: 
+  effect: critical strikes have a chance to stun
   stunDutration: 1.2
   chance: 30

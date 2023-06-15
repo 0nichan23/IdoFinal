@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d577d0c42f125864b80872088eedce70, type: 3}
   m_Name: BoarPassive
   m_EditorClassIdentifier: 
+  effect: gain more resources for every kill

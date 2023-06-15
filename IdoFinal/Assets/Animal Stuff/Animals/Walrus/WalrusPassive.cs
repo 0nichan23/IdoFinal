@@ -22,7 +22,7 @@ public class WalrusPassive : AnimalPassive
         if (dealer.RefCharacter.Counter.CurrentCounter == 10)
         {
             attack.Damage.AddMod(1 + dealer.RefCharacter.Damageable.DamageReduction);
-            Debug.Log("adding damage from defense");
+            //no need to max it as it is automatic
         }
     }
 

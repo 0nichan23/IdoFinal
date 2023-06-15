@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25195b1b8e707c4e93de19d279bbc1d, type: 3}
   m_Name: WolfPassive
   m_EditorClassIdentifier: 
+  effect: deal more damage the faster the enemy is up to a maximum
   maximumDamageMod: 0.35

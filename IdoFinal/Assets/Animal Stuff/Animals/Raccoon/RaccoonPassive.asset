@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e579f0f29d46bd4e97aa70da0299a47, type: 3}
   m_Name: RaccoonPassive
   m_EditorClassIdentifier: 
+  effect: deal more damage the more resources you gathered up to a maximum

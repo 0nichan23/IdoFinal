@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ed873a32fb3b34dad7aa4345cfc597, type: 3}
   m_Name: BuffaloPassive
   m_EditorClassIdentifier: 
+  effect: 'deal more damage when bleeding '
   damageMod: 0.5

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ArcticFoxPassive : AnimalPassive
 {
-    //higher dodge chance after dealing damage to ice creatures 
+    //dodge chance buff after hitting arctic creatures
     [SerializeField] private float duration;
     [SerializeField, Range(0,1)] private float amount;
     public override void SubscribePassive(Character givenCaharacter)

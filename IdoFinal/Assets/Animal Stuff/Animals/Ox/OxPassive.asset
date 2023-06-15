@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81fdf5bf4bf83734f930d224425c5796, type: 3}
   m_Name: OxPassive
   m_EditorClassIdentifier: 
+  effect: immune to negative effects in arctic levels

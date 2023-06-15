@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2cb97daba01fc94b984b82eb67a1659, type: 3}
   m_Name: WalrusPassive
   m_EditorClassIdentifier: 
+  effect: every 10 attacks, gain a damage bonus for the next attack based on defense

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078661bc1dfebab498b5574a17cadeba, type: 3}
   m_Name: WeaselPassive
   m_EditorClassIdentifier: 
+  effect: inflict bleed on every 3rd attack
   duration: 6

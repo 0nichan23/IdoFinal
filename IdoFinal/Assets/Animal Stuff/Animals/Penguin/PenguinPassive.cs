@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PenguinPassive", menuName = "Passives/Penguin")]
 public class PenguinPassive : AnimalPassive
 {
-    //gain an attack speed buff after attacking anything that lives in the water
+    //gain an attack speed buff after attacking aquatic creatures
     [SerializeField, Range(5,10)] private float duration;
     [SerializeField, Range(0,1)] private float amount;
 

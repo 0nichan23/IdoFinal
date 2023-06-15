@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d11919f63173746b931d2874ec1d93, type: 3}
   m_Name: ReinDeerPassive
   m_EditorClassIdentifier: 
+  effect: does more damage to carnivores but less damage to herbivores
   carnivoresMod: 0.5
   herbivoresMod: 0.5

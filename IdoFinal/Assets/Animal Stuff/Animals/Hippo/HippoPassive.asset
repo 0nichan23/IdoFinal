@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513565eddad76884483e043cd40361d4, type: 3}
   m_Name: HippoPassive
   m_EditorClassIdentifier: 
+  effect: take less damage from aquatic creatures.
+  damageReduction: 0.3

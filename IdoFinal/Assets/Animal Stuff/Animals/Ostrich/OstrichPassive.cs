@@ -6,7 +6,7 @@ using UnityEngine;
 public class OstrichPassive : AnimalPassive
 {
     [SerializeField, Range(0,1)] private float dodgeChance;
-    //add dodge chance (in desert and plains once we implement the level system)
+    //add dodge chance 
     public override void SubscribePassive(Character givenCaharacter)
     {
         givenCaharacter.OnEnteredLevel.AddListener(AddStats);

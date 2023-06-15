@@ -20,3 +20,5 @@ MonoBehaviour:
   animalModel: {fileID: 3451855274789771464, guid: 55dd14251c96e2d48934c529bd31dc23, type: 3}
   diet: 1
   portrait: {fileID: 21300000, guid: d313b5e0bd3e9de44bb701eeb9f27856, type: 3}
+  size: 0
+  rarity: 2

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17638624fd4b12f4fa17ecdc84ab0169, type: 3}
   m_Name: SeaLionPassive
   m_EditorClassIdentifier: 
+  effect: gain a damage buff whenever inflicting bleed
   duration: 7
   damageMod: 0.3

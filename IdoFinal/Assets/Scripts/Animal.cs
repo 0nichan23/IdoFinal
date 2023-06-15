@@ -11,9 +11,9 @@ public class Animal : ScriptableObject
     [SerializeField] private GameObject animalModel;
     [SerializeField] private Diet diet;
     [SerializeField] private Sprite portrait;
-    //animal stats -> this needs to hold hp, base attack, defense, speed?
-    //animal passive -> this needs to subscribe to an according event/ change some stat
-    //animal attack -> this is the attack itself, has additional effects and base damage
+    [SerializeField] private Size size;
+    [SerializeField] private Rarity rarity;
+  
     public AnimalClass AnimalClass { get => animalClass; }
     public Habitat Habitat { get => habitat; }
     public StatSheet StatSheet { get => statSheet; }
@@ -21,7 +21,9 @@ public class Animal : ScriptableObject
     public AnimalAttack Attack { get => attack; }
     public GameObject AnimalModel { get => animalModel; }
     public Diet Diet { get => diet; }
-    public Sprite Portrait { get => portrait;}
+    public Sprite Portrait { get => portrait; }
+    public Size Size { get => size; }
+    public Rarity Rarity { get => rarity; }
 }
 
 public enum AnimalClass
@@ -51,5 +53,19 @@ public enum Diet
     Carnivore,
     Herbivore,
     Omnivore
+}
+
+public enum Size
+{
+    Small,
+    Medium,
+    Large
+}
+
+public enum Rarity
+{
+    Common,
+    Uncommon,
+    Rare
 }
 

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e04d1dd02cbb3a4c9469fb3a80117ae, type: 3}
   m_Name: ElephantPassive
   m_EditorClassIdentifier: 
+  effect: add armor pen to attacks
   armorPenBoost: 4
