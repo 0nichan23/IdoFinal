@@ -375,7 +375,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 460538560}
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 45
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -528,7 +528,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 45
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -772,6 +772,58 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2040538826180656032, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040538826180656032, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040538826180656032, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040538826180656032, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2368742980461739269, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790659913467171856, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790659913467171856, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790659913467171856, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790659913467171856, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154392487993564458, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154392487993564458, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154392487993564458, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154392487993564458, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
 --- !u!1001 &733277437559368033
@@ -897,6 +949,10 @@ PrefabInstance:
     - target: {fileID: 7457097703888485070, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457097704105066224, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
+      propertyPath: biomeData.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8009625438188516486, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: criticalDamagePopup

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CharacterSheet : MonoBehaviour
 {
-    private void OnEnable()
+   
+    private void FixedUpdate()
     {
         GameManager.Instance.PlayerWrapper.UpdatePlayerHud();
     }
