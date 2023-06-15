@@ -91,7 +91,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 205174739348729274, guid: f935ccb6d1a6a854197abbdd5a69eefb, type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
-      value: 0.999
+      value: 0.04908467
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f935ccb6d1a6a854197abbdd5a69eefb, type: 3}
@@ -186,17 +186,12 @@ PrefabInstance:
     - target: {fileID: 205820978738061392, guid: 01a165c6dd788494ba649b8560511a75, type: 3}
       propertyPath: m_LODs.Array.data[1].renderers.Array.data[0].renderer
       value: 
-      objectReference: {fileID: 4816260525701543756}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01a165c6dd788494ba649b8560511a75, type: 3}
 --- !u!4 &4794309164000398162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4441665938279502, guid: 01a165c6dd788494ba649b8560511a75, type: 3}
-  m_PrefabInstance: {fileID: 4793810651175880476}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &4816260525701543756 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 23012835344756816, guid: 01a165c6dd788494ba649b8560511a75, type: 3}
   m_PrefabInstance: {fileID: 4793810651175880476}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5599910540234294659
