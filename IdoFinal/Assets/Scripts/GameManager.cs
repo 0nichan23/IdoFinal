@@ -8,6 +8,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private Pathfinder pathfinder;
     [SerializeField] private LevelGenerator levelGenerator;
     [SerializeField] private PopupSpawner popupSpawner;
+    [SerializeField] private ObjetPoolManager poolManager;
 
 
     [Header("Asset Dump")]
@@ -30,4 +31,5 @@ public class GameManager : MonoSingleton<GameManager>
     public Pathfinder Pathfinder { get => pathfinder; }
     public LevelGenerator LevelGenerator { get => levelGenerator; }
     public PopupSpawner PopupSpawner { get => popupSpawner; }
+    public ObjetPoolManager PoolManager { get => poolManager;  }
 }

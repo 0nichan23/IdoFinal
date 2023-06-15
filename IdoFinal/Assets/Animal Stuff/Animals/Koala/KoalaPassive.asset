@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b49c892f672a145a38ee2b2b166add, type: 3}
-  m_Name: EmuAttack
+  m_Script: {fileID: 11500000, guid: b2d59bc0d00a59e4a80a8e2c51b92f03, type: 3}
+  m_Name: KoalaPassive
   m_EditorClassIdentifier: 
-  damage:
-    baseAmount: 4
-  hitbox:
-  - {x: 1, y: 0, z: 0}
-  coolDown: 4
+  effect: gain true heal proportionate to the damage dealt in any forest or jungle
+  damageHealed: 0.25

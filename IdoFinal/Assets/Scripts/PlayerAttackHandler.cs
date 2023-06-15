@@ -70,7 +70,7 @@ public class PlayerAttackHandler : MonoBehaviour
         }
         lastAttacked = Time.time;
         OnAttackPreformed?.Invoke();
-        targeter.AttackTiles(GameManager.Instance.PlayerWrapper, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.GetPos, currentAttack, dealer);
+        targeter.AttackTiles(GameManager.Instance.PlayerWrapper.LookingTowards, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.GetPos, currentAttack, dealer);
     }
 
 

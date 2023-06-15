@@ -86,7 +86,10 @@ public class Damageable : MonoBehaviour
     {
         if (!CheckForHit(dealer.HitChance))
         {
-            Debug.Log("Miss");
+            if (EmitPopups)
+            {
+                GameManager.Instance.PopupSpawner.SpawnMissPopup(transform.position);
+            }
             return;
         }
         OnGetHit?.Invoke(attack, this, dealer);

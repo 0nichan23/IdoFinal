@@ -50,7 +50,7 @@ public class EnemyAttackHandler : MonoBehaviour
         if (Time.time - lastAttacked >= GetAttackCoolDown())
         {
             refEnemy.Anim.AttackAnim();
-            targeter.AttackTiles(refEnemy, refEnemy.Movement.CurrentTile.GetPos, refEnemy.RefAnimal.Attack, refEnemy.DamageDealer);
+            targeter.AttackTiles(refEnemy.LookingTowards, refEnemy.Movement.CurrentTile.GetPos, refEnemy.RefAnimal.Attack, refEnemy.DamageDealer);
             OnAttackPerformed?.Invoke();
             lastAttacked = Time.time;
         }

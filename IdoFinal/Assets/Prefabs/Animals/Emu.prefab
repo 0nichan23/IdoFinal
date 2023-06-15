@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 5669647833576532825}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6242198632348493569}
@@ -74,6 +74,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 251056827836155946}
     m_Modifications:
+    - target: {fileID: 6945890323384248658, guid: aa3a22e0a6a875049bc9e8356e608134, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6945890323397818480, guid: aa3a22e0a6a875049bc9e8356e608134, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -154,6 +158,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 251056827836155946}
     m_Modifications:
+    - target: {fileID: 4991955290254480486, guid: ddb9f2bb33a69fc4b9b529dad2e97875, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4991955290259757412, guid: ddb9f2bb33a69fc4b9b529dad2e97875, type: 3}
       propertyPath: m_Name
       value: Emu_LOD0
@@ -234,6 +242,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 251056827836155946}
     m_Modifications:
+    - target: {fileID: 2339678581407646560, guid: 7d97ace556535a647a1fe5e0311ab1af, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2339678581412827714, guid: 7d97ace556535a647a1fe5e0311ab1af, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -373,6 +385,10 @@ PrefabInstance:
     - target: {fileID: 6564236609625941507, guid: 4bcd825f0d85772409922df460c609ea, type: 3}
       propertyPath: m_Name
       value: Emu_LOD2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564236609629121281, guid: 4bcd825f0d85772409922df460c609ea, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 136079511371777250, guid: 4bcd825f0d85772409922df460c609ea, type: 3}

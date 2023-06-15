@@ -274,6 +274,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 71321f6f773f5744aa61d2c95aa1d188, type: 2}
   - {fileID: 11400000, guid: 349e4e3946c16e64987d450b4a1b8990, type: 2}
   - {fileID: 11400000, guid: ad367c4cad6054a4bb5c2aea1a8aa5c1, type: 2}
+  - {fileID: 11400000, guid: aa8519f20b0130d4fbd82d1dc30797f1, type: 2}
+  - {fileID: 11400000, guid: a8c9aedc5be393b44b3e8eaeec24fd7b, type: 2}
+  - {fileID: 11400000, guid: f6aea12eea73d67498e0722d4298f550, type: 2}
+  - {fileID: 11400000, guid: cfb1979aaaa2043419ae5adaa4e5517b, type: 2}
+  - {fileID: 11400000, guid: b463bdbc9d285824c9c5882224f088b0, type: 2}
+  - {fileID: 11400000, guid: c92b1be4c9742f1488768b747ea491f0, type: 2}
+  - {fileID: 11400000, guid: 51864613cd6ba9744a95b9265630df12, type: 2}
+  - {fileID: 11400000, guid: a0721778feecf51409399a6d635016d1, type: 2}
   OnAnimalAdded:
     m_PersistentCalls:
       m_Calls: []

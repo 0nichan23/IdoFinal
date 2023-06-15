@@ -19,7 +19,7 @@ public class PlayerWrapper : Character
     public PlayerTeam Team { get => team; }
     public PlayerAttackHandler AttackHandler { get => attackHandler; }
     public AnimalInventory AnimalInventory { get => animalInventory; }
-    public PlayerHud PlayerHud { get => playerHud;  }
+    public PlayerHud PlayerHud { get => playerHud; }
 
     private void Start()
     {
@@ -103,5 +103,34 @@ public class PlayerWrapper : Character
         Effectable.AddStatus(new Bleed(5), DamageDealer);
         Effectable.AddStatus(new Poison(5, 20), DamageDealer);
         Effectable.AddStatus(new Stun(3), DamageDealer);
+    }
+
+    [ContextMenu("test projectile")]
+    public void TestProjectile()
+    {
+        TileData startingTile = null;
+        switch (LookingTowards)
+        {
+            case LookDirections.UP:
+                startingTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(playerMovement.CurrentTile.GetPos + new Vector3Int(0,0,1));
+                break;
+            case LookDirections.DOWN:
+                startingTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(playerMovement.CurrentTile.GetPos + new Vector3Int(0, 0, -1));
+                break;
+            case LookDirections.LEFT:
+                startingTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(playerMovement.CurrentTile.GetPos + new Vector3Int(-1, 0, 0));
+                break;
+            case LookDirections.RIGHT:
+                startingTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(playerMovement.CurrentTile.GetPos + new Vector3Int(1, 0, 0));
+                break;
+        }
+        if (!ReferenceEquals(startingTile, null))
+        {
+            Projectile pew = GameManager.Instance.PoolManager.TestProjectilePool.GetPooledObject();
+            pew.transform.position = startingTile.GetStandingPos;
+            pew.CacheCharacter(this);
+            pew.gameObject.SetActive(true);
+            pew.Shoot(LookingTowards, startingTile);
+        }
     }
 }
