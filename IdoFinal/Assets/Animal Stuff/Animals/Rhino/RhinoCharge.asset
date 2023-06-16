@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb35bfd3404c594c83d2420d300119a, type: 3}
-  m_Name: RhinoSS
+  m_Script: {fileID: 11500000, guid: d3b49c892f672a145a38ee2b2b166add, type: 3}
+  m_Name: RhinoCharge
   m_EditorClassIdentifier: 
-  maxHp: 160
-  power: 8
-  toughness: 9
-  instinct: 3
-  speed: 5
+  damage:
+    baseAmount: 12
+  hitbox:
+  - {x: 1, y: 0, z: 0}
+  coolDown: 6
+  projectile: 0
+  charge: 1

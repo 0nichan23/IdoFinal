@@ -48,11 +48,6 @@ public class PlayerWrapper : Character
         UpdatePlayerHud();
     }
 
-    private void FixedUpdate()
-    {
-        playerHud.EffectsBar.UpdateCounters();
-    }
-
     [ContextMenu("update character stat screen")]
     public void UpdatePlayerHud()
     {
@@ -94,6 +89,11 @@ public class PlayerWrapper : Character
         {
             PlayerHud.TeamPanel.InventoryPanel.AddSlot(item);
         }
+    }
+
+    private void UpdateBar()
+    {
+
     }
 
     public override void UpdateCurrentTile(TileData current)

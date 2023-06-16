@@ -29,6 +29,10 @@ public class ActiveEffectsBar : MonoBehaviour
         newIcon.Effect.Host.Effectable.OnRemoveEffect.AddListener(RemoveIcon);
     }
 
+    private void FixedUpdate()
+    {
+       UpdateCounters();
+    }
     public void UpdateCounters()
     {
         if (activeIcons.Count == 0)

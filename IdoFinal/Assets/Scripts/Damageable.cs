@@ -17,6 +17,7 @@ public class Damageable : MonoBehaviour
     public UnityEvent OnDeath;
     public UnityEvent OnTakeDamageGFX;
     public UnityEvent<DamageHandler> OnHeal;
+    public UnityEvent OnHealGFX;
 
     private float basedamageReduction;
     private float damageReduction;
@@ -141,6 +142,7 @@ public class Damageable : MonoBehaviour
     public void TakeTrueDamage(float fixedAmount)
     {
         currentHp -= Mathf.RoundToInt(fixedAmount);
+        OnTakeDamageGFX?.Invoke();
         if (EmitPopups)
         {
             GameManager.Instance.PopupSpawner.SpawnDamagePopup(transform.position, Mathf.RoundToInt(fixedAmount), Color.yellow);
@@ -155,6 +157,7 @@ public class Damageable : MonoBehaviour
     public void HealTrueDamage(float fixedAmount)
     {
         currentHp += fixedAmount;
+        OnHealGFX?.Invoke();
         if (EmitPopups)
         {
             GameManager.Instance.PopupSpawner.SpawnDamagePopup(transform.position, fixedAmount, Color.green);
@@ -174,6 +177,7 @@ public class Damageable : MonoBehaviour
     {
         OnHeal?.Invoke(givenDamage);
         currentHp += givenDamage.CalcFinalDamageMult();
+        OnHealGFX?.Invoke();
         if (EmitPopups)
         {
             GameManager.Instance.PopupSpawner.SpawnDamagePopup(transform.position, givenDamage.CalcFinalDamageMult(), Color.green);

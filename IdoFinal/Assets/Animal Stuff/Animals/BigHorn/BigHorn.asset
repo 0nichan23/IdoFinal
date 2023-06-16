@@ -16,6 +16,7 @@ MonoBehaviour:
   habitat: 6
   statSheet: {fileID: 11400000, guid: f55594e2d6bfc4644b506285740e607b, type: 2}
   attack: {fileID: 11400000, guid: f91ea937090195b46888e0cc35960120, type: 2}
+  secondAttack: {fileID: 11400000, guid: ac2cdfc1bd1edc6499e591652377c092, type: 2}
   passive: {fileID: 11400000, guid: 8d61d0b3e550d28439f750a36c90c6eb, type: 2}
   animalModel: {fileID: 5650747038200238281, guid: ab399134d3fe54e4caa78c3e713e391b, type: 3}
   diet: 1

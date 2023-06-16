@@ -10,6 +10,7 @@ public class Enemy : Character
     [SerializeField] private int detectionRange;
     [SerializeField] private AnimationHandler anim;
     [SerializeField] private BaseStateHandler stateHandler;
+    [SerializeField] private EnemyPanel panel;
 
   
 
@@ -25,6 +26,7 @@ public class Enemy : Character
     public int DetectionRange { get => detectionRange; }
     public AnimationHandler Anim { get => anim; }
     public BaseStateHandler StateHandler { get => stateHandler; }
+    public EnemyPanel Panel { get => panel; }
 
     public void SetUpEnemy(Animal givenAnimal)
     {
@@ -38,6 +40,9 @@ public class Enemy : Character
         refAnimal.Passive.SubscribePassive(this);
         charger.OnStartCharge.AddListener(() => attackHandler.Charging = true);
         charger.OnEndCharge.AddListener(() => attackHandler.Charging = false);
+        Effectable.OnObtainEffect.AddListener(AddEffectIcon);
+        Damageable.OnTakeDamageGFX.AddListener(UpdateBar);
+        Damageable.OnHealGFX.AddListener(UpdateBar);
     }
 
     private void CreateModel()
@@ -73,5 +78,14 @@ public class Enemy : Character
     public override void UpdateCurrentTile(TileData current)
     {
         movement.UpdateCurrentTile(current);
+    }
+    private void AddEffectIcon(StatusEffect effect, Effectable host)
+    {
+        panel.Bar.AddEffect(effect);
+    }
+
+    private void UpdateBar()
+    {
+        panel.HealthBar.UpdateBar(Damageable.MaxHp, Damageable.CurrentHp);
     }
 }

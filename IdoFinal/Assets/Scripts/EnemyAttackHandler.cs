@@ -47,14 +47,14 @@ public class EnemyAttackHandler : MonoBehaviour
     }
     public float GetSecondAttackCoolDown()
     {
-        float cd = refEnemy.RefAnimal.Attack.CoolDown;
+        float cd = refEnemy.RefAnimal.SecondAttack.CoolDown;
         cd -= cd * AttackSpeed;
         return cd;
     }
 
     public float GetAttackCoolDown()
     {
-        float cd = refEnemy.RefAnimal.SecondAttack.CoolDown;
+        float cd = refEnemy.RefAnimal.Attack.CoolDown;
         cd -= cd * AttackSpeed;
         return cd;
     }

@@ -253,6 +253,9 @@ MonoBehaviour:
   OnTurnLeft:
     m_PersistentCalls:
       m_Calls: []
+  OnSwitchAttacks:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7457097704105066230
 GameObject:
   m_ObjectHideFlags: 0
