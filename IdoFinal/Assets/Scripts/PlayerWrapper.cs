@@ -10,6 +10,7 @@ public class PlayerWrapper : Character
     [SerializeField] private PlayerHud playerHud;
     [SerializeField] private AnimalInventory animalInventory;
 
+
     public override LookDirections LookingTowards { get => playerMovement.LookingTowards; }
     public override AttackCounter Counter => attackHandler.AttackCounter;
     public override float AttackSpeed => attackHandler.AttackSpeed;
@@ -46,7 +47,6 @@ public class PlayerWrapper : Character
         attackHandler.SetStats(team.ActiveAnimal.Animal);
         Damageable.Heal(new DamageHandler() { BaseAmount = Damageable.MaxHp });
         UpdatePlayerHud();
-        attackHandler.EquipAttack(team.ActiveAnimal.Animal.Attack);
     }
 
     private void FixedUpdate()
@@ -96,6 +96,10 @@ public class PlayerWrapper : Character
             PlayerHud.TeamPanel.InventoryPanel.AddSlot(item);
         }
     }
+    public override void FireProjectile(AnimalAttack attack)
+    {
+        blaster.FireProjectile(playerMovement.CurrentTile, LookingTowards, this, attack);
+    }
 
     [ContextMenu("test cleanse")]
     public void BleedPlayer()
@@ -105,32 +109,5 @@ public class PlayerWrapper : Character
         Effectable.AddStatus(new Stun(3), DamageDealer);
     }
 
-    [ContextMenu("test projectile")]
-    public void TestProjectile()
-    {
-        TileData startingTile = null;
-        switch (LookingTowards)
-        {
-            case LookDirections.UP:
-                startingTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(playerMovement.CurrentTile.GetPos + new Vector3Int(0,0,1));
-                break;
-            case LookDirections.DOWN:
-                startingTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(playerMovement.CurrentTile.GetPos + new Vector3Int(0, 0, -1));
-                break;
-            case LookDirections.LEFT:
-                startingTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(playerMovement.CurrentTile.GetPos + new Vector3Int(-1, 0, 0));
-                break;
-            case LookDirections.RIGHT:
-                startingTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(playerMovement.CurrentTile.GetPos + new Vector3Int(1, 0, 0));
-                break;
-        }
-        if (!ReferenceEquals(startingTile, null))
-        {
-            Projectile pew = GameManager.Instance.PoolManager.TestProjectilePool.GetPooledObject();
-            pew.transform.position = startingTile.GetStandingPos;
-            pew.CacheCharacter(this);
-            pew.gameObject.SetActive(true);
-            pew.Shoot(LookingTowards, startingTile);
-        }
-    }
+    
 }

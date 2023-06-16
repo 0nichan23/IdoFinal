@@ -11,7 +11,8 @@ public class Character : MonoBehaviour
     private LookDirections lookingTowards;
     private AttackCounter counter;
     private float attackSpeed;
-   
+    protected ProjectileBlaster blaster = new ProjectileBlaster();
+
     public Damageable Damageable { get => damageable; }
     public DamageDealer DamageDealer { get => damageDealer; }
     public Effectable Effectable { get => effectable; }
@@ -29,6 +30,10 @@ public class Character : MonoBehaviour
 
     }
     public virtual void EndStun()
+    {
+
+    }
+    public virtual void FireProjectile(AnimalAttack attack)
     {
 
     }

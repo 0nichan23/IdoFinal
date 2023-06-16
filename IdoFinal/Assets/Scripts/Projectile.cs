@@ -3,19 +3,16 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    //range - how many tiles will this thing last for at max 
-    //a hit event
-    //subscribed character - the emitter 
-    //lerp from tile to tile then check if theres anything on it 
     [SerializeField] private float stepDurationMod;
     [SerializeField] private int maxDistance;
-    [SerializeField] private AnimalAttack attack;
+    private AnimalAttack attack;
     private Character emitter;
     private AttackTarget targeter = new AttackTarget();
 
-    public void CacheCharacter(Character givenCharacter)
+    public void SetUp(Character givenCharacter, AnimalAttack attack)
     {
         emitter = givenCharacter;
+        this.attack = attack;
     }
     public void Shoot(LookDirections direction, TileData startingTile)
     {

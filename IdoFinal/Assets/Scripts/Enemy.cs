@@ -54,4 +54,9 @@ public class Enemy : Character
     {
         stateHandler.Stunned = false;
     }
+
+    public override void FireProjectile(AnimalAttack attack)
+    {
+        blaster.FireProjectile(movement.CurrentTile, LookingTowards, this, attack);
+    }
 }

@@ -10,6 +10,7 @@ public class InputManager : MonoBehaviour
     public UnityEvent OnAttack;
     public UnityEvent OnTurnRight;
     public UnityEvent OnTurnLeft;
+    public UnityEvent OnSwitchAttacks;
 
     private void Start()
     {
@@ -18,12 +19,18 @@ public class InputManager : MonoBehaviour
         basicActions.Actions.Attack.started += InvokeOnAttack;
         basicActions.Actions.TurnRight.started += InvokeOnTurnRight;
         basicActions.Actions.TurnLeft.started += InvokeOnTurnLeft;
+        basicActions.Actions.SwitchAttacks.started += InvokeOnSwitchAttacks;
     }
 
     public void InvokeOnAttack(InputAction.CallbackContext obj)
     {
         OnAttack?.Invoke();
     }
+    public void InvokeOnSwitchAttacks(InputAction.CallbackContext obj)
+    {
+        OnSwitchAttacks?.Invoke();
+    }
+
     public void InvokeOnTurnRight(InputAction.CallbackContext obj)
     {
         OnTurnRight?.Invoke();

@@ -7,13 +7,14 @@ public class Animal : ScriptableObject
     [SerializeField] private Habitat habitat;
     [SerializeField] private StatSheet statSheet;
     [SerializeField] private AnimalAttack attack;
+    [SerializeField] private AnimalAttack secondAttack;
     [SerializeField] private AnimalPassive passive;
     [SerializeField] private GameObject animalModel;
     [SerializeField] private Diet diet;
     [SerializeField] private Sprite portrait;
     [SerializeField] private Size size;
     [SerializeField] private Rarity rarity;
-  
+
     public AnimalClass AnimalClass { get => animalClass; }
     public Habitat Habitat { get => habitat; }
     public StatSheet StatSheet { get => statSheet; }
@@ -24,6 +25,7 @@ public class Animal : ScriptableObject
     public Sprite Portrait { get => portrait; }
     public Size Size { get => size; }
     public Rarity Rarity { get => rarity; }
+    public AnimalAttack SecondAttack { get => secondAttack; }
 }
 
 public enum AnimalClass

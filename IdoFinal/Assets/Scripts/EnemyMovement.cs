@@ -33,8 +33,6 @@ public class EnemyMovement : MonoBehaviour
             givenTile.SubscribeCharacter(enemy);
             currentTile = givenTile;
             yield return StartCoroutine(MoveEnemy(givenTile));
-            /*currentTile.UnSubscribeCharacter();
-            currentTile = givenTile;*/
         }
     }
 

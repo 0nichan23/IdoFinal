@@ -71,6 +71,15 @@ public partial class @BasicActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchAttacks"",
+                    ""type"": ""Button"",
+                    ""id"": ""f179e5f4-c2d0-493f-a452-3bb7b82324c5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @BasicActions : IInputActionCollection2, IDisposable
                     ""action"": ""TurnLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1317bca3-697b-4aa0-88c6-f4d4a63c63d3"",
+                    ""path"": ""<Keyboard>/alt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchAttacks"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,6 +205,7 @@ public partial class @BasicActions : IInputActionCollection2, IDisposable
         m_Actions_TeamPanel = m_Actions.FindAction("TeamPanel", throwIfNotFound: true);
         m_Actions_TurnRight = m_Actions.FindAction("TurnRight", throwIfNotFound: true);
         m_Actions_TurnLeft = m_Actions.FindAction("TurnLeft", throwIfNotFound: true);
+        m_Actions_SwitchAttacks = m_Actions.FindAction("SwitchAttacks", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -249,6 +270,7 @@ public partial class @BasicActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Actions_TeamPanel;
     private readonly InputAction m_Actions_TurnRight;
     private readonly InputAction m_Actions_TurnLeft;
+    private readonly InputAction m_Actions_SwitchAttacks;
     public struct ActionsActions
     {
         private @BasicActions m_Wrapper;
@@ -258,6 +280,7 @@ public partial class @BasicActions : IInputActionCollection2, IDisposable
         public InputAction @TeamPanel => m_Wrapper.m_Actions_TeamPanel;
         public InputAction @TurnRight => m_Wrapper.m_Actions_TurnRight;
         public InputAction @TurnLeft => m_Wrapper.m_Actions_TurnLeft;
+        public InputAction @SwitchAttacks => m_Wrapper.m_Actions_SwitchAttacks;
         public InputActionMap Get() { return m_Wrapper.m_Actions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -282,6 +305,9 @@ public partial class @BasicActions : IInputActionCollection2, IDisposable
                 @TurnLeft.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnTurnLeft;
                 @TurnLeft.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnTurnLeft;
                 @TurnLeft.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnTurnLeft;
+                @SwitchAttacks.started -= m_Wrapper.m_ActionsActionsCallbackInterface.OnSwitchAttacks;
+                @SwitchAttacks.performed -= m_Wrapper.m_ActionsActionsCallbackInterface.OnSwitchAttacks;
+                @SwitchAttacks.canceled -= m_Wrapper.m_ActionsActionsCallbackInterface.OnSwitchAttacks;
             }
             m_Wrapper.m_ActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -301,6 +327,9 @@ public partial class @BasicActions : IInputActionCollection2, IDisposable
                 @TurnLeft.started += instance.OnTurnLeft;
                 @TurnLeft.performed += instance.OnTurnLeft;
                 @TurnLeft.canceled += instance.OnTurnLeft;
+                @SwitchAttacks.started += instance.OnSwitchAttacks;
+                @SwitchAttacks.performed += instance.OnSwitchAttacks;
+                @SwitchAttacks.canceled += instance.OnSwitchAttacks;
             }
         }
     }
@@ -312,5 +341,6 @@ public partial class @BasicActions : IInputActionCollection2, IDisposable
         void OnTeamPanel(InputAction.CallbackContext context);
         void OnTurnRight(InputAction.CallbackContext context);
         void OnTurnLeft(InputAction.CallbackContext context);
+        void OnSwitchAttacks(InputAction.CallbackContext context);
     }
 }
