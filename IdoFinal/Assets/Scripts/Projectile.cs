@@ -31,12 +31,14 @@ public class Projectile : MonoBehaviour
     {
         int tileCounter = 0;
         TileData nextTile = startingTile;
+        TileData previousTile = null;
         while (tileCounter < maxDistance)
         {
             if (startingTile.Occupied)
             {
                 break;
             }
+            previousTile = nextTile;
             nextTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(nextTile.GetPos + GetLookDirVector(direction));
 
 
@@ -67,7 +69,7 @@ public class Projectile : MonoBehaviour
 
         if (ReferenceEquals(nextTile, null))
         {
-            Blast(startingTile, direction);
+            Blast(previousTile, direction);
 
         }
         else

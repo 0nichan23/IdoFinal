@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb0649eaa612c2458a13927b1815f43, type: 3}
   m_Name: WyvernPassive
   m_EditorClassIdentifier: 
-  effect: 
-  damageIncrease: 0
-  stunDuration: 0
-  stunChance: 0
+  effect: attacks more powerful with infused electricity and have a chance to stun
+  damageIncrease: 0.35
+  stunDuration: 2
+  stunChance: 20

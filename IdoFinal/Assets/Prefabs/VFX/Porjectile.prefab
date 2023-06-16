@@ -45,9 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e340e6664ea860a4da88fd782be061f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepDurationMod: 9
-  maxDistance: 5
-  attack: {fileID: 11400000, guid: 0746ef8154620b445810b9ba938e4245, type: 2}
+  stepDurationMod: 12
+  maxDistance: 6
 --- !u!1001 &4431448732161640959
 PrefabInstance:
   m_ObjectHideFlags: 0

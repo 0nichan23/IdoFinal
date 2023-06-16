@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: WyvernProjectile
   m_EditorClassIdentifier: 
   damage:
-    baseAmount: 0
-  hitbox: []
-  coolDown: 0
-  projectile: 0
+    baseAmount: 6
+  hitbox:
+  - {x: 0, y: 0, z: 0}
+  coolDown: 5
+  projectile: 1
