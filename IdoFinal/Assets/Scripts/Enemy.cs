@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : Character
 {
@@ -9,6 +10,8 @@ public class Enemy : Character
     [SerializeField] private int detectionRange;
     [SerializeField] private AnimationHandler anim;
     [SerializeField] private BaseStateHandler stateHandler;
+
+  
 
     public Animal RefAnimal { get => refAnimal; }
     public EnemyAttackHandler AttackHandler { get => attackHandler; }
@@ -33,6 +36,8 @@ public class Enemy : Character
         Effectable.CahceOwner(this);
         CreateModel();
         refAnimal.Passive.SubscribePassive(this);
+        charger.OnStartCharge.AddListener(() => attackHandler.Charging = true);
+        charger.OnEndCharge.AddListener(() => attackHandler.Charging = false);
     }
 
     private void CreateModel()
@@ -58,5 +63,15 @@ public class Enemy : Character
     public override void FireProjectile(AnimalAttack attack)
     {
         blaster.FireProjectile(movement.CurrentTile, LookingTowards, this, attack);
+    }
+    public override void Charge(AnimalAttack attack)
+    {
+        charger.SetUp(attack, this);
+        charger.StartCharging(LookingTowards, movement.CurrentTile);
+    }
+
+    public override void UpdateCurrentTile(TileData current)
+    {
+        movement.UpdateCurrentTile(current);
     }
 }

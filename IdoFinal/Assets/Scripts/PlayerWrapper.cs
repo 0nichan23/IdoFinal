@@ -9,8 +9,7 @@ public class PlayerWrapper : Character
     [SerializeField] private PlayerAttackHandler attackHandler;
     [SerializeField] private PlayerHud playerHud;
     [SerializeField] private AnimalInventory animalInventory;
-
-
+    [SerializeField] private AnimalAttack testChargeAttack;
     public override LookDirections LookingTowards { get => playerMovement.LookingTowards; }
     public override AttackCounter Counter => attackHandler.AttackCounter;
     public override float AttackSpeed => attackHandler.AttackSpeed;
@@ -96,9 +95,20 @@ public class PlayerWrapper : Character
             PlayerHud.TeamPanel.InventoryPanel.AddSlot(item);
         }
     }
+
+    public override void UpdateCurrentTile(TileData current)
+    {
+        PlayerMovement.UpdateCurrentTile(current);
+    }
     public override void FireProjectile(AnimalAttack attack)
     {
         blaster.FireProjectile(playerMovement.CurrentTile, LookingTowards, this, attack);
+    }
+
+    public override void Charge(AnimalAttack attack)
+    {
+        charger.SetUp(attack, this);
+        charger.StartCharging(LookingTowards, PlayerMovement.CurrentTile);
     }
 
     [ContextMenu("test cleanse")]

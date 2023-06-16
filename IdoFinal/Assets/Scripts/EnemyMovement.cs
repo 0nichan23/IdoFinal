@@ -29,11 +29,16 @@ public class EnemyMovement : MonoBehaviour
         if (!ReferenceEquals(givenTile, null) && !givenTile.Occupied)
         {
             LookTowardsMoveDirection(givenTile);
-            currentTile.UnSubscribeCharacter();
-            givenTile.SubscribeCharacter(enemy);
-            currentTile = givenTile;
+            UpdateCurrentTile(givenTile);
             yield return StartCoroutine(MoveEnemy(givenTile));
         }
+    }
+
+    public void UpdateCurrentTile(TileData givenTile)
+    {
+        currentTile.UnSubscribeCharacter();
+        givenTile.SubscribeCharacter(enemy);
+        currentTile = givenTile;
     }
 
     private IEnumerator MoveEnemy(TileData givenTile)

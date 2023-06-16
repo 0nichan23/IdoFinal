@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 public class Character : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Character : MonoBehaviour
     private LookDirections lookingTowards;
     private AttackCounter counter;
     private float attackSpeed;
+    [SerializeField] protected Charger charger;
     protected ProjectileBlaster blaster = new ProjectileBlaster();
 
     public Damageable Damageable { get => damageable; }
@@ -19,6 +21,7 @@ public class Character : MonoBehaviour
     public virtual LookDirections LookingTowards { get => lookingTowards; }
     public virtual AttackCounter Counter { get => counter; }
     public virtual float AttackSpeed { get => attackSpeed;}
+    public Charger Charger { get => charger; }
 
     public virtual void AddAttackSpeed(float amount)
     {
@@ -34,6 +37,14 @@ public class Character : MonoBehaviour
 
     }
     public virtual void FireProjectile(AnimalAttack attack)
+    {
+
+    }
+
+    public virtual void Charge(AnimalAttack attack)
+    {
+    }
+    public virtual void UpdateCurrentTile(TileData current)
     {
 
     }

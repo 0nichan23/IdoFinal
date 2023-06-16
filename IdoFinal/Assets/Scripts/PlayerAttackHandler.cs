@@ -85,6 +85,10 @@ public class PlayerAttackHandler : MonoBehaviour
         {
             GameManager.Instance.PlayerWrapper.FireProjectile(currentAttack);
         }
+        else if(currentAttack.Charge)
+        {
+            GameManager.Instance.PlayerWrapper.Charge(currentAttack);
+        }
         else
         {
             targeter.AttackTiles(GameManager.Instance.PlayerWrapper.LookingTowards, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.GetPos, currentAttack, dealer);

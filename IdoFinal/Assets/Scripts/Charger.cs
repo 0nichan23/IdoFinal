@@ -1,53 +1,56 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Projectile : MonoBehaviour
+public class Charger : MonoBehaviour
 {
-    [SerializeField] private float stepDurationMod;
     [SerializeField] private int maxDistance;
+    [SerializeField] private float stepDurationMod;
+    private AttackTarget targeter = new AttackTarget();
     private AnimalAttack attack;
     private Character emitter;
-    private AttackTarget targeter = new AttackTarget();
+    public UnityEvent OnStartCharge;
+    public UnityEvent OnEndCharge;
 
-    public void SetUp(Character givenCharacter, AnimalAttack attack)
+    public int MaxDistance { get => maxDistance; }
+
+    public void SetUp(AnimalAttack attack, Character character)
     {
-        emitter = givenCharacter;
         this.attack = attack;
-    }
-    public void Shoot(LookDirections direction, TileData startingTile)
-    {
-        RotateToDir(direction);
-        StartCoroutine(FlyForward(direction, startingTile));
+        this.emitter = character;
     }
 
-    public void Blast(TileData blastZone, LookDirections dir)
+    public void StartCharging(LookDirections direction, TileData startingTile)
     {
-        targeter.AttackTiles(dir, blastZone.GetPos, attack, emitter.DamageDealer);
-        gameObject.SetActive(false);
-        //play the blast effect?
+        TileData startTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(startingTile.GetPos + GetLookDirVector(direction));
+        if (!ReferenceEquals(startTile, null))
+        {
+            StartCoroutine(ChargeForward(direction, startTile));
+        }
     }
 
-    private IEnumerator FlyForward(LookDirections direction, TileData startingTile)
+    private IEnumerator ChargeForward(LookDirections direction, TileData startingTile)
     {
         int tileCounter = 0;
         TileData nextTile = startingTile;
         TileData previousTile = null;
         while (tileCounter < maxDistance)
         {
+            OnStartCharge?.Invoke();
             if (startingTile.Occupied)
             {
                 break;
             }
             previousTile = nextTile;
             nextTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(nextTile.GetPos + GetLookDirVector(direction));
-
-
             if (ReferenceEquals(nextTile, null) || nextTile.Occupied)
             {
+                nextTile = previousTile;
                 break;
             }
             else
             {
+                emitter.UpdateCurrentTile(nextTile);
                 float counter = 0f;
                 Vector3 startPos = transform.position;
                 Vector3 dest = nextTile.GetStandingPos;
@@ -58,10 +61,6 @@ public class Projectile : MonoBehaviour
                     transform.position = lerpedPos;
                     yield return new WaitForEndOfFrame();
                 }
-                if (nextTile.Occupied)
-                {
-                    break;
-                }
             }
             tileCounter++;
         }
@@ -69,15 +68,19 @@ public class Projectile : MonoBehaviour
         if (ReferenceEquals(nextTile, null))
         {
             Blast(previousTile, direction);
-
         }
         else
         {
             Blast(nextTile, direction);
         }
+        OnEndCharge?.Invoke();
 
     }
 
+    public void Blast(TileData blastZone, LookDirections dir)
+    {
+        targeter.AttackTiles(dir, blastZone.GetPos, attack, emitter.DamageDealer);
+    }
     private Vector3Int GetLookDirVector(LookDirections direction)
     {
         switch (direction)
@@ -93,26 +96,6 @@ public class Projectile : MonoBehaviour
         }
         return Vector3Int.zero;
     }
-    private void RotateToDir(LookDirections dir)
-    {
-
-        switch (dir)
-        {
-            case LookDirections.UP:
-                transform.eulerAngles = new Vector3(0, 90, 0);
-                break;
-            case LookDirections.DOWN:
-                transform.eulerAngles = new Vector3(0, -90, 0);
-                break;
-            case LookDirections.LEFT:
-                transform.eulerAngles = new Vector3(0, 180, 0);
-                break;
-            case LookDirections.RIGHT:
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                break;
-            default:
-                break;
-        }
-    }
-
 }
+
+

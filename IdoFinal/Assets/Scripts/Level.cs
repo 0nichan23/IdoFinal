@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
@@ -148,6 +148,50 @@ public class Level : MonoBehaviour
         newEnemy.SetUpEnemy(EnemyCreator.GetEnemyAnimalFromValue(UnityEngine.Random.Range(0f, 1f)));
         Debug.Log("spawned " + newEnemy.RefAnimal);
         enemies.Add(newEnemy);
+    }
+
+    public bool CheckStraightLineX(TileData start, TileData dest)
+    {
+        if (start.GetPos.x != dest.GetPos.x)
+        {
+            return false;
+        }
+        int mod = 1;
+        if (start.GetPos.x >= dest.GetPos.x)
+        {
+            mod = -1;
+        }
+        int distance = Mathf.Abs(dest.GetPos.x) - Mathf.Abs(start.GetPos.x);
+        for (int i = start.GetPos.x + mod; i < distance; i += mod)
+        {
+            if (ReferenceEquals(GetTile(new Vector3Int(i, 0, start.GetPos.z)), null))
+            {
+                return false;
+            }
+        }
+        return true;
+
+    }
+    public bool CheckStraightLineZ(TileData start, TileData dest)
+    {
+        if (start.GetPos.z != dest.GetPos.z)
+        {
+            return false;
+        }
+        int mod = 1;
+        if (start.GetPos.z >= dest.GetPos.z)
+        {
+            mod = -1;
+        }
+        int distance = Mathf.Abs(dest.GetPos.z) - Mathf.Abs(start.GetPos.z);
+        for (int i = start.GetPos.z + mod; i < distance; i += mod)
+        {
+            if (ReferenceEquals(GetTile(new Vector3Int(start.GetPos.x, 0, i)), null))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
 

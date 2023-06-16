@@ -46,12 +46,17 @@ public class PlayerMovement : MonoBehaviour
         TileData destTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(to);
         if (!ReferenceEquals(destTile, null) && !destTile.Occupied)
         {
-            currentTile.UnSubscribeCharacter();
+            UpdateCurrentTile(destTile);
             StartCoroutine(MovePlayerTo(destTile.GetStandingPos));
-            currentTile = destTile;
-            destTile.SubscribeCharacter(GameManager.Instance.PlayerWrapper);
             RotatePlayerToMoveDirection(GameManager.Instance.InputManager.GetMoveVector());
         }
+    }
+
+    public void UpdateCurrentTile(TileData newCurrent)
+    {
+        currentTile.UnSubscribeCharacter();
+        currentTile = newCurrent;
+        newCurrent.SubscribeCharacter(GameManager.Instance.PlayerWrapper);
     }
 
     private void TurnRight()
