@@ -41,27 +41,28 @@ public class Level : MonoBehaviour
         for (int i = 0; i < tilemap.transform.childCount; i++)
         {
             Transform child = tilemap.transform.GetChild(i);
+            Vector3Int tilePos = new Vector3Int(Mathf.FloorToInt(child.localPosition.x), 0, Mathf.FloorToInt(child.localPosition.z));
+            TileData newTile = new TileData(tilePos, child.gameObject);
             if (child.gameObject.CompareTag("Walkable"))
             {
-                Vector3Int tilePos = new Vector3Int(Mathf.FloorToInt(child.localPosition.x), 0, Mathf.FloorToInt(child.localPosition.z));
-                traversableGround.Add(new TileData(tilePos, child.gameObject));
+                traversableGround.Add(newTile);
+                flyingMap.Add(newTile);
             }
             if (child.gameObject.CompareTag("Swimmable"))
             {
-                Vector3Int tilePos = new Vector3Int(Mathf.FloorToInt(child.localPosition.x), 0, Mathf.FloorToInt(child.localPosition.z));
-                swimmingMap.Add(new TileData(tilePos, child.gameObject));
+                swimmingMap.Add(newTile);
+                flyingMap.Add(newTile);
             }
-            if (child.gameObject.CompareTag("Walkable") || child.gameObject.CompareTag("Flyable") || child.gameObject.CompareTag("Swimmable"))
+            if (child.gameObject.CompareTag("Flyable"))
             {
-                Vector3Int tilePos = new Vector3Int(Mathf.FloorToInt(child.localPosition.x), 0, Mathf.FloorToInt(child.localPosition.z));
-                flyingMap.Add(new TileData(tilePos, child.gameObject));
+                flyingMap.Add(newTile);
             }
         }
 
         foreach (var tile in flyingMap)
         {
             InteractableTile interTile = Instantiate(GameManager.Instance.InteractableTilePrefab, tile.GetObj.transform);
-            interTile.transform.position = new Vector3(tile.GetStandingPos.x, tile.GetStandingPos.y + 0.2f, tile.GetStandingPos.z);
+            interTile.transform.position = new Vector3(tile.GetStandingPos(MovementMode.Ground).x, tile.GetStandingPos(MovementMode.Ground).y + 0.2f, tile.GetStandingPos(MovementMode.Ground).z);
             tile.CacheOverlayObject(interTile);
             interTile.gameObject.SetActive(false);
         }
@@ -70,7 +71,7 @@ public class Level : MonoBehaviour
         OnDoneCreatingRoom?.Invoke();
     }
 
-    public List<TileData> GetNeighbours(TileData givenTile)
+    public List<TileData> GetNeighbours(TileData givenTile, List<TileData> givenTileMap)
     {
         List<TileData> validNeighbours = new List<TileData>();
         for (int x = -1; x <= 1; x++)
@@ -80,7 +81,7 @@ public class Level : MonoBehaviour
                 continue;
             }
             Vector3Int tilePos = givenTile.GetPos + new Vector3Int(x, 0, 0);
-            TileData newTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(tilePos);
+            TileData newTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(tilePos, givenTileMap);
 
             if (ReferenceEquals(newTile, null))
             {
@@ -95,7 +96,7 @@ public class Level : MonoBehaviour
                 continue;
             }
             Vector3Int tilePos = givenTile.GetPos + new Vector3Int(0, 0, z);
-            TileData newTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(tilePos);
+            TileData newTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(tilePos, givenTileMap);
 
             if (ReferenceEquals(newTile, null))
             {
@@ -112,21 +113,21 @@ public class Level : MonoBehaviour
     }
     public void SetPlayerStartTile()
     {
-        startTile = GetRandomTile();
+        startTile = GetRandomTile(traversableGround);
     }
     public void PlaceEnemies()
     {
         foreach (var item in enemies)
         {
-            TileData startingTile = GetRandomTile();
+            item.SetWalkMode();
+            item.gameObject.SetActive(true);
+            TileData startingTile = GetRandomTile(traversableGround);
             item.Movement.SetEnemyStartPosition(startingTile);
             item.OnEnteredLevel?.Invoke(this, item);
         }
     }
-    private TileData GetRandomTile()
+    private TileData GetRandomTile(List<TileData> givenTileMap)
     {
-        /*  TileData tile = traversableGround[Random.Range(0, traversableGround.Count)];
-          return tile;*/
         TileData tile = null;
         while (true)
         {
@@ -134,19 +135,20 @@ public class Level : MonoBehaviour
             {
                 return tile;
             }
-            tile = traversableGround[UnityEngine.Random.Range(0, traversableGround.Count)];
+            tile = givenTileMap[UnityEngine.Random.Range(0, givenTileMap.Count)];
         }
     }
     public IEnumerator PlacePlayerAtStart()
     {
         GameManager.Instance.PlayerWrapper.PlayerMovement.SetCurrentTile(startTile);
+        GameManager.Instance.PlayerWrapper.SetWalkMode();
         yield return new WaitForEndOfFrame();
         GameManager.Instance.PlayerWrapper.OnEnteredLevel?.Invoke(this, GameManager.Instance.PlayerWrapper);
     }
 
-    public TileData GetTile(Vector3Int givenPos)
+    public TileData GetTile(Vector3Int givenPos, List<TileData> givenMap)
     {
-        foreach (var item in traversableGround)
+        foreach (var item in givenMap)
         {
             if (item.GetPos == givenPos)
             {
@@ -159,12 +161,13 @@ public class Level : MonoBehaviour
     private void SpawnEnemy()
     {
         Enemy newEnemy = Instantiate(GameManager.Instance.enemyPrefab, transform);
+        newEnemy.gameObject.SetActive(false);
         newEnemy.SetUpEnemy(EnemyCreator.GetEnemyAnimalFromValue(UnityEngine.Random.Range(0f, 1f)));
         Debug.Log("spawned " + newEnemy.RefAnimal);
         enemies.Add(newEnemy);
     }
 
-    public bool CheckStraightLineX(TileData start, TileData dest)
+    public bool CheckStraightLineX(TileData start, TileData dest, List<TileData> givenMap)
     {
         if (start.GetPos.x != dest.GetPos.x)
         {
@@ -178,7 +181,7 @@ public class Level : MonoBehaviour
         int distance = Mathf.Abs(dest.GetPos.x) - Mathf.Abs(start.GetPos.x);
         for (int i = start.GetPos.x + mod; i < distance; i += mod)
         {
-            if (ReferenceEquals(GetTile(new Vector3Int(i, 0, start.GetPos.z)), null))
+            if (ReferenceEquals(GetTile(new Vector3Int(i, 0, start.GetPos.z), givenMap), null))
             {
                 return false;
             }
@@ -186,7 +189,7 @@ public class Level : MonoBehaviour
         return true;
 
     }
-    public bool CheckStraightLineZ(TileData start, TileData dest)
+    public bool CheckStraightLineZ(TileData start, TileData dest, List<TileData> givenMap)
     {
         if (start.GetPos.z != dest.GetPos.z)
         {
@@ -200,7 +203,7 @@ public class Level : MonoBehaviour
         int distance = Mathf.Abs(dest.GetPos.z) - Mathf.Abs(start.GetPos.z);
         for (int i = start.GetPos.z + mod; i < distance; i += mod)
         {
-            if (ReferenceEquals(GetTile(new Vector3Int(start.GetPos.x, 0, i)), null))
+            if (ReferenceEquals(GetTile(new Vector3Int(start.GetPos.x, 0, i), givenMap), null))
             {
                 return false;
             }
@@ -224,9 +227,9 @@ public class TileData : IHeapItem<TileData>
     public int totalCost => costToEnd + costToStart;
     public GameObject GetObj { get => Obj; }
     public Vector3Int GetPos { get => Pos; }
-    public Vector3 GetStandingPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 0.6f, Obj.transform.position.z); }
-    public Vector3 GetFlyingPosition { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 1.6f, Obj.transform.position.z); }
-    public Vector3 SwimmingPosition { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 0.3f, Obj.transform.position.z); }
+    public Vector3 GetGroundPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 0.6f, Obj.transform.position.z); }
+    public Vector3 GetAirPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 1.6f, Obj.transform.position.z); }
+    public Vector3 GetWaterPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 0.3f, Obj.transform.position.z); }
     public InteractableTile Overly { get => overlay; }
     public bool Occupied { get => occupied; set => occupied = value; }
     public int HeapIndex { get => heapIndex; set => heapIndex = value; }
@@ -235,6 +238,22 @@ public class TileData : IHeapItem<TileData>
     {
         Obj = obj;
         Pos = pos;
+    }
+
+
+    public Vector3 GetStandingPos(MovementMode movement)
+    {
+        switch (movement)
+        {
+            case MovementMode.Ground:
+                return GetGroundPos;
+            case MovementMode.Water:
+                return GetWaterPos;
+            case MovementMode.Air:
+                return GetAirPos;
+            default:
+                return Vector3.zero;
+        }
     }
 
     public void CacheOverlayObject(InteractableTile givenTile)

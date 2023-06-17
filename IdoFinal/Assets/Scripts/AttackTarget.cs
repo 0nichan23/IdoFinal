@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AttackTarget
 {
-    public void AttackTiles(LookDirections direction ,Vector3Int originPos, AnimalAttack givenAttack, DamageDealer dealer = null)
+    public void AttackTiles(LookDirections direction ,Vector3Int originPos, AnimalAttack givenAttack, Character dealer)
     {
         List<Vector3Int> finalPositions = new List<Vector3Int>();
 

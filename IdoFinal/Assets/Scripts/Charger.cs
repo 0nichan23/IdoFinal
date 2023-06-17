@@ -22,7 +22,7 @@ public class Charger : MonoBehaviour
 
     public void StartCharging(LookDirections direction, TileData startingTile)
     {
-        TileData startTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(startingTile.GetPos + GetLookDirVector(direction));
+        TileData startTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(startingTile.GetPos + GetLookDirVector(direction), emitter.CurrentTileMap);
         if (!ReferenceEquals(startTile, null))
         {
             StartCoroutine(ChargeForward(direction, startTile));
@@ -42,7 +42,7 @@ public class Charger : MonoBehaviour
                 break;
             }
             previousTile = nextTile;
-            nextTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(nextTile.GetPos + GetLookDirVector(direction));
+            nextTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(nextTile.GetPos + GetLookDirVector(direction), emitter.CurrentTileMap);
             if (ReferenceEquals(nextTile, null) || nextTile.Occupied)
             {
                 nextTile = previousTile;
@@ -53,7 +53,7 @@ public class Charger : MonoBehaviour
                 emitter.UpdateCurrentTile(nextTile);
                 float counter = 0f;
                 Vector3 startPos = transform.position;
-                Vector3 dest = nextTile.GetStandingPos;
+                Vector3 dest = nextTile.GetStandingPos(emitter.MovementMode);
                 while (counter < 1)
                 {
                     counter += Time.deltaTime * stepDurationMod;
@@ -79,7 +79,7 @@ public class Charger : MonoBehaviour
 
     public void Blast(TileData blastZone, LookDirections dir)
     {
-        targeter.AttackTiles(dir, blastZone.GetPos, attack, emitter.DamageDealer);
+        targeter.AttackTiles(dir, blastZone.GetPos, attack, emitter);
     }
     private Vector3Int GetLookDirVector(LookDirections direction)
     {

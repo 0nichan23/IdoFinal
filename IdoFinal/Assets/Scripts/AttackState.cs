@@ -6,7 +6,7 @@ public class AttackState : CoroutineState
 {
     public override bool IsLegal()
     {
-        if (GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(handler.RefEnemy.Movement.CurrentTile).Contains(GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile))
+        if (GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(handler.RefEnemy.Movement.CurrentTile, handler.RefEnemy.CurrentTileMap).Contains(GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile))
         {
             return true;
         }

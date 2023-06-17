@@ -43,11 +43,11 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        TileData destTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(to);
+        TileData destTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(to, GameManager.Instance.PlayerWrapper.CurrentTileMap);
         if (!ReferenceEquals(destTile, null) && !destTile.Occupied)
         {
             UpdateCurrentTile(destTile);
-            StartCoroutine(MovePlayerTo(destTile.GetStandingPos));
+            StartCoroutine(MovePlayerTo(destTile.GetStandingPos(GameManager.Instance.PlayerWrapper.MovementMode)));
             RotatePlayerToMoveDirection(GameManager.Instance.InputManager.GetMoveVector());
         }
     }
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
     {
         currentTile = tile;
         tile.SubscribeCharacter(GameManager.Instance.PlayerWrapper);
-        transform.position = tile.GetStandingPos;
+        transform.position = tile.GetStandingPos(GameManager.Instance.PlayerWrapper.MovementMode);
     }
 
     private void RotatePlayerToMoveDirection(Vector3Int givenDir)

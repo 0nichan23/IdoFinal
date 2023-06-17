@@ -57,17 +57,17 @@ public class LevelManager : MonoBehaviour
         OnMoveToNextLevel?.Invoke(CurrentLevel);
     }
 
-    public void DealDamageOnTiles(List<Vector3Int> givenPositions, AnimalAttack givenAttack, DamageDealer dealer = null)
+    public void DealDamageOnTiles(List<Vector3Int> givenPositions, AnimalAttack givenAttack, Character dealer)
     {
         foreach (var item in givenPositions)
         {
-            TileData tile = currentLevel.GetTile(item);
+            TileData tile = currentLevel.GetTile(item, dealer.CurrentTileMap);
             if (ReferenceEquals(tile, null))
             {
                 continue;
             }
 
-            tile.HitTile(givenAttack, dealer);
+            tile.HitTile(givenAttack, dealer.DamageDealer);
 
             tile.Overly.gameObject.SetActive(true);
             tile.Overly.DamageColor();

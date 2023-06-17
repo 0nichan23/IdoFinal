@@ -95,7 +95,7 @@ public class PlayerAttackHandler : MonoBehaviour
         }
         else
         {
-            targeter.AttackTiles(GameManager.Instance.PlayerWrapper.LookingTowards, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.GetPos, currentAttack, dealer);
+            targeter.AttackTiles(GameManager.Instance.PlayerWrapper.LookingTowards, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.GetPos, currentAttack, GameManager.Instance.PlayerWrapper);
         }
     }
 

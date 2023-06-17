@@ -17,11 +17,11 @@ public class Pathfinder : MonoBehaviour
         //FindPathToDest(test.CurrentPos, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile);
     }
 
-    public List<TileData> FindPathToDest(TileData startingPoint, TileData destenation)
+    public List<TileData> FindPathToDest(TileData startingPoint, TileData destenation, List<TileData> map)
     {
         Stopwatch sw = new Stopwatch();
         sw.Start();
-        openList = new Heap<TileData>(GameManager.Instance.LevelManager.CurrentLevel.TraversableGround.Count);
+        openList = new Heap<TileData>(map.Count);
         closedList = new List<TileData>();
         TileData currentTile;
         openList.Add(startingPoint);
@@ -44,7 +44,7 @@ public class Pathfinder : MonoBehaviour
 
             }
 
-            foreach (TileData neighbour in GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(currentTile))
+            foreach (TileData neighbour in GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(currentTile, map))
             {
                 if (closedList.Contains(neighbour))
                 {

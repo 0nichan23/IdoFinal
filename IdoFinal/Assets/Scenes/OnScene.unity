@@ -775,6 +775,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5614614809955119593, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614614809955119593, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614614809955119593, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 460538558}
+    - target: {fileID: 5614614809955119593, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614614809955119593, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetFlightMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614614809955119593, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Character, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614614809955119593, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5840709463606850482, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -3.7999878

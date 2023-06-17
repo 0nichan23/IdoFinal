@@ -14,8 +14,8 @@ public class SecondaryAttackState : CoroutineState
         //check if the player is paralel to enemy and within range
         if (GameManager.Instance.Pathfinder.GetDistanceOfTiles(handler.RefEnemy.Movement.CurrentTile.GetPos, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.GetPos) <= maxDistacne)
         {
-            if (GameManager.Instance.LevelManager.CurrentLevel.CheckStraightLineX(handler.RefEnemy.Movement.CurrentTile, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile) ||
-                GameManager.Instance.LevelManager.CurrentLevel.CheckStraightLineZ(handler.RefEnemy.Movement.CurrentTile, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile))
+            if (GameManager.Instance.LevelManager.CurrentLevel.CheckStraightLineX(handler.RefEnemy.Movement.CurrentTile, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile, handler.RefEnemy.CurrentTileMap) ||
+                GameManager.Instance.LevelManager.CurrentLevel.CheckStraightLineZ(handler.RefEnemy.Movement.CurrentTile, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile, handler.RefEnemy.CurrentTileMap))
             {
                 return true;
             }

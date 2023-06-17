@@ -21,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
     {
         currentTile = startTile;
         currentTile.SubscribeCharacter(enemy);
-        transform.position = currentTile.GetStandingPos;
+        transform.position = currentTile.GetStandingPos(enemy.MovementMode);
     }
 
     public IEnumerator MoveEnemyTo(TileData givenTile)//adjacent to current tile
@@ -45,7 +45,7 @@ public class EnemyMovement : MonoBehaviour
     {
         float counter = 0;
         Vector3 startPos = transform.position;
-        Vector3 dest = givenTile.GetStandingPos;
+        Vector3 dest = givenTile.GetStandingPos(enemy.MovementMode);
         enemy.Anim.StartWalkAnim();
         while (counter < 1)
         {

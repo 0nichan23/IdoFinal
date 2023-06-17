@@ -6,6 +6,11 @@ public class AnimationHandler : MonoBehaviour
 {
 
     private List<Animator> controllers = new List<Animator>();
+    private Character owner;
+    public void CacheOwner(Character givenCharacter)
+    {
+        owner = givenCharacter;
+    }
     public void StartSwimAnim()
     {
         foreach (var anim in controllers)
@@ -22,16 +27,42 @@ public class AnimationHandler : MonoBehaviour
     }
     public void StartWalkAnim()
     {
+        string Boolean ="";
+        switch (owner.MovementMode)
+        {
+            case MovementMode.Ground:
+                Boolean = "Walk";
+                break;
+            case MovementMode.Water:
+                Boolean = "Swim";
+                break;
+            case MovementMode.Air:
+                Boolean = "Fly";
+                break;
+        }
         foreach (var anim in controllers)
         {
-            anim.SetBool("Walk", true);
+            anim.SetBool(Boolean, true);
         }
     }
     public void EndWalkAnim()
     {
+        string Boolean = "";
+        switch (owner.MovementMode)
+        {
+            case MovementMode.Ground:
+                Boolean = "Walk";
+                break;
+            case MovementMode.Water:
+                Boolean = "Swim";
+                break;
+            case MovementMode.Air:
+                Boolean = "Fly";
+                break;
+        }
         foreach (var anim in controllers)
         {
-            anim.SetBool("Walk", false);
+            anim.SetBool(Boolean, false);
         }
     }
     public void AttackAnim()

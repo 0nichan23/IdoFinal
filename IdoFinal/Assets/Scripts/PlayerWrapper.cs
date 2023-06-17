@@ -29,6 +29,7 @@ public class PlayerWrapper : Character
     public void StartGame()
     {
         EndStun();
+        PlayerAnimationHandler.CacheOwner(this);
         SetAnimalStatsOnComps();
         team.OnSwitchActiveAnimal.AddListener(SetAnimalStatsOnComps);
         attackHandler.OnAttackPreformed.AddListener(playerAnimationHandler.AttackAnim);

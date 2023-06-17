@@ -31,6 +31,7 @@ public class Enemy : Character
     public void SetUpEnemy(Animal givenAnimal)
     {
         refAnimal = givenAnimal;
+        anim.CacheOwner(this);
         DamageDealer.SetStats(refAnimal, this);
         Damageable.SetStats(refAnimal, this);
         movement.CacheEnemy(this);

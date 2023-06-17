@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
 
     public void Blast(TileData blastZone, LookDirections dir)
     {
-        targeter.AttackTiles(dir, blastZone.GetPos, attack, emitter.DamageDealer);
+        targeter.AttackTiles(dir, blastZone.GetPos, attack, emitter);
         gameObject.SetActive(false);
         //play the blast effect?
     }
@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour
                 break;
             }
             previousTile = nextTile;
-            nextTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(nextTile.GetPos + GetLookDirVector(direction));
+            nextTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(nextTile.GetPos + GetLookDirVector(direction), emitter.CurrentTileMap);
 
 
             if (ReferenceEquals(nextTile, null) || nextTile.Occupied)
@@ -50,7 +50,7 @@ public class Projectile : MonoBehaviour
             {
                 float counter = 0f;
                 Vector3 startPos = transform.position;
-                Vector3 dest = nextTile.GetStandingPos;
+                Vector3 dest = nextTile.GetStandingPos(emitter.MovementMode);
                 while (counter < 1)
                 {
                     counter += Time.deltaTime * stepDurationMod;
