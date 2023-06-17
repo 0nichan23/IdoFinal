@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c45ec9e403434347b4fce6492f33a49, type: 3}
+  m_Name: Cobra
+  m_EditorClassIdentifier: 
+  animalClass: 3
+  habitat: 2
+  statSheet: {fileID: 11400000, guid: bd2ddaf8143d5c34fa8f9621ba17f317, type: 2}
+  attack: {fileID: 11400000, guid: e653c688fbb26df4d88d12550a768eac, type: 2}
+  secondAttack: {fileID: 11400000, guid: 77d1b9281a137cf4391cc70f8f011538, type: 2}
+  passive: {fileID: 11400000, guid: 9b8349b43eafcb34d9c0b3b4234ef28c, type: 2}
+  animalModel: {fileID: 1541321899521619562, guid: bc5f615422cd03b4ab3ef210af4156cc, type: 3}
+  diet: 0
+  portrait: {fileID: 21300000, guid: 057bce7ea6bc1004f866fa49f2ac24a0, type: 3}
+  size: 0
+  rarity: 1

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c45ec9e403434347b4fce6492f33a49, type: 3}
+  m_Name: Bat
+  m_EditorClassIdentifier: 
+  animalClass: 0
+  habitat: 0
+  statSheet: {fileID: 11400000, guid: e4426408ce710e246b6012dbacd77e0f, type: 2}
+  attack: {fileID: 11400000, guid: 53a8d896a08ab9d4999fd71a9d1520b2, type: 2}
+  secondAttack: {fileID: 11400000, guid: 1b0b5c126e8948848983292d9b7d89cd, type: 2}
+  passive: {fileID: 11400000, guid: b321baa7fa38ce3448cfd81bfaa33b5c, type: 2}
+  animalModel: {fileID: 9177848705025344414, guid: 408c31daf2a76244b8464ea5de395b3a, type: 3}
+  diet: 0
+  portrait: {fileID: 21300000, guid: c4548588baec23d47bf9dc10a8a74ff1, type: 3}
+  size: 0
+  rarity: 0

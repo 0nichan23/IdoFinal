@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnData:
   - MaxChacne: 1
-    AnimalToSpawn: {fileID: 11400000, guid: aa8519f20b0130d4fbd82d1dc30797f1, type: 2}
+    AnimalToSpawn: {fileID: 11400000, guid: 0d33c1b9119de7c44a6acd414d000b3a, type: 2}

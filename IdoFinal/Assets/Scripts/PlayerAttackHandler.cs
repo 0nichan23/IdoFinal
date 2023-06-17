@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class PlayerAttackHandler : MonoBehaviour
 {
     public UnityEvent OnAttackPreformed;
+    public UnityEvent OnAttackChanged;
     public UnityEvent OnAttackSwitched;
     private AnimalAttack currentAttack;
     private AnimalAttack currentSecondAttack;
@@ -12,6 +13,7 @@ public class PlayerAttackHandler : MonoBehaviour
     private AttackTarget targeter = new AttackTarget();
     private AttackCounter attackCounter = new AttackCounter();
     private bool canAttack;
+    private bool canSwitchAttacks;
 
     private float attackSpeedMod;
     private float baseAttackSpeedMod;
@@ -22,6 +24,7 @@ public class PlayerAttackHandler : MonoBehaviour
     public AttackCounter AttackCounter { get => attackCounter; }
     public bool CanAttack { get => canAttack; set => canAttack = value; }
     public AnimalAttack CurrentSecondAttack { get => currentSecondAttack; }
+    public bool CanSwitchAttacks { get => canSwitchAttacks; set => canSwitchAttacks = value; }
 
     public void SetStats(Animal givenActiveAnimal)
     {
@@ -65,6 +68,7 @@ public class PlayerAttackHandler : MonoBehaviour
         GameManager.Instance.InputManager.OnAttack.AddListener(Attack);
         GameManager.Instance.InputManager.OnSwitchAttacks.AddListener(SwitchAttacks);
         OnAttackPreformed.AddListener(attackCounter.CountAttacks);
+        canSwitchAttacks = true;
     }
 
 
@@ -98,20 +102,21 @@ public class PlayerAttackHandler : MonoBehaviour
 
     public void SwitchAttacks()//switches first and second attack
     {
-        if (ReferenceEquals(currentSecondAttack, null))
+        if (ReferenceEquals(currentSecondAttack, null) || !canSwitchAttacks)
         {
             return;
         }
         AnimalAttack temp = currentAttack;
         EquipAttack(currentSecondAttack);
         currentSecondAttack = temp;
+        OnAttackSwitched?.Invoke();
     }
 
     public void EquipAttack(AnimalAttack givenAttack)
     {
         currentAttack = givenAttack;
         lastAttacked = GetAttackCoolDown() * -1;
-        OnAttackSwitched?.Invoke();
+        OnAttackChanged?.Invoke();
     }
 
 

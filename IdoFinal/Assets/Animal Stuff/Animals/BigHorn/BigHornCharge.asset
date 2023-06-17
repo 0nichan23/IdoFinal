@@ -18,3 +18,4 @@ MonoBehaviour:
   coolDown: 4
   projectile: 0
   charge: 1
+  artwork: {fileID: 21300000, guid: f59ad3177855e904eab62a9a903f29fe, type: 3}

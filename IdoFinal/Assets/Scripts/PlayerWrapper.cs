@@ -37,6 +37,14 @@ public class PlayerWrapper : Character
         Effectable.CahceOwner(this);
         Effectable.OnObtainEffect.AddListener(AddEffectIcon);
         animalInventory.OnAnimalAdded.AddListener(playerHud.TeamPanel.InventoryPanel.AddSlot);
+        Damageable.OnHealGFX.AddListener(UpdateBar);
+        Damageable.OnTakeDamageGFX.AddListener(UpdateBar);
+        attackHandler.OnAttackPreformed.AddListener(SetAttackIconCD);
+        attackHandler.OnAttackChanged.AddListener(SetUpAttackIcon);
+        PlayerHud.SwitchIcon.AttackSwitchUp.AddListener(() => attackHandler.CanSwitchAttacks = true);
+        attackHandler.OnAttackSwitched.AddListener(() => attackHandler.CanSwitchAttacks = false);
+        attackHandler.OnAttackSwitched.AddListener(PlayerHud.SwitchIcon.StartCountDown);
+        UpdateBar();
     }
 
     public void SetAnimalStatsOnComps()
@@ -93,7 +101,7 @@ public class PlayerWrapper : Character
 
     private void UpdateBar()
     {
-
+        playerHud.HealthBar.UpdateBar(Damageable.MaxHp, Damageable.CurrentHp);
     }
 
     public override void UpdateCurrentTile(TileData current)
@@ -111,6 +119,15 @@ public class PlayerWrapper : Character
         charger.StartCharging(LookingTowards, PlayerMovement.CurrentTile);
     }
 
+    public void SetAttackIconCD()
+    {
+        playerHud.AttackIcon.SetUpAttack(attackHandler.GetAttackCoolDown());
+    }
+    public void SetUpAttackIcon()
+    {
+        playerHud.AttackIcon.SetNewAttack(attackHandler.CurrentAttack.Artwork);
+    }
+
     [ContextMenu("test cleanse")]
     public void BleedPlayer()
     {
@@ -119,5 +136,5 @@ public class PlayerWrapper : Character
         Effectable.AddStatus(new Stun(3), DamageDealer);
     }
 
-    
+
 }

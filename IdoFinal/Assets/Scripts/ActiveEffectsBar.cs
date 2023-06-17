@@ -18,6 +18,8 @@ public class ActiveEffectsBar : MonoBehaviour
     [SerializeField] private Sprite bleed;
     [SerializeField] private Sprite stunned;
     [SerializeField] private Sprite regeneration;
+    [SerializeField] private Sprite burn;
+    [SerializeField] private Sprite hitChanceDebuff;
 
     private List<ActiveEffectIcon> activeIcons = new List<ActiveEffectIcon>();
 
@@ -91,6 +93,14 @@ public class ActiveEffectsBar : MonoBehaviour
         else if (effect is ArmorPenBuff)
         {
             return armorPenBuff;
+        }
+        else if (effect is Burn)
+        {
+            return burn;
+        }
+        else if (effect is HitChanceDebuff)
+        {
+            return hitChanceDebuff;
         }
         return null;
     }

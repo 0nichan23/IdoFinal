@@ -17,3 +17,6 @@ MonoBehaviour:
   hitbox:
   - {x: 1, y: 0, z: 0}
   coolDown: 2.5
+  projectile: 0
+  charge: 0
+  artwork: {fileID: 21300000, guid: 6dadfdffb5010c1499e59973e6ac664d, type: 3}

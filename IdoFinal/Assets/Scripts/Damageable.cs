@@ -128,7 +128,6 @@ public class Damageable : MonoBehaviour
             }
         }
         currentHp -= Mathf.RoundToInt(attack.Damage.CalcFinalDamageMult());
-        OnTakeDamageGFX?.Invoke();
         if (currentHp <= 0)
         {
             OnDeath?.Invoke();
@@ -136,13 +135,13 @@ public class Damageable : MonoBehaviour
         }
         attack.Damage.ClearMods();
         ClampHp();
+        OnTakeDamageGFX?.Invoke();
 
     }
 
     public void TakeTrueDamage(float fixedAmount)
     {
         currentHp -= Mathf.RoundToInt(fixedAmount);
-        OnTakeDamageGFX?.Invoke();
         if (EmitPopups)
         {
             GameManager.Instance.PopupSpawner.SpawnDamagePopup(transform.position, Mathf.RoundToInt(fixedAmount), Color.yellow);
@@ -152,12 +151,12 @@ public class Damageable : MonoBehaviour
             OnDeath?.Invoke();
         }
         ClampHp();
+        OnTakeDamageGFX?.Invoke();
     }
 
     public void HealTrueDamage(float fixedAmount)
     {
         currentHp += fixedAmount;
-        OnHealGFX?.Invoke();
         if (EmitPopups)
         {
             GameManager.Instance.PopupSpawner.SpawnDamagePopup(transform.position, fixedAmount, Color.green);
@@ -167,6 +166,7 @@ public class Damageable : MonoBehaviour
             OnDeath?.Invoke();
         }
         ClampHp();
+        OnHealGFX?.Invoke();
     }
     private void ClampHp()
     {
@@ -177,12 +177,12 @@ public class Damageable : MonoBehaviour
     {
         OnHeal?.Invoke(givenDamage);
         currentHp += givenDamage.CalcFinalDamageMult();
-        OnHealGFX?.Invoke();
         if (EmitPopups)
         {
             GameManager.Instance.PopupSpawner.SpawnDamagePopup(transform.position, givenDamage.CalcFinalDamageMult(), Color.green);
         }
         ClampHp();
+        OnHealGFX?.Invoke();
     }
 
     private bool CheckForCritHit(float chance)

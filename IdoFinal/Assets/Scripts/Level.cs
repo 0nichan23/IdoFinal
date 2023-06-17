@@ -9,6 +9,8 @@ public class Level : MonoBehaviour
     [SerializeField] private Tilemap tilemap;
 
     [SerializeField] private List<TileData> traversableGround = new List<TileData>();
+    [SerializeField] private List<TileData> swimmingMap = new List<TileData>();
+    [SerializeField] private List<TileData> flyingMap = new List<TileData>();
     [SerializeField] private TileData startTile;
     public UnityEvent OnDoneCreatingRoom;
     [SerializeField] List<Enemy> enemies = new List<Enemy>();
@@ -41,6 +43,16 @@ public class Level : MonoBehaviour
             {
                 Vector3Int tilePos = new Vector3Int(Mathf.FloorToInt(child.localPosition.x), 0, Mathf.FloorToInt(child.localPosition.z));
                 traversableGround.Add(new TileData(tilePos, child.gameObject));
+            }
+            if (child.gameObject.CompareTag("Swimmable"))
+            {
+                Vector3Int tilePos = new Vector3Int(Mathf.FloorToInt(child.localPosition.x), 0, Mathf.FloorToInt(child.localPosition.z));
+                swimmingMap.Add(new TileData(tilePos, child.gameObject));
+            }
+            if (child.gameObject.CompareTag("Walkable") || child.gameObject.CompareTag("Flyable") || child.gameObject.CompareTag("Swimmable"))
+            {
+                Vector3Int tilePos = new Vector3Int(Mathf.FloorToInt(child.localPosition.x), 0, Mathf.FloorToInt(child.localPosition.z));
+                flyingMap.Add(new TileData(tilePos, child.gameObject));
             }
         }
 
@@ -211,6 +223,8 @@ public class TileData : IHeapItem<TileData>
     public GameObject GetObj { get => Obj; }
     public Vector3Int GetPos { get => Pos; }
     public Vector3 GetStandingPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 0.6f, Obj.transform.position.z); }
+    public Vector3 GetFlyingPosition { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 1.6f, Obj.transform.position.z); }
+    public Vector3 SwimmingPosition { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 0.3f, Obj.transform.position.z); }
     public InteractableTile Overly { get => overlay; }
     public bool Occupied { get => occupied; set => occupied = value; }
     public int HeapIndex { get => heapIndex; set => heapIndex = value; }

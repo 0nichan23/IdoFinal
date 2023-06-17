@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c45ec9e403434347b4fce6492f33a49, type: 3}
+  m_Name: Dragon
+  m_EditorClassIdentifier: 
+  animalClass: 3
+  habitat: 6
+  statSheet: {fileID: 11400000, guid: a9545189ac4ffc648b4c9f4c588328b0, type: 2}
+  attack: {fileID: 11400000, guid: 85a30036186d1e04f93cf4d0a0e35333, type: 2}
+  secondAttack: {fileID: 11400000, guid: f722981bc76575943bde377b76bd99f2, type: 2}
+  passive: {fileID: 11400000, guid: 66cee71faa8cfed4aaa5e926b860f480, type: 2}
+  animalModel: {fileID: 2881032626793173798, guid: 8d5d70b8547d4814b93de2d774d8848d, type: 3}
+  diet: 0
+  portrait: {fileID: 21300000, guid: fbac8b626de06a841b68a9345cfe8946, type: 3}
+  size: 2
+  rarity: 2

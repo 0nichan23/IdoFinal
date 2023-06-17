@@ -21,6 +21,13 @@ public class PlayerHud : MonoBehaviour
 
     [Header("Team")]
     public TeamPanel TeamPanel;
+
+    [Header("HealthBar")]
+    public Bar HealthBar;
+
+    [Header("Attack Icon")]
+    public AttackIcon AttackIcon;
+    public SwitchAttackIcon SwitchIcon;
     public void ToggleCharacterScreen()
     {
         sheet.SetActive(!sheet.activeSelf);

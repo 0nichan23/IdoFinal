@@ -96,7 +96,7 @@ public class DamageDealer : MonoBehaviour
         float baseChance = 0.75f; //base chance to hit is always 75% 
         for (int i = 0; i <= instinct; i++)
         {
-            baseChance += 0.05f;//will get up to 100% if instinct is 10
+            baseChance += 0.05f;
         }
         return baseChance;
     }

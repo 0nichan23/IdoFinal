@@ -9,12 +9,14 @@ public class AnimalAttack : ScriptableObject
     [SerializeField] private float coolDown;
     [SerializeField] private bool projectile;
     [SerializeField] private bool charge;
+    [SerializeField] private Sprite artwork;
     public DamageHandler Damage { get => damage; }
     public float CoolDown { get => coolDown; }
 
     public List<Vector3Int> Hitbox { get => hitbox; }
     public bool Projectile { get => projectile; }
     public bool Charge { get => charge; }
+    public Sprite Artwork { get => artwork;}
 
     private void OnEnable()
     {
