@@ -545,6 +545,7 @@ GameObject:
   - component: {fileID: 4456592564308203964}
   - component: {fileID: 4215754784612818786}
   - component: {fileID: 228017266836044125}
+  - component: {fileID: 4427835906387541509}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -718,6 +719,7 @@ MonoBehaviour:
   - {fileID: -1413638807751984595}
   - {fileID: 5871384239029913501}
   - {fileID: 228017266836044125}
+  - {fileID: 4427835906387541509}
   refEnemy: {fileID: 7477012478839064909}
 --- !u!114 &2531860179119824948
 MonoBehaviour:
@@ -824,6 +826,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priority: 2
   maxDistacne: 5
+--- !u!114 &4427835906387541509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7477012478839064944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a21890a84b79684e9eb5a5d11740f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 0
+  detectionZone: 5
 --- !u!1 &7692391293813374302
 GameObject:
   m_ObjectHideFlags: 0

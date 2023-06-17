@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "Animal", menuName = "Animal")]
 public class Animal : ScriptableObject
@@ -14,6 +15,7 @@ public class Animal : ScriptableObject
     [SerializeField] private Sprite portrait;
     [SerializeField] private Size size;
     [SerializeField] private Rarity rarity;
+    [SerializeField] private List<MovementMode> movementMods = new List<MovementMode>();
 
     public AnimalClass AnimalClass { get => animalClass; }
     public Habitat Habitat { get => habitat; }
@@ -26,6 +28,7 @@ public class Animal : ScriptableObject
     public Size Size { get => size; }
     public Rarity Rarity { get => rarity; }
     public AnimalAttack SecondAttack { get => secondAttack; }
+    public List<MovementMode> MovementMods { get => movementMods; }
 }
 
 public enum AnimalClass
@@ -70,4 +73,5 @@ public enum Rarity
     Uncommon,
     Rare
 }
+
 

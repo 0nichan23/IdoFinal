@@ -28,10 +28,37 @@ public class PlayerHud : MonoBehaviour
     [Header("Attack Icon")]
     public AttackIcon AttackIcon;
     public SwitchAttackIcon SwitchIcon;
+
+    [Header("Traversals")]
+    public GameObject Flybutton;
+    public GameObject SwimButton;
+    public GameObject WalkButton;
     public void ToggleCharacterScreen()
     {
         sheet.SetActive(!sheet.activeSelf);
         GameManager.Instance.PlayerWrapper.UpdatePlayerHud();
+    }
+
+    public void ToggleTraversalButtons()
+    {
+        WalkButton.SetActive(false);
+        SwimButton.SetActive(false);
+        Flybutton.SetActive(false);
+        foreach (var item in GameManager.Instance.PlayerWrapper.Team.ActiveAnimal.Animal.MovementMods)
+        {
+            switch (item)
+            {
+                case MovementMode.Ground:
+                    WalkButton.SetActive(true);
+                    break;
+                case MovementMode.Water:
+                    SwimButton.SetActive(true);
+                    break;
+                case MovementMode.Air:
+                    Flybutton.SetActive(true);
+                    break;
+            }
+        }
     }
 
 

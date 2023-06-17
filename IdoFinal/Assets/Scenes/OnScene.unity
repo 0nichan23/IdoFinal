@@ -807,6 +807,62 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -3.7999878
       objectReference: {fileID: 0}
+    - target: {fileID: 7409034008597994901, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409034008597994901, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409034008597994901, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 460538558}
+    - target: {fileID: 7409034008597994901, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409034008597994901, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSwimMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409034008597994901, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Character, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409034008597994901, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265453602108279360, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265453602108279360, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265453602108279360, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 460538558}
+    - target: {fileID: 8265453602108279360, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265453602108279360, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetWalkMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265453602108279360, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Character, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265453602108279360, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9154392487993564458, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

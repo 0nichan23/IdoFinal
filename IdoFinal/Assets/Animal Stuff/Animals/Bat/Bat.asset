@@ -23,3 +23,4 @@ MonoBehaviour:
   portrait: {fileID: 21300000, guid: c4548588baec23d47bf9dc10a8a74ff1, type: 3}
   size: 0
   rarity: 0
+  movementMods: 0000000002000000

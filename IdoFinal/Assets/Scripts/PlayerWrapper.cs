@@ -32,6 +32,7 @@ public class PlayerWrapper : Character
         PlayerAnimationHandler.CacheOwner(this);
         SetAnimalStatsOnComps();
         team.OnSwitchActiveAnimal.AddListener(SetAnimalStatsOnComps);
+        team.OnSwitchActiveAnimal.AddListener(playerHud.ToggleTraversalButtons);
         attackHandler.OnAttackPreformed.AddListener(playerAnimationHandler.AttackAnim);
         attackHandler.CacheDealer(DamageDealer);
         Damageable.CacheEffectable(Effectable);

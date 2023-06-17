@@ -66,8 +66,6 @@ public class Level : MonoBehaviour
             tile.CacheOverlayObject(interTile);
             interTile.gameObject.SetActive(false);
         }
-
-
         OnDoneCreatingRoom?.Invoke();
     }
 

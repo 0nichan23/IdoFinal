@@ -36,13 +36,16 @@ public class ChaseState : CoroutineState
             }
             else
             {
-                /*List<TileData> foundNeighbors = GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(handler.RefEnemy.Movement.CurrentTile, handler.RefEnemy.CurrentTileMap);
-                dest = foundNeighbors[Random.Range(0, foundNeighbors.Count)];*/
+                List<TileData> foundNeighbors = GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(handler.RefEnemy.Movement.CurrentTile, handler.RefEnemy.CurrentTileMap);
+                dest = foundNeighbors[Random.Range(0, foundNeighbors.Count)];
                 yield break;
             }
         }
-        List<TileData> path = GameManager.Instance.Pathfinder.FindPathToDest(handler.RefEnemy.Movement.CurrentTile, dest, handler.RefEnemy.CurrentTileMap);
-        yield return StartCoroutine(handler.RefEnemy.Movement.MoveEnemyTo(path[0]));
-        yield return new WaitForEndOfFrame();
+        if (!ReferenceEquals(dest, null) &&  handler.RefEnemy.CurrentTileMap.Contains(dest))
+        {
+            List<TileData> path = GameManager.Instance.Pathfinder.FindPathToDest(handler.RefEnemy.Movement.CurrentTile, dest, handler.RefEnemy.CurrentTileMap);
+            yield return StartCoroutine(handler.RefEnemy.Movement.MoveEnemyTo(path[0]));
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
