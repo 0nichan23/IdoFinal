@@ -23,6 +23,8 @@ public class Level : MonoBehaviour
     public List<Enemy> Enemies { get => enemies; }
     public Habitat Habitat { get => habitat; set => habitat = value; }
     public EnemyCreator EnemyCreator { get => enemyCreator; set => enemyCreator = value; }
+    public List<TileData> SwimmingMap { get => swimmingMap;}
+    public List<TileData> FlyingMap { get => flyingMap; }
 
     public void SetUpLevel()
     {
@@ -56,7 +58,7 @@ public class Level : MonoBehaviour
             }
         }
 
-        foreach (var tile in traversableGround)
+        foreach (var tile in flyingMap)
         {
             InteractableTile interTile = Instantiate(GameManager.Instance.InteractableTilePrefab, tile.GetObj.transform);
             interTile.transform.position = new Vector3(tile.GetStandingPos.x, tile.GetStandingPos.y + 0.2f, tile.GetStandingPos.z);

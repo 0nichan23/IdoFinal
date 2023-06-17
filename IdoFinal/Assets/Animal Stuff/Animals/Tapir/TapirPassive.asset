@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b9854464cd18f428c035f793c4cdea, type: 3}
   m_Name: TapirPassive
   m_EditorClassIdentifier: 
-  effect: 
+  effect: damage reducion when swimming
