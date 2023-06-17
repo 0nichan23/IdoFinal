@@ -41,7 +41,6 @@ public class Pathfinder : MonoBehaviour
                 //found path
                 sw.Stop();
                 return RetracePath(startingPoint, destenation);
-
             }
 
             foreach (TileData neighbour in GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(currentTile, map))
