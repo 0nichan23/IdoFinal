@@ -13,7 +13,11 @@ public class AttackIcon : MonoBehaviour
         slider.maxValue = coolDown;
         slider.value = slider.maxValue;
     }
-
+    public void SetUpAttackZ(float coolDown)
+    {
+        slider.maxValue = coolDown;
+        slider.value = 0;
+    }
     public void SetNewAttack(Sprite givenSprite)
     {
         attackIcon.sprite = givenSprite;

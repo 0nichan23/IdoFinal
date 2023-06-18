@@ -129,6 +129,7 @@ public class PlayerWrapper : Character
     public void SetUpAttackIcon()
     {
         playerHud.AttackIcon.SetNewAttack(attackHandler.CurrentAttack.Artwork);
+        PlayerHud.AttackIcon.SetUpAttackZ(AttackHandler.GetAttackCoolDown());
     }
 
     [ContextMenu("test cleanse")]

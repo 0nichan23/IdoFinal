@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ElephantSS
   m_EditorClassIdentifier: 
   maxHp: 180
-  power: 10
+  power: 9
   toughness: 10
-  instinct: 2
+  instinct: 3
   speed: 3
