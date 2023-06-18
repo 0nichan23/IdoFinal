@@ -19,7 +19,7 @@ public class PronghornPassive : AnimalPassive
         givenCaharacter.Damageable.OnGetHit.RemoveListener(ApplyBuff);
     }
 
-    private void ApplyBuff(AnimalAttack attack, Damageable target, DamageDealer dealer)
+    private void ApplyBuff(AnimalAttack attack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
         if (dealer.RefAnimal.Habitat == Habitat.Desert || dealer.RefAnimal.Habitat == Habitat.Plains)
         {

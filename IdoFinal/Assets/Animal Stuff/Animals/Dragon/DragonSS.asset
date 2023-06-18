@@ -15,5 +15,5 @@ MonoBehaviour:
   maxHp: 200
   power: 10
   toughness: 10
-  instinct: 7
+  instinct: 6
   speed: 6

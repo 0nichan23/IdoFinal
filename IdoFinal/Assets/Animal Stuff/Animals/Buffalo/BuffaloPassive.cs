@@ -17,13 +17,13 @@ public class BuffaloPassive : AnimalPassive
         givenCaharacter.DamageDealer.OnHit.RemoveListener(DamageMod);
     }
 
-    private void DamageMod(Damageable target, AnimalAttack attack, DamageDealer dealer)
+    private void DamageMod(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
         foreach (var item in dealer.RefCharacter.Effectable.ActiveEffects)
         {
             if (item is Bleed)
             {
-                attack.Damage.AddMod(1 + damageMod);
+                dmg.AddMod(1 + damageMod);
                 break;
             }
         }

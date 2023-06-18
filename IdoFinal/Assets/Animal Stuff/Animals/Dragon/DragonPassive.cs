@@ -21,7 +21,7 @@ public class DragonPassive : AnimalPassive
         givenCaharacter.DamageDealer.OnHit.RemoveListener(ApplyBurn);
     }
 
-    private void ApplyBurn(Damageable target, AnimalAttack attack, DamageDealer dealer)
+    private void ApplyBurn(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
         if (Random.Range(0,100) <= burnChance)
         {
@@ -32,7 +32,7 @@ public class DragonPassive : AnimalPassive
         {
             if (item is Burn)
             {
-                attack.Damage.AddMod(1 + damageMod);
+                dmg.AddMod(1 + damageMod);
             }
         }
 

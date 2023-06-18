@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class WeaselPassive : AnimalPassive
 {
-
     //inflict bleed on every 3rd attack (kamaitachi reference)
     [SerializeField, Range(5, 10)] private float duration;
     public override void SubscribePassive(Character givenCaharacter)
@@ -20,7 +19,7 @@ public class WeaselPassive : AnimalPassive
 
     }
 
-    private void InflictBleedOnEvery3rdAttack(Damageable target, AnimalAttack attack, DamageDealer dealer)
+    private void InflictBleedOnEvery3rdAttack(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
         if (dealer.RefCharacter.Counter.CurrentCounter %3 == 0)
         {

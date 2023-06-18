@@ -17,7 +17,7 @@ public class HornedLizardPassive : AnimalPassive
         givenCaharacter.Damageable.OnGetHit.RemoveListener(ReturnDamage);
     }
 
-    private void ReturnDamage(AnimalAttack attack, Damageable target, DamageDealer dealer)
+    private void ReturnDamage(AnimalAttack attack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
         dealer.RefCharacter.Damageable.TakeTrueDamage(returnDamageAmount);
     }

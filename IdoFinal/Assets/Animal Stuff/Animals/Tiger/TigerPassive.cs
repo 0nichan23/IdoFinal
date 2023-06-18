@@ -20,18 +20,18 @@ public class TigerPassive : AnimalPassive
         givenCaharacter.DamageDealer.OnDealCritDamage.RemoveListener(IncreaseCritDamage);
     }
 
-    private void IncreaseCritDamage(AnimalAttack attack, Damageable target, DamageDealer dealer)
+    private void IncreaseCritDamage(AnimalAttack attack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
         switch (target.RefAnimal.Size)
         {
             case Size.Small:
-                attack.Damage.AddMod(smallBuff);
+                dmg.AddMod(smallBuff);
                 break;
             case Size.Medium:
-                attack.Damage.AddMod(mediumBuff);
+                dmg.AddMod(mediumBuff);
                 break;
             case Size.Large:
-                attack.Damage.AddMod(largeBuff);
+                dmg.AddMod(largeBuff);
                 break;
         }
     }

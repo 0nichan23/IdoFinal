@@ -19,11 +19,11 @@ public class KoalaPassive : AnimalPassive
 
     }
 
-    private void HealOnHit(AnimalAttack attack, Damageable target, DamageDealer dealer)
+    private void HealOnHit(AnimalAttack attack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
         if (GameManager.Instance.LevelManager.CurrentLevel.Habitat == Habitat.Forest || GameManager.Instance.LevelManager.CurrentLevel.Habitat == Habitat.Jungle)
         {
-            dealer.RefCharacter.Damageable.HealTrueDamage(attack.Damage.CalcFinalDamageMult() * damageHealed);
+            dealer.RefCharacter.Damageable.HealTrueDamage(dmg.CalcFinalDamageMult() * damageHealed);
         }
     }
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CrocodilePassive", menuName = "Passives/Crocodile")]
@@ -18,11 +16,11 @@ public class CrocodilePassive : AnimalPassive
         givenCaharacter.DamageDealer.OnDealCritDamage.RemoveListener(CritDamageOnAquaticCreatures);
     }
 
-    private void CritDamageOnAquaticCreatures(AnimalAttack attack, Damageable target, DamageDealer dealer)
+    private void CritDamageOnAquaticCreatures(AnimalAttack attack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
         if (target.RefAnimal.Habitat == Habitat.FreshWater || target.RefAnimal.Habitat == Habitat.SaltWater)
         {
-            attack.Damage.AddMod(DamageMod);
+            dmg.AddMod(DamageMod);
         }
     }
 }

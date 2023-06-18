@@ -3,13 +3,11 @@ using UnityEngine.Events;
 
 public class DamageDealer : MonoBehaviour
 {
-    public UnityEvent<Damageable, AnimalAttack, DamageDealer> OnHit;
+    public UnityEvent<Damageable, AnimalAttack, DamageDealer, DamageHandler> OnHit;
 
-    public UnityEvent<AnimalAttack> OnDealDamage;
+    public UnityEvent<AnimalAttack, Damageable, DamageDealer, DamageHandler> OnDealCritDamage;
 
-    public UnityEvent<AnimalAttack, Damageable, DamageDealer> OnDealCritDamage;
-
-    public UnityEvent<AnimalAttack, Damageable, DamageDealer> OnDealDamageFinal;
+    public UnityEvent<AnimalAttack, Damageable, DamageDealer, DamageHandler> OnDealDamageFinal;
 
     public UnityEvent<StatusEffect, Effectable, DamageDealer> OnApplyStatus;
 
@@ -49,7 +47,7 @@ public class DamageDealer : MonoBehaviour
     public void SetStats(Animal givenActiveAnimal, Character givenCharacter)
     {
         refCharacter = givenCharacter;
-        OnDealDamage.RemoveListener(PowerDamageBoost);
+        OnHit.RemoveListener(PowerDamageBoost);
         OnDealCritDamage.RemoveListener(CriticalDamageBoost);
         OnHit.RemoveListener(ArmorPenBoost);
         refAnimal = givenActiveAnimal;
@@ -57,7 +55,7 @@ public class DamageDealer : MonoBehaviour
         basecritChance = GetBaseCritCahcne(refAnimal.StatSheet.Instinct);
         basecritDamage = GetBaseCritDamage(refAnimal.StatSheet.Instinct);
         basehitChance = GetBaseHitChanceMod(refAnimal.StatSheet.Instinct);
-        OnDealDamage.AddListener(PowerDamageBoost);
+        OnHit.AddListener(PowerDamageBoost);
         OnHit.AddListener(ArmorPenBoost);
         OnDealCritDamage.AddListener(CriticalDamageBoost);
     }
@@ -113,18 +111,18 @@ public class DamageDealer : MonoBehaviour
         return pen;
     }
 
-    private void PowerDamageBoost(AnimalAttack givenAttack)
+    private void PowerDamageBoost(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
-        givenAttack.Damage.AddMod(PowerDamageMod);
+        dmg.AddMod(PowerDamageMod);
     }
-    private void CriticalDamageBoost(AnimalAttack givenAttack, Damageable target, DamageDealer dealer)
+    private void CriticalDamageBoost(AnimalAttack givenAttack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
-        givenAttack.Damage.AddMod(CritDamage);
+        dmg.AddMod(CritDamage);
     }
 
-    private void ArmorPenBoost(Damageable target, AnimalAttack givenAttack, DamageDealer dealer)
+    private void ArmorPenBoost(Damageable target, AnimalAttack givenAttack, DamageDealer dealer, DamageHandler dmg)
     {
-        givenAttack.Damage.AddMod(GetArmorPen(target));
+        dmg.AddMod(GetArmorPen(target));
     }
   
 

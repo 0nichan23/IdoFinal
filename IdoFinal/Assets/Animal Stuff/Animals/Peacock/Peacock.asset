@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c45ec9e403434347b4fce6492f33a49, type: 3}
+  m_Name: Peacock
+  m_EditorClassIdentifier: 
+  animalClass: 1
+  habitat: 2
+  statSheet: {fileID: 11400000, guid: 4029ad3a22ab6684e831d2dbfa27fdb6, type: 2}
+  attack: {fileID: 11400000, guid: eff3eb2cc79011740875c38c296ea393, type: 2}
+  secondAttack: {fileID: 0}
+  passive: {fileID: 11400000, guid: 3b6252b31f2ab2b4196bf83051642488, type: 2}
+  animalModel: {fileID: 4275802563534452241, guid: 227d2d1c7406e364cba1433471a7ace4, type: 3}
+  diet: 1
+  portrait: {fileID: 21300000, guid: 24a4b01aa391ac046b2d8b0cf0e4073f, type: 3}
+  size: 1
+  rarity: 0
+  movementMods: 0000000002000000

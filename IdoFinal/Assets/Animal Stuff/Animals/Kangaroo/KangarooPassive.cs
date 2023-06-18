@@ -20,7 +20,7 @@ public class KangarooPassive : AnimalPassive
         givenCaharacter.DamageDealer.OnHit.RemoveListener(StunTarget);
     }
 
-    private void StunTarget(Damageable target, AnimalAttack attack, DamageDealer dealer)
+    private void StunTarget(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
         switch (target.RefAnimal.Size)
         {

@@ -18,7 +18,7 @@ public class GilaMonserPassive : AnimalPassive
         givenCaharacter.DamageDealer.OnHit.RemoveListener(TrueHealOnAttackingPoisonedEnemy);
     }
 
-    private void TrueHealOnAttackingPoisonedEnemy(Damageable target, AnimalAttack attack, DamageDealer dealer)
+    private void TrueHealOnAttackingPoisonedEnemy(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
         foreach (var item in target.RefCharacter.Effectable.ActiveEffects)
         {

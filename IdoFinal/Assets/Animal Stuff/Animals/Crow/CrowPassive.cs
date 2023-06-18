@@ -19,7 +19,7 @@ public class CrowPassive : AnimalPassive
         givenCaharacter.Damageable.OnGetHit.RemoveListener(DamageBuffAfterTakingDamageFromBirds);
     }
 
-    private void DamageBuffAfterTakingDamageFromBirds(AnimalAttack attack, Damageable target, DamageDealer dealer)
+    private void DamageBuffAfterTakingDamageFromBirds(AnimalAttack attack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
         if (dealer.RefAnimal.AnimalClass == AnimalClass.Bird)
         {

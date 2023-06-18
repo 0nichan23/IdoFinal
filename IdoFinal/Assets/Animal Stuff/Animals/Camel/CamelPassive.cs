@@ -19,7 +19,7 @@ public class CamelPassive : AnimalPassive
 
     }
 
-    private void HealOnHit(Damageable target, AnimalAttack attack, DamageDealer dealer)
+    private void HealOnHit(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
         if (GameManager.Instance.LevelManager.CurrentLevel.Habitat == Habitat.Desert)
         {

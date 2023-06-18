@@ -492,6 +492,7 @@ MonoBehaviour:
   regeneration: {fileID: 21300000, guid: 8e3fa29209b69d0409b35c99e0b6ddb9, type: 3}
   burn: {fileID: 21300000, guid: 9d54abb8bac431e4f8c69f0c46b459f0, type: 3}
   hitChanceDebuff: {fileID: 21300000, guid: 4c8ddac87f7a3b24a906ad20dc8887bd, type: 3}
+  attackSpeedDebuff: {fileID: 21300000, guid: b4342a834cd282d43b16573523e3babf, type: 3}
 --- !u!1 &7477012478708441848
 GameObject:
   m_ObjectHideFlags: 0

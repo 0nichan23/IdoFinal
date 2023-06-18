@@ -18,7 +18,7 @@ public class PlayerAttackHandler : MonoBehaviour
     private float attackSpeedMod;
     private float baseAttackSpeedMod;
 
-    public float AttackSpeed { get => Mathf.Clamp(baseAttackSpeedMod + attackSpeedMod, 0f, 0.9f); }
+    public float AttackSpeed { get => Mathf.Clamp(baseAttackSpeedMod + attackSpeedMod, -0.9f, 0.9f); }
 
     public AnimalAttack CurrentAttack { get => currentAttack; }
     public AttackCounter AttackCounter { get => attackCounter; }
@@ -95,7 +95,8 @@ public class PlayerAttackHandler : MonoBehaviour
         }
         else
         {
-            targeter.AttackTiles(GameManager.Instance.PlayerWrapper.LookingTowards, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.GetPos, currentAttack, GameManager.Instance.PlayerWrapper);
+            targeter.AttackTiles(GameManager.Instance.PlayerWrapper.LookingTowards, 
+                GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.GetPos, currentAttack, GameManager.Instance.PlayerWrapper);
         }
     }
 

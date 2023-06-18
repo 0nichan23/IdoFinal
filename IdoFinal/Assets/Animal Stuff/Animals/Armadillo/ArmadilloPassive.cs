@@ -18,11 +18,11 @@ public class ArmadilloPassive : AnimalPassive
         givenCaharacter.Damageable.OnGetHit.RemoveListener(BlockIncommingDamage);
     }
 
-    private void BlockIncommingDamage(AnimalAttack attack, Damageable target, DamageDealer dealer)
+    private void BlockIncommingDamage(AnimalAttack attack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
         if (Random.Range(0,100) <= chacne)
         {
-            attack.Damage.AddMod(0);
+            dmg.AddMod(0);
         }
     }
 }

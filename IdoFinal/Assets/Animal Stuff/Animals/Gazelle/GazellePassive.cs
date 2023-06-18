@@ -18,7 +18,7 @@ public class GazellePassive : AnimalPassive
         givenCaharacter.Damageable.OnGetHit.RemoveListener(GainDodgeChance);
     }
 
-    private void GainDodgeChance(AnimalAttack attack, Damageable target, DamageDealer dealer)
+    private void GainDodgeChance(AnimalAttack attack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
         if (dealer.RefAnimal.Diet == Diet.Carnivore)
         {

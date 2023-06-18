@@ -41,9 +41,9 @@ public class Burn : StatusEffect
         host.Effectable.RemoveStatus(this);
     }
 
-    private void DecreaseDamageDealt(Damageable target, AnimalAttack attack, DamageDealer dealer)
+    private void DecreaseDamageDealt(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
-        attack.Damage.AddMod(1 - mod);
+        dmg.AddMod(1 - mod);
     }
 
 

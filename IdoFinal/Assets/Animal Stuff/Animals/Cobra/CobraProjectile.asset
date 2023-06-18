@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec7ff445cb5fed4c90b84ba971ace90, type: 3}
   m_Name: CobraProjectile
   m_EditorClassIdentifier: 
-  damage:
-    baseAmount: 3
+  baseDamage: 4
   hitbox:
   - {x: 0, y: 0, z: 0}
   coolDown: 3

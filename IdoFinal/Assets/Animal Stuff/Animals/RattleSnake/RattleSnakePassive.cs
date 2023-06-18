@@ -19,7 +19,7 @@ public class RattleSnakePassive : AnimalPassive
         givenCaharacter.DamageDealer.OnDealCritDamage.RemoveListener(PoisonOnCrit);
     }
 
-    private void PoisonOnCrit(AnimalAttack attack, Damageable target, DamageDealer dealer)
+    private void PoisonOnCrit(AnimalAttack attack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
         target.RefCharacter.Effectable.AddStatus(new Poison(duration, totalAmount), dealer);
     }

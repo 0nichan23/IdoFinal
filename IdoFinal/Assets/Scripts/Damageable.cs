@@ -10,10 +10,9 @@ public class Damageable : MonoBehaviour
     private Animal refAnimal;
     private Character refCharacter;
 
-    public UnityEvent<AnimalAttack, Damageable, DamageDealer> OnGetHit;
-    public UnityEvent<AnimalAttack> OnTakeDamage;
-    public UnityEvent<AnimalAttack> OnTakeCriticalDamage;
-    public UnityEvent<AnimalAttack> OnTakeDamageFinal;
+    public UnityEvent<AnimalAttack, Damageable, DamageDealer, DamageHandler> OnGetHit;
+    public UnityEvent<AnimalAttack, Damageable, DamageDealer, DamageHandler> OnTakeCriticalDamage;
+    public UnityEvent<AnimalAttack, Damageable, DamageDealer, DamageHandler> OnTakeDamageFinal;
     public UnityEvent OnDeath;
     public UnityEvent OnTakeDamageGFX;
     public UnityEvent<DamageHandler> OnHeal;
@@ -36,13 +35,13 @@ public class Damageable : MonoBehaviour
     public void SetStats(Animal givenAnimal, Character givenCharacter)
     {
         refCharacter = givenCharacter;
-        OnTakeDamage.RemoveListener(DamageReductionBoost);
+        OnGetHit.RemoveListener(DamageReductionBoost);
         maxHp = givenAnimal.StatSheet.MaxHp;
         currentHp = maxHp;
         refAnimal = givenAnimal;
         basedamageReduction = GetBaseDamageReduction(RefAnimal.StatSheet.Defense);
         basedodgeChance = GetBaseDodgeChance(RefAnimal.StatSheet.Speed);
-        OnTakeDamage.AddListener(DamageReductionBoost);
+        OnGetHit.AddListener(DamageReductionBoost);
     }
 
     private float GetBaseDamageReduction(int toughness)
@@ -73,9 +72,9 @@ public class Damageable : MonoBehaviour
     {
         damageReduction -= amount;
     }
-    private void DamageReductionBoost(AnimalAttack givenAttack)
+    private void DamageReductionBoost(AnimalAttack givenAttack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
-        givenAttack.Damage.AddMod(DamageReduction);
+        dmg.AddMod(DamageReduction);
     }
 
     public void CacheEffectable(Effectable givenEffectable)
@@ -93,47 +92,46 @@ public class Damageable : MonoBehaviour
             }
             return;
         }
-        OnGetHit?.Invoke(attack, this, dealer);
-        dealer.OnHit?.Invoke(this, attack, dealer);
+        DamageHandler dmg = new DamageHandler() { BaseAmount = attack.Damage };
+        OnGetHit?.Invoke(attack, this, dealer, dmg);
+        dealer.OnHit?.Invoke(this, attack, dealer, dmg);
         if (CheckForCritHit(dealer.CritChance))
         {
-            TakeDamage(attack, dealer, true);
+            TakeDamage(attack, dealer, dmg, true);
         }
         else
         {
-            TakeDamage(attack, dealer);
+            TakeDamage(attack, dealer, dmg);
         }
     }
 
-    public void TakeDamage(AnimalAttack attack, DamageDealer dealer, bool critHit = false)
+    public void TakeDamage(AnimalAttack attack, DamageDealer dealer, DamageHandler dmg, bool critHit = false)
     {
-        OnTakeDamage?.Invoke(attack);
-        dealer.OnDealDamage?.Invoke(attack);
         if (critHit)
         {
-            OnTakeCriticalDamage?.Invoke(attack);
-            dealer.OnDealCritDamage?.Invoke(attack, this, dealer);
+            OnTakeCriticalDamage?.Invoke(attack, this, dealer, dmg);
+            dealer.OnDealCritDamage?.Invoke(attack, this, dealer, dmg);
         }
-        OnTakeDamageFinal?.Invoke(attack);
-        dealer.OnDealDamageFinal?.Invoke(attack, this, dealer);
+        OnTakeDamageFinal?.Invoke(attack, this, dealer, dmg);
+        dealer.OnDealDamageFinal?.Invoke(attack, this, dealer, dmg);
         if (EmitPopups)
         {
             if (critHit)
             {
-                GameManager.Instance.PopupSpawner.SpawnCritDamagePopup(transform.position, attack.Damage.CalcFinalDamageMult());
+                GameManager.Instance.PopupSpawner.SpawnCritDamagePopup(transform.position, dmg.CalcFinalDamageMult());
             }
             else
             {
-                GameManager.Instance.PopupSpawner.SpawnDamagePopup(transform.position, attack.Damage.CalcFinalDamageMult());
+                GameManager.Instance.PopupSpawner.SpawnDamagePopup(transform.position, dmg.CalcFinalDamageMult());
             }
         }
-        currentHp -= Mathf.RoundToInt(attack.Damage.CalcFinalDamageMult());
+        currentHp -= Mathf.RoundToInt(dmg.CalcFinalDamageMult());
         if (currentHp <= 0)
         {
             OnDeath?.Invoke();
             dealer.OnKill?.Invoke(this, dealer);
         }
-        attack.Damage.ClearMods();
+        dmg.ClearMods();
         ClampHp();
         OnTakeDamageGFX?.Invoke();
 

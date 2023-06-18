@@ -17,13 +17,13 @@ public class WolfPassive : AnimalPassive
         givenCaharacter.DamageDealer.OnHit.RemoveListener(AddDamageBasedOnEnemySpeed);
     }
 
-    private void AddDamageBasedOnEnemySpeed(Damageable target, AnimalAttack attack, DamageDealer dealer)
+    private void AddDamageBasedOnEnemySpeed(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
         float damageMod = 0f;
         for (int i = 0; i < target.RefAnimal.StatSheet.Speed; i++)
         {
             damageMod += (maximumDamageMod / 10);
         }
-        attack.Damage.AddMod(1 + damageMod);
+        dmg.AddMod(1 + damageMod);
     }
 }

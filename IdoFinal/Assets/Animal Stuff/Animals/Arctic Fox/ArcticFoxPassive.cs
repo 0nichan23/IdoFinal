@@ -19,7 +19,7 @@ public class ArcticFoxPassive : AnimalPassive
         givenCaharacter.DamageDealer.OnHit.RemoveListener(AddDodgeChanceBuff);
     }
 
-    private void AddDodgeChanceBuff(Damageable target, AnimalAttack attack, DamageDealer dealer)
+    private void AddDodgeChanceBuff(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
         if (target.RefAnimal.Habitat == Habitat.Arctic)
         {

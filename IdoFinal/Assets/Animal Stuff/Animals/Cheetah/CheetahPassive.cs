@@ -18,7 +18,7 @@ public class CheetahPassive : AnimalPassive
         givenCaharacter.DamageDealer.OnHit.RemoveListener(DamageBoost);
     }
 
-    private void DamageBoost(Damageable target, AnimalAttack attack, DamageDealer dealer)
+    private void DamageBoost(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
         if (dealer.RefCharacter.Counter.CurrentCounter %3 == 0)
         {
@@ -27,7 +27,7 @@ public class CheetahPassive : AnimalPassive
             {
                 boost += (maxDamageBoost / 10);
             }
-            attack.Damage.AddMod(1 + boost);
+            dmg.AddMod(1 + boost);
         }
     }
 }

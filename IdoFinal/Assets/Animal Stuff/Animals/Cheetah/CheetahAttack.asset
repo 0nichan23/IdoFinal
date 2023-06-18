@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b49c892f672a145a38ee2b2b166add, type: 3}
   m_Name: CheetahAttack
   m_EditorClassIdentifier: 
-  damage:
-    baseAmount: 4
+  baseDamage: 4
   hitbox:
   - {x: 1, y: 0, z: 0}
   coolDown: 2
-  projectile: 0
   charge: 0
   artwork: {fileID: 21300000, guid: 6dadfdffb5010c1499e59973e6ac664d, type: 3}

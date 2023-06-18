@@ -18,11 +18,11 @@ public class GoldenEaglePassive : AnimalPassive
         givenCaharacter.DamageDealer.OnHit.RemoveListener(DamageIncrease);
     }
 
-    private void DamageIncrease(Damageable target, AnimalAttack attack, DamageDealer delaer)
+    private void DamageIncrease(Damageable target, AnimalAttack attack, DamageDealer delaer, DamageHandler dmg)
     {
         if (target.RefAnimal.Size == Size.Small)
         {
-            attack.Damage.AddMod(damageIncrease);
+            dmg.AddMod(damageIncrease);
         }
     }
 }

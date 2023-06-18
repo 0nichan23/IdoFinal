@@ -20,7 +20,7 @@ public class WombatPassive : AnimalPassive
         givenCaharacter.Damageable.OnGetHit.RemoveListener(PoisonCarnivore);
     }
 
-    private void PoisonCarnivore(AnimalAttack attack, Damageable target, DamageDealer dealer)
+    private void PoisonCarnivore(AnimalAttack attack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
         if (target.RefAnimal.Diet == Diet.Carnivore)
         {

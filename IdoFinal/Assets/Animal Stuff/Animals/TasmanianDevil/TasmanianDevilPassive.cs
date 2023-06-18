@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TasmanianDevilPassive", menuName = "Passives/TasmanianDevil")]
 public class TasmanianDevilPassive : AnimalPassive
 {
-
     //gain an armor pen buff when attacking a bleeding target
     [SerializeField, Range(0, 10)] private float duration;
     [SerializeField, Range(0, 10)] private int amount;
@@ -19,7 +18,7 @@ public class TasmanianDevilPassive : AnimalPassive
         givenCaharacter.DamageDealer.OnHit.RemoveListener(GainArmorPenBuff);
     }
 
-    private void GainArmorPenBuff(Damageable target, AnimalAttack attack, DamageDealer dealer)
+    private void GainArmorPenBuff(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
         foreach (var item in target.RefCharacter.Effectable.ActiveEffects)
         {

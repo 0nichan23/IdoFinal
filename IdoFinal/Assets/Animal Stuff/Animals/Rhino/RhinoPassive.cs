@@ -18,13 +18,13 @@ public class RhinoPassive : AnimalPassive
         givenCaharacter.Damageable.OnGetHit.RemoveListener(IgnoreDamageFromBirds);
     }
 
-    private void IgnoreDamageFromBirds(AnimalAttack attack, Damageable target, DamageDealer attacker)
+    private void IgnoreDamageFromBirds(AnimalAttack attack, Damageable target, DamageDealer attacker, DamageHandler dmg)
     {
         if (attacker.RefAnimal.AnimalClass == AnimalClass.Bird)
         {
             if (Random.Range(0,100) <= chance)
             {
-                attack.Damage.AddMod(0f);
+                dmg.AddMod(0f);
             }
         }
     }

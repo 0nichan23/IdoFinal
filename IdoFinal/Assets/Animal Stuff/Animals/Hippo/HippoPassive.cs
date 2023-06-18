@@ -19,11 +19,11 @@ public class HippoPassive : AnimalPassive
     }
 
 
-    private void ReduceDamageFromAquaticCreatures(AnimalAttack givenAttack, Damageable target, DamageDealer dealer)
+    private void ReduceDamageFromAquaticCreatures(AnimalAttack givenAttack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
         if (dealer.RefAnimal.Habitat == Habitat.FreshWater || dealer.RefAnimal.Habitat == Habitat.SaltWater)
         {
-            givenAttack.Damage.AddMod(1 - damageReduction);
+            dmg.AddMod(1 - damageReduction);
         }
     }
 

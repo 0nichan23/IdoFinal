@@ -22,14 +22,14 @@ public class PlatypusPassive : AnimalPassive
         givenCaharacter.Damageable.OnGetHit.RemoveListener(PoisonEnemyWhenHit);
     }
 
-    private void PoisonEnemyHit(Damageable target, AnimalAttack attack, DamageDealer dealer)
+    private void PoisonEnemyHit(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
         if (target.RefAnimal.Habitat == Habitat.FreshWater || target.RefAnimal.Habitat == Habitat.SaltWater)
         {
             target.RefCharacter.Effectable.AddStatus(new Poison(duration, totalAmount), dealer);
         }
     }
-    private void PoisonEnemyWhenHit(AnimalAttack attack, Damageable target, DamageDealer dealer)
+    private void PoisonEnemyWhenHit(AnimalAttack attack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
         if (target.RefAnimal.Habitat != Habitat.FreshWater && target.RefAnimal.Habitat != Habitat.SaltWater)
         {

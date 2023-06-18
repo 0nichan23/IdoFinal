@@ -19,7 +19,7 @@ public class PenguinPassive : AnimalPassive
         givenCaharacter.DamageDealer.OnHit.RemoveListener(AttackSpeedBuffAfterAttackingWaterCreatures);
     }
 
-    private void AttackSpeedBuffAfterAttackingWaterCreatures(Damageable target, AnimalAttack attack, DamageDealer dealer)
+    private void AttackSpeedBuffAfterAttackingWaterCreatures(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
         if (target.RefAnimal.Habitat == Habitat.FreshWater || target.RefAnimal.Habitat == Habitat.SaltWater)
         {

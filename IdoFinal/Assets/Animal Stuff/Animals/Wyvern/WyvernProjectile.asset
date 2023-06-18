@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec7ff445cb5fed4c90b84ba971ace90, type: 3}
   m_Name: WyvernProjectile
   m_EditorClassIdentifier: 
-  damage:
-    baseAmount: 6
+  baseDamage: 9
   hitbox:
   - {x: 0, y: 0, z: 0}
   coolDown: 3
   charge: 0
-  artwork: {fileID: 21300000, guid: adb2e57ca615b6c49a525376ee5c8e15, type: 3}
-  element: 0
+  artwork: {fileID: 21300000, guid: 1d0251df1433cb741865a47f0b9d4eaf, type: 3}
+  element: 2

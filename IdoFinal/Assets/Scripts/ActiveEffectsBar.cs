@@ -20,6 +20,7 @@ public class ActiveEffectsBar : MonoBehaviour
     [SerializeField] private Sprite regeneration;
     [SerializeField] private Sprite burn;
     [SerializeField] private Sprite hitChanceDebuff;
+    [SerializeField] private Sprite attackSpeedDebuff;
 
     private List<ActiveEffectIcon> activeIcons = new List<ActiveEffectIcon>();
 
@@ -101,6 +102,14 @@ public class ActiveEffectsBar : MonoBehaviour
         else if (effect is HitChanceDebuff)
         {
             return hitChanceDebuff;
+        }
+        else if (effect is AttackSpeedDebuff)
+        {
+            return attackSpeedDebuff;
+        }
+        else if (effect is CritHitBuff)
+        {
+            return critChanceBuff;
         }
         return null;
     }

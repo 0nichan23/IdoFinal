@@ -20,7 +20,7 @@ public class CobraPassive : AnimalPassive
     }
 
 
-    private void HitChanceDebuffOnHit(Damageable target, AnimalAttack attack, DamageDealer dealer)
+    private void HitChanceDebuffOnHit(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
         if (Random.Range(0,100) <= chance)
         {

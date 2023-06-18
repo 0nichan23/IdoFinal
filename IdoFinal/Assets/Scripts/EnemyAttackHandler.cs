@@ -17,7 +17,7 @@ public class EnemyAttackHandler : MonoBehaviour
 
     public UnityEvent OnAttackPerformed;
     public AttackCounter AttackCounter { get => attackCounter; }
-    public float AttackSpeed { get => Mathf.Clamp(baseAttackSpeedMod + attackSpeedMod, 0f, 0.9f); }
+    public float AttackSpeed { get => Mathf.Clamp(baseAttackSpeedMod + attackSpeedMod, -0.9f, 0.9f); }
     public bool Charging { get => charging; set => charging = value; }
     public bool Shooting { get => shooting; set => shooting = value; }
 

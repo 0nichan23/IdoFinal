@@ -19,11 +19,10 @@ public class HyenaPassive : AnimalPassive
         givenCaharacter.DamageDealer.OnDealCritDamage.RemoveListener(StunOnCrit);
     }
 
-    private void StunOnCrit(AnimalAttack attack, Damageable target, DamageDealer dealer)
+    private void StunOnCrit(AnimalAttack attack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
         if (Random.Range(1,100) <= chance)
         {
-            Debug.Log("stunned " + target.name);
             target.RefCharacter.Effectable.AddStatus(new Stun(stunDutration), dealer);
         }
     }

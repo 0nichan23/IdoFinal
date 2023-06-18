@@ -19,9 +19,9 @@ public class WyvernPassive : AnimalPassive
         givenCaharacter.DamageDealer.OnHit.RemoveListener(DamageIncreaseAndStunChance);
     }
 
-    private void DamageIncreaseAndStunChance(Damageable target, AnimalAttack attack, DamageDealer dealer)
+    private void DamageIncreaseAndStunChance(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
-        attack.Damage.AddMod(1 + damageIncrease);
+        dmg.AddMod(1 + damageIncrease);
         if (Random.Range(0,100) <= stunChance)
         {
             target.RefCharacter.Effectable.AddStatus(new Stun(stunDuration), dealer);

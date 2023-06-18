@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c45ec9e403434347b4fce6492f33a49, type: 3}
+  m_Name: Leviathan
+  m_EditorClassIdentifier: 
+  animalClass: 3
+  habitat: 7
+  statSheet: {fileID: 11400000, guid: bee90da6b6d28464b84290c4f05633e4, type: 2}
+  attack: {fileID: 11400000, guid: dfe9dc89c9911fb49b276ffb10539558, type: 2}
+  secondAttack: {fileID: 11400000, guid: 772d3b6bd47df094d9d7af6c297e1c1b, type: 2}
+  passive: {fileID: 11400000, guid: 1df47eb36821bdc48a7bdbed595da3e4, type: 2}
+  animalModel: {fileID: 1474437106201561317, guid: 127bf569931aef54a8ad84fd2fa2d7b8, type: 3}
+  diet: 0
+  portrait: {fileID: 21300000, guid: 49c43f6a9ab103143b9d198861738de2, type: 3}
+  size: 2
+  rarity: 2
+  movementMods: 0000000001000000

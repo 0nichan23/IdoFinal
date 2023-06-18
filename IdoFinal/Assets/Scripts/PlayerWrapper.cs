@@ -47,6 +47,7 @@ public class PlayerWrapper : Character
         attackHandler.OnAttackSwitched.AddListener(() => attackHandler.CanSwitchAttacks = false);
         attackHandler.OnAttackSwitched.AddListener(PlayerHud.SwitchIcon.StartCountDown);
         UpdateBar();
+        playerHud.ToggleTraversalButtons();
     }
 
     public void SetAnimalStatsOnComps()
@@ -62,7 +63,7 @@ public class PlayerWrapper : Character
     public void UpdatePlayerHud()
     {
         playerHud.hp.text = (Damageable.CurrentHp).ToString() + "/" + (Damageable.MaxHp).ToString() + " hp";
-        playerHud.attackDamage.text = (attackHandler.CurrentAttack.Damage.BaseAmount * DamageDealer.PowerDamageMod).ToString("F0") + " damage";
+        playerHud.attackDamage.text = (attackHandler.CurrentAttack.Damage * DamageDealer.PowerDamageMod).ToString("F0") + " damage";
         playerHud.critChance.text = (DamageDealer.CritChance * 100).ToString("F0") + "% crit chance";
         playerHud.critDamage.text = (DamageDealer.CritDamage * 100).ToString("F0") + "% crit damage";
         playerHud.dodgeChance.text = (Damageable.DodgeChance * 100).ToString("F0") + "% dodge chance";
