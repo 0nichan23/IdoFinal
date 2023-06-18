@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private TileData currentTile;
-    private float movementMod = 1f;
+    [SerializeField] private float movementMod = 1f;
     private LookDirections lookingTowards;
     private Enemy enemy;
 

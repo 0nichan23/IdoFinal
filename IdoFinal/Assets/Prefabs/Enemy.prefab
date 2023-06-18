@@ -616,9 +616,6 @@ MonoBehaviour:
   OnHit:
     m_PersistentCalls:
       m_Calls: []
-  OnDealDamage:
-    m_PersistentCalls:
-      m_Calls: []
   OnDealCritDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -646,9 +643,6 @@ MonoBehaviour:
   currentHp: 0
   maxHp: 0
   OnGetHit:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
   OnTakeCriticalDamage:
@@ -722,6 +716,7 @@ MonoBehaviour:
   - {fileID: 228017266836044125}
   - {fileID: 4427835906387541509}
   refEnemy: {fileID: 7477012478839064909}
+  stateDelay: 0.6
 --- !u!114 &2531860179119824948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,6 +763,7 @@ MonoBehaviour:
     subscribedCharacter: {fileID: 0}
     costToEnd: 0
     costToStart: 0
+  movementMod: 3
 --- !u!114 &5871384239029913501
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,29 +23,14 @@ public class ChaseState : CoroutineState
 
     public override IEnumerator RunState()
     {
+        //set the destenation to the player tile, only move to it if the enemy map contains it?
         TileData dest;
-        if (ReferenceEquals(handler.RefEnemy.CurrentTileMap, GameManager.Instance.PlayerWrapper.CurrentTileMap))
+        dest = GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile;
+        List<TileData> path = GameManager.Instance.Pathfinder.FindPathToDest(handler.RefEnemy.Movement.CurrentTile, dest, GameManager.Instance.LevelManager.CurrentLevel.TotalMap);
+        if (handler.RefEnemy.CurrentTileMap.Contains(path[0]))
         {
-            dest = GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile;
-        }
-        else
-        {
-            if (!ReferenceEquals(GameManager.Instance.LevelManager.CurrentLevel.GetTile(GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.GetPos, handler.RefEnemy.CurrentTileMap), null))
-            {
-                dest = GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile;
-            }
-            else
-            {
-                List<TileData> foundNeighbors = GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(handler.RefEnemy.Movement.CurrentTile, handler.RefEnemy.CurrentTileMap);
-                dest = foundNeighbors[Random.Range(0, foundNeighbors.Count)];
-                yield break;
-            }
-        }
-        if (!ReferenceEquals(dest, null) &&  handler.RefEnemy.CurrentTileMap.Contains(dest))
-        {
-            List<TileData> path = GameManager.Instance.Pathfinder.FindPathToDest(handler.RefEnemy.Movement.CurrentTile, dest, handler.RefEnemy.CurrentTileMap);
             yield return StartCoroutine(handler.RefEnemy.Movement.MoveEnemyTo(path[0]));
-            yield return new WaitForEndOfFrame();
         }
+        yield return new WaitForEndOfFrame();
     }
 }

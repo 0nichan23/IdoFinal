@@ -11,6 +11,7 @@ public class Level : MonoBehaviour
     [SerializeField] private List<TileData> traversableGround = new List<TileData>();
     [SerializeField] private List<TileData> swimmingMap = new List<TileData>();
     [SerializeField] private List<TileData> flyingMap = new List<TileData>();
+    private List<TileData> totalMap = new List<TileData>();
     [SerializeField] private TileData startTile;
     public UnityEvent OnDoneCreatingRoom;
     [SerializeField] List<Enemy> enemies = new List<Enemy>();
@@ -25,6 +26,7 @@ public class Level : MonoBehaviour
     public EnemyCreator EnemyCreator { get => enemyCreator; set => enemyCreator = value; }
     public List<TileData> SwimmingMap { get => swimmingMap;}
     public List<TileData> FlyingMap { get => flyingMap; }
+    public List<TileData> TotalMap { get => totalMap;  }
 
     public void SetUpLevel()
     {
@@ -47,15 +49,18 @@ public class Level : MonoBehaviour
             {
                 traversableGround.Add(newTile);
                 flyingMap.Add(newTile);
+                totalMap.Add(newTile);
             }
             if (child.gameObject.CompareTag("Swimmable"))
             {
                 swimmingMap.Add(newTile);
                 flyingMap.Add(newTile);
+                totalMap.Add(newTile);
             }
             if (child.gameObject.CompareTag("Flyable"))
             {
                 flyingMap.Add(newTile);
+                totalMap.Add(newTile);
             }
         }
 

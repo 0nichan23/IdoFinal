@@ -8,7 +8,7 @@ public class ChangePlaneState : CoroutineState
     [SerializeField] private float detectionZone;
     public override bool IsLegal()
     {
-        if (handler.RefEnemy.MovementMode == GameManager.Instance.PlayerWrapper.MovementMode)
+        if (handler.RefEnemy.MovementMode == GameManager.Instance.PlayerWrapper.MovementMode || !handler.RefEnemy.RefAnimal.MovementMods.Contains(GameManager.Instance.PlayerWrapper.MovementMode))
         {
             return false;
         }

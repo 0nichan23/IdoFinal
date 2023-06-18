@@ -7,6 +7,7 @@ public class BaseStateHandler : MonoBehaviour
 {
     [SerializeField] private List<CoroutineState> states = new List<CoroutineState>();
     [SerializeField] private Enemy refEnemy;
+    [SerializeField] private float stateDelay;
     private CoroutineState activeState;
     private bool stunned;
 
@@ -27,6 +28,7 @@ public class BaseStateHandler : MonoBehaviour
         yield return new WaitForSeconds(1f);
         while (gameObject.activeInHierarchy)
         {
+            yield return new WaitForSeconds(stateDelay);
             yield return new WaitUntil(() => !stunned);
             if (!ReferenceEquals(activeState, null))
             {

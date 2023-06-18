@@ -67,7 +67,6 @@ public class Character : MonoBehaviour
     {
         currentTileMap = GameManager.Instance.LevelManager.CurrentLevel.TraversableGround;
         movementMode = MovementMode.Ground;
-
     }
 }
 
