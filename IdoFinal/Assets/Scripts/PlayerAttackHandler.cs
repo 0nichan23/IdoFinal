@@ -85,9 +85,9 @@ public class PlayerAttackHandler : MonoBehaviour
         }
         lastAttacked = Time.time;
         OnAttackPreformed?.Invoke();
-        if (currentAttack.Projectile)
+        if (currentAttack is ProjectileAttack)
         {
-            GameManager.Instance.PlayerWrapper.FireProjectile(currentAttack);
+            GameManager.Instance.PlayerWrapper.FireProjectile(currentAttack as ProjectileAttack);
         }
         else if(currentAttack.Charge)
         {

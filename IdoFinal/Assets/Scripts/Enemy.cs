@@ -44,6 +44,7 @@ public class Enemy : Character
         Effectable.OnObtainEffect.AddListener(AddEffectIcon);
         Damageable.OnTakeDamageGFX.AddListener(UpdateBar);
         Damageable.OnHealGFX.AddListener(UpdateBar);
+        panel.HealthBar.SetUp(RefAnimal);
     }
 
     private void CreateModel()
@@ -66,7 +67,7 @@ public class Enemy : Character
         stateHandler.Stunned = false;
     }
 
-    public override void FireProjectile(AnimalAttack attack)
+    public override void FireProjectile(ProjectileAttack attack)
     {
         blaster.FireProjectile(movement.CurrentTile, LookingTowards, this, attack);
     }

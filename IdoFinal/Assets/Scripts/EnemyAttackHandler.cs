@@ -83,9 +83,9 @@ public class EnemyAttackHandler : MonoBehaviour
             {
                 refEnemy.Charge(refEnemy.RefAnimal.SecondAttack);
             }
-            else if(refEnemy.RefAnimal.SecondAttack.Projectile)
+            else if(refEnemy.RefAnimal.SecondAttack is ProjectileAttack)
             {
-                refEnemy.FireProjectile(refEnemy.RefAnimal.SecondAttack);
+                refEnemy.FireProjectile(refEnemy.RefAnimal.SecondAttack as ProjectileAttack);
             }
             OnAttackPerformed?.Invoke();
             lastSecondAttacked = Time.time;

@@ -5,11 +5,11 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private float stepDurationMod;
     [SerializeField] private int maxDistance;
-    private AnimalAttack attack;
+    private ProjectileAttack attack;
     private Character emitter;
     private AttackTarget targeter = new AttackTarget();
 
-    public void SetUp(Character givenCharacter, AnimalAttack attack)
+    public void SetUp(Character givenCharacter, ProjectileAttack attack)
     {
         emitter = givenCharacter;
         this.attack = attack;
@@ -23,8 +23,10 @@ public class Projectile : MonoBehaviour
     public void Blast(TileData blastZone, LookDirections dir)
     {
         targeter.AttackTiles(dir, blastZone.GetPos, attack, emitter);
+        Explosion exp = GetBlastFromElement(attack.Element);
+        exp.transform.position = transform.position;
+        exp.gameObject.SetActive(true);
         gameObject.SetActive(false);
-        //play the blast effect?
     }
 
     private IEnumerator FlyForward(LookDirections direction, TileData startingTile)
@@ -92,6 +94,23 @@ public class Projectile : MonoBehaviour
                 return new Vector3Int(1, 0, 0);
         }
         return Vector3Int.zero;
+    }
+
+    private Explosion GetBlastFromElement(Element element)
+    {
+        switch (element)
+        {
+            case Element.Lightning:
+                return GameManager.Instance.PoolManager.LightningBlastPool.GetPooledObject();
+            case Element.Fire:
+                return GameManager.Instance.PoolManager.FireBlastPool.GetPooledObject();
+            case Element.Poison:
+                return GameManager.Instance.PoolManager.PoisonBlastPool.GetPooledObject();
+            case Element.Ice:
+                return GameManager.Instance.PoolManager.IceBlastPool.GetPooledObject();
+            default:
+                return null;
+        }
     }
     private void RotateToDir(LookDirections dir)
     {

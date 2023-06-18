@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileBlaster
 {
-    public void FireProjectile(TileData tile, LookDirections dir, Character character, AnimalAttack attack)
+    public void FireProjectile(TileData tile, LookDirections dir, Character character, ProjectileAttack attack)
     {
         TileData startingTile = null;
         switch (dir)
@@ -24,11 +24,28 @@ public class ProjectileBlaster
         }
         if (!ReferenceEquals(startingTile, null))
         {
-            Projectile pew = GameManager.Instance.PoolManager.TestProjectilePool.GetPooledObject();
+            Projectile pew = GetProjectileType(attack.Element);
             pew.transform.position = startingTile.GetStandingPos(character.MovementMode);
             pew.SetUp(character, attack);
             pew.gameObject.SetActive(true);
             pew.Shoot(dir, startingTile);
+        }
+    }
+
+    private Projectile GetProjectileType(Element element)
+    {
+        switch (element)
+        {
+            case Element.Lightning:
+                return GameManager.Instance.PoolManager.LightningProjectilePool.GetPooledObject();
+            case Element.Fire:
+                return GameManager.Instance.PoolManager.FireProjectilePool.GetPooledObject();
+            case Element.Poison:
+                return GameManager.Instance.PoolManager.PoisonProjectilePool.GetPooledObject();
+            case Element.Ice:
+                return GameManager.Instance.PoolManager.IceProjectilePool.GetPooledObject();
+            default:
+                return null;
         }
     }
 

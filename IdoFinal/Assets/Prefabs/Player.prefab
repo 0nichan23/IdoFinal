@@ -165,6 +165,9 @@ MonoBehaviour:
   OnHeal:
     m_PersistentCalls:
       m_Calls: []
+  OnHealGFX:
+    m_PersistentCalls:
+      m_Calls: []
   EmitPopups: 1
 --- !u!114 &733277437919210402
 MonoBehaviour:
@@ -249,6 +252,9 @@ MonoBehaviour:
   OnAttackPreformed:
     m_PersistentCalls:
       m_Calls: []
+  OnAttackChanged:
+    m_PersistentCalls:
+      m_Calls: []
   OnAttackSwitched:
     m_PersistentCalls:
       m_Calls: []
@@ -306,6 +312,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c92b1be4c9742f1488768b747ea491f0, type: 2}
   - {fileID: 11400000, guid: 084801a5e018f3f44b7bd525c9fb56e1, type: 2}
   - {fileID: 11400000, guid: 06c45dde471835d4b8843670bedac947, type: 2}
+  - {fileID: 11400000, guid: df404c5afc6408444ba6d2e739b98354, type: 2}
   OnAnimalAdded:
     m_PersistentCalls:
       m_Calls: []

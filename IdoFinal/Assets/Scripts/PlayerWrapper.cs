@@ -110,7 +110,7 @@ public class PlayerWrapper : Character
     {
         PlayerMovement.UpdateCurrentTile(current);
     }
-    public override void FireProjectile(AnimalAttack attack)
+    public override void FireProjectile(ProjectileAttack attack)
     {
         blaster.FireProjectile(playerMovement.CurrentTile, LookingTowards, this, attack);
     }

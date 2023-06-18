@@ -39,7 +39,7 @@ public class Character : MonoBehaviour
     {
 
     }
-    public virtual void FireProjectile(AnimalAttack attack)
+    public virtual void FireProjectile(ProjectileAttack attack)
     {
 
     }

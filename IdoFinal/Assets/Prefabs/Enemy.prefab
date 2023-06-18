@@ -1032,6 +1032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1413436903371291289}
   text: {fileID: 3499343843874093705}
+  animalName: {fileID: 3724556106274241812}
 --- !u!1 &8701149511446887793
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,7 +36,7 @@ public class SecondaryAttackState : CoroutineState
     {
         handler.RefEnemy.Movement.LookTowardsMoveDirection(GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile);
         handler.RefEnemy.AttackHandler.SecondAttack();
-        if (handler.RefEnemy.RefAnimal.SecondAttack.Projectile)
+        if (handler.RefEnemy.RefAnimal.SecondAttack is ProjectileAttack)
         {
             yield return new WaitForSeconds(1);
         }
