@@ -37,7 +37,7 @@ public class DamageHandler
                 amount -= BaseAmount - (item * BaseAmount);//reduce damage
             }
         }
-        return amount;
+        return Mathf.Clamp(amount, 0 ,amount);
     }
 
 

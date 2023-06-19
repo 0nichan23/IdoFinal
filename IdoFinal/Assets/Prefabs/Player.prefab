@@ -147,9 +147,6 @@ MonoBehaviour:
   OnGetHit:
     m_PersistentCalls:
       m_Calls: []
-  OnTakeDamage:
-    m_PersistentCalls:
-      m_Calls: []
   OnTakeCriticalDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -182,9 +179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnHit:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDealDamage:
     m_PersistentCalls:
       m_Calls: []
   OnDealCritDamage:
@@ -313,6 +307,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 084801a5e018f3f44b7bd525c9fb56e1, type: 2}
   - {fileID: 11400000, guid: 06c45dde471835d4b8843670bedac947, type: 2}
   - {fileID: 11400000, guid: df404c5afc6408444ba6d2e739b98354, type: 2}
+  - {fileID: 11400000, guid: ffbda2f6e65ae4348905a59afa43d062, type: 2}
+  - {fileID: 11400000, guid: c3a02f06a89e2144286153467a1bd8b9, type: 2}
+  - {fileID: 11400000, guid: a7f5420bbcc0c264f98f2a71ec38fcd0, type: 2}
+  - {fileID: 11400000, guid: ccc56843993e6924785a0e17c95fd9d1, type: 2}
+  - {fileID: 11400000, guid: 1e7d2a477920b2141bd3a8d6071581b7, type: 2}
+  - {fileID: 11400000, guid: 7a6beaea426365a4984f8c6491b37849, type: 2}
+  - {fileID: 11400000, guid: d300126fb673919488339c7014c67861, type: 2}
   OnAnimalAdded:
     m_PersistentCalls:
       m_Calls: []
