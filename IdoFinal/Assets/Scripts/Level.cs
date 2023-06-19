@@ -12,6 +12,7 @@ public class Level : MonoBehaviour
     [SerializeField] private List<TileData> swimmingMap = new List<TileData>();
     [SerializeField] private List<TileData> flyingMap = new List<TileData>();
     private List<TileData> totalMap = new List<TileData>();
+    private List<TileData> obstacleMap = new List<TileData>();
     [SerializeField] private TileData startTile;
     public UnityEvent OnDoneCreatingRoom;
     [SerializeField] List<Enemy> enemies = new List<Enemy>();
@@ -24,9 +25,10 @@ public class Level : MonoBehaviour
     public List<Enemy> Enemies { get => enemies; }
     public Habitat Habitat { get => habitat; set => habitat = value; }
     public EnemyCreator EnemyCreator { get => enemyCreator; set => enemyCreator = value; }
-    public List<TileData> SwimmingMap { get => swimmingMap;}
+    public List<TileData> SwimmingMap { get => swimmingMap; }
     public List<TileData> FlyingMap { get => flyingMap; }
-    public List<TileData> TotalMap { get => totalMap;  }
+    public List<TileData> TotalMap { get => totalMap; }
+    public List<TileData> ObstacleMap { get => obstacleMap; }
 
     public void SetUpLevel(int enemyAmount)
     {
@@ -37,9 +39,6 @@ public class Level : MonoBehaviour
     private void SetTraversableGround()
     {
         BoundsInt bounds = tilemap.cellBounds;
-        //get all of the tilemap's children,
-        //loop over them and check if the gameobject is walkable,
-        //if it is add it to the list with its local pos as v3int as the key and the object as the value
         for (int i = 0; i < tilemap.transform.childCount; i++)
         {
             Transform child = tilemap.transform.GetChild(i);
@@ -61,6 +60,10 @@ public class Level : MonoBehaviour
             {
                 flyingMap.Add(newTile);
                 totalMap.Add(newTile);
+            }
+            if (child.gameObject.CompareTag("Tree"))
+            {
+                obstacleMap.Add(newTile);
             }
         }
 
@@ -119,9 +122,9 @@ public class Level : MonoBehaviour
     {
         foreach (var item in enemies)
         {
-            item.SetWalkMode();
+            item.SetStartTraversal();
             item.gameObject.SetActive(true);
-            TileData startingTile = GetRandomTile(traversableGround);
+            TileData startingTile = GetRandomTile(item.CurrentTileMap);
             item.Movement.SetEnemyStartPosition(startingTile);
             item.OnEnteredLevel?.Invoke(this, item);
         }
@@ -135,13 +138,13 @@ public class Level : MonoBehaviour
             {
                 return tile;
             }
-            tile = givenTileMap[UnityEngine.Random.Range(0, givenTileMap.Count)];
+            tile = givenTileMap[Random.Range(0, givenTileMap.Count)];
         }
     }
     public IEnumerator PlacePlayerAtStart()
     {
-        GameManager.Instance.PlayerWrapper.PlayerMovement.SetCurrentTile(startTile);
-        GameManager.Instance.PlayerWrapper.SetWalkMode();
+        GameManager.Instance.PlayerWrapper.SetStartTraversal();
+        GameManager.Instance.PlayerWrapper.PlayerMovement.SetCurrentTile(GetRandomTile(GameManager.Instance.PlayerWrapper.CurrentTileMap));
         yield return new WaitForEndOfFrame();
         GameManager.Instance.PlayerWrapper.OnEnteredLevel?.Invoke(this, GameManager.Instance.PlayerWrapper);
     }

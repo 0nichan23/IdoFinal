@@ -134,6 +134,22 @@ public class PlayerWrapper : Character
         PlayerHud.AttackIcon.SetUpAttackZ(AttackHandler.GetAttackCoolDown());
     }
 
+    public override void SetStartTraversal()
+    {
+        switch (team.ActiveAnimal.Animal.MovementMods[0])
+        {
+            case MovementMode.Ground:
+                SetWalkMode(true);
+                break;
+            case MovementMode.Water:
+                SetSwimMode(true);
+                break;
+            case MovementMode.Air:
+                SetFlightMode(true);
+                break;
+        }
+    }
+
     [ContextMenu("test cleanse")]
     public void BleedPlayer()
     {

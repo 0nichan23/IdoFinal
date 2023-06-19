@@ -17,6 +17,11 @@ public class Character : MonoBehaviour
     protected List<TileData> currentTileMap;
     protected MovementMode movementMode;
     protected TileData currentTile;
+
+    public UnityEvent<Character> OnEnterdWater;
+    public UnityEvent<Character> OnEnteredGround;
+    public UnityEvent<Character> OnEnteredAir;
+
     public Damageable Damageable { get => damageable; }
     public DamageDealer DamageDealer { get => damageDealer; }
     public Effectable Effectable { get => effectable; }
@@ -54,30 +59,48 @@ public class Character : MonoBehaviour
 
     }
 
-    public virtual void SetFlightMode()
+    public virtual void SetFlightMode(bool spawn = false)
     {
-        if (CheckPlaneAvailable(GameManager.Instance.LevelManager.CurrentLevel.FlyingMap))
+        if (spawn || CheckPlaneAvailable(GameManager.Instance.LevelManager.CurrentLevel.FlyingMap))
         {
             currentTileMap = GameManager.Instance.LevelManager.CurrentLevel.FlyingMap;
             movementMode = MovementMode.Air;
+            if (!spawn)
+            {
+                OnEnteredAir?.Invoke(this);
+            }
         }
     }
-    public virtual void SetSwimMode()
+    public virtual void SetSwimMode(bool spawn = false)
     {
-        if (CheckPlaneAvailable(GameManager.Instance.LevelManager.CurrentLevel.SwimmingMap))
+        if (spawn || CheckPlaneAvailable(GameManager.Instance.LevelManager.CurrentLevel.SwimmingMap))
         {
             currentTileMap = GameManager.Instance.LevelManager.CurrentLevel.SwimmingMap;
             movementMode = MovementMode.Water;
+            if (!spawn)
+            {
+                OnEnterdWater?.Invoke(this);
+            }
         }
     }
-    public virtual void SetWalkMode()
+    public virtual void SetWalkMode(bool spawn = false)
     {
-        if (CheckPlaneAvailable(GameManager.Instance.LevelManager.CurrentLevel.TraversableGround))
+        if (spawn || CheckPlaneAvailable(GameManager.Instance.LevelManager.CurrentLevel.TraversableGround))
         {
             currentTileMap = GameManager.Instance.LevelManager.CurrentLevel.TraversableGround;
             movementMode = MovementMode.Ground;
+            if (!spawn)
+            {
+                OnEnteredGround?.Invoke(this);
+            }
         }
     }
+
+    public virtual void SetStartTraversal()
+    {
+
+    }
+
 
     protected virtual bool CheckPlaneAvailable(List<TileData> map)
     {

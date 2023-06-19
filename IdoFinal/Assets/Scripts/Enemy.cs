@@ -99,4 +99,20 @@ public class Enemy : Character
         CurrentTile.UnSubscribeCharacter();
         gameObject.SetActive(false);
     }
+
+    public override void SetStartTraversal()
+    {
+        switch (refAnimal.MovementMods[0])
+        {
+            case MovementMode.Ground:
+                SetWalkMode(true);
+                break;
+            case MovementMode.Water:
+                SetSwimMode(true);
+                break;
+            case MovementMode.Air:
+                SetFlightMode(true);
+                break;
+        }
+    }
 }

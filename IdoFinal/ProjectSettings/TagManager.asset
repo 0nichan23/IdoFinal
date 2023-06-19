@@ -7,6 +7,7 @@ TagManager:
   - Walkable
   - Flyable
   - Swimmable
+  - Tree
   layers:
   - Default
   - TransparentFX
