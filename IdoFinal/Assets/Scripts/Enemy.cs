@@ -39,6 +39,7 @@ public class Enemy : Character
         movement.CacheEnemy(this);
         attackHandler.SetUp(this);
         Effectable.CahceOwner(this);
+        Damageable.OnDeath.AddListener(EnemyDeath);
         CreateModel();
         refAnimal.Passive.SubscribePassive(this);
         charger.OnStartCharge.AddListener(() => attackHandler.Charging = true);
@@ -91,5 +92,11 @@ public class Enemy : Character
     private void UpdateBar()
     {
         panel.HealthBar.UpdateBar(Damageable.MaxHp, Damageable.CurrentHp);
+    }
+
+    private void EnemyDeath()
+    {
+        CurrentTile.UnSubscribeCharacter();
+        gameObject.SetActive(false);
     }
 }

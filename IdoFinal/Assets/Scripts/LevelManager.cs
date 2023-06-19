@@ -6,7 +6,8 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] private Level currentLevel;
     [SerializeField] private Queue<Level> levels = new Queue<Level>();
-    [SerializeField] private int Amount;
+    [SerializeField] private int amount;
+    [SerializeField] private int enemyAmount;
     public UnityEvent<Level> OnMoveToNextLevel;
 
     public Level CurrentLevel { get => currentLevel; }
@@ -19,17 +20,17 @@ public class LevelManager : MonoBehaviour
     }
     private void OnValidate()
     {
-        if (Amount < 1)
+        if (amount < 1)
         {
-            Amount = 1;
+            amount = 1;
         }
     }
     private void CreateLevels()
     {
-        for (int i = 0; i < Amount; i++)
+        for (int i = 0; i < amount; i++)
         {
             Level newLevel = GameManager.Instance.LevelGenerator.CreateLevel();
-            newLevel.SetUpLevel();
+            newLevel.SetUpLevel(enemyAmount);
             levels.Enqueue(newLevel);
             newLevel.gameObject.SetActive(false);
         }

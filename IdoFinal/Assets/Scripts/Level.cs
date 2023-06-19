@@ -28,10 +28,10 @@ public class Level : MonoBehaviour
     public List<TileData> FlyingMap { get => flyingMap; }
     public List<TileData> TotalMap { get => totalMap;  }
 
-    public void SetUpLevel()
+    public void SetUpLevel(int enemyAmount)
     {
         SetTraversableGround();
-        SpawnEnemy();
+        SpawnEnemies(enemyAmount);
     }
 
     private void SetTraversableGround()
@@ -148,6 +148,10 @@ public class Level : MonoBehaviour
 
     public TileData GetTile(Vector3Int givenPos, List<TileData> givenMap)
     {
+        if (ReferenceEquals(givenMap, null))
+        {
+            return null;
+        }
         foreach (var item in givenMap)
         {
             if (item.GetPos == givenPos)
@@ -158,9 +162,9 @@ public class Level : MonoBehaviour
         return null;
     }
 
-    private void SpawnEnemy()
+    private void SpawnEnemies(int enemyAmount)
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < enemyAmount; i++)
         {
             Enemy newEnemy = Instantiate(GameManager.Instance.enemyPrefab, transform);
             newEnemy.gameObject.SetActive(false);
