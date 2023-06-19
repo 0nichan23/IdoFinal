@@ -21,6 +21,8 @@ public class Enemy : Character
 
     public override AttackCounter Counter => attackHandler.AttackCounter;
     public override float AttackSpeed => attackHandler.AttackSpeed;
+
+    public override TileData CurrentTile => movement.CurrentTile;
     public Transform Gfx { get => gfx; }
     public EnemyMovement Movement { get => movement; }
     public int DetectionRange { get => detectionRange; }

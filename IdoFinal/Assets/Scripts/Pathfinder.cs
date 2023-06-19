@@ -45,7 +45,7 @@ public class Pathfinder : MonoBehaviour
 
             foreach (TileData neighbour in GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(currentTile, map))
             {
-                if (closedList.Contains(neighbour))
+                if (closedList.Contains(neighbour) || (neighbour.Occupied && !ReferenceEquals(neighbour, destenation)))
                 {
                     //if the neighbour was already the current tile.
                     continue;

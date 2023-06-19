@@ -13,5 +13,23 @@ MonoBehaviour:
   m_Name: ForestEnemyCreator
   m_EditorClassIdentifier: 
   spawnData:
+  - MaxChacne: 0.1
+    AnimalToSpawn: {fileID: 11400000, guid: cdb960f6b3a3a534996a5c2e98421e5a, type: 2}
+  - MaxChacne: 0.2
+    AnimalToSpawn: {fileID: 11400000, guid: cfb1979aaaa2043419ae5adaa4e5517b, type: 2}
+  - MaxChacne: 0.3
+    AnimalToSpawn: {fileID: 11400000, guid: 283830e3bedd2f846b18d26388178924, type: 2}
+  - MaxChacne: 0.4
+    AnimalToSpawn: {fileID: 11400000, guid: f6aea12eea73d67498e0722d4298f550, type: 2}
+  - MaxChacne: 0.5
+    AnimalToSpawn: {fileID: 11400000, guid: d300126fb673919488339c7014c67861, type: 2}
+  - MaxChacne: 0.6
+    AnimalToSpawn: {fileID: 11400000, guid: 4fc140f128ab1a647a0be667e58d5e8a, type: 2}
+  - MaxChacne: 0.7
+    AnimalToSpawn: {fileID: 11400000, guid: 6045b855d1e3c8841a72e81c4e89976c, type: 2}
+  - MaxChacne: 0.8
+    AnimalToSpawn: {fileID: 11400000, guid: c92b1be4c9742f1488768b747ea491f0, type: 2}
+  - MaxChacne: 0.9
+    AnimalToSpawn: {fileID: 11400000, guid: 0d322a49f36409442a53608b9b7a2134, type: 2}
   - MaxChacne: 1
-    AnimalToSpawn: {fileID: 11400000, guid: 084801a5e018f3f44b7bd525c9fb56e1, type: 2}
+    AnimalToSpawn: {fileID: 11400000, guid: 43ed7a5ac8f0a7c43bbee49144ec0317, type: 2}

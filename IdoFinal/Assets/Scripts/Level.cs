@@ -84,7 +84,7 @@ public class Level : MonoBehaviour
                 continue;
             }
             Vector3Int tilePos = givenTile.GetPos + new Vector3Int(x, 0, 0);
-            TileData newTile = GameManager.Instance.LevelManager.CurrentLevel.GetTile(tilePos, givenTileMap);
+            TileData newTile = GetTile(tilePos, givenTileMap);
 
             if (ReferenceEquals(newTile, null))
             {
@@ -110,10 +110,7 @@ public class Level : MonoBehaviour
 
         return validNeighbours;
     }
-    public void AddEnemy(Enemy enemy)
-    {
-        enemies.Add(enemy);
-    }
+
     public void SetPlayerStartTile()
     {
         startTile = GetRandomTile(traversableGround);
@@ -163,11 +160,14 @@ public class Level : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        Enemy newEnemy = Instantiate(GameManager.Instance.enemyPrefab, transform);
-        newEnemy.gameObject.SetActive(false);
-        newEnemy.SetUpEnemy(EnemyCreator.GetEnemyAnimalFromValue(UnityEngine.Random.Range(0f, 1f)));
-        Debug.Log("spawned " + newEnemy.RefAnimal);
-        enemies.Add(newEnemy);
+        for (int i = 0; i < 3; i++)
+        {
+            Enemy newEnemy = Instantiate(GameManager.Instance.enemyPrefab, transform);
+            newEnemy.gameObject.SetActive(false);
+            newEnemy.SetUpEnemy(EnemyCreator.GetEnemyAnimalFromValue(Random.Range(0f, 1f)));
+            Debug.Log("spawned " + newEnemy.RefAnimal);
+            enemies.Add(newEnemy);
+        }
     }
 
     public bool CheckStraightLineX(TileData start, TileData dest, List<TileData> givenMap)

@@ -24,9 +24,10 @@ public class DamageHandler
         float amount = baseAmount;
         foreach (var item in mods)
         {
-            if (item < 0)
+            if (item == 0)
             {
-                continue;
+                amount = 0;
+                break;
             }
             else if (item >= 1)
             {

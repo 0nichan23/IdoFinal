@@ -25,6 +25,13 @@ public class SelectedAnimalsPanel : MonoBehaviour
     {
         foreach (var item in selectedSlots)
         {
+            if (ReferenceEquals(givenSlot.RefAnimal, item.RefAnimal))
+            {
+                return;
+            }
+        }
+        foreach (var item in selectedSlots)
+        {
             if (ReferenceEquals(item.RefAnimal, null))//if the slot is empty
             {
                 item.SetUp(givenSlot.RefAnimal);

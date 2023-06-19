@@ -13,5 +13,23 @@ MonoBehaviour:
   m_Name: MountainEC
   m_EditorClassIdentifier: 
   spawnData:
+  - MaxChacne: 0.1
+    AnimalToSpawn: {fileID: 11400000, guid: 829fed895edf8c94296f4b449f53bf34, type: 2}
+  - MaxChacne: 0.2
+    AnimalToSpawn: {fileID: 11400000, guid: ad367c4cad6054a4bb5c2aea1a8aa5c1, type: 2}
+  - MaxChacne: 0.3
+    AnimalToSpawn: {fileID: 11400000, guid: a7f5420bbcc0c264f98f2a71ec38fcd0, type: 2}
+  - MaxChacne: 0.4
+    AnimalToSpawn: {fileID: 11400000, guid: 3838e8390539d784f95bdce0516fa7db, type: 2}
+  - MaxChacne: 0.5
+    AnimalToSpawn: {fileID: 11400000, guid: 9bc8f65b1793ac74e813263bc83ebc1f, type: 2}
+  - MaxChacne: 0.6
+    AnimalToSpawn: {fileID: 11400000, guid: 6a73f6f8f595b514ea5e189c131318f9, type: 2}
+  - MaxChacne: 0.7
+    AnimalToSpawn: {fileID: 11400000, guid: 0d985b18b6d5600418710d6a2eced203, type: 2}
+  - MaxChacne: 0.8
+    AnimalToSpawn: {fileID: 11400000, guid: fe0b5d1fd2a12f84fa8a00b08fcd5588, type: 2}
+  - MaxChacne: 0.9
+    AnimalToSpawn: {fileID: 11400000, guid: b8332aaf3cbacb84fa6a92acbf930bdb, type: 2}
   - MaxChacne: 1
-    AnimalToSpawn: {fileID: 11400000, guid: 084801a5e018f3f44b7bd525c9fb56e1, type: 2}
+    AnimalToSpawn: {fileID: 11400000, guid: bf8417b0259782d4f82da45ef3d16e5c, type: 2}

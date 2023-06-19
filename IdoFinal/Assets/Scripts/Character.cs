@@ -16,12 +16,14 @@ public class Character : MonoBehaviour
     protected ProjectileBlaster blaster = new ProjectileBlaster();
     protected List<TileData> currentTileMap;
     protected MovementMode movementMode;
+    protected TileData currentTile;
     public Damageable Damageable { get => damageable; }
     public DamageDealer DamageDealer { get => damageDealer; }
     public Effectable Effectable { get => effectable; }
     public virtual LookDirections LookingTowards { get => lookingTowards; }
     public virtual AttackCounter Counter { get => counter; }
     public virtual float AttackSpeed { get => attackSpeed; }
+    public virtual TileData CurrentTile { get => currentTile; }
     public Charger Charger { get => charger; }
     public List<TileData> CurrentTileMap { get => currentTileMap; }
     public MovementMode MovementMode { get => movementMode; }
@@ -54,19 +56,37 @@ public class Character : MonoBehaviour
 
     public virtual void SetFlightMode()
     {
-        currentTileMap = GameManager.Instance.LevelManager.CurrentLevel.FlyingMap;
-        movementMode = MovementMode.Air;
+        if (CheckPlaneAvailable(GameManager.Instance.LevelManager.CurrentLevel.FlyingMap))
+        {
+            currentTileMap = GameManager.Instance.LevelManager.CurrentLevel.FlyingMap;
+            movementMode = MovementMode.Air;
+        }
     }
     public virtual void SetSwimMode()
     {
-        currentTileMap = GameManager.Instance.LevelManager.CurrentLevel.SwimmingMap;
-        movementMode = MovementMode.Water;
-
+        if (CheckPlaneAvailable(GameManager.Instance.LevelManager.CurrentLevel.SwimmingMap))
+        {
+            currentTileMap = GameManager.Instance.LevelManager.CurrentLevel.SwimmingMap;
+            movementMode = MovementMode.Water;
+        }
     }
     public virtual void SetWalkMode()
     {
-        currentTileMap = GameManager.Instance.LevelManager.CurrentLevel.TraversableGround;
-        movementMode = MovementMode.Ground;
+        if (CheckPlaneAvailable(GameManager.Instance.LevelManager.CurrentLevel.TraversableGround))
+        {
+            currentTileMap = GameManager.Instance.LevelManager.CurrentLevel.TraversableGround;
+            movementMode = MovementMode.Ground;
+        }
+    }
+
+    protected virtual bool CheckPlaneAvailable(List<TileData> map)
+    {
+        List<TileData> neighbours = GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(CurrentTile, map);
+        if (neighbours.Count > 0)
+        {
+            return true;
+        }
+        return false;
     }
 }
 

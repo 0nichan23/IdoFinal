@@ -13,6 +13,8 @@ public class PlayerWrapper : Character
     public override LookDirections LookingTowards { get => playerMovement.LookingTowards; }
     public override AttackCounter Counter => attackHandler.AttackCounter;
     public override float AttackSpeed => attackHandler.AttackSpeed;
+
+    public override TileData CurrentTile => playerMovement.CurrentTile;
     public PlayerMovement PlayerMovement { get => playerMovement; }
     public AnimationHandler PlayerAnimationHandler { get => playerAnimationHandler; }
     public Transform Gfx { get => gfx; }
