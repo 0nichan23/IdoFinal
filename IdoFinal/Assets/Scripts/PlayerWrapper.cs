@@ -26,6 +26,7 @@ public class PlayerWrapper : Character
     private void Start()
     {
         CreateExistingAnimalSlots();
+        team.OnTeamSet.AddListener(SetAnimalSwitchButtons);
     }
 
     public void StartGame()
@@ -35,6 +36,8 @@ public class PlayerWrapper : Character
         SetAnimalStatsOnComps();
         team.OnSwitchActiveAnimal.AddListener(SetAnimalStatsOnComps);
         team.OnSwitchActiveAnimal.AddListener(playerHud.ToggleTraversalButtons);
+        team.OnSwitchActiveAnimal.AddListener(SwitchAnimalCoolDownStart);
+        team.OnSwitchActiveAnimal.AddListener(SetAnimalSwitchButtons);
         attackHandler.OnAttackPreformed.AddListener(playerAnimationHandler.AttackAnim);
         attackHandler.CacheDealer(DamageDealer);
         Damageable.CacheEffectable(Effectable);
@@ -149,6 +152,36 @@ public class PlayerWrapper : Character
                 break;
         }
     }
+
+    private void SwitchAnimalCoolDownStart()
+    {
+        foreach (var item in playerHud.switchButtons)
+        {
+            item.StartCoolDown();
+        }
+    }
+
+    private void SetAnimalSwitchButtons()
+    {
+        playerHud.switchButtons[0].CacheAnimal(team.ActiveAnimal.Animal);
+        playerHud.switchButtons[1].CacheAnimal(team.BackLineAnimals[0].Animal);
+        playerHud.switchButtons[2].CacheAnimal(team.BackLineAnimals[1].Animal);
+       
+    }
+
+    public bool TrySetMovementModeOnSwithAttempt(Animal givenAnimal)
+    {
+        foreach (var item in givenAnimal.MovementMods)
+        {
+            if (GameManager.Instance.LevelManager.CurrentLevel.GetMapFromMovementMode(item).Contains(GameManager.Instance.PlayerWrapper.CurrentTile))
+            {
+                SetMovementModeEnum(item);
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     [ContextMenu("test cleanse")]
     public void BleedPlayer()

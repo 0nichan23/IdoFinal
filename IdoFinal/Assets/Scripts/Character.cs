@@ -101,6 +101,23 @@ public class Character : MonoBehaviour
 
     }
 
+    protected virtual void SetMovementModeEnum(MovementMode mode)
+    {
+        switch (mode)
+        {
+            case MovementMode.Ground:
+                SetWalkMode();
+                break;
+            case MovementMode.Water:
+                SetSwimMode();
+                break;
+            case MovementMode.Air:
+                SetFlightMode();
+                break;
+            default:
+                break;
+        }
+    }
 
     protected virtual bool CheckPlaneAvailable(List<TileData> map)
     {

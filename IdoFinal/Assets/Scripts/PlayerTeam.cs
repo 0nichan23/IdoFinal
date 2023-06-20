@@ -9,6 +9,7 @@ public class PlayerTeam : MonoBehaviour
     [SerializeField] private List<Animal> startingTeam = new List<Animal>();
     private List<AnimalModelData> createdAnimalData = new List<AnimalModelData>();
     public UnityEvent OnSwitchActiveAnimal;
+    public UnityEvent OnTeamSet;
     public AnimalModelData ActiveAnimal { get => activeAnimal; }
     public List<AnimalModelData> BackLineAnimals { get => backLineAnimals; }
 
@@ -51,6 +52,10 @@ public class PlayerTeam : MonoBehaviour
 
     public void SwitchActiveAnimal(int index)
     {
+        if (!GameManager.Instance.PlayerWrapper.TrySetMovementModeOnSwithAttempt(BackLineAnimals[index].Animal))
+        {
+            return;
+        }
         activeAnimal.Model.gameObject.SetActive(false);
         foreach (var item in BackLineAnimals)
         {
@@ -103,6 +108,7 @@ public class PlayerTeam : MonoBehaviour
             }
         }
         SubscirbeTeamPassives();
+        OnTeamSet?.Invoke();
     }
 
 }

@@ -172,14 +172,27 @@ public class Level : MonoBehaviour
             Enemy newEnemy = Instantiate(GameManager.Instance.enemyPrefab, transform);
             newEnemy.gameObject.SetActive(false);
             newEnemy.SetUpEnemy(EnemyCreator.GetEnemyAnimalFromValue(Random.Range(0f, 1f)));
-            Debug.Log("spawned " + newEnemy.RefAnimal);
             enemies.Add(newEnemy);
         }
     }
 
+    public List<TileData> GetMapFromMovementMode(MovementMode mm)
+    {
+        switch (mm)
+        {
+            case MovementMode.Ground:
+                return TraversableGround;
+            case MovementMode.Water:
+                return swimmingMap;
+            case MovementMode.Air:
+                return flyingMap;
+        }
+        return null;
+    }
+
     public bool CheckStraightLineX(TileData start, TileData dest, List<TileData> givenMap)
     {
-        if (start.GetPos.x != dest.GetPos.x)
+        if (start.GetPos.z != dest.GetPos.z)
         {
             return false;
         }
@@ -188,10 +201,10 @@ public class Level : MonoBehaviour
         {
             mod = -1;
         }
-        int distance = Mathf.Abs(dest.GetPos.x) - Mathf.Abs(start.GetPos.x);
-        for (int i = start.GetPos.x + mod; i < distance; i += mod)
+        int distance = GameManager.Instance.Pathfinder.GetDistanceOfTiles(start.GetPos, dest.GetPos);
+        for (int i =0 + mod; i < distance; i ++)
         {
-            if (ReferenceEquals(GetTile(new Vector3Int(i, 0, start.GetPos.z), givenMap), null))
+            if (ReferenceEquals(GetTile(new Vector3Int(start.GetPos.x + (i * mod), 0, start.GetPos.z), givenMap), null))
             {
                 return false;
             }
@@ -201,7 +214,7 @@ public class Level : MonoBehaviour
     }
     public bool CheckStraightLineZ(TileData start, TileData dest, List<TileData> givenMap)
     {
-        if (start.GetPos.z != dest.GetPos.z)
+        if (start.GetPos.x != dest.GetPos.x)
         {
             return false;
         }
@@ -210,10 +223,10 @@ public class Level : MonoBehaviour
         {
             mod = -1;
         }
-        int distance = Mathf.Abs(dest.GetPos.z) - Mathf.Abs(start.GetPos.z);
-        for (int i = start.GetPos.z + mod; i < distance; i += mod)
+        int distance = GameManager.Instance.Pathfinder.GetDistanceOfTiles(start.GetPos, dest.GetPos);
+        for (int i = 0 + mod; i < distance; i++)
         {
-            if (ReferenceEquals(GetTile(new Vector3Int(start.GetPos.x, 0, i), givenMap), null))
+            if (ReferenceEquals(GetTile(new Vector3Int(start.GetPos.x, 0, start.GetPos.z + (i * mod)), givenMap), null))
             {
                 return false;
             }

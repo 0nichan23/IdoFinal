@@ -33,6 +33,10 @@ public class PlayerHud : MonoBehaviour
     public GameObject Flybutton;
     public GameObject SwimButton;
     public GameObject WalkButton;
+
+    [Header("Team Switch Buttons")]
+    public AnimalSwitchButton[] switchButtons;
+
     public void ToggleCharacterScreen()
     {
         sheet.SetActive(!sheet.activeSelf);
