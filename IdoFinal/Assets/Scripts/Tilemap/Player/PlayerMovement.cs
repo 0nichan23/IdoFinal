@@ -16,9 +16,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool canMove;
     [SerializeField] private float movementMod = 1;
     [SerializeField] private LookDirections lookingTowards;
+    private bool isMoving;
     public TileData CurrentTile { get => currentTile; }
     public LookDirections LookingTowards { get => lookingTowards; }
     public bool CanMove { get => canMove; set => canMove = value; }
+    public bool IsMoving { get => isMoving; }
 
     private void Start()
     {
@@ -72,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator MovePlayerTo(Vector3 worldPos)
     {
         canMove = false;
+        isMoving = true;
         Vector3 startPosition = transform.position;
         float counter = 0;
         GameManager.Instance.PlayerWrapper.PlayerAnimationHandler.StartWalkAnim();
@@ -84,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
         }
         canMove = true;
         GameManager.Instance.PlayerWrapper.PlayerAnimationHandler.EndWalkAnim();
+        isMoving = false;
     }
 
     public void SetCurrentTile(TileData tile)

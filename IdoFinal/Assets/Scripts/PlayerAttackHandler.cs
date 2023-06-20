@@ -83,21 +83,29 @@ public class PlayerAttackHandler : MonoBehaviour
         {
             return;
         }
-        lastAttacked = Time.time;
-        OnAttackPreformed?.Invoke();
         if (currentAttack is ProjectileAttack)
         {
             GameManager.Instance.PlayerWrapper.FireProjectile(currentAttack as ProjectileAttack);
         }
-        else if(currentAttack.Charge)
+        else if (currentAttack.Charge)
         {
-            GameManager.Instance.PlayerWrapper.Charge(currentAttack);
+            if (!GameManager.Instance.PlayerWrapper.PlayerMovement.IsMoving)
+            {
+                GameManager.Instance.PlayerWrapper.Charge(currentAttack);
+            }
+            else
+            {
+                return;
+            }
         }
         else
         {
-            targeter.AttackTiles(GameManager.Instance.PlayerWrapper.LookingTowards, 
+            targeter.AttackTiles(GameManager.Instance.PlayerWrapper.LookingTowards,
                 GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.GetPos, currentAttack, GameManager.Instance.PlayerWrapper);
         }
+        OnAttackPreformed?.Invoke();
+        lastAttacked = Time.time;
+
     }
 
 

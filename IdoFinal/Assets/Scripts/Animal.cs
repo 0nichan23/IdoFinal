@@ -33,11 +33,13 @@ public class Animal : ScriptableObject
 
 public enum AnimalClass
 {
-    Mammel,
+    Mammal,
     Bird,
     Fish,
     Reptile,
-    Amphibian
+    Amphibian,
+    Cephalopod,
+    Crustacean
 }
 
 public enum Habitat

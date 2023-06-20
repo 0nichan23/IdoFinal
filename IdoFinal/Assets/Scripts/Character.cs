@@ -19,8 +19,11 @@ public class Character : MonoBehaviour
     protected TileData currentTile;
 
     public UnityEvent<Character> OnEnterdWater;
+    public UnityEvent<Character> OnExitWater;
     public UnityEvent<Character> OnEnteredGround;
+    public UnityEvent<Character> OnExitGround;
     public UnityEvent<Character> OnEnteredAir;
+    public UnityEvent<Character> OnExitAir;
 
     public Damageable Damageable { get => damageable; }
     public DamageDealer DamageDealer { get => damageDealer; }
@@ -63,6 +66,7 @@ public class Character : MonoBehaviour
     {
         if (spawn || CheckPlaneAvailable(GameManager.Instance.LevelManager.CurrentLevel.FlyingMap))
         {
+            ExitMapEvent();
             currentTileMap = GameManager.Instance.LevelManager.CurrentLevel.FlyingMap;
             movementMode = MovementMode.Air;
             if (!spawn)
@@ -75,6 +79,7 @@ public class Character : MonoBehaviour
     {
         if (spawn || CheckPlaneAvailable(GameManager.Instance.LevelManager.CurrentLevel.SwimmingMap))
         {
+            ExitMapEvent();
             currentTileMap = GameManager.Instance.LevelManager.CurrentLevel.SwimmingMap;
             movementMode = MovementMode.Water;
             if (!spawn)
@@ -87,6 +92,7 @@ public class Character : MonoBehaviour
     {
         if (spawn || CheckPlaneAvailable(GameManager.Instance.LevelManager.CurrentLevel.TraversableGround))
         {
+            ExitMapEvent();
             currentTileMap = GameManager.Instance.LevelManager.CurrentLevel.TraversableGround;
             movementMode = MovementMode.Ground;
             if (!spawn)
@@ -127,6 +133,24 @@ public class Character : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    protected virtual void ExitMapEvent()
+    {
+        switch (movementMode)
+        {
+            case MovementMode.Ground:
+                OnExitGround?.Invoke(this);
+                break;
+            case MovementMode.Water:
+                OnExitWater?.Invoke(this);
+                break;
+            case MovementMode.Air:
+                OnExitAir?.Invoke(this);
+                break;
+            default:
+                break;
+        }
     }
 }
 

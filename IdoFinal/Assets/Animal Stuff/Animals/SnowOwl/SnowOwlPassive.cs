@@ -20,7 +20,7 @@ public class SnowOwlPassive : AnimalPassive
 
     private void BleedAndExtraCritDamageOnMammelsAndBirds(AnimalAttack attack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
-        if (target.RefAnimal.AnimalClass == AnimalClass.Mammel || target.RefAnimal.AnimalClass == AnimalClass.Bird)
+        if (target.RefAnimal.AnimalClass == AnimalClass.Mammal || target.RefAnimal.AnimalClass == AnimalClass.Bird)
         {
             dmg.AddMod(1 + damageMod);
             target.RefCharacter.Effectable.AddStatus(new Bleed(bleedDuration), dealer);

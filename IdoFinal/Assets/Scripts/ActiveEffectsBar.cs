@@ -21,6 +21,11 @@ public class ActiveEffectsBar : MonoBehaviour
     [SerializeField] private Sprite burn;
     [SerializeField] private Sprite hitChanceDebuff;
     [SerializeField] private Sprite attackSpeedDebuff;
+    [SerializeField] private Sprite defenseDebuff;
+    [SerializeField] private Sprite damageDebuff;
+    [SerializeField] private Sprite critChanceDebuff;
+    [SerializeField] private Sprite critDamageDebuff;
+    [SerializeField] private Sprite dodgeChanceDebuff;
 
     private List<ActiveEffectIcon> activeIcons = new List<ActiveEffectIcon>();
 
@@ -110,6 +115,38 @@ public class ActiveEffectsBar : MonoBehaviour
         else if (effect is CritHitBuff)
         {
             return critChanceBuff;
+        }
+        else if (effect is DefenseDebuff)
+        {
+            return defenseDebuff;
+        }
+        else if (effect is DefenseBuff)
+        {
+            return damageReductionBuff;
+        }
+        else if (effect is HitChanceBuff)
+        {
+            return hitChanceBuff;
+        }
+        else if (effect is CritDamageBuff)
+        {
+            return critDamageBuff;
+        }
+        else if (effect is DamageDebuff)
+        {
+            return damageDebuff;
+        }
+        else if (effect is CritChanceDebuff)
+        {
+            return critChanceDebuff;
+        }
+        else if (effect is CritDamageDebuff)
+        {
+            return critDamageDebuff;
+        }
+        else if (effect is DodgeChanceDebuff)
+        {
+            return dodgeChanceDebuff;
         }
         return null;
     }

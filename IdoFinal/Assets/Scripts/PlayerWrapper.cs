@@ -28,6 +28,8 @@ public class PlayerWrapper : Character
     {
         CreateExistingAnimalSlots();
         team.OnTeamSet.AddListener(SetAnimalSwitchButtons);
+        charger.OnStartCharge.AddListener(Stun);
+        charger.OnEndCharge.AddListener(EndStun);
     }
 
     public void StartGame()
