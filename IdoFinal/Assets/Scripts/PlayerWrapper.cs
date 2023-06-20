@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerWrapper : Character
 {
@@ -171,12 +172,17 @@ public class PlayerWrapper : Character
 
     public bool TrySetMovementModeOnSwithAttempt(Animal givenAnimal)
     {
-        foreach (var item in givenAnimal.MovementMods)
+
+        foreach (var neighbour in GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(CurrentTile, GameManager.Instance.LevelManager.CurrentLevel.TotalMap))
         {
-            if (GameManager.Instance.LevelManager.CurrentLevel.GetMapFromMovementMode(item).Contains(GameManager.Instance.PlayerWrapper.CurrentTile))
+            foreach (var movement in givenAnimal.MovementMods)
             {
-                SetMovementModeEnum(item);
-                return true;
+                List<TileData> currentMap = GameManager.Instance.LevelManager.CurrentLevel.GetMapFromMovementMode(movement);
+                if (currentMap.Contains(GameManager.Instance.PlayerWrapper.CurrentTile) || currentMap.Contains(neighbour))
+                {
+                    SetMovementModeEnum(movement);
+                    return true;
+                }
             }
         }
         return false;

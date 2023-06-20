@@ -1011,7 +1011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7457097704105066224, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: biomeData.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7457097704105066224, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: biomeData.Array.data[0].BiomeType
@@ -1019,11 +1019,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7457097704105066224, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: biomeData.Array.data[1].BiomeType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7457097704105066224, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: biomeData.Array.data[2].BiomeType
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7457097704105066224, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: biomeData.Array.data[0].HeightData
@@ -1032,11 +1032,11 @@ PrefabInstance:
     - target: {fileID: 7457097704105066224, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: biomeData.Array.data[1].HeightData
       value: 
-      objectReference: {fileID: 11400000, guid: f08ad45e0f6965d4bac25a8bbcc859bb, type: 2}
+      objectReference: {fileID: 11400000, guid: 5aae15c6923f3e844b4aa1a31ea9f339, type: 2}
     - target: {fileID: 7457097704105066224, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: biomeData.Array.data[2].HeightData
       value: 
-      objectReference: {fileID: 11400000, guid: f08ad45e0f6965d4bac25a8bbcc859bb, type: 2}
+      objectReference: {fileID: 11400000, guid: 1bde91760ce3b9c4aa580e59e95f901e, type: 2}
     - target: {fileID: 7457097704239078800, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: amount
       value: 3
