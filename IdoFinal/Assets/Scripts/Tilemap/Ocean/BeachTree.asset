@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f2b15548685bc140873e2a2aeb3ba6b, type: 3}
-  m_Name: ManateePassive
+  m_Script: {fileID: 11500000, guid: d1edecf851d0f684a9047dd45f56ff27, type: 3}
+  m_Name: BeachTree
   m_EditorClassIdentifier: 
-  effect: gain an attack speed buff when entering water
-  duration: 10
-  amount: 1
+  go: {fileID: 1462743779960144, guid: 90323167bb7251e40b95bc831f4c0024, type: 3}

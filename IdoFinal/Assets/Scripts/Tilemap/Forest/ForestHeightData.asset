@@ -32,6 +32,12 @@ MonoBehaviour:
   - RefTile: {fileID: 11400000, guid: bc0e93fe09b0a2c46988aade34effdcb, type: 2}
     MaxHeight: 0.36
   - RefTile: {fileID: 11400000, guid: 92bed6ae74f7f424f9cd0f9c44d7cf1d, type: 2}
+    MaxHeight: 0.37
+  - RefTile: {fileID: 11400000, guid: 87ea557ef9cc0cc438fab8b19b077b63, type: 2}
+    MaxHeight: 0.371
+  - RefTile: {fileID: 11400000, guid: 3ee7d7604f2dd874a888a1ae35ff2a32, type: 2}
+    MaxHeight: 0.372
+  - RefTile: {fileID: 11400000, guid: bc0e93fe09b0a2c46988aade34effdcb, type: 2}
     MaxHeight: 0.5
   - RefTile: {fileID: 11400000, guid: dc50c957fcc81c741ab0ceaf79aa408a, type: 2}
     MaxHeight: 0.5003

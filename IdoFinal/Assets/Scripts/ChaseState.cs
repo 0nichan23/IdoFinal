@@ -30,7 +30,7 @@ public class ChaseState : CoroutineState
         if (/*handler.RefEnemy.MovementMode == GameManager.Instance.PlayerWrapper.MovementMode*/ handler.RefEnemy.CurrentTileMap.Contains(GameManager.Instance.PlayerWrapper.CurrentTile)) //must be on the same plane because of the pathfinder
         {
             List<TileData> path = GameManager.Instance.Pathfinder.FindPathToDest(handler.RefEnemy.Movement.CurrentTile, dest, handler.RefEnemy.CurrentTileMap);
-            if (handler.RefEnemy.CurrentTileMap.Contains(path[0]))
+            if (!ReferenceEquals(path, null) &&  handler.RefEnemy.CurrentTileMap.Contains(path[0]))
             {
                 yield return StartCoroutine(handler.RefEnemy.Movement.MoveEnemyTo(path[0]));
             }

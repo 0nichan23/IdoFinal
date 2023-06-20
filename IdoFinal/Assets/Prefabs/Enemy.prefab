@@ -493,6 +493,11 @@ MonoBehaviour:
   burn: {fileID: 21300000, guid: 9d54abb8bac431e4f8c69f0c46b459f0, type: 3}
   hitChanceDebuff: {fileID: 21300000, guid: 4c8ddac87f7a3b24a906ad20dc8887bd, type: 3}
   attackSpeedDebuff: {fileID: 21300000, guid: b4342a834cd282d43b16573523e3babf, type: 3}
+  defenseDebuff: {fileID: 0}
+  damageDebuff: {fileID: 0}
+  critChanceDebuff: {fileID: 0}
+  critDamageDebuff: {fileID: 0}
+  dodgeChanceDebuff: {fileID: 0}
 --- !u!1 &7477012478708441848
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,6 +598,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   charger: {fileID: 4215754784612818786}
+  OnEnterdWater:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitWater:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnteredGround:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitGround:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnteredAir:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitAir:
+    m_PersistentCalls:
+      m_Calls: []
   refAnimal: {fileID: 0}
   attackHandler: {fileID: 586724961199811942}
   gfx: {fileID: 7477012478708441849}
@@ -716,7 +739,7 @@ MonoBehaviour:
   - {fileID: 228017266836044125}
   - {fileID: 4427835906387541509}
   refEnemy: {fileID: 7477012478839064909}
-  stateDelay: 0.6
+  stateDelay: 0.3
 --- !u!114 &2531860179119824948
 MonoBehaviour:
   m_ObjectHideFlags: 0

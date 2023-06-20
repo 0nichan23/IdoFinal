@@ -15,6 +15,6 @@ MonoBehaviour:
   effect: deal more and take less damage in the water, critial hits apply attack
     speed debuff
   waterDamageMod: 1
-  waterDamageReducion: 0.75
+  waterDamageReducion: 0.5
   debuffDuration: 5
   debuffMod: 0.5

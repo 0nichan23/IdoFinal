@@ -202,11 +202,19 @@ public class Level : MonoBehaviour
             mod = -1;
         }
         int distance = GameManager.Instance.Pathfinder.GetDistanceOfTiles(start.GetPos, dest.GetPos);
-        for (int i =0 + mod; i < distance; i ++)
+        for (int i = 1; i < distance; i++)
         {
-            if (ReferenceEquals(GetTile(new Vector3Int(start.GetPos.x + (i * mod), 0, start.GetPos.z), givenMap), null))
+            TileData nextTile = GetTile(new Vector3Int(start.GetPos.x + (i * mod), 0, start.GetPos.z), givenMap);
+            if (ReferenceEquals(nextTile, null))
             {
                 return false;
+            }
+            else
+            {
+                if (nextTile.Occupied && nextTile.SubscribedCharacter is Enemy)
+                {
+                    return false;
+                }
             }
         }
         return true;
@@ -224,11 +232,19 @@ public class Level : MonoBehaviour
             mod = -1;
         }
         int distance = GameManager.Instance.Pathfinder.GetDistanceOfTiles(start.GetPos, dest.GetPos);
-        for (int i = 0 + mod; i < distance; i++)
+        for (int i = 1; i < distance; i++)
         {
-            if (ReferenceEquals(GetTile(new Vector3Int(start.GetPos.x, 0, start.GetPos.z + (i * mod)), givenMap), null))
+            TileData nextTile = GetTile(new Vector3Int(start.GetPos.x, 0, start.GetPos.z + (i * mod)), givenMap);
+            if (ReferenceEquals(nextTile, null))
             {
                 return false;
+            }
+            else
+            {
+                if (nextTile.Occupied && nextTile.SubscribedCharacter is Enemy)
+                {
+                    return false;
+                }
             }
         }
         return true;
@@ -252,10 +268,11 @@ public class TileData : IHeapItem<TileData>
     public Vector3Int GetPos { get => Pos; }
     public Vector3 GetGroundPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 0.6f, Obj.transform.position.z); }
     public Vector3 GetAirPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 1.6f, Obj.transform.position.z); }
-    public Vector3 GetWaterPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 0.3f, Obj.transform.position.z); }
+    public Vector3 GetWaterPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y - 0.3f, Obj.transform.position.z); }
     public InteractableTile Overly { get => overlay; }
     public bool Occupied { get => occupied; set => occupied = value; }
     public int HeapIndex { get => heapIndex; set => heapIndex = value; }
+    public Character SubscribedCharacter { get => subscribedCharacter; }
 
     public TileData(Vector3Int pos, GameObject obj)
     {

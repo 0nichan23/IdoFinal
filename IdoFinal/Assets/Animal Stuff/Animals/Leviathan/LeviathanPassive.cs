@@ -41,7 +41,7 @@ public class LeviathanPassive : AnimalPassive
     {
         if (target.RefCharacter.MovementMode == MovementMode.Water)
         {
-            dmg.AddMod(1 - waterDamageMod);
+            dmg.AddMod(1 - waterDamageReducion);
         }
     }
 

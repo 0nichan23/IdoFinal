@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cada1bd48a7ab47b891675e278256e, type: 3}
+  m_Name: OceanHeightData
+  m_EditorClassIdentifier: 
+  heightData:
+  - RefTile: {fileID: 11400000, guid: 8a88c233a48cceb4fbf57c88d2ff9820, type: 2}
+    MaxHeight: 0.25
+  - RefTile: {fileID: 11400000, guid: f53ccbc7475a13c4c9f8378e4c707616, type: 2}
+    MaxHeight: 0.26
+  - RefTile: {fileID: 11400000, guid: 8a88c233a48cceb4fbf57c88d2ff9820, type: 2}
+    MaxHeight: 0.5
+  - RefTile: {fileID: 11400000, guid: f53ccbc7475a13c4c9f8378e4c707616, type: 2}
+    MaxHeight: 0.51
+  - RefTile: {fileID: 11400000, guid: 8a88c233a48cceb4fbf57c88d2ff9820, type: 2}
+    MaxHeight: 0.75
+  - RefTile: {fileID: 11400000, guid: f53ccbc7475a13c4c9f8378e4c707616, type: 2}
+    MaxHeight: 0.76
+  - RefTile: {fileID: 11400000, guid: 8a88c233a48cceb4fbf57c88d2ff9820, type: 2}
+    MaxHeight: 0.8
+  - RefTile: {fileID: 11400000, guid: d0d07e4116569e84a9325badde5ab002, type: 2}
+    MaxHeight: 0.9
+  - RefTile: {fileID: 11400000, guid: d528b863315e7d9478b49cab35a325c9, type: 2}
+    MaxHeight: 0.905
+  - RefTile: {fileID: 11400000, guid: d0d07e4116569e84a9325badde5ab002, type: 2}
+    MaxHeight: 0.999
+  - RefTile: {fileID: 11400000, guid: d528b863315e7d9478b49cab35a325c9, type: 2}
+    MaxHeight: 1
+  enemyCreator: {fileID: 11400000, guid: 9f124f167cd79fc42bcb1c93fa73435a, type: 2}
