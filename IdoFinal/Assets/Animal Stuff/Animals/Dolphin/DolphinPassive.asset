@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7855f3c780157c43958e54409707eda, type: 3}
   m_Name: DolphinPassive
   m_EditorClassIdentifier: 
-  effect: 
-  amount: 0
+  effect: extra crit chance while swimming
+  amount: 0.25

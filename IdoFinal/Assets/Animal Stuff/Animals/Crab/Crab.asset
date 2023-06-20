@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c45ec9e403434347b4fce6492f33a49, type: 3}
   m_Name: Crab
   m_EditorClassIdentifier: 
-  animalClass: 0
-  habitat: 0
-  statSheet: {fileID: 0}
-  attack: {fileID: 0}
+  animalClass: 6
+  habitat: 4
+  statSheet: {fileID: 11400000, guid: 6559bdf32bf18664d8a9f42d2af6d24c, type: 2}
+  attack: {fileID: 11400000, guid: 210ac877ab995134086a163716d553de, type: 2}
   secondAttack: {fileID: 0}
-  passive: {fileID: 0}
-  animalModel: {fileID: 0}
-  diet: 0
-  portrait: {fileID: 0}
+  passive: {fileID: 11400000, guid: c9bfcc93ced070a4bba5199d33c0cfc2, type: 2}
+  animalModel: {fileID: 8548691462213861768, guid: 27d6a72fdc9f82a43bf4ba0a4c1a73ba, type: 3}
+  diet: 2
+  portrait: {fileID: 21300000, guid: 3eada5a6eb4ba04448031535f1334477, type: 3}
   size: 0
   rarity: 0
-  movementMods: 
+  movementMods: 0000000001000000

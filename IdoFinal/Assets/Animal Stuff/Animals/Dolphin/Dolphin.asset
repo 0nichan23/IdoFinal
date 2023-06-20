@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Dolphin
   m_EditorClassIdentifier: 
   animalClass: 0
-  habitat: 0
-  statSheet: {fileID: 0}
-  attack: {fileID: 0}
+  habitat: 4
+  statSheet: {fileID: 11400000, guid: 0116d1540d331e2418e069a343b01bd1, type: 2}
+  attack: {fileID: 11400000, guid: 8b65405500df1fa4c98570592e41dd84, type: 2}
   secondAttack: {fileID: 0}
-  passive: {fileID: 0}
-  animalModel: {fileID: 0}
+  passive: {fileID: 11400000, guid: 75ffca9b24fa54c40bed7d6c593556fe, type: 2}
+  animalModel: {fileID: 8780768073455577798, guid: 1b7b6463f4ce49d48b51d8b787e09980, type: 3}
   diet: 0
-  portrait: {fileID: 0}
-  size: 0
-  rarity: 0
-  movementMods: 
+  portrait: {fileID: 21300000, guid: 742483c65dcf31f42b522294e64359f4, type: 3}
+  size: 1
+  rarity: 1
+  movementMods: 01000000

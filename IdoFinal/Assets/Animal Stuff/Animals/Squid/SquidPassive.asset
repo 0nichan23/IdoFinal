@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167679ef6c3480344be6418f46de27d8, type: 3}
   m_Name: SquidPassive
   m_EditorClassIdentifier: 
-  effect: 
-  duration: 0
-  amount: 0
+  effect: 'apply accuracy debuff after taking damage in the water '
+  duration: 8
+  amount: 0.65

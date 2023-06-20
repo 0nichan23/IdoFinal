@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e95829c636e502d47a0168fc164144cb, type: 3}
   m_Name: CrabPassive
   m_EditorClassIdentifier: 
-  effect: 
-  duration: 0
-  amount: 0
+  effect: gain a defense buff after taking damage when swimming
+  duration: 8
+  amount: 0.45

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae243a102b1d8ac46b170f3be41a9248, type: 3}
   m_Name: OrcaPassive
   m_EditorClassIdentifier: 
-  effect: 
-  attackDuration: 0
-  attackMod: 0
-  aspeedDuration: 0
-  aspeedMod: 0
+  effect: Gain a damage and attack speed buff on kill
+  attackDuration: 6
+  attackMod: 0.6
+  aspeedDuration: 6
+  aspeedMod: 0.6

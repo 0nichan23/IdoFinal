@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c45ec9e403434347b4fce6492f33a49, type: 3}
   m_Name: Lobster
   m_EditorClassIdentifier: 
-  animalClass: 0
-  habitat: 0
-  statSheet: {fileID: 0}
-  attack: {fileID: 0}
+  animalClass: 6
+  habitat: 4
+  statSheet: {fileID: 11400000, guid: 998d8f8e011187f4db300289a974479f, type: 2}
+  attack: {fileID: 11400000, guid: c07148e18f2e5cb468673ab7fcc31bff, type: 2}
   secondAttack: {fileID: 0}
-  passive: {fileID: 0}
-  animalModel: {fileID: 0}
+  passive: {fileID: 11400000, guid: b23e97c35fba56243a90b78b60efaadb, type: 2}
+  animalModel: {fileID: 8917404874576585971, guid: 20b27f90667930e41858e44166544d32, type: 3}
   diet: 0
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 644a81a6087a23d4884db14916587f40, type: 3}
   size: 0
   rarity: 0
-  movementMods: 
+  movementMods: 0000000001000000

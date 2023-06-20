@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Orca
   m_EditorClassIdentifier: 
   animalClass: 0
-  habitat: 0
-  statSheet: {fileID: 0}
-  attack: {fileID: 0}
+  habitat: 4
+  statSheet: {fileID: 11400000, guid: 3199349b79fa18840a1d77e6994f50d0, type: 2}
+  attack: {fileID: 11400000, guid: ef8169b248a39b84d80f04621f8fd54e, type: 2}
   secondAttack: {fileID: 0}
-  passive: {fileID: 0}
-  animalModel: {fileID: 0}
+  passive: {fileID: 11400000, guid: 1d84c4465627e8b4881d84688059bb4b, type: 2}
+  animalModel: {fileID: 2738844215718765931, guid: 5ed02cd5a4b54e943bd426dabbb920b6, type: 3}
   diet: 0
-  portrait: {fileID: 0}
-  size: 0
-  rarity: 0
-  movementMods: 
+  portrait: {fileID: 21300000, guid: b180f24d5d6fa1a40b59a5db77a520ca, type: 3}
+  size: 2
+  rarity: 2
+  movementMods: 01000000

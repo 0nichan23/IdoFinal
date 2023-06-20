@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb35bfd3404c594c83d2420d300119a, type: 3}
   m_Name: OrcaSS
   m_EditorClassIdentifier: 
-  maxHp: 0
-  power: 0
-  toughness: 0
-  instinct: 0
-  speed: 0
+  maxHp: 150
+  power: 9
+  toughness: 6
+  instinct: 9
+  speed: 7

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c45ec9e403434347b4fce6492f33a49, type: 3}
+  m_Name: ClownFish
+  m_EditorClassIdentifier: 
+  animalClass: 2
+  habitat: 4
+  statSheet: {fileID: 11400000, guid: 01b61b8c2e27d804fa155cfeb64b4ab5, type: 2}
+  attack: {fileID: 11400000, guid: 9e73c8b9d30f98c48835bac8440b7351, type: 2}
+  secondAttack: {fileID: 0}
+  passive: {fileID: 0}
+  animalModel: {fileID: 7444972153351354915, guid: 29c8e8b72d6b997439fc87d40dd209a6, type: 3}
+  diet: 1
+  portrait: {fileID: 0}
+  size: 0
+  rarity: 0
+  movementMods: 
