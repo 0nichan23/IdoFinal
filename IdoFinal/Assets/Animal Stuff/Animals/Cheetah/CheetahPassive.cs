@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [CreateAssetMenu(fileName = "CheetahPassive", menuName = "Passives/Cheetah")]
 public class CheetahPassive : AnimalPassive
 {
@@ -20,7 +19,7 @@ public class CheetahPassive : AnimalPassive
 
     private void DamageBoost(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
-        if (dealer.RefCharacter.Counter.CurrentCounter %3 == 0)
+        if (dealer.RefCharacter.Counter.CurrentCounter != 0 && dealer.RefCharacter.Counter.CurrentCounter %3 == 0)
         {
             float boost = 0f;
             for (int i = 0; i < dealer.RefAnimal.StatSheet.Speed; i++)

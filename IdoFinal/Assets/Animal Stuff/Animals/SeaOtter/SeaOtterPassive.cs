@@ -6,27 +6,36 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SeaOtterPassive", menuName = "Passives/SeaOtter")]
 public class SeaOtterPassive : AnimalPassive
 {
-    //gain an attack speed and crit hit buffs when inflicting bleed
-    [SerializeField, Range(0, 10)] private float aspeedDuration;
-    [SerializeField, Range(0, 1)] private float aspeedMod;
-    [SerializeField, Range(0, 10)] private float critHitDuration;
-    [SerializeField, Range(0, 1)] private float critHitMod;
+    //chance to multihit a bleeding target
+    [SerializeField, Range(0, 100)] private float multiHitChance;
+    [SerializeField, Range(0, 10)] private int multiHits;
     public override void SubscribePassive(Character givenCaharacter)
     {
-        givenCaharacter.DamageDealer.OnApplyStatus.AddListener(ApplyStatusEffects);
+        givenCaharacter.DamageDealer.OnDealDamageFinal.AddListener(MultiHitBleedingTarget);
     }
 
     public override void UnSubscribePassive(Character givenCaharacter)
     {
-        givenCaharacter.DamageDealer.OnApplyStatus.RemoveListener(ApplyStatusEffects);
+        givenCaharacter.DamageDealer.OnDealDamageFinal.RemoveListener(MultiHitBleedingTarget);
     }
 
-    private void ApplyStatusEffects(StatusEffect effect, Effectable target, DamageDealer dealer)
+    private void MultiHitBleedingTarget(AnimalAttack attack, Damageable target, DamageDealer dealer, DamageHandler dmg)
     {
-        if (effect is Bleed)
+        if (Random.Range(0,100) > multiHitChance)
         {
-            dealer.RefCharacter.Effectable.AddStatus(new AttackSpeedBuff(aspeedDuration, aspeedMod), dealer);
-            dealer.RefCharacter.Effectable.AddStatus(new CritHitBuff(critHitDuration, critHitMod), dealer);
+            return;
         }
+        foreach (var item in target.RefCharacter.Effectable.ActiveEffects)
+        {
+            if (item is Bleed)
+            {
+                for (int i = 0; i < multiHits; i++)
+                {
+                    target.GetMultiHit(dealer, dmg.CalcFinalDamageMult());
+                }
+                break;
+            }
+        }
+        
     }
 }

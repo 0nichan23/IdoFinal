@@ -1,30 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "WyvernPassive", menuName = "Passives/Wyvern")]
 public class WyvernPassive : AnimalPassive
 {
-    //attacks more powerful with infused electricity and have a chance to stun
-    [SerializeField, Range(0, 1)] private float damageIncrease;
-    [SerializeField, Range(0, 10)] private float stunDuration;
-    [SerializeField, Range(0, 100)] private float stunChance;
+    //all attacks have a chance to inflict poison
+    [SerializeField, Range(0, 10)] private float poisonDuration;
+    [SerializeField, Range(0, 100)] private float poisonTotalAmount;
+    [SerializeField, Range(0, 100)] private float poisonChance;
     public override void SubscribePassive(Character givenCaharacter)
     {
-        givenCaharacter.DamageDealer.OnHit.AddListener(DamageIncreaseAndStunChance);
+        givenCaharacter.DamageDealer.OnHit.AddListener(Poison);
     }
 
     public override void UnSubscribePassive(Character givenCaharacter)
     {
-        givenCaharacter.DamageDealer.OnHit.RemoveListener(DamageIncreaseAndStunChance);
+        givenCaharacter.DamageDealer.OnHit.RemoveListener(Poison);
     }
 
-    private void DamageIncreaseAndStunChance(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
+    private void Poison(Damageable target, AnimalAttack attack, DamageDealer dealer, DamageHandler dmg)
     {
-        dmg.AddMod(1 + damageIncrease);
-        if (Random.Range(0,100) <= stunChance)
+        if (Random.Range(0, 100) <= poisonChance)
         {
-            target.RefCharacter.Effectable.AddStatus(new Stun(stunDuration), dealer);
+            target.RefCharacter.Effectable.AddStatus(new Poison(poisonDuration, poisonTotalAmount), dealer);
         }
     }
 }

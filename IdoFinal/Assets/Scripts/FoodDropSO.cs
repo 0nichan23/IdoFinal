@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Food", menuName = "Food")]
-public class DropSO : ScriptableObject
+public class FoodDropSO : BasicDropSO
 {
     [SerializeField] private Sprite artwork;
     [SerializeField] private Diet diet;

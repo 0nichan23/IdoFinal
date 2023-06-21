@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerWrapper : Character
 {
@@ -10,7 +10,7 @@ public class PlayerWrapper : Character
     [SerializeField] private PlayerAttackHandler attackHandler;
     [SerializeField] private PlayerHud playerHud;
     [SerializeField] private AnimalInventory animalInventory;
-    [SerializeField] private AnimalAttack testChargeAttack;
+    [SerializeField] private DropsInventory dropsInventory;
     public override LookDirections LookingTowards { get => playerMovement.LookingTowards; }
     public override AttackCounter Counter => attackHandler.AttackCounter;
     public override float AttackSpeed => attackHandler.AttackSpeed;
@@ -23,6 +23,7 @@ public class PlayerWrapper : Character
     public PlayerAttackHandler AttackHandler { get => attackHandler; }
     public AnimalInventory AnimalInventory { get => animalInventory; }
     public PlayerHud PlayerHud { get => playerHud; }
+    public DropsInventory DropsInventory { get => dropsInventory; }
 
     private void Start()
     {
@@ -169,7 +170,7 @@ public class PlayerWrapper : Character
         playerHud.switchButtons[0].CacheAnimal(team.ActiveAnimal.Animal);
         playerHud.switchButtons[1].CacheAnimal(team.BackLineAnimals[0].Animal);
         playerHud.switchButtons[2].CacheAnimal(team.BackLineAnimals[1].Animal);
-       
+
     }
 
     public bool TrySetMovementModeOnSwithAttempt(Animal givenAnimal)

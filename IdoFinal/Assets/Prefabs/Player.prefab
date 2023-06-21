@@ -98,10 +98,19 @@ MonoBehaviour:
   OnEnterdWater:
     m_PersistentCalls:
       m_Calls: []
+  OnExitWater:
+    m_PersistentCalls:
+      m_Calls: []
   OnEnteredGround:
     m_PersistentCalls:
       m_Calls: []
+  OnExitGround:
+    m_PersistentCalls:
+      m_Calls: []
   OnEnteredAir:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitAir:
     m_PersistentCalls:
       m_Calls: []
   playerMovement: {fileID: 733277437919210462}
@@ -329,6 +338,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5f5e82040a7c26344bc4e295d25673b0, type: 2}
   - {fileID: 11400000, guid: 572bafe90062b8641b384ca8f103e86b, type: 2}
   - {fileID: 11400000, guid: f29e030e68725034b8d7754714a5636a, type: 2}
+  - {fileID: 11400000, guid: b0ccfafa100643f4b9adbbe76cf4215d, type: 2}
+  - {fileID: 11400000, guid: e5e657ba3d7dff144ad1f400c2081777, type: 2}
+  - {fileID: 11400000, guid: 2a48a381773ae4e4fa7103c6b9cf8ede, type: 2}
   OnAnimalAdded:
     m_PersistentCalls:
       m_Calls: []

@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b253cd09bb15cbd4a906d1c974a24000, type: 3}
   m_Name: SeaOtterPassive
   m_EditorClassIdentifier: 
-  effect: gain an attack speed and crit hit buffs when inflicting bleed
-  aspeedDuration: 7
-  aspeedMod: 0.5
-  critHitDuration: 7
-  critHitMod: 0.5
+  effect: chance to multihit a bleeding target
+  multiHitChance: 35
+  multiHits: 3

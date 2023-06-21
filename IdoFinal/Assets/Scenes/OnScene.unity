@@ -128,7 +128,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 733277437919210463, guid: 43b07e6245311564abfd101a8c712882, type: 3}
   m_PrefabInstance: {fileID: 733277437559368033}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 635236427}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aebd1fe38cf21fa4b8a92efe3f661e71, type: 3}
@@ -225,6 +225,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &635236427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 733277437919210460, guid: 43b07e6245311564abfd101a8c712882, type: 3}
+  m_PrefabInstance: {fileID: 733277437559368033}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &635236437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635236427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ad4a1e16025564083471563a56e660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &705507993
@@ -612,6 +629,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1158189765}
+    - target: {fileID: 1830031973, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830031975, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_text
+      value: "animal obtaining system\nitems start? \nthe rest of the bosses\n(water
+        transparncy issue)"
+      objectReference: {fileID: 0}
     - target: {fileID: 280437178787023015, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -797,18 +823,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: caughtAnimals.Array.size
-      value: 54
-      objectReference: {fileID: 0}
-    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: caughtAnimals.Array.data[52]
-      value: 
-      objectReference: {fileID: 11400000, guid: b0ccfafa100643f4b9adbbe76cf4215d, type: 2}
-    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: caughtAnimals.Array.data[53]
-      value: 
-      objectReference: {fileID: 11400000, guid: e5e657ba3d7dff144ad1f400c2081777, type: 2}
     - target: {fileID: 733277437919210401, guid: 43b07e6245311564abfd101a8c712882, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -861,6 +875,10 @@ PrefabInstance:
       propertyPath: playerHud
       value: 
       objectReference: {fileID: 1593426087}
+    - target: {fileID: 733277437919210463, guid: 43b07e6245311564abfd101a8c712882, type: 3}
+      propertyPath: dropsInventory
+      value: 
+      objectReference: {fileID: 635236437}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43b07e6245311564abfd101a8c712882, type: 3}
 --- !u!1001 &7457097705030271516

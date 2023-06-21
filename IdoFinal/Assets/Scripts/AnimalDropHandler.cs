@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class AnimalDropHandler : MonoBehaviour
 {
-    [SerializeField] private DropSO largeMeat;
-    [SerializeField] private DropSO mediumMeat;
-    [SerializeField] private DropSO smallMeat;
-    [SerializeField] private DropSO largeLeaf;
-    [SerializeField] private DropSO mediumLeaf;
-    [SerializeField] private DropSO smallLeaf;
+    [SerializeField] private FoodDropSO largeMeat;
+    [SerializeField] private FoodDropSO mediumMeat;
+    [SerializeField] private FoodDropSO smallMeat;
+    [SerializeField] private FoodDropSO largeLeaf;
+    [SerializeField] private FoodDropSO mediumLeaf;
+    [SerializeField] private FoodDropSO smallLeaf;
     public void Drop(Character character)
     {
         switch (character.Damageable.RefAnimal.Diet)
@@ -83,11 +83,12 @@ public class AnimalDropHandler : MonoBehaviour
     }
 
 
-    private void GetAndSetupDrop(DropSO food, Character character)
+    private void GetAndSetupDrop(FoodDropSO food, Character character)
     {
         Drop drop = GameManager.Instance.PoolManager.DropPool.GetPooledObject();
         drop.SetUp(food.Artwork);
         drop.transform.position = character.transform.position;
         drop.gameObject.SetActive(true);
+        GameManager.Instance.PlayerWrapper.DropsInventory.AddDrop(food);
     }
 }

@@ -33,5 +33,6 @@ public class BiomeDropHandler : ScriptableObject
         drop.SetUp(biomeDrop.Artwork);
         drop.transform.position = character.transform.position;
         drop.gameObject.SetActive(true);
+        GameManager.Instance.PlayerWrapper.DropsInventory.AddDrop(biomeDrop);
     }
 }

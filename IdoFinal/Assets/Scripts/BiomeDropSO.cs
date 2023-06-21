@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BiomeDrop", menuName = "BiomeDrop")]
-public class BiomeDropSO : ScriptableObject
+public class BiomeDropSO : BasicDropSO
 {
     [SerializeField] private Sprite artwork;
     [SerializeField] private Rarity rarity;
