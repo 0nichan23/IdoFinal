@@ -7,28 +7,26 @@ using UnityEngine.Tilemaps;
 public class Level : MonoBehaviour
 {
     [SerializeField] private Tilemap tilemap;
-
-    [SerializeField] private List<TileData> traversableGround = new List<TileData>();
-    [SerializeField] private List<TileData> swimmingMap = new List<TileData>();
-    [SerializeField] private List<TileData> flyingMap = new List<TileData>();
-    private List<TileData> totalMap = new List<TileData>();
-    private List<TileData> obstacleMap = new List<TileData>();
-    [SerializeField] private TileData startTile;
+    private Dictionary<Vector3Int, TileData> totalMapDict = new Dictionary<Vector3Int, TileData>();
+    private Dictionary<Vector3Int, TileData> groundMapDict = new Dictionary<Vector3Int, TileData>();
+    private Dictionary<Vector3Int, TileData> flyinMapDict = new Dictionary<Vector3Int, TileData>();
+    private Dictionary<Vector3Int, TileData> swimmingMapDict = new Dictionary<Vector3Int, TileData>();
+    private Dictionary<Vector3Int, TileData> obstacleMapDict = new Dictionary<Vector3Int, TileData>();
+    private List<TileData> AllTiles = new List<TileData>();
     public UnityEvent OnDoneCreatingRoom;
     [SerializeField] List<Enemy> enemies = new List<Enemy>();
     [SerializeField] private Habitat habitat;
     [SerializeField] private bool setupOnAwake;
     private EnemyCreator enemyCreator;
     public Tilemap Tilemap { get => tilemap; }
-    public List<TileData> TraversableGround { get => traversableGround; }
-    public TileData StartTile { get => startTile; }
     public List<Enemy> Enemies { get => enemies; }
     public Habitat Habitat { get => habitat; set => habitat = value; }
     public EnemyCreator EnemyCreator { get => enemyCreator; set => enemyCreator = value; }
-    public List<TileData> SwimmingMap { get => swimmingMap; }
-    public List<TileData> FlyingMap { get => flyingMap; }
-    public List<TileData> TotalMap { get => totalMap; }
-    public List<TileData> ObstacleMap { get => obstacleMap; }
+    public Dictionary<Vector3Int, TileData> TotalMap { get => totalMapDict; }
+    public Dictionary<Vector3Int, TileData> GroundMap { get => groundMapDict; }
+    public Dictionary<Vector3Int, TileData> FlyingMap { get => flyinMapDict; }
+    public Dictionary<Vector3Int, TileData> SwimmingMap { get => swimmingMapDict; }
+    public Dictionary<Vector3Int, TileData> ObstacleMap { get => obstacleMapDict; }
 
     public void SetUpLevel(int enemyAmount)
     {
@@ -44,30 +42,33 @@ public class Level : MonoBehaviour
             Transform child = tilemap.transform.GetChild(i);
             Vector3Int tilePos = new Vector3Int(Mathf.FloorToInt(child.localPosition.x), 0, Mathf.FloorToInt(child.localPosition.z));
             TileData newTile = new TileData(tilePos, child.gameObject);
+            AllTiles.Add(newTile);
             if (child.gameObject.CompareTag("Walkable"))
             {
-                traversableGround.Add(newTile);
-                flyingMap.Add(newTile);
-                totalMap.Add(newTile);
+                groundMapDict.Add(tilePos, newTile);
+                flyinMapDict.Add(tilePos, newTile);
+                totalMapDict.Add(tilePos, newTile);
+
             }
             if (child.gameObject.CompareTag("Swimmable"))
             {
-                swimmingMap.Add(newTile);
-                flyingMap.Add(newTile);
-                totalMap.Add(newTile);
+                swimmingMapDict.Add(tilePos, newTile);
+                flyinMapDict.Add(tilePos, newTile);
+                totalMapDict.Add(tilePos, newTile);
+
             }
             if (child.gameObject.CompareTag("Flyable"))
             {
-                flyingMap.Add(newTile);
-                totalMap.Add(newTile);
+                flyinMapDict.Add(tilePos, newTile);
+                totalMapDict.Add(tilePos, newTile);
             }
             if (child.gameObject.CompareTag("Tree"))
             {
-                obstacleMap.Add(newTile);
+                obstacleMapDict.Add(tilePos, newTile);
             }
         }
 
-        foreach (var tile in flyingMap)
+        foreach (var tile in AllTiles)
         {
             InteractableTile interTile = Instantiate(GameManager.Instance.InteractableTilePrefab, tile.GetObj.transform);
             interTile.transform.position = new Vector3(tile.GetStandingPos(MovementMode.Ground).x, tile.GetStandingPos(MovementMode.Ground).y + 0.2f, tile.GetStandingPos(MovementMode.Ground).z);
@@ -77,7 +78,7 @@ public class Level : MonoBehaviour
         OnDoneCreatingRoom?.Invoke();
     }
 
-    public List<TileData> GetNeighbours(TileData givenTile, List<TileData> givenTileMap)
+    public List<TileData> GetNeighbours(TileData givenTile, Dictionary<Vector3Int, TileData> givenTileMap)
     {
         List<TileData> validNeighbours = new List<TileData>();
         for (int x = -1; x <= 1; x++)
@@ -114,10 +115,6 @@ public class Level : MonoBehaviour
         return validNeighbours;
     }
 
-    public void SetPlayerStartTile()
-    {
-        startTile = GetRandomTile(traversableGround);
-    }
     public void PlaceEnemies()
     {
         foreach (var item in enemies)
@@ -129,17 +126,21 @@ public class Level : MonoBehaviour
             item.OnEnteredLevel?.Invoke(this, item);
         }
     }
-    private TileData GetRandomTile(List<TileData> givenTileMap)
+    private TileData GetRandomTile(Dictionary<Vector3Int, TileData> map)
     {
         TileData tile = null;
-        while (true)
+        int counter = 0;
+        while (counter < 1000)
         {
             if (!ReferenceEquals(tile, null) && !tile.Occupied)
             {
                 return tile;
             }
-            tile = givenTileMap[Random.Range(0, givenTileMap.Count)];
+            int randIndex = Random.Range(0, map.Count);
+            map.TryGetValue(AllTiles[randIndex].GetPos , out tile);
         }
+        Debug.LogError("doesnt work");
+        return null;
     }
     public IEnumerator PlacePlayerAtStart()
     {
@@ -149,18 +150,17 @@ public class Level : MonoBehaviour
         GameManager.Instance.PlayerWrapper.OnEnteredLevel?.Invoke(this, GameManager.Instance.PlayerWrapper);
     }
 
-    public TileData GetTile(Vector3Int givenPos, List<TileData> givenMap)
+    public TileData GetTile(Vector3Int givenPos, Dictionary<Vector3Int, TileData> givenMap)
     {
         if (ReferenceEquals(givenMap, null))
         {
             return null;
         }
-        foreach (var item in givenMap)
+        TileData tile;
+        givenMap.TryGetValue(givenPos, out tile);
+        if (!ReferenceEquals(tile, null))
         {
-            if (item.GetPos == givenPos)
-            {
-                return item;
-            }
+            return tile;
         }
         return null;
     }
@@ -176,21 +176,21 @@ public class Level : MonoBehaviour
         }
     }
 
-    public List<TileData> GetMapFromMovementMode(MovementMode mm)
+    public Dictionary<Vector3Int ,TileData> GetMapFromMovementMode(MovementMode mm)
     {
         switch (mm)
         {
             case MovementMode.Ground:
-                return TraversableGround;
+                return GroundMap;
             case MovementMode.Water:
-                return swimmingMap;
+                return SwimmingMap;
             case MovementMode.Air:
-                return flyingMap;
+                return FlyingMap;
         }
         return null;
     }
 
-    public bool CheckStraightLineX(TileData start, TileData dest, List<TileData> givenMap)
+    public bool CheckStraightLineX(TileData start, TileData dest, Dictionary<Vector3Int, TileData> givenMap)
     {
         if (start.GetPos.z != dest.GetPos.z)
         {
@@ -220,7 +220,7 @@ public class Level : MonoBehaviour
         return true;
 
     }
-    public bool CheckStraightLineZ(TileData start, TileData dest, List<TileData> givenMap)
+    public bool CheckStraightLineZ(TileData start, TileData dest, Dictionary<Vector3Int, TileData> givenMap)
     {
         if (start.GetPos.x != dest.GetPos.x)
         {

@@ -174,17 +174,29 @@ public class PlayerWrapper : Character
 
     public bool TrySetMovementModeOnSwithAttempt(Animal givenAnimal)
     {
-
+        //check if a map contains at least one of the neighbours
         foreach (var neighbour in GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(CurrentTile, GameManager.Instance.LevelManager.CurrentLevel.TotalMap))
         {
             foreach (var movement in givenAnimal.MovementMods)
             {
-                List<TileData> currentMap = GameManager.Instance.LevelManager.CurrentLevel.GetMapFromMovementMode(movement);
-                if (currentMap.Contains(GameManager.Instance.PlayerWrapper.CurrentTile) || currentMap.Contains(neighbour))
+                Dictionary<Vector3Int, TileData> currentMap = GameManager.Instance.LevelManager.CurrentLevel.GetMapFromMovementMode(movement);
+                if (currentMap.ContainsValue(GameManager.Instance.PlayerWrapper.CurrentTile) || currentMap.ContainsValue(neighbour))
                 {
                     SetMovementModeEnum(movement);
                     return true;
                 }
+            }
+        }
+        return false;
+    }
+
+    public bool CheckIfPlayerNeighboursAreReachableOnPlane(Dictionary<Vector3Int, TileData> map)
+    {
+        foreach (var item in GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(CurrentTile, map))
+        {
+            if (!item.Occupied)
+            {
+                return true;
             }
         }
         return false;

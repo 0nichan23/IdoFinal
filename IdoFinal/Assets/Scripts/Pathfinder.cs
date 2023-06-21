@@ -17,7 +17,7 @@ public class Pathfinder : MonoBehaviour
         //FindPathToDest(test.CurrentPos, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile);
     }
 
-    public List<TileData> FindPathToDest(TileData startingPoint, TileData destenation, List<TileData> map)
+    public List<TileData> FindPathToDest(TileData startingPoint, TileData destenation, Dictionary<Vector3Int, TileData> map)
     {
         Stopwatch sw = new Stopwatch();
         sw.Start();

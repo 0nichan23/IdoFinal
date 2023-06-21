@@ -4,7 +4,7 @@ using UnityEngine;
 //
 public class ProximitySensor
 {
-    public List<TileData> GetTilesInRadius(int radius, TileData origin, List<TileData> map)
+    public List<TileData> GetTilesInRadius(int radius, TileData origin, Dictionary<Vector3Int, TileData> map)
     {
         List<TileData> validTiles = new List<TileData>();
         for (int i = -radius; i < radius; i++)

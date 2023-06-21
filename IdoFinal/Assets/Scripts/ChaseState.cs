@@ -6,7 +6,12 @@ public class ChaseState : CoroutineState
 {
     public override bool IsLegal()
     {
-        if (GameManager.Instance.Pathfinder.GetDistanceOfTiles(handler.RefEnemy.Movement.CurrentTile.GetPos, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.GetPos) <= handler.RefEnemy.DetectionRange)
+        if (!GameManager.Instance.PlayerWrapper.CheckIfPlayerNeighboursAreReachableOnPlane(handler.RefEnemy.CurrentTileMap))
+        {
+            return false;
+        }
+
+        else if (GameManager.Instance.Pathfinder.GetDistanceOfTiles(handler.RefEnemy.Movement.CurrentTile.GetPos, GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile.GetPos) <= handler.RefEnemy.DetectionRange)
         {
             return true;
         }
@@ -27,10 +32,10 @@ public class ChaseState : CoroutineState
         TileData dest;
         dest = GameManager.Instance.PlayerWrapper.PlayerMovement.CurrentTile;
         //if the player and the enemy are on the same plane 
-        if (/*handler.RefEnemy.MovementMode == GameManager.Instance.PlayerWrapper.MovementMode*/ handler.RefEnemy.CurrentTileMap.Contains(GameManager.Instance.PlayerWrapper.CurrentTile)) //must be on the same plane because of the pathfinder
+        if (!ReferenceEquals(GameManager.Instance.LevelManager.CurrentLevel.GetTile(GameManager.Instance.PlayerWrapper.CurrentTile.GetPos, handler.RefEnemy.CurrentTileMap), null)) //must be on the same plane because of the pathfinder
         {
             List<TileData> path = GameManager.Instance.Pathfinder.FindPathToDest(handler.RefEnemy.Movement.CurrentTile, dest, handler.RefEnemy.CurrentTileMap);
-            if (!ReferenceEquals(path, null) &&  handler.RefEnemy.CurrentTileMap.Contains(path[0]))
+            if (!ReferenceEquals(path, null) && handler.RefEnemy.CurrentTileMap.ContainsKey(path[0].GetPos))
             {
                 yield return StartCoroutine(handler.RefEnemy.Movement.MoveEnemyTo(path[0]));
             }
@@ -39,7 +44,7 @@ public class ChaseState : CoroutineState
         else
         {
             List<TileData> path = GameManager.Instance.Pathfinder.FindPathToDest(handler.RefEnemy.Movement.CurrentTile, dest, GameManager.Instance.LevelManager.CurrentLevel.TotalMap);
-            if (handler.RefEnemy.CurrentTileMap.Contains(path[0]))
+            if (!ReferenceEquals(path, null) && handler.RefEnemy.CurrentTileMap.ContainsKey(path[0].GetPos))
             {
                 yield return StartCoroutine(handler.RefEnemy.Movement.MoveEnemyTo(path[0]));
             }

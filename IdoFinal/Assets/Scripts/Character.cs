@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
     private float attackSpeed;
     [SerializeField] protected Charger charger;
     protected ProjectileBlaster blaster = new ProjectileBlaster();
-    protected List<TileData> currentTileMap;
+    protected Dictionary<Vector3Int, TileData> currentTileMap;
     protected MovementMode movementMode;
     protected TileData currentTile;
 
@@ -33,7 +33,7 @@ public class Character : MonoBehaviour
     public virtual float AttackSpeed { get => attackSpeed; }
     public virtual TileData CurrentTile { get => currentTile; }
     public Charger Charger { get => charger; }
-    public List<TileData> CurrentTileMap { get => currentTileMap; }
+    public Dictionary<Vector3Int, TileData> CurrentTileMap { get => currentTileMap; }
     public MovementMode MovementMode { get => movementMode; }
 
     public virtual void AddAttackSpeed(float amount)
@@ -90,10 +90,10 @@ public class Character : MonoBehaviour
     }
     public virtual void SetWalkMode(bool spawn = false)
     {
-        if (spawn || CheckPlaneAvailable(GameManager.Instance.LevelManager.CurrentLevel.TraversableGround))
+        if (spawn || CheckPlaneAvailable(GameManager.Instance.LevelManager.CurrentLevel.GroundMap))
         {
             ExitMapEvent();
-            currentTileMap = GameManager.Instance.LevelManager.CurrentLevel.TraversableGround;
+            currentTileMap = GameManager.Instance.LevelManager.CurrentLevel.GroundMap;
             movementMode = MovementMode.Ground;
             if (!spawn)
             {
@@ -125,7 +125,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    protected virtual bool CheckPlaneAvailable(List<TileData> map)
+    protected virtual bool CheckPlaneAvailable(Dictionary<Vector3Int, TileData> map)
     {
         List<TileData> neighbours = GameManager.Instance.LevelManager.CurrentLevel.GetNeighbours(CurrentTile, map);
         if (neighbours.Count > 0)
