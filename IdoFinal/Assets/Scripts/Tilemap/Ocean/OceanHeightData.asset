@@ -36,3 +36,4 @@ MonoBehaviour:
   - RefTile: {fileID: 11400000, guid: d528b863315e7d9478b49cab35a325c9, type: 2}
     MaxHeight: 1
   enemyCreator: {fileID: 11400000, guid: 9f124f167cd79fc42bcb1c93fa73435a, type: 2}
+  dropHandler: {fileID: 11400000, guid: b0e11b5dedab88642abdd7791e73c207, type: 2}

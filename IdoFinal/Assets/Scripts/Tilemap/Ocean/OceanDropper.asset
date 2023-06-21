@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93ae0a8b43836e479c87aedac2d60e4, type: 3}
+  m_Name: OceanDropper
+  m_EditorClassIdentifier: 
+  commonDrop: {fileID: 11400000, guid: 3f9a3112ebc972948a6fbc08553217c8, type: 2}
+  unCommonDrop: {fileID: 11400000, guid: f3d4f633355b4c5459b985800cf6f260, type: 2}
+  rareDrop: {fileID: 11400000, guid: 5103de6822eb3da458ee59d0aa2bace7, type: 2}

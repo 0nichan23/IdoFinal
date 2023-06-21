@@ -73,7 +73,8 @@ public enum Rarity
 {
     Common,
     Uncommon,
-    Rare
+    Rare,
+    Boss
 }
 
 

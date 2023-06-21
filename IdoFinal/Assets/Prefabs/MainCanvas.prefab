@@ -347,8 +347,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "fix enemy ui\ndrop system\nanimal obtaining system\nitems start? \nthe
-    rest of the bosses\n(water transparncy issue)"
+  m_text: "drop system\nanimal obtaining system\nitems start? \nthe rest of the bosses\n(water
+    transparncy issue)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -645,14 +645,14 @@ MonoBehaviour:
   bleed: {fileID: 21300000, guid: b7e5e63ebefca554180bac9a3e9b37c3, type: 3}
   stunned: {fileID: 21300000, guid: 82a19a15526e59f469b4f09ef78f1f25, type: 3}
   regeneration: {fileID: 21300000, guid: 8e3fa29209b69d0409b35c99e0b6ddb9, type: 3}
-  burn: {fileID: 21300000, guid: 9d54abb8bac431e4f8c69f0c46b459f0, type: 3}
+  burn: {fileID: 21300000, guid: 2eb5b01900d6731469e3a3839fc0bd25, type: 3}
   hitChanceDebuff: {fileID: 21300000, guid: 4c8ddac87f7a3b24a906ad20dc8887bd, type: 3}
   attackSpeedDebuff: {fileID: 21300000, guid: b4342a834cd282d43b16573523e3babf, type: 3}
-  defenseDebuff: {fileID: 0}
-  damageDebuff: {fileID: 0}
-  critChanceDebuff: {fileID: 0}
-  critDamageDebuff: {fileID: 0}
-  dodgeChanceDebuff: {fileID: 0}
+  defenseDebuff: {fileID: 21300000, guid: d16ee612f56f97245a2188120587157b, type: 3}
+  damageDebuff: {fileID: 21300000, guid: 924e1a030906d9040b302ab6037b8f0e, type: 3}
+  critChanceDebuff: {fileID: 21300000, guid: 6ff439d29d8dd35499f2a29b8d898102, type: 3}
+  critDamageDebuff: {fileID: 21300000, guid: 5421c2f8cb5fa3347929bb3060ad8eda, type: 3}
+  dodgeChanceDebuff: {fileID: 21300000, guid: 79beeb77fdf08044eb230bef025cc543, type: 3}
 --- !u!1 &507300025977781560
 GameObject:
   m_ObjectHideFlags: 0

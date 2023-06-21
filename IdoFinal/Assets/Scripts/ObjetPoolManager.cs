@@ -10,6 +10,7 @@ public class ObjetPoolManager : MonoBehaviour
     [SerializeField] private ExplosionPool fireBlastPool;
     [SerializeField] private ExplosionPool poisonBlastPool;
     [SerializeField] private ExplosionPool iceBlastPool;
+    [SerializeField] private DropPool dropPool;
 
     public ProjectilePooler LightningProjectilePool { get => lightningProjectilePool; }
     public ProjectilePooler FireProjectilePool { get => fireProjectilePool; }
@@ -19,4 +20,5 @@ public class ObjetPoolManager : MonoBehaviour
     public ExplosionPool FireBlastPool { get => fireBlastPool; }
     public ExplosionPool PoisonBlastPool { get => poisonBlastPool; }
     public ExplosionPool IceBlastPool { get => iceBlastPool; }
+    public DropPool DropPool { get => dropPool; }
 }

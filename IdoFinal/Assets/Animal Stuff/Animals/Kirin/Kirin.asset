@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c45ec9e403434347b4fce6492f33a49, type: 3}
+  m_Name: Kirin
+  m_EditorClassIdentifier: 
+  animalClass: 0
+  habitat: 2
+  statSheet: {fileID: 11400000, guid: 3bdd38624ea55ad489624855a7bcc3f2, type: 2}
+  attack: {fileID: 11400000, guid: 7a6fa8f90ecc81f4a99482766da744f6, type: 2}
+  secondAttack: {fileID: 11400000, guid: 1e3ecf136064897468189cddeea5c432, type: 2}
+  passive: {fileID: 11400000, guid: 9d6183001dceb5b489c7a0cb93134e12, type: 2}
+  animalModel: {fileID: 2221511110095428840, guid: 640baee6a9a57b34ba5001820e7bfa87, type: 3}
+  diet: 1
+  portrait: {fileID: 21300000, guid: 9354fd6c1fdac25418b8bbb59e189c2e, type: 3}
+  size: 1
+  rarity: 3
+  movementMods: 00000000

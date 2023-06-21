@@ -137,7 +137,7 @@ public class Damageable : MonoBehaviour
 
     }
 
-    public void TakeTrueDamage(float fixedAmount)
+    public void TakeTrueDamage(float fixedAmount, DamageDealer dealer = null)
     {
         currentHp -= Mathf.RoundToInt(fixedAmount);
         if (EmitPopups)
@@ -147,9 +147,29 @@ public class Damageable : MonoBehaviour
         if (currentHp <= 0)
         {
             OnDeath?.Invoke();
+            if (!ReferenceEquals(dealer, null))
+            {
+                dealer.OnKill?.Invoke(this, dealer);
+            }
         }
         ClampHp();
         OnTakeDamageGFX?.Invoke();
+    }
+
+    /*multihits occur only after an attack hit in the first place, they can miss and deal 
+    flat damage equal to the damage of the attack that triggered the effect.
+    multihits CANNOT trigger any events at all*/
+    public void GetMultiHit(DamageDealer dealer, float totalDamage)
+    {
+        if (!CheckForHit(dealer.HitChance))
+        {
+            if (EmitPopups)
+            {
+                GameManager.Instance.PopupSpawner.SpawnMissPopup(transform.position);
+            }
+            return;
+        }
+        TakeTrueDamage(totalDamage, dealer);
     }
 
     public void HealTrueDamage(float fixedAmount)

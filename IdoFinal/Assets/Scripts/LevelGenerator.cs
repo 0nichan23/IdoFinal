@@ -59,6 +59,18 @@ public class LevelGenerator : MonoBehaviour
 
     }
 
+    public BiomeData GetBiomeDataFromHabitat(Habitat habitat)
+    {
+        foreach (var item in biomeData)
+        {
+            if (item.BiomeType == habitat)
+            {
+                return item;
+            }
+        }
+        return null;
+    }
+
 }
 
 [System.Serializable]

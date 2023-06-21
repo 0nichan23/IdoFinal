@@ -84,6 +84,7 @@ Transform:
   - {fileID: 7715436644832167212}
   - {fileID: 4687247348568220710}
   - {fileID: 231424633127842145}
+  - {fileID: 1696114173766631072}
   m_Father: {fileID: 7457097703888485070}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -107,6 +108,7 @@ MonoBehaviour:
   fireBlastPool: {fileID: 137696000408088072}
   poisonBlastPool: {fileID: 7894446053805958851}
   iceBlastPool: {fileID: 9120150685562307781}
+  dropPool: {fileID: 860450362154378210}
 --- !u!1 &2051840757
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +344,53 @@ MonoBehaviour:
   damagePopup: {fileID: 7385081533699502700, guid: ae06fd01231f1da45b442396718809bd, type: 3}
   criticalDamagePopup: {fileID: 7385081533699502700, guid: 112da70c4c5dd33439bb99d4edaf9e31, type: 3}
   missPopup: {fileID: 7385081533699502700, guid: 205a056dec164434ea5219b0c61fc510, type: 3}
+--- !u!1 &6381966103062181949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1696114173766631072}
+  - component: {fileID: 860450362154378210}
+  m_Layer: 0
+  m_Name: DropPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1696114173766631072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6381966103062181949}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1114814535}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &860450362154378210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6381966103062181949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0af660f1d6f57c4099e5af1e53e9669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  PrefabToPool: {fileID: 1923849584529255197, guid: 7dd21aee99c480b4bbbf99d07d639de7, type: 3}
+  NumToPool: 10
 --- !u!1 &6483602497771041523
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +485,56 @@ MonoBehaviour:
   pooledObjects: []
   PrefabToPool: {fileID: 8981432932315123668, guid: 2014034ad50cc6d4ea0858a00ee51723, type: 3}
   NumToPool: 10
+--- !u!1 &6956067796448285767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1362765342210654875}
+  - component: {fileID: 4636546326620847488}
+  m_Layer: 0
+  m_Name: AnimalDropHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1362765342210654875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6956067796448285767}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7457097703888485070}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4636546326620847488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6956067796448285767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c36a1909d273743bebcdbfeb151938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  largeMeat: {fileID: 11400000, guid: 6fecb029ac68b6a41894f5f77195c46c, type: 2}
+  mediumMeat: {fileID: 11400000, guid: 64811abbf97226745b0f8c4c0a77dd86, type: 2}
+  smallMeat: {fileID: 11400000, guid: 92ced36dd97880646b9e69fa49f12750, type: 2}
+  largeLeaf: {fileID: 11400000, guid: 78c6e844bd1aeec4e9b678c7af48c722, type: 2}
+  mediumLeaf: {fileID: 11400000, guid: c55238d28243b4848a9108ad62b90a64, type: 2}
+  smallLeaf: {fileID: 11400000, guid: 6595f46543d0b7c49b9b46b643c64c46, type: 2}
 --- !u!1 &7457097703888485068
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,6 +571,7 @@ Transform:
   - {fileID: 7457097704105066231}
   - {fileID: 7041142817601258443}
   - {fileID: 1114814535}
+  - {fileID: 1362765342210654875}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -494,6 +594,7 @@ MonoBehaviour:
   levelGenerator: {fileID: 7457097704105066224}
   popupSpawner: {fileID: 8009625438188516486}
   poolManager: {fileID: 1114814534}
+  animalDropHandler: {fileID: 4636546326620847488}
   InteractableTilePrefab: {fileID: 7818118882283635019, guid: 6ba590337787ed940a06e29b116594bd, type: 3}
   enemyPrefab: {fileID: 7477012478839064909, guid: de5cbbe30b396914785baa64b216a13f, type: 3}
 --- !u!1 &7457097704035514083
@@ -656,7 +757,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: {fileID: 0}
-  Amount: 3
+  amount: 1
+  enemyAmount: 0
   OnMoveToNextLevel:
     m_PersistentCalls:
       m_Calls: []

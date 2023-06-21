@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//
+
 public class ProximitySensor
 {
     public List<TileData> GetTilesInRadius(int radius, TileData origin, Dictionary<Vector3Int, TileData> map)

@@ -25,13 +25,13 @@ public class TigerPassive : AnimalPassive
         switch (target.RefAnimal.Size)
         {
             case Size.Small:
-                dmg.AddMod(smallBuff);
+                dmg.AddMod(1 + smallBuff);
                 break;
             case Size.Medium:
-                dmg.AddMod(mediumBuff);
+                dmg.AddMod(1 + mediumBuff);
                 break;
             case Size.Large:
-                dmg.AddMod(largeBuff);
+                dmg.AddMod(1 + largeBuff);
                 break;
         }
     }

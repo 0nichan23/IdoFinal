@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: the lower attack speed is (down to a min) the more damage dealt up to a
     max
-  maxDamage: 0.8
+  maxDamage: 0.4
   minAttackSpeed: -0.2

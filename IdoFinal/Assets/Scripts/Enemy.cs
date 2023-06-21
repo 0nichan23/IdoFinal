@@ -11,6 +11,7 @@ public class Enemy : Character
     [SerializeField] private AnimationHandler anim;
     [SerializeField] private BaseStateHandler stateHandler;
     [SerializeField] private EnemyPanel panel;
+    [SerializeField] private float dropChance;
 
   
 
@@ -48,6 +49,7 @@ public class Enemy : Character
         Damageable.OnTakeDamageGFX.AddListener(UpdateBar);
         Damageable.OnHealGFX.AddListener(UpdateBar);
         panel.HealthBar.SetUp(RefAnimal);
+        Damageable.OnDeath.AddListener(DropOnDeath);
     }
 
     private void CreateModel()
@@ -113,6 +115,21 @@ public class Enemy : Character
             case MovementMode.Air:
                 SetFlightMode(true);
                 break;
+        }
+    }
+
+    private void DropOnDeath()
+    {
+        if (Random.Range(0,100) <= dropChance)
+        {
+            if (Random.Range(0,100) <= 50)
+            {
+                GameManager.Instance.AnimalDropHandler.Drop(this);
+            }
+            else
+            {
+                GameManager.Instance.LevelGenerator.GetBiomeDataFromHabitat(GameManager.Instance.LevelManager.CurrentLevel.Habitat).HeightData.DropHandler.Drop(this);
+            }
         }
     }
 }

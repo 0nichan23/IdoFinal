@@ -130,14 +130,16 @@ public class Level : MonoBehaviour
     {
         TileData tile = null;
         int counter = 0;
-        while (counter < 1000)
+        List<Vector3Int> positions = new List<Vector3Int>(map.Keys);
+        while (counter < 100)
         {
             if (!ReferenceEquals(tile, null) && !tile.Occupied)
             {
                 return tile;
             }
-            int randIndex = Random.Range(0, map.Count);
-            map.TryGetValue(AllTiles[randIndex].GetPos , out tile);
+            int randIndex = Random.Range(0, positions.Count);
+            map.TryGetValue(positions[randIndex], out tile);
+            counter++;
         }
         Debug.LogError("doesnt work");
         return null;
@@ -268,7 +270,7 @@ public class TileData : IHeapItem<TileData>
     public Vector3Int GetPos { get => Pos; }
     public Vector3 GetGroundPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 0.6f, Obj.transform.position.z); }
     public Vector3 GetAirPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 1.6f, Obj.transform.position.z); }
-    public Vector3 GetWaterPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y - 0.3f, Obj.transform.position.z); }
+    public Vector3 GetWaterPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y +0.1f, Obj.transform.position.z); }
     public InteractableTile Overly { get => overlay; }
     public bool Occupied { get => occupied; set => occupied = value; }
     public int HeapIndex { get => heapIndex; set => heapIndex = value; }
