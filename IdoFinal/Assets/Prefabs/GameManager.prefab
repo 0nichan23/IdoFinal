@@ -529,12 +529,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c36a1909d273743bebcdbfeb151938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  largeMeat: {fileID: 11400000, guid: 6fecb029ac68b6a41894f5f77195c46c, type: 2}
-  mediumMeat: {fileID: 11400000, guid: 64811abbf97226745b0f8c4c0a77dd86, type: 2}
-  smallMeat: {fileID: 11400000, guid: 92ced36dd97880646b9e69fa49f12750, type: 2}
+  largeMeat: {fileID: 11400000, guid: 1627266b202977844b57ab630a487b23, type: 2}
+  mediumMeat: {fileID: 11400000, guid: 32c06f2577e51e54db742a2ea3a6a7bc, type: 2}
+  smallMeat: {fileID: 11400000, guid: ae0d85393c916c140981886eeb752f0e, type: 2}
   largeLeaf: {fileID: 11400000, guid: 78c6e844bd1aeec4e9b678c7af48c722, type: 2}
-  mediumLeaf: {fileID: 11400000, guid: c55238d28243b4848a9108ad62b90a64, type: 2}
-  smallLeaf: {fileID: 11400000, guid: 6595f46543d0b7c49b9b46b643c64c46, type: 2}
+  mediumLeaf: {fileID: 11400000, guid: d4eb097e82ec386448b4d3868401519f, type: 2}
+  smallLeaf: {fileID: 11400000, guid: e4483dc80e0624244b6f90fa597bca9b, type: 2}
 --- !u!1 &7457097703888485068
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,12 +705,14 @@ MonoBehaviour:
   lacunarity: 1
   offset: {x: 0, y: 0}
   biomeData:
-  - HeightData: {fileID: 11400000, guid: 1bde91760ce3b9c4aa580e59e95f901e, type: 2}
-    BiomeType: 6
-  - HeightData: {fileID: 11400000, guid: 5aae15c6923f3e844b4aa1a31ea9f339, type: 2}
-    BiomeType: 1
+  - HeightData: {fileID: 11400000, guid: 0bbe6a86a9feace469d945813127eeef, type: 2}
+    BiomeType: 4
   - HeightData: {fileID: 11400000, guid: f08ad45e0f6965d4bac25a8bbcc859bb, type: 2}
     BiomeType: 0
+  - HeightData: {fileID: 11400000, guid: 5aae15c6923f3e844b4aa1a31ea9f339, type: 2}
+    BiomeType: 1
+  - HeightData: {fileID: 11400000, guid: 1bde91760ce3b9c4aa580e59e95f901e, type: 2}
+    BiomeType: 6
   levelPrefab: {fileID: 5982319109278562232, guid: aa70fe11a2b298f49b233c10ccd88726, type: 3}
 --- !u!1 &7457097704239078807
 GameObject:
@@ -757,8 +759,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: {fileID: 0}
-  amount: 1
-  enemyAmount: 0
+  amount: 5
+  enemyAmount: 10
   OnMoveToNextLevel:
     m_PersistentCalls:
       m_Calls: []

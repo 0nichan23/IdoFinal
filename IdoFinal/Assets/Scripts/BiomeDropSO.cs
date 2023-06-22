@@ -3,9 +3,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BiomeDrop", menuName = "BiomeDrop")]
 public class BiomeDropSO : BasicDropSO
 {
-    [SerializeField] private Sprite artwork;
     [SerializeField] private Rarity rarity;
+    [SerializeField] private Habitat habitat;
 
-    public Sprite Artwork { get => artwork; }
     public Rarity Rarity { get => rarity; }
+    public Habitat Habitat { get => habitat; }
 }

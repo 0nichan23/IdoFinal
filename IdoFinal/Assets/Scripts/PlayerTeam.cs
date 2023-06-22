@@ -12,6 +12,7 @@ public class PlayerTeam : MonoBehaviour
     public UnityEvent OnTeamSet;
     public AnimalModelData ActiveAnimal { get => activeAnimal; }
     public List<AnimalModelData> BackLineAnimals { get => backLineAnimals; }
+    public List<AnimalModelData> CreatedAnimalData { get => createdAnimalData; }
 
     private void SubscirbeTeamPassives()
     {
@@ -109,6 +110,18 @@ public class PlayerTeam : MonoBehaviour
         }
         SubscirbeTeamPassives();
         OnTeamSet?.Invoke();
+    }
+
+    public bool CheckAnimalAvailable(Animal givenAnimal)
+    {
+        foreach (var item in createdAnimalData)
+        {
+            if (ReferenceEquals(givenAnimal, item.Animal))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

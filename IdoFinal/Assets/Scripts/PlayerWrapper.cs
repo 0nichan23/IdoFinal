@@ -31,6 +31,7 @@ public class PlayerWrapper : Character
         team.OnTeamSet.AddListener(SetAnimalSwitchButtons);
         charger.OnStartCharge.AddListener(Stun);
         charger.OnEndCharge.AddListener(EndStun);
+        animalInventory.OnAnimalAdded.AddListener(playerHud.TeamPanel.InventoryPanel.AddSlot);
     }
 
     public void StartGame()
@@ -47,7 +48,6 @@ public class PlayerWrapper : Character
         Damageable.CacheEffectable(Effectable);
         Effectable.CahceOwner(this);
         Effectable.OnObtainEffect.AddListener(AddEffectIcon);
-        animalInventory.OnAnimalAdded.AddListener(playerHud.TeamPanel.InventoryPanel.AddSlot);
         Damageable.OnHealGFX.AddListener(UpdateBar);
         Damageable.OnTakeDamageGFX.AddListener(UpdateBar);
         attackHandler.OnAttackPreformed.AddListener(SetAttackIconCD);

@@ -28,7 +28,6 @@ public class EnemyCreator : ScriptableObject
         return closesMaxvalue.AnimalToSpawn;
     }
     public List<BiomeSpawnData> SpawnData { get => spawnData;}
-
 }
 [System.Serializable]
 public struct BiomeSpawnData

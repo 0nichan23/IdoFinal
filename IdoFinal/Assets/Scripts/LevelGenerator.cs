@@ -15,6 +15,8 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private List<BiomeData> biomeData = new List<BiomeData>();
     [SerializeField] private Level levelPrefab;
 
+    public List<BiomeData> BiomeData { get => biomeData;}
+
     [ContextMenu("test spawning prefab")]
     public Level CreateLevel()
     {

@@ -52,6 +52,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7495970349075349837}
     m_Modifications:
+    - target: {fileID: 3904133591283123930, guid: 6e309527905e06842bd98eb4df489d94, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641516251932633915, guid: 6e309527905e06842bd98eb4df489d94, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802992361563698690, guid: 6e309527905e06842bd98eb4df489d94, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6589385767113089740, guid: 6e309527905e06842bd98eb4df489d94, type: 3}
       propertyPath: m_Name
       value: WyvernBoltHit

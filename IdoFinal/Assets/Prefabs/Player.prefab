@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 733277437919210407}
   - component: {fileID: 733277437559368035}
   - component: {fileID: 991012634}
+  - component: {fileID: 635236437}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -120,7 +121,7 @@ MonoBehaviour:
   attackHandler: {fileID: 733277437919210407}
   playerHud: {fileID: 0}
   animalInventory: {fileID: 733277437559368035}
-  testChargeAttack: {fileID: 0}
+  dropsInventory: {fileID: 635236437}
 --- !u!114 &733277437919210462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,3 +365,16 @@ MonoBehaviour:
   OnEndCharge:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &635236437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733277437919210460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ad4a1e16025564083471563a56e660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []

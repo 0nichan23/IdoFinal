@@ -270,7 +270,7 @@ public class TileData : IHeapItem<TileData>
     public Vector3Int GetPos { get => Pos; }
     public Vector3 GetGroundPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 0.6f, Obj.transform.position.z); }
     public Vector3 GetAirPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 1.6f, Obj.transform.position.z); }
-    public Vector3 GetWaterPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y +0.1f, Obj.transform.position.z); }
+    public Vector3 GetWaterPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y -0.2f, Obj.transform.position.z); }
     public InteractableTile Overly { get => overlay; }
     public bool Occupied { get => occupied; set => occupied = value; }
     public int HeapIndex { get => heapIndex; set => heapIndex = value; }

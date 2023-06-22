@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BiomeHeightData", menuName = "Biome")]
 public class BiomeLayer : ScriptableObject
 {
+    [SerializeField] private Habitat habitat;
     [SerializeField] private List<BiomeHeightData> heightData = new List<BiomeHeightData>();
     [SerializeField] private EnemyCreator enemyCreator;
     [SerializeField] private BiomeDropHandler dropHandler;
@@ -28,10 +29,11 @@ public class BiomeLayer : ScriptableObject
         }
         return closesMaxvalue.RefTile;
     }
-    
+
     public List<BiomeHeightData> HeightData { get => heightData; }
-    public BiomeDropHandler DropHandler { get => dropHandler;  }
-    public MyTile EncasingBlock { get => encasingBlock;  }
+    public BiomeDropHandler DropHandler { get => dropHandler; }
+    public MyTile EncasingBlock { get => encasingBlock; }
+    public Habitat Habitat { get => habitat; }
 }
 
 

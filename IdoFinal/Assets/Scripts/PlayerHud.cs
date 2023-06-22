@@ -37,6 +37,9 @@ public class PlayerHud : MonoBehaviour
     [Header("Team Switch Buttons")]
     public AnimalSwitchButton[] switchButtons;
 
+    [Header("CraftingUI")]
+    public DropPanel DropPanel;
+
     public void ToggleCharacterScreen()
     {
         sheet.SetActive(!sheet.activeSelf);

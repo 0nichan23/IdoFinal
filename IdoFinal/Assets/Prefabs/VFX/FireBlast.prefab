@@ -52,6 +52,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7495970349075349837}
     m_Modifications:
+    - target: {fileID: 278930255547211631, guid: 0e107874930ec3f4c839c5eff3356bed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106381281307957174, guid: 0e107874930ec3f4c839c5eff3356bed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741675208332280189, guid: 0e107874930ec3f4c839c5eff3356bed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7963070265621199737, guid: 0e107874930ec3f4c839c5eff3356bed, type: 3}
       propertyPath: m_Name
       value: FireHit
