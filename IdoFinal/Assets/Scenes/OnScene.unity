@@ -616,6 +616,23 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartGame
       objectReference: {fileID: 0}
+    - target: {fileID: 1830031973, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830031975, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_text
+      value: 'the rest of the bosses.
+
+        jungle, lake, savannah.
+
+        turn
+        charge into SO.
+
+        enemy spawners.
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 280437178787023015, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -728,9 +745,33 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5614614809955119593, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 460538558}
+    - target: {fileID: 5614614809955119593, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetFlightMode
+      objectReference: {fileID: 0}
     - target: {fileID: 7057563760813475963, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409034008597994901, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 460538558}
+    - target: {fileID: 7409034008597994901, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSwimMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265453602108279360, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 460538558}
+    - target: {fileID: 8265453602108279360, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetWalkMode
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
@@ -767,7 +808,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: ae0d85393c916c140981886eeb752f0e, type: 2}
     - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
       propertyPath: caughtAnimals.Array.size
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
       propertyPath: caughtAnimals.Array.data[0]
@@ -781,6 +822,22 @@ PrefabInstance:
       propertyPath: caughtAnimals.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: fb2823c0531bedc4eb5ae1c138a463ba, type: 2}
+    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
+      propertyPath: caughtAnimals.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e7d2a477920b2141bd3a8d6071581b7, type: 2}
+    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
+      propertyPath: caughtAnimals.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 349e4e3946c16e64987d450b4a1b8990, type: 2}
+    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
+      propertyPath: caughtAnimals.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4eaef8a9aec082848864ab2887d5fac4, type: 2}
+    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
+      propertyPath: caughtAnimals.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d33c1b9119de7c44a6acd414d000b3a, type: 2}
     - target: {fileID: 733277437919210401, guid: 43b07e6245311564abfd101a8c712882, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -893,6 +950,22 @@ PrefabInstance:
     - target: {fileID: 7457097703888485070, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457097704105066224, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
+      propertyPath: biomeData.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457097704105066224, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
+      propertyPath: biomeData.Array.data[4].BiomeType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457097704105066224, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
+      propertyPath: biomeData.Array.data[4].HeightData
+      value: 
+      objectReference: {fileID: 11400000, guid: 67017e40b0b44d94db86d58229cf3089, type: 2}
+    - target: {fileID: 7457097704239078800, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
+      propertyPath: amount
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}

@@ -74,6 +74,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4770941184901859963}
     m_Modifications:
+    - target: {fileID: 5616267429333342870, guid: 2f40edea53a9e984ca029930aca6bee5, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5616267429346940822, guid: 2f40edea53a9e984ca029930aca6bee5, type: 3}
       propertyPath: m_Name
       value: Armadillo_LOD1
@@ -190,6 +194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Armadillo_LOD2
       objectReference: {fileID: 0}
+    - target: {fileID: 2984829507400002511, guid: fef47c80c5febd94f85f7daa8aa663f2, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 136930599251149498, guid: fef47c80c5febd94f85f7daa8aa663f2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fef47c80c5febd94f85f7daa8aa663f2, type: 3}
@@ -258,6 +266,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Armadillo_LOD0
       objectReference: {fileID: 0}
+    - target: {fileID: 4609330626931531724, guid: d177a89cdb28221478248fb99b8012ab, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 136676930838267050, guid: d177a89cdb28221478248fb99b8012ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d177a89cdb28221478248fb99b8012ab, type: 3}
@@ -278,6 +290,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4770941184901859963}
     m_Modifications:
+    - target: {fileID: 2443229249881091140, guid: 3c86197f5d2f3a147951586fd7ca75bf, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2443229249894687044, guid: 3c86197f5d2f3a147951586fd7ca75bf, type: 3}
       propertyPath: m_Name
       value: Armadillo_LOD3

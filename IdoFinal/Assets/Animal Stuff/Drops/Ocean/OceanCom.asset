@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   artwork: {fileID: 21300000, guid: 77f7934ef3f66b14fa92d92d76623696, type: 3}
   rarity: 0
+  habitat: 4

@@ -76,7 +76,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7128250212145539081, guid: 0405530077838444ba60c33cca58fbe9, type: 3}
       propertyPath: m_ReceiveShadows
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7128250212159137035, guid: 0405530077838444ba60c33cca58fbe9, type: 3}
       propertyPath: m_Name
@@ -196,7 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6943511586530678667, guid: 0716615f548656942ac6db07dc68cb80, type: 3}
       propertyPath: m_ReceiveShadows
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 136569361961256552, guid: 0716615f548656942ac6db07dc68cb80, type: 3}
@@ -220,7 +220,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5410706695853911147, guid: 30c290bb5c1d5a9428bd3293ffa30611, type: 3}
       propertyPath: m_ReceiveShadows
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5410706695865475433, guid: 30c290bb5c1d5a9428bd3293ffa30611, type: 3}
       propertyPath: m_Name
@@ -340,7 +340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8656199107349837520, guid: 9c7e7397fca7dda49afa4d937a051719, type: 3}
       propertyPath: m_ReceiveShadows
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 136574195933744562, guid: 9c7e7397fca7dda49afa4d937a051719, type: 3}

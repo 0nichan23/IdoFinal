@@ -122,6 +122,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5754436292714382064, guid: f415c5fe2e6d42a488a1d06ea5f0e572, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 136550392100839124, guid: f415c5fe2e6d42a488a1d06ea5f0e572, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f415c5fe2e6d42a488a1d06ea5f0e572, type: 3}
@@ -142,6 +146,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8470911375850705792}
     m_Modifications:
+    - target: {fileID: 5662167437842519606, guid: 9cdafe44c34eabf4fa4c0ff27f754792, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5662167437847796532, guid: 9cdafe44c34eabf4fa4c0ff27f754792, type: 3}
       propertyPath: m_Name
       value: Coyote_LOD3
@@ -210,6 +218,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8470911375850705792}
     m_Modifications:
+    - target: {fileID: 277739203174218757, guid: 96d354a6c3eedc04a99aa52d7fcc2a40, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 277739203179130151, guid: 96d354a6c3eedc04a99aa52d7fcc2a40, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -325,6 +337,10 @@ PrefabInstance:
     - target: {fileID: 898006951792122323, guid: eab81a8fac10e8b4d992c347db3e2dd3, type: 3}
       propertyPath: m_Name
       value: Coyote_LOD2
+      objectReference: {fileID: 0}
+    - target: {fileID: 898006951797331153, guid: eab81a8fac10e8b4d992c347db3e2dd3, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 136446583950477566, guid: eab81a8fac10e8b4d992c347db3e2dd3, type: 3}

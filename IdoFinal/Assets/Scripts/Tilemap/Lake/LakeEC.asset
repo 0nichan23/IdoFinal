@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664408a9716405944aaa1e9609d62321, type: 3}
+  m_Name: LakeEC
+  m_EditorClassIdentifier: 
+  spawnData:
+  - MaxChacne: 0.1
+    AnimalToSpawn: {fileID: 11400000, guid: f5b339e792983a54cb19716cefef73b5, type: 2}
+  - MaxChacne: 0.2
+    AnimalToSpawn: {fileID: 11400000, guid: 5f5e82040a7c26344bc4e295d25673b0, type: 2}
+  - MaxChacne: 0.3
+    AnimalToSpawn: {fileID: 11400000, guid: 084801a5e018f3f44b7bd525c9fb56e1, type: 2}
+  - MaxChacne: 0.4
+    AnimalToSpawn: {fileID: 11400000, guid: d300126fb673919488339c7014c67861, type: 2}
+  - MaxChacne: 0.5
+    AnimalToSpawn: {fileID: 11400000, guid: d60f49828798def43a833cac383600ea, type: 2}
+  - MaxChacne: 0.6
+    AnimalToSpawn: {fileID: 11400000, guid: 1e7d2a477920b2141bd3a8d6071581b7, type: 2}
+  - MaxChacne: 0.7
+    AnimalToSpawn: {fileID: 11400000, guid: 572bafe90062b8641b384ca8f103e86b, type: 2}
+  - MaxChacne: 0.8
+    AnimalToSpawn: {fileID: 11400000, guid: a95c071037c8576419018a9a49ea3074, type: 2}
+  - MaxChacne: 0.9
+    AnimalToSpawn: {fileID: 11400000, guid: f193886f49f21074da3203faab1053fc, type: 2}
+  - MaxChacne: 1
+    AnimalToSpawn: {fileID: 11400000, guid: e935da17b844a414b86a9ba12daeed5a, type: 2}

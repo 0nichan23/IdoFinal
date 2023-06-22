@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cada1bd48a7ab47b891675e278256e, type: 3}
+  m_Name: LakeHD
+  m_EditorClassIdentifier: 
+  habitat: 0
+  heightData:
+  - RefTile: {fileID: 11400000, guid: 217ea874d32cd3f4bbcf0596c5b7a34e, type: 2}
+    MaxHeight: 0.1
+  - RefTile: {fileID: 11400000, guid: 679b4eb3ab93e2d418cb440d9a4e06d4, type: 2}
+    MaxHeight: 0.1001
+  - RefTile: {fileID: 11400000, guid: 217ea874d32cd3f4bbcf0596c5b7a34e, type: 2}
+    MaxHeight: 0.15
+  - RefTile: {fileID: 11400000, guid: 566ab9bf093798b428eaad540097b4b9, type: 2}
+    MaxHeight: 0.1501
+  - RefTile: {fileID: 11400000, guid: 217ea874d32cd3f4bbcf0596c5b7a34e, type: 2}
+    MaxHeight: 0.2
+  - RefTile: {fileID: 11400000, guid: 566ab9bf093798b428eaad540097b4b9, type: 2}
+    MaxHeight: 0.2001
+  - RefTile: {fileID: 11400000, guid: 217ea874d32cd3f4bbcf0596c5b7a34e, type: 2}
+    MaxHeight: 0.25
+  - RefTile: {fileID: 11400000, guid: 679b4eb3ab93e2d418cb440d9a4e06d4, type: 2}
+    MaxHeight: 0.2501
+  - RefTile: {fileID: 11400000, guid: 217ea874d32cd3f4bbcf0596c5b7a34e, type: 2}
+    MaxHeight: 0.3
+  - RefTile: {fileID: 11400000, guid: 679b4eb3ab93e2d418cb440d9a4e06d4, type: 2}
+    MaxHeight: 0.3001
+  - RefTile: {fileID: 11400000, guid: 217ea874d32cd3f4bbcf0596c5b7a34e, type: 2}
+    MaxHeight: 0.35
+  - RefTile: {fileID: 11400000, guid: 566ab9bf093798b428eaad540097b4b9, type: 2}
+    MaxHeight: 0.3501
+  - RefTile: {fileID: 11400000, guid: 217ea874d32cd3f4bbcf0596c5b7a34e, type: 2}
+    MaxHeight: 0.4
+  - RefTile: {fileID: 11400000, guid: 679b4eb3ab93e2d418cb440d9a4e06d4, type: 2}
+    MaxHeight: 0.4001
+  - RefTile: {fileID: 11400000, guid: 217ea874d32cd3f4bbcf0596c5b7a34e, type: 2}
+    MaxHeight: 0.45
+  - RefTile: {fileID: 11400000, guid: 566ab9bf093798b428eaad540097b4b9, type: 2}
+    MaxHeight: 0.4501
+  - RefTile: {fileID: 11400000, guid: 217ea874d32cd3f4bbcf0596c5b7a34e, type: 2}
+    MaxHeight: 0.5
+  - RefTile: {fileID: 11400000, guid: a99a4e2f988dc0144b2535b673aefdd0, type: 2}
+    MaxHeight: 0.501
+  - RefTile: {fileID: 11400000, guid: bc0e93fe09b0a2c46988aade34effdcb, type: 2}
+    MaxHeight: 0.55
+  - RefTile: {fileID: 11400000, guid: be34c84c5fbf2ac4b9fdfd59e9d09434, type: 2}
+    MaxHeight: 0.551
+  - RefTile: {fileID: 11400000, guid: 56c6409021338c34e9f2c4434764da62, type: 2}
+    MaxHeight: 0.58
+  - RefTile: {fileID: 11400000, guid: f88862abc3dbd2447b983292693b8e6f, type: 2}
+    MaxHeight: 0.581
+  - RefTile: {fileID: 11400000, guid: 56c6409021338c34e9f2c4434764da62, type: 2}
+    MaxHeight: 0.6
+  - RefTile: {fileID: 11400000, guid: c0d92bd65eba3a24783fb9f2a568d318, type: 2}
+    MaxHeight: 0.601
+  - RefTile: {fileID: 11400000, guid: 56c6409021338c34e9f2c4434764da62, type: 2}
+    MaxHeight: 0.63
+  - RefTile: {fileID: 11400000, guid: d16f69e3769bcfe468f52c367854c5a7, type: 2}
+    MaxHeight: 0.631
+  - RefTile: {fileID: 11400000, guid: f88862abc3dbd2447b983292693b8e6f, type: 2}
+    MaxHeight: 0.64
+  - RefTile: {fileID: 11400000, guid: 56c6409021338c34e9f2c4434764da62, type: 2}
+    MaxHeight: 0.7
+  - RefTile: {fileID: 11400000, guid: be34c84c5fbf2ac4b9fdfd59e9d09434, type: 2}
+    MaxHeight: 0.701
+  - RefTile: {fileID: 11400000, guid: 56c6409021338c34e9f2c4434764da62, type: 2}
+    MaxHeight: 0.73
+  - RefTile: {fileID: 11400000, guid: e4f67b8e735f72c4fb97681fcc1aaad6, type: 2}
+    MaxHeight: 0.731
+  - RefTile: {fileID: 11400000, guid: 56c6409021338c34e9f2c4434764da62, type: 2}
+    MaxHeight: 0.79
+  - RefTile: {fileID: 11400000, guid: be34c84c5fbf2ac4b9fdfd59e9d09434, type: 2}
+    MaxHeight: 0.791
+  - RefTile: {fileID: 11400000, guid: 56c6409021338c34e9f2c4434764da62, type: 2}
+    MaxHeight: 0.85
+  - RefTile: {fileID: 11400000, guid: c0d92bd65eba3a24783fb9f2a568d318, type: 2}
+    MaxHeight: 0.851
+  - RefTile: {fileID: 11400000, guid: f88862abc3dbd2447b983292693b8e6f, type: 2}
+    MaxHeight: 0.86
+  - RefTile: {fileID: 11400000, guid: d16f69e3769bcfe468f52c367854c5a7, type: 2}
+    MaxHeight: 0.861
+  - RefTile: {fileID: 11400000, guid: 56c6409021338c34e9f2c4434764da62, type: 2}
+    MaxHeight: 0.9
+  - RefTile: {fileID: 11400000, guid: be34c84c5fbf2ac4b9fdfd59e9d09434, type: 2}
+    MaxHeight: 0.901
+  - RefTile: {fileID: 11400000, guid: f88862abc3dbd2447b983292693b8e6f, type: 2}
+    MaxHeight: 0.91
+  - RefTile: {fileID: 11400000, guid: 56c6409021338c34e9f2c4434764da62, type: 2}
+    MaxHeight: 0.95
+  - RefTile: {fileID: 11400000, guid: e4f67b8e735f72c4fb97681fcc1aaad6, type: 2}
+    MaxHeight: 0.9501
+  - RefTile: {fileID: 11400000, guid: 56c6409021338c34e9f2c4434764da62, type: 2}
+    MaxHeight: 1
+  enemyCreator: {fileID: 11400000, guid: a18ab0fb41c062b428f956515d23c827, type: 2}
+  dropHandler: {fileID: 11400000, guid: 4f0a9942e47a91e46a83250966f467a8, type: 2}
+  encasingBlock: {fileID: 11400000, guid: 1574c601abafcb2428f48f756b076efb, type: 2}
