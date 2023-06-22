@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16ad4a1e16025564083471563a56e660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  items: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,8 +636,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1830031975, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
       propertyPath: m_text
-      value: "animal obtaining system\nitems start? \nthe rest of the bosses\n(water
-        transparncy issue)"
+      value: 'animal obtaining system.
+
+        the rest of the bosses.
+
+        jungle,
+        lake, savannah.
+
+        turn charge into SO.
+
+        enemy spawners.
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 280437178787023015, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
       propertyPath: m_AnchorMax.x
@@ -986,7 +997,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 1bde91760ce3b9c4aa580e59e95f901e, type: 2}
     - target: {fileID: 7457097704239078800, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: amount
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7457097704239078800, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: enemyAmount

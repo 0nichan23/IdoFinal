@@ -73,3 +73,4 @@ MonoBehaviour:
     MaxHeight: 1
   enemyCreator: {fileID: 11400000, guid: b27cb4ac61e436b4bbf188662e23ccab, type: 2}
   dropHandler: {fileID: 11400000, guid: 2b02b664f4fda124baa0e7823e8e0f96, type: 2}
+  encasingBlock: {fileID: 11400000, guid: 36abfa8272ea65a45bfa55a8f5fd4c58, type: 2}

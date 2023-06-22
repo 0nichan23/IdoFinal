@@ -7,6 +7,7 @@ public class BiomeLayer : ScriptableObject
     [SerializeField] private List<BiomeHeightData> heightData = new List<BiomeHeightData>();
     [SerializeField] private EnemyCreator enemyCreator;
     [SerializeField] private BiomeDropHandler dropHandler;
+    [SerializeField] private MyTile encasingBlock;
     public EnemyCreator EnemyCreator { get => enemyCreator; }
 
     public MyTile GetTileFromHeight(float height)
@@ -30,6 +31,7 @@ public class BiomeLayer : ScriptableObject
     
     public List<BiomeHeightData> HeightData { get => heightData; }
     public BiomeDropHandler DropHandler { get => dropHandler;  }
+    public MyTile EncasingBlock { get => encasingBlock;  }
 }
 
 

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MountainHD
   m_EditorClassIdentifier: 
   heightData:
-  - RefTile: {fileID: 11400000, guid: d84ff2e79d58f654ebc4faf0ba95cd7d, type: 2}
-    MaxHeight: 0.06
+  - RefTile: {fileID: 11400000, guid: 9fe2fa46645a0264295ea8453361f436, type: 2}
+    MaxHeight: 0.08
   - RefTile: {fileID: 11400000, guid: dd1b6acf7974d924d80bbcafd3ba7d3e, type: 2}
     MaxHeight: 0.15
   - RefTile: {fileID: 11400000, guid: da7cd77641a810f40b5330ff1edf87c7, type: 2}
@@ -63,3 +63,4 @@ MonoBehaviour:
     MaxHeight: 1
   enemyCreator: {fileID: 11400000, guid: 4b0e3b30f7c7ae54791b314f96ab77d0, type: 2}
   dropHandler: {fileID: 11400000, guid: 55730cf6399a5dc4ebd73332178ca43c, type: 2}
+  encasingBlock: {fileID: 11400000, guid: 22d86cc1f4c14734ea30e8f4127176e6, type: 2}

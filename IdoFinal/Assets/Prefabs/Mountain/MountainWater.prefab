@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9202001988355927325}
   m_Layer: 0
-  m_Name: MountainSnowPile
-  m_TagString: Untagged
+  m_Name: MountainWater
+  m_TagString: Swimmable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3171886737496937178}
-  - {fileID: 7016134594833379422}
+  - {fileID: 241396647666407529}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4630171780701522, guid: f935ccb6d1a6a854197abbdd5a69eefb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4630171780701522, guid: f935ccb6d1a6a854197abbdd5a69eefb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -99,65 +99,65 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4630171780701522, guid: f935ccb6d1a6a854197abbdd5a69eefb, type: 3}
   m_PrefabInstance: {fileID: 3176371665294315400}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &7011831861325713680
+--- !u!1001 &6272134734570127743
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 9202001988355927325}
     m_Modifications:
-    - target: {fileID: 1474760786853166, guid: 13adfc80ccb387e4caaa9ed958ceb67d, type: 3}
-      propertyPath: m_Name
-      value: MountainSnow
-      objectReference: {fileID: 0}
-    - target: {fileID: 4880529619591502, guid: 13adfc80ccb387e4caaa9ed958ceb67d, type: 3}
+    - target: {fileID: 6076065870706202902, guid: 66a2cb2e83574f34f9bb7880b9cc3c31, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4880529619591502, guid: 13adfc80ccb387e4caaa9ed958ceb67d, type: 3}
+    - target: {fileID: 6076065870706202902, guid: 66a2cb2e83574f34f9bb7880b9cc3c31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4880529619591502, guid: 13adfc80ccb387e4caaa9ed958ceb67d, type: 3}
+    - target: {fileID: 6076065870706202902, guid: 66a2cb2e83574f34f9bb7880b9cc3c31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4880529619591502, guid: 13adfc80ccb387e4caaa9ed958ceb67d, type: 3}
+    - target: {fileID: 6076065870706202902, guid: 66a2cb2e83574f34f9bb7880b9cc3c31, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4880529619591502, guid: 13adfc80ccb387e4caaa9ed958ceb67d, type: 3}
+    - target: {fileID: 6076065870706202902, guid: 66a2cb2e83574f34f9bb7880b9cc3c31, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4880529619591502, guid: 13adfc80ccb387e4caaa9ed958ceb67d, type: 3}
+    - target: {fileID: 6076065870706202902, guid: 66a2cb2e83574f34f9bb7880b9cc3c31, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4880529619591502, guid: 13adfc80ccb387e4caaa9ed958ceb67d, type: 3}
+    - target: {fileID: 6076065870706202902, guid: 66a2cb2e83574f34f9bb7880b9cc3c31, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4880529619591502, guid: 13adfc80ccb387e4caaa9ed958ceb67d, type: 3}
+    - target: {fileID: 6076065870706202902, guid: 66a2cb2e83574f34f9bb7880b9cc3c31, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4880529619591502, guid: 13adfc80ccb387e4caaa9ed958ceb67d, type: 3}
+    - target: {fileID: 6076065870706202902, guid: 66a2cb2e83574f34f9bb7880b9cc3c31, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4880529619591502, guid: 13adfc80ccb387e4caaa9ed958ceb67d, type: 3}
+    - target: {fileID: 6076065870706202902, guid: 66a2cb2e83574f34f9bb7880b9cc3c31, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4880529619591502, guid: 13adfc80ccb387e4caaa9ed958ceb67d, type: 3}
+    - target: {fileID: 6076065870706202902, guid: 66a2cb2e83574f34f9bb7880b9cc3c31, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7131973833801317298, guid: 66a2cb2e83574f34f9bb7880b9cc3c31, type: 3}
+      propertyPath: m_Name
+      value: MountainWaterPlane
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 13adfc80ccb387e4caaa9ed958ceb67d, type: 3}
---- !u!4 &7016134594833379422 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 66a2cb2e83574f34f9bb7880b9cc3c31, type: 3}
+--- !u!4 &241396647666407529 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4880529619591502, guid: 13adfc80ccb387e4caaa9ed958ceb67d, type: 3}
-  m_PrefabInstance: {fileID: 7011831861325713680}
+  m_CorrespondingSourceObject: {fileID: 6076065870706202902, guid: 66a2cb2e83574f34f9bb7880b9cc3c31, type: 3}
+  m_PrefabInstance: {fileID: 6272134734570127743}
   m_PrefabAsset: {fileID: 0}

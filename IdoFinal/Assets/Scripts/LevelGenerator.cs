@@ -36,7 +36,26 @@ public class LevelGenerator : MonoBehaviour
                 givenLevel.Tilemap.SetTile(new Vector3Int(i, j, 0), biome.HeightData.GetTileFromHeight(heightMap[i, j]));
             }
         }
+
+        //encasing the level
+        for (int x = -1; x < heightMap.GetLength(0); x++)
+        {
+            givenLevel.Tilemap.SetTile(new Vector3Int(x, 0, 0), biome.HeightData.EncasingBlock);
+        }
+        for (int x = -1; x < heightMap.GetLength(0); x++)
+        {
+            givenLevel.Tilemap.SetTile(new Vector3Int(x, heightMap.GetLength(1), 0), biome.HeightData.EncasingBlock);
+        }
+        for (int y = 0; y < heightMap.GetLength(1); y++)
+        {
+            givenLevel.Tilemap.SetTile(new Vector3Int(-1, y, 0), biome.HeightData.EncasingBlock);
+        }
+        for (int y = 0; y < heightMap.GetLength(1)+1; y++)
+        {
+            givenLevel.Tilemap.SetTile(new Vector3Int(heightMap.GetLength(0), y, 0), biome.HeightData.EncasingBlock);
+        }
     }
+
 
     private void OnValidate()
     {
