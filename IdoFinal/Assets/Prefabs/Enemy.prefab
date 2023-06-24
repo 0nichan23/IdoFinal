@@ -552,6 +552,7 @@ GameObject:
   - component: {fileID: 4215754784612818786}
   - component: {fileID: 228017266836044125}
   - component: {fileID: 4427835906387541509}
+  - component: {fileID: 7788738766655604257}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -591,6 +592,7 @@ MonoBehaviour:
   damageable: {fileID: 7477012478839064911}
   damageDealer: {fileID: 7477012478839064908}
   effectable: {fileID: 7477012478839064910}
+  level: {fileID: 7788738766655604257}
   OnEnteredLevel:
     m_PersistentCalls:
       m_Calls: []
@@ -861,6 +863,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priority: 0
   detectionZone: 5
+--- !u!114 &7788738766655604257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7477012478839064944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa3845af54c3174199f87227b0b486f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  levelMod: 10
+  powerMod: 0.01
+  OnLevelUp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7692391293813374302
 GameObject:
   m_ObjectHideFlags: 0

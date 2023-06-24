@@ -22,8 +22,9 @@ public class PlayerHud : MonoBehaviour
     [Header("Team")]
     public TeamPanel TeamPanel;
 
-    [Header("HealthBar")]
+    [Header("Bars")]
     public Bar HealthBar;
+    public Bar XpBar;
 
     [Header("Attack Icon")]
     public AttackIcon AttackIcon;

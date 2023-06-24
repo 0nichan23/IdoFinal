@@ -10,9 +10,9 @@ public class Bar : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private TextMeshProUGUI animalName;
 
-    public void SetUp(Animal animal)
+    public void SetUp(Animal animal, int level)
     {
-        animalName.text = animal.name;
+        animalName.text = animal.name + " lvl " + level.ToString();
     }
     public void UpdateBar(float maxHp, float curHp)
     {

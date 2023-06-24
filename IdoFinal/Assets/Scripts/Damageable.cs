@@ -7,6 +7,7 @@ public class Damageable : MonoBehaviour
 
     [SerializeField] private float currentHp;
     [SerializeField] private float maxHp;
+    private float extraMaxHp;
     private Animal refAnimal;
     private Character refCharacter;
 
@@ -26,7 +27,7 @@ public class Damageable : MonoBehaviour
 
     public bool EmitPopups;
     public Animal RefAnimal { get => refAnimal; }
-    public float MaxHp { get => maxHp; }
+    public float MaxHp { get => maxHp + extraMaxHp; }
     public float CurrentHp { get => currentHp; }
     public float DamageReduction { get => Mathf.Clamp(basedamageReduction + damageReduction, 0.1f, 1f); }
     public float DodgeChance { get => Mathf.Clamp(basedodgeChance + dodgeChance, 0f, 0.9f); }
@@ -37,11 +38,17 @@ public class Damageable : MonoBehaviour
         refCharacter = givenCharacter;
         OnGetHit.RemoveListener(DamageReductionBoost);
         maxHp = givenAnimal.StatSheet.MaxHp;
-        currentHp = maxHp;
+        currentHp = MaxHp;
         refAnimal = givenAnimal;
         basedamageReduction = GetBaseDamageReduction(RefAnimal.StatSheet.Defense);
         basedodgeChance = GetBaseDodgeChance(RefAnimal.StatSheet.Speed);
         OnGetHit.AddListener(DamageReductionBoost);
+    }
+
+    public void IncreaseMaxHp(int amount)
+    {
+        extraMaxHp += amount;
+        currentHp = MaxHp;
     }
 
     private float GetBaseDamageReduction(int toughness)

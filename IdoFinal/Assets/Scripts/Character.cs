@@ -7,6 +7,7 @@ public class Character : MonoBehaviour
     [SerializeField] private Damageable damageable;
     [SerializeField] private DamageDealer damageDealer;
     [SerializeField] private Effectable effectable;
+    [SerializeField] private CharacterLevel level;
     public UnityEvent<Level, Character> OnEnteredLevel;
     public UnityEvent<Level, Character> OnExitLevel;
     private LookDirections lookingTowards;
@@ -35,6 +36,7 @@ public class Character : MonoBehaviour
     public Charger Charger { get => charger; }
     public Dictionary<Vector3Int, TileData> CurrentTileMap { get => currentTileMap; }
     public MovementMode MovementMode { get => movementMode; }
+    public CharacterLevel Level { get => level; }
 
     public virtual void AddAttackSpeed(float amount)
     {

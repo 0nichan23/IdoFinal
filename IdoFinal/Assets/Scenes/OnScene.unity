@@ -624,10 +624,10 @@ PrefabInstance:
       propertyPath: m_text
       value: 'the rest of the bosses.
 
-        jungle, lake, savannah.
+        jungle, savannah.
 
-        turn
-        charge into SO.
+        turn charge
+        into SO.
 
         enemy spawners.
 
@@ -729,6 +729,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 838200256778496906, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 838200256778496906, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1510589565005248359, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -737,12 +745,44 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2040538826180656032, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040538826180656032, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040538826180656032, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040538826180656032, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3565186208786187663, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3565186208786187663, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790659913467171856, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790659913467171856, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790659913467171856, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790659913467171856, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5614614809955119593, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
@@ -773,6 +813,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetWalkMode
       objectReference: {fileID: 0}
+    - target: {fileID: 9154392487993564458, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154392487993564458, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154392487993564458, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154392487993564458, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0440302146ca05343a84f6aae49c4912, type: 3}
 --- !u!1001 &733277437559368033
@@ -782,62 +838,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 635236437, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: items.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 635236437, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: items.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 64fa6ea458fcdd840bf1d84379f6411d, type: 2}
-    - target: {fileID: 635236437, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: items.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 82ace286736857c4e89d7b381cf17383, type: 2}
-    - target: {fileID: 635236437, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: items.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 3f9a3112ebc972948a6fbc08553217c8, type: 2}
-    - target: {fileID: 635236437, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: items.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: e4483dc80e0624244b6f90fa597bca9b, type: 2}
-    - target: {fileID: 635236437, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: items.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: ae0d85393c916c140981886eeb752f0e, type: 2}
-    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: caughtAnimals.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: caughtAnimals.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 06c45dde471835d4b8843670bedac947, type: 2}
-    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: caughtAnimals.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 6045b855d1e3c8841a72e81c4e89976c, type: 2}
-    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: caughtAnimals.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: fb2823c0531bedc4eb5ae1c138a463ba, type: 2}
-    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: caughtAnimals.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 1e7d2a477920b2141bd3a8d6071581b7, type: 2}
-    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: caughtAnimals.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 349e4e3946c16e64987d450b4a1b8990, type: 2}
-    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: caughtAnimals.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 4eaef8a9aec082848864ab2887d5fac4, type: 2}
-    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
-      propertyPath: caughtAnimals.Array.data[6]
-      value: 
-      objectReference: {fileID: 11400000, guid: 0d33c1b9119de7c44a6acd414d000b3a, type: 2}
     - target: {fileID: 733277437919210401, guid: 43b07e6245311564abfd101a8c712882, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -965,7 +965,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 67017e40b0b44d94db86d58229cf3089, type: 2}
     - target: {fileID: 7457097704239078800, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: amount
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}

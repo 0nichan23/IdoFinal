@@ -38,6 +38,7 @@ public class PlayerWrapper : Character
     {
         EndStun();
         PlayerAnimationHandler.CacheOwner(this);
+        Level.SetUp(this, 10);
         SetAnimalStatsOnComps();
         team.OnSwitchActiveAnimal.AddListener(SetAnimalStatsOnComps);
         team.OnSwitchActiveAnimal.AddListener(playerHud.ToggleTraversalButtons);
@@ -55,8 +56,10 @@ public class PlayerWrapper : Character
         PlayerHud.SwitchIcon.AttackSwitchUp.AddListener(() => attackHandler.CanSwitchAttacks = true);
         attackHandler.OnAttackSwitched.AddListener(() => attackHandler.CanSwitchAttacks = false);
         attackHandler.OnAttackSwitched.AddListener(PlayerHud.SwitchIcon.StartCountDown);
-        UpdateBar();
+        DamageDealer.OnKill.AddListener(GainXp);
+        Level.OnLevelUp.AddListener(LevelUpReset);
         playerHud.ToggleTraversalButtons();
+        UpdateBar();
     }
 
     public void SetAnimalStatsOnComps()
@@ -72,7 +75,7 @@ public class PlayerWrapper : Character
     public void UpdatePlayerHud()
     {
         playerHud.hp.text = (Damageable.CurrentHp).ToString() + "/" + (Damageable.MaxHp).ToString() + " hp";
-        playerHud.attackDamage.text = (attackHandler.CurrentAttack.Damage * DamageDealer.PowerDamageMod).ToString("F0") + " damage";
+        playerHud.attackDamage.text = ((attackHandler.CurrentAttack.Damage * DamageDealer.PowerDamageMod) + (attackHandler.CurrentAttack.Damage * Level.GetLevelDamageBoost())).ToString("F0") + " damage";
         playerHud.critChance.text = (DamageDealer.CritChance * 100).ToString("F0") + "% crit chance";
         playerHud.critDamage.text = (DamageDealer.CritDamage * 100).ToString("F0") + "% crit damage";
         playerHud.dodgeChance.text = (Damageable.DodgeChance * 100).ToString("F0") + "% dodge chance";
@@ -114,6 +117,7 @@ public class PlayerWrapper : Character
     private void UpdateBar()
     {
         playerHud.HealthBar.UpdateBar(Damageable.MaxHp, Damageable.CurrentHp);
+        playerHud.XpBar.UpdateBar(Level.XpToNextLevel, Level.TotalXp);
     }
 
     public override void UpdateCurrentTile(TileData current)
@@ -203,6 +207,19 @@ public class PlayerWrapper : Character
         return false;
     }
 
+
+    private void LevelUpReset(Character character)
+    {
+        Damageable.IncreaseMaxHp(5);
+        Damageable.HealTrueDamage(Damageable.MaxHp);
+        UpdateBar();
+    }
+
+    private void GainXp(Damageable target, DamageDealer dealer)
+    {
+        Level.GainXp(target.RefCharacter.Level.Level);
+        UpdateBar();
+    }
 
     [ContextMenu("test cleanse")]
     public void BleedPlayer()

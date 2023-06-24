@@ -13,8 +13,6 @@ public class Enemy : Character
     [SerializeField] private EnemyPanel panel;
     [SerializeField] private float dropChance;
 
-  
-
     public Animal RefAnimal { get => refAnimal; }
     public EnemyAttackHandler AttackHandler { get => attackHandler; }
 
@@ -34,6 +32,7 @@ public class Enemy : Character
     public void SetUpEnemy(Animal givenAnimal)
     {
         refAnimal = givenAnimal;
+        Level.SetUp(this, 10);
         anim.CacheOwner(this);
         DamageDealer.SetStats(refAnimal, this);
         Damageable.SetStats(refAnimal, this);
@@ -48,7 +47,7 @@ public class Enemy : Character
         Effectable.OnObtainEffect.AddListener(AddEffectIcon);
         Damageable.OnTakeDamageGFX.AddListener(UpdateBar);
         Damageable.OnHealGFX.AddListener(UpdateBar);
-        panel.HealthBar.SetUp(RefAnimal);
+        panel.HealthBar.SetUp(RefAnimal, Level.Level);
         Damageable.OnDeath.AddListener(DropOnDeath);
     }
 
