@@ -32,7 +32,7 @@ public class Enemy : Character
     public void SetUpEnemy(Animal givenAnimal)
     {
         refAnimal = givenAnimal;
-        Level.SetUp(this, 10);
+        Level.SetUp(this);
         anim.CacheOwner(this);
         DamageDealer.SetStats(refAnimal, this);
         Damageable.SetStats(refAnimal, this);

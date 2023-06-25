@@ -250,6 +250,50 @@ MonoBehaviour:
   pooledObjects: []
   PrefabToPool: {fileID: 955452753655836874, guid: 4346dfb3341a17b4dbb8ad8ee62e1033, type: 3}
   NumToPool: 10
+--- !u!1 &3279739560021424485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5839729570001182445}
+  - component: {fileID: 5489264019619095147}
+  m_Layer: 0
+  m_Name: SavingManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5839729570001182445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279739560021424485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7457097703888485070}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5489264019619095147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279739560021424485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d920645d2bdcbb94eb745f92e70bea31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4386420811125978776
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +616,7 @@ Transform:
   - {fileID: 7041142817601258443}
   - {fileID: 1114814535}
   - {fileID: 1362765342210654875}
+  - {fileID: 5839729570001182445}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -595,6 +640,7 @@ MonoBehaviour:
   popupSpawner: {fileID: 8009625438188516486}
   poolManager: {fileID: 1114814534}
   animalDropHandler: {fileID: 4636546326620847488}
+  savingManager: {fileID: 5489264019619095147}
   InteractableTilePrefab: {fileID: 7818118882283635019, guid: 6ba590337787ed940a06e29b116594bd, type: 3}
   enemyPrefab: {fileID: 7477012478839064909, guid: de5cbbe30b396914785baa64b216a13f, type: 3}
 --- !u!1 &7457097704035514083

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CharacterLevel : MonoBehaviour
+public class CharacterLevel : MonoBehaviour, ISaveable
 {
     //levels are going to range from 1 to 100
     [SerializeField, Range(1, 100)] private int level = 1;
@@ -53,4 +53,19 @@ public class CharacterLevel : MonoBehaviour
         dmg.AddMod(1 + GetLevelDamageBoost());
     }
 
+    public void LoadData(GameData data)
+    {
+        if (refCharacter is PlayerWrapper)
+        {
+            level = data.playerLevel;
+        }
+    }
+
+    public void SaveGame(ref GameData data)
+    {
+        if (refCharacter is PlayerWrapper)
+        {
+            data.playerLevel = level;
+        }
+    }
 }

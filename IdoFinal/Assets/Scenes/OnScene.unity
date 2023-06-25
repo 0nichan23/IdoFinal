@@ -838,6 +838,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
+      propertyPath: defaultList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
+      propertyPath: caughtAnimals.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
+      propertyPath: defaultList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 829fed895edf8c94296f4b449f53bf34, type: 2}
+    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
+      propertyPath: defaultList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 71321f6f773f5744aa61d2c95aa1d188, type: 2}
+    - target: {fileID: 733277437559368035, guid: 43b07e6245311564abfd101a8c712882, type: 3}
+      propertyPath: defaultList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f5e82040a7c26344bc4e295d25673b0, type: 2}
     - target: {fileID: 733277437919210401, guid: 43b07e6245311564abfd101a8c712882, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -903,6 +923,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5489264019619095147, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
+      propertyPath: fileName
+      value: save.json
+      objectReference: {fileID: 0}
     - target: {fileID: 7457097703888485068, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: m_Name
       value: GameManager

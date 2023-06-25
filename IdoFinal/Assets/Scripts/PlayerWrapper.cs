@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerWrapper : Character
 {
@@ -25,8 +26,9 @@ public class PlayerWrapper : Character
     public PlayerHud PlayerHud { get => playerHud; }
     public DropsInventory DropsInventory { get => dropsInventory; }
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitForSeconds(2f);
         CreateExistingAnimalSlots();
         team.OnTeamSet.AddListener(SetAnimalSwitchButtons);
         charger.OnStartCharge.AddListener(Stun);
@@ -38,7 +40,7 @@ public class PlayerWrapper : Character
     {
         EndStun();
         PlayerAnimationHandler.CacheOwner(this);
-        Level.SetUp(this, 10);
+        Level.SetUp(this);
         SetAnimalStatsOnComps();
         team.OnSwitchActiveAnimal.AddListener(SetAnimalStatsOnComps);
         team.OnSwitchActiveAnimal.AddListener(playerHud.ToggleTraversalButtons);
