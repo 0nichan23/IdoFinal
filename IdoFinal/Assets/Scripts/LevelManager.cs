@@ -74,11 +74,23 @@ public class LevelManager : MonoBehaviour
     }
 
     private void ExitEnemies()
-    {
+    {//idk why i did this
         foreach (var item in currentLevel.Enemies)
         {
             item.OnExitLevel?.Invoke(CurrentLevel, item);
         }
+    }
+
+    public void ClearLevels()
+    {
+        currentLevel.gameObject.SetActive(false);
+        Destroy(CurrentLevel.gameObject);
+        int times = levels.Count;
+        for (int i = 0; i < times; i++)
+        {
+            Destroy(levels.Dequeue().gameObject);
+        }
+        levels.Clear();
     }
 
 }

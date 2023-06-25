@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4cada1bd48a7ab47b891675e278256e, type: 3}
   m_Name: ForestHeightData
   m_EditorClassIdentifier: 
+  habitat: 1
   heightData:
   - RefTile: {fileID: 11400000, guid: d84ff2e79d58f654ebc4faf0ba95cd7d, type: 2}
     MaxHeight: 0.15

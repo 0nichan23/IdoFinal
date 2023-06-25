@@ -21,6 +21,7 @@ public class PlayerHud : MonoBehaviour
 
     [Header("Team")]
     public TeamPanel TeamPanel;
+    public GameObject openTeamPanelButton;
 
     [Header("Bars")]
     public Bar HealthBar;
@@ -40,6 +41,10 @@ public class PlayerHud : MonoBehaviour
 
     [Header("CraftingUI")]
     public DropPanel DropPanel;
+    public GameObject OpenCraftingButton;
+
+    [Header("StartButton")]
+    public GameObject StartButton;
 
     public void ToggleCharacterScreen()
     {
@@ -69,5 +74,18 @@ public class PlayerHud : MonoBehaviour
         }
     }
 
+
+    public void BackToBaseReset()
+    {
+        TeamPanel.gameObject.SetActive(true);
+        HealthBar.gameObject.SetActive(false);
+        XpBar.gameObject.SetActive(false);
+        SwimButton.SetActive(false);
+        WalkButton.SetActive(false);
+        Flybutton.SetActive(false);
+        openTeamPanelButton.SetActive(true);
+        OpenCraftingButton.SetActive(true);
+        StartButton.SetActive(true);
+    }
 
 }

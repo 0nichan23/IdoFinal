@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4cada1bd48a7ab47b891675e278256e, type: 3}
   m_Name: MountainHD
   m_EditorClassIdentifier: 
+  habitat: 6
   heightData:
   - RefTile: {fileID: 11400000, guid: 9fe2fa46645a0264295ea8453361f436, type: 2}
     MaxHeight: 0.08

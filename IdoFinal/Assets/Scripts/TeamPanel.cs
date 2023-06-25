@@ -1,7 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
-using System.Collections;
 
 public class TeamPanel : MonoBehaviour
 {
@@ -19,9 +18,14 @@ public class TeamPanel : MonoBehaviour
         List<Animal> newTeam = new List<Animal>();
         foreach (var item in selectedPanel.SelectedSlots)
         {
+            if (ReferenceEquals(item.RefAnimal, null))
+            {
+                return;
+            }
             newTeam.Add(item.RefAnimal);
         }
         GameManager.Instance.PlayerWrapper.Team.SetNewTeam(newTeam);
+        ToggleTeamPanel();
     }
 
     public void ToggleTeamPanel()

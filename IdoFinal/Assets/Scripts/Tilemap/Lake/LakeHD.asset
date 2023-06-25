@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4cada1bd48a7ab47b891675e278256e, type: 3}
   m_Name: LakeHD
   m_EditorClassIdentifier: 
-  habitat: 0
+  habitat: 3
   heightData:
   - RefTile: {fileID: 11400000, guid: 217ea874d32cd3f4bbcf0596c5b7a34e, type: 2}
     MaxHeight: 0.1

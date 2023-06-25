@@ -8,6 +8,7 @@ public class DropPanel : MonoBehaviour
     [SerializeField] private DropIcon iconPrefab;
     [SerializeField] private Image selectedFood;
     [SerializeField] private Image selectedBiomeDrop;
+    [SerializeField] private AnimalUnlockPopup unlockPopup;
     private BasicDropSO selectedFoodSO;
     private BasicDropSO selectedBiomeDropSO;
     private AnimalCreator animalCreator =  new AnimalCreator();
@@ -71,6 +72,8 @@ public class DropPanel : MonoBehaviour
             GameManager.Instance.PlayerWrapper.DropsInventory.RemoveDrop(selectedFoodSO);
             Debug.Log("added " + animalToAdd.name);
             GameManager.Instance.PlayerWrapper.AnimalInventory.AddAnimal(animalToAdd);
+            unlockPopup.Setup(animalToAdd.Portrait);
+            unlockPopup.gameObject.SetActive(true);
         }
     }
 }

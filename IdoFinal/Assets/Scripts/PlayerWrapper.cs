@@ -26,9 +26,8 @@ public class PlayerWrapper : Character
     public PlayerHud PlayerHud { get => playerHud; }
     public DropsInventory DropsInventory { get => dropsInventory; }
 
-    private IEnumerator Start()
+    public void StartPlayer()
     {
-        yield return new WaitForSeconds(2f);
         CreateExistingAnimalSlots();
         team.OnTeamSet.AddListener(SetAnimalSwitchButtons);
         charger.OnStartCharge.AddListener(Stun);
@@ -40,7 +39,7 @@ public class PlayerWrapper : Character
     {
         EndStun();
         PlayerAnimationHandler.CacheOwner(this);
-        Level.SetUp(this, GameManager.Instance.SavingManager.GameData.playerLevel);
+        Level.SetUp(this, GameManager.Instance.SavingManager.GameData.playerLevel, GameManager.Instance.SavingManager.GameData.playerXp);
         SetAnimalStatsOnComps();
         team.OnSwitchActiveAnimal.AddListener(SetAnimalStatsOnComps);
         team.OnSwitchActiveAnimal.AddListener(playerHud.ToggleTraversalButtons);

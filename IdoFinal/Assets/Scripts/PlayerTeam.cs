@@ -84,7 +84,7 @@ public class PlayerTeam : MonoBehaviour
         return amd;
     }
 
-    public void SetNewTeam(List<Animal> givenTeam)
+    public void ClearPlayerTeam()
     {
         activeAnimal = null;
         UnSubscribeTeamPassives();
@@ -93,6 +93,11 @@ public class PlayerTeam : MonoBehaviour
         {
             item.Model.SetActive(false);
         }
+    }
+
+    public void SetNewTeam(List<Animal> givenTeam)
+    {
+        ClearPlayerTeam();
         for (int i = 0; i < givenTeam.Count; i++)
         {
             AnimalModelData md;
@@ -100,7 +105,6 @@ public class PlayerTeam : MonoBehaviour
             {
                 md = GetAnimalModelDataFromAnimal(givenTeam[i], true);
                 activeAnimal = md;
-                OnSwitchActiveAnimal?.Invoke();
             }
             else
             {
@@ -108,6 +112,7 @@ public class PlayerTeam : MonoBehaviour
                 backLineAnimals.Add(md);
             }
         }
+        activeAnimal.Model.SetActive(true);
         SubscirbeTeamPassives();
         OnTeamSet?.Invoke();
     }

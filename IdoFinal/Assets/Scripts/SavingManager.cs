@@ -16,7 +16,6 @@ public class SavingManager : MonoBehaviour
     {
         fileData = new FileData(Application.persistentDataPath, fileName);
         saveables = GetAllSaveables();
-        LoadGame();
     }
 
     public void NewGame()
@@ -24,18 +23,18 @@ public class SavingManager : MonoBehaviour
         gameData = new GameData();
     }
 
-    public void LoadGame()
+    public void LoadGame(bool reset = false)
     {
         gameData = fileData.Load();
-        if (ReferenceEquals(gameData, null))
+        if (ReferenceEquals(gameData, null) || reset)
         {
             NewGame();
-            Debug.Log("no saved data found");
         }
         foreach (var item in saveables)
         {
             item.LoadData(gameData);
         }
+        GameManager.Instance.PlayerWrapper.StartPlayer();
     }
 
     public void SaveGame()

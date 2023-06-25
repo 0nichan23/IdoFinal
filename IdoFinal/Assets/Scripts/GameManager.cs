@@ -27,6 +27,19 @@ public class GameManager : MonoSingleton<GameManager>
         LevelManager.StartGame();
         playerWrapper.StartGame();
     }
+
+    public void ReturnToBase()
+    {
+        playerWrapper.Stun();
+        playerWrapper.Team.ClearPlayerTeam();
+        LevelManager.ClearLevels();
+        PlayerWrapper.PlayerHud.BackToBaseReset();
+    }
+
+    public void CloseApp()
+    {
+        Application.Quit();
+    }
     public InputManager InputManager { get => inputManager; }
     public PlayerWrapper PlayerWrapper { get => playerWrapper; }
     public LevelManager LevelManager { get => levelManager; }

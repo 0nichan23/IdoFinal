@@ -16,14 +16,14 @@ public class CharacterLevel : MonoBehaviour, ISaveable
     public float XpToNextLevel { get => xpToNextLevel; }
     public float TotalXp { get => totalXp; }
 
-    public void SetUp(Character givenCharacter, int startingLevel = 1)
+    public void SetUp(Character givenCharacter, int startingLevel = 1, float startingXp = 0)
     {
         refCharacter = givenCharacter;
         refCharacter.Damageable.IncreaseMaxHp(5 * (startingLevel - 1));
         refCharacter.DamageDealer.OnHit.RemoveListener(LevelDamageIncrease);
         level = startingLevel;
         xpToNextLevel = (level + 1) * levelMod;
-        totalXp = 0;
+        totalXp = startingXp;
         refCharacter.DamageDealer.OnHit.AddListener(LevelDamageIncrease);
     }
 
@@ -58,6 +58,7 @@ public class CharacterLevel : MonoBehaviour, ISaveable
         if (refCharacter is PlayerWrapper)
         {
             level = data.playerLevel;
+            totalXp = data.playerXp;
         }
     }
 
@@ -66,6 +67,7 @@ public class CharacterLevel : MonoBehaviour, ISaveable
         if (refCharacter is PlayerWrapper)
         {
             data.playerLevel = level;
+            data.playerXp = totalXp;
         }
     }
 }
