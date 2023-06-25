@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 
 public class PlayerWrapper : Character
 {
@@ -26,21 +25,15 @@ public class PlayerWrapper : Character
     public PlayerHud PlayerHud { get => playerHud; }
     public DropsInventory DropsInventory { get => dropsInventory; }
 
-    public void StartPlayer()
+    public void StartPlayer()//called when the game is first loaded and only once
     {
         CreateExistingAnimalSlots();
         team.OnTeamSet.AddListener(SetAnimalSwitchButtons);
         charger.OnStartCharge.AddListener(Stun);
         charger.OnEndCharge.AddListener(EndStun);
         animalInventory.OnAnimalAdded.AddListener(playerHud.TeamPanel.InventoryPanel.AddSlot);
-    }
-
-    public void StartGame()
-    {
-        EndStun();
         PlayerAnimationHandler.CacheOwner(this);
         Level.SetUp(this, GameManager.Instance.SavingManager.GameData.playerLevel, GameManager.Instance.SavingManager.GameData.playerXp);
-        SetAnimalStatsOnComps();
         team.OnSwitchActiveAnimal.AddListener(SetAnimalStatsOnComps);
         team.OnSwitchActiveAnimal.AddListener(playerHud.ToggleTraversalButtons);
         team.OnSwitchActiveAnimal.AddListener(SwitchAnimalCoolDownStart);
@@ -59,6 +52,12 @@ public class PlayerWrapper : Character
         attackHandler.OnAttackSwitched.AddListener(PlayerHud.SwitchIcon.StartCountDown);
         DamageDealer.OnKill.AddListener(GainXp);
         Level.OnLevelUp.AddListener(LevelUpReset);
+    }
+
+    public void StartGame()//called every time a RUN starts
+    {
+        EndStun();
+        SetAnimalStatsOnComps();
         playerHud.ToggleTraversalButtons();
         UpdateBar();
     }

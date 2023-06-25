@@ -37,7 +37,6 @@ public class BaseStateHandler : MonoBehaviour
             }
             activeState = GetNextState();
             activeState.OnStateEnter();
-            Debug.Log(activeState + "stared");
             yield return StartCoroutine(activeState.RunState());
         }
     }

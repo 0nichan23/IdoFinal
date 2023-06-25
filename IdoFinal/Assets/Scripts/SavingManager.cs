@@ -39,6 +39,10 @@ public class SavingManager : MonoBehaviour
 
     public void SaveGame()
     {
+        if (ReferenceEquals(GameData, null))
+        {
+            return;
+        }
         foreach (var item in saveables)
         {
             item.SaveGame(ref gameData);

@@ -14,6 +14,10 @@ public class PlayerTeam : MonoBehaviour
     public List<AnimalModelData> BackLineAnimals { get => backLineAnimals; }
     public List<AnimalModelData> CreatedAnimalData { get => createdAnimalData; }
 
+    private void Start()
+    {
+        activeAnimal = null;
+    }
     private void SubscirbeTeamPassives()
     {
         activeAnimal.Animal.Passive.SubscribePassive(GameManager.Instance.PlayerWrapper);
@@ -25,14 +29,16 @@ public class PlayerTeam : MonoBehaviour
 
     public void UnSubscribeTeamPassives()
     {
-        if (ReferenceEquals(activeAnimal, null))
+        if (!ReferenceEquals(activeAnimal, null))
         {
-            return;
+            activeAnimal.Animal.Passive.UnSubscribePassive(GameManager.Instance.PlayerWrapper);
         }
-        activeAnimal.Animal.Passive.UnSubscribePassive(GameManager.Instance.PlayerWrapper);
         foreach (var item in BackLineAnimals)
         {
-            item.Animal.Passive.UnSubscribePassive(GameManager.Instance.PlayerWrapper);
+            if (!ReferenceEquals(item, null))
+            {
+                item.Animal.Passive.UnSubscribePassive(GameManager.Instance.PlayerWrapper);
+            }
         }
     }
 
@@ -86,8 +92,8 @@ public class PlayerTeam : MonoBehaviour
 
     public void ClearPlayerTeam()
     {
-        activeAnimal = null;
         UnSubscribeTeamPassives();
+        activeAnimal = null;
         backLineAnimals.Clear();
         foreach (var item in createdAnimalData)
         {

@@ -19,7 +19,6 @@ public class EmptyState : CoroutineState
 
     public override IEnumerator RunState()
     {
-        Debug.Log(handler.RefEnemy + " is playing empty");
         yield return null;
     }
 }
