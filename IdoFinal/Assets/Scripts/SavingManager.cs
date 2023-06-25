@@ -10,6 +10,8 @@ public class SavingManager : MonoBehaviour
     private GameData gameData;
     private List<ISaveable> saveables;
 
+    public GameData GameData { get => gameData; }
+
     private void Start()
     {
         fileData = new FileData(Application.persistentDataPath, fileName);

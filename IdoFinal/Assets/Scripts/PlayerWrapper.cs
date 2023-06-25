@@ -40,7 +40,7 @@ public class PlayerWrapper : Character
     {
         EndStun();
         PlayerAnimationHandler.CacheOwner(this);
-        Level.SetUp(this);
+        Level.SetUp(this, GameManager.Instance.SavingManager.GameData.playerLevel);
         SetAnimalStatsOnComps();
         team.OnSwitchActiveAnimal.AddListener(SetAnimalStatsOnComps);
         team.OnSwitchActiveAnimal.AddListener(playerHud.ToggleTraversalButtons);

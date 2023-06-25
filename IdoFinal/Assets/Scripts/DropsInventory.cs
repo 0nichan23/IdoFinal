@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DropsInventory : MonoBehaviour
+public class DropsInventory : MonoBehaviour, ISaveable
 {
     [SerializeField] private List<BasicDropSO> items = new List<BasicDropSO>();
     public List<BasicDropSO> Items { get => items; }
@@ -32,5 +32,15 @@ public class DropsInventory : MonoBehaviour
     public void RemoveDrop(BasicDropSO drop)
     {
         items.Remove(drop);
+    }
+
+    public void LoadData(GameData data)
+    {
+        items = new List<BasicDropSO>(data.drops);
+    }
+
+    public void SaveGame(ref GameData data)
+    {
+        data.drops = new List<BasicDropSO>(Items);
     }
 }
