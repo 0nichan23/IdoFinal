@@ -890,6 +890,10 @@ PrefabInstance:
       propertyPath: playerHud
       value: 
       objectReference: {fileID: 1593426087}
+    - target: {fileID: 4583550354386574457, guid: 43b07e6245311564abfd101a8c712882, type: 3}
+      propertyPath: powerMod
+      value: 0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43b07e6245311564abfd101a8c712882, type: 3}
 --- !u!1001 &7457097705030271516

@@ -186,16 +186,12 @@ public class Damageable : MonoBehaviour
         {
             GameManager.Instance.PopupSpawner.SpawnDamagePopup(transform.position, fixedAmount, Color.green);
         }
-        if (currentHp <= 0)
-        {
-            OnDeath?.Invoke();
-        }
         ClampHp();
         OnHealGFX?.Invoke();
     }
     private void ClampHp()
     {
-        currentHp = Mathf.Clamp(currentHp, 0, maxHp);
+        currentHp = Mathf.Clamp(currentHp, 0, MaxHp);
     }
 
     public void Heal(DamageHandler givenDamage)

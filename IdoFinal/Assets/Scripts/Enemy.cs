@@ -49,6 +49,7 @@ public class Enemy : Character
         Damageable.OnHealGFX.AddListener(UpdateBar);
         panel.HealthBar.SetUp(RefAnimal, Level.Level);
         Damageable.OnDeath.AddListener(DropOnDeath);
+        UpdateBar();
     }
 
     private void CreateModel()
