@@ -40,7 +40,7 @@ public class SecondaryAttackState : CoroutineState
         {
             yield return new WaitForSeconds(1);
         }
-        else if(handler.RefEnemy.RefAnimal.SecondAttack.Charge)
+        else if(handler.RefEnemy.RefAnimal.SecondAttack is Charge)
         {
             yield return new WaitUntil(() => !handler.RefEnemy.AttackHandler.Charging);
         }

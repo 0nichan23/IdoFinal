@@ -79,7 +79,7 @@ public class EnemyAttackHandler : MonoBehaviour
         if (Time.time - lastSecondAttacked >= GetSecondAttackCoolDown())
         {
             refEnemy.Anim.AttackAnim();
-            if (refEnemy.RefAnimal.SecondAttack.Charge)
+            if (refEnemy.RefAnimal.SecondAttack is Charge)
             {
                 refEnemy.Charge(refEnemy.RefAnimal.SecondAttack);
             }

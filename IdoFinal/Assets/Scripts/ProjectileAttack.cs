@@ -15,5 +15,6 @@ public enum Element
     Lightning,
     Fire,
     Poison,
-    Ice
+    Ice,
+    Physical
 }

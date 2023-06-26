@@ -131,7 +131,7 @@ public class PlayerWrapper : Character
 
     public override void Charge(AnimalAttack attack)
     {
-        charger.SetUp(attack, this);
+        charger.SetUp(attack as Charge, this);
         charger.StartCharging(LookingTowards, PlayerMovement.CurrentTile);
     }
 

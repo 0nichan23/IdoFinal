@@ -87,7 +87,7 @@ public class PlayerAttackHandler : MonoBehaviour
         {
             GameManager.Instance.PlayerWrapper.FireProjectile(currentAttack as ProjectileAttack);
         }
-        else if (currentAttack.Charge)
+        else if (currentAttack is Charge)
         {
             if (!GameManager.Instance.PlayerWrapper.PlayerMovement.IsMoving)
             {

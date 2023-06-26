@@ -29,13 +29,13 @@ public class PlayerTeam : MonoBehaviour
 
     public void UnSubscribeTeamPassives()
     {
-        if (!ReferenceEquals(activeAnimal, null))
+        if (!ReferenceEquals(activeAnimal, null) && !ReferenceEquals(activeAnimal.Animal, null))
         {
             activeAnimal.Animal.Passive.UnSubscribePassive(GameManager.Instance.PlayerWrapper);
         }
         foreach (var item in BackLineAnimals)
         {
-            if (!ReferenceEquals(item, null))
+            if (!ReferenceEquals(item, null) && !ReferenceEquals(item.Animal, null))
             {
                 item.Animal.Passive.UnSubscribePassive(GameManager.Instance.PlayerWrapper);
             }

@@ -7,14 +7,14 @@ public class Charger : MonoBehaviour
     [SerializeField] private int maxDistance;
     [SerializeField] private float stepDurationMod;
     private AttackTarget targeter = new AttackTarget();
-    private AnimalAttack attack;
+    private Charge attack;
     private Character emitter;
     public UnityEvent OnStartCharge;
     public UnityEvent OnEndCharge;
 
     public int MaxDistance { get => maxDistance; }
 
-    public void SetUp(AnimalAttack attack, Character character)
+    public void SetUp(Charge attack, Character character)
     {
         this.attack = attack;
         this.emitter = character;
@@ -80,6 +80,10 @@ public class Charger : MonoBehaviour
     public void Blast(TileData blastZone, LookDirections dir)
     {
         targeter.AttackTiles(dir, blastZone.GetPos, attack, emitter);
+        Explosion exp = GetBlastFromElement(attack.Blast);
+        exp.transform.position = transform.position;
+        exp.gameObject.SetActive(true);
+        //place particle effect at the end depending on element
     }
     private Vector3Int GetLookDirVector(LookDirections direction)
     {
@@ -95,6 +99,23 @@ public class Charger : MonoBehaviour
                 return new Vector3Int(1, 0, 0);
         }
         return Vector3Int.zero;
+    }
+
+    private Explosion GetBlastFromElement(Element element)
+    {
+        switch (element)
+        {
+            case Element.Lightning:
+                return GameManager.Instance.PoolManager.LightningBlastPool.GetPooledObject();
+            case Element.Fire:
+                return GameManager.Instance.PoolManager.FireBlastPool.GetPooledObject();
+            case Element.Poison:
+                return GameManager.Instance.PoolManager.PoisonBlastPool.GetPooledObject();
+            case Element.Ice:
+                return GameManager.Instance.PoolManager.IceBlastPool.GetPooledObject();
+            default:
+                return null;
+        }
     }
 }
 
