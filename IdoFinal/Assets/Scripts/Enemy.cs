@@ -49,6 +49,8 @@ public class Enemy : Character
         Damageable.OnHealGFX.AddListener(UpdateBar);
         panel.HealthBar.SetUp(RefAnimal, Level.Level);
         Damageable.OnDeath.AddListener(DropOnDeath);
+        Damageable.OnDeath.AddListener(PlayDeathEffect);
+        Damageable.OnTakeDamageGFX.AddListener(PlayHitEffect);
         UpdateBar();
     }
 
@@ -116,6 +118,20 @@ public class Enemy : Character
                 SetFlightMode(true);
                 break;
         }
+    }
+
+    private void PlayDeathEffect()
+    {
+        ParticleEvents particle = GameManager.Instance.PoolManager.DeathPool.GetPooledObject();
+        particle.transform.position = transform.position;
+        particle.gameObject.SetActive(true);
+    }
+
+    private void PlayHitEffect()
+    {
+        ParticleEvents particle = GameManager.Instance.PoolManager.HitPool.GetPooledObject();
+        particle.transform.position = transform.position;
+        particle.gameObject.SetActive(true);
     }
 
     private void DropOnDeath()

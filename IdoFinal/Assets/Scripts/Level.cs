@@ -68,13 +68,6 @@ public class Level : MonoBehaviour
             }
         }
 
-        foreach (var tile in AllTiles)
-        {
-            InteractableTile interTile = Instantiate(GameManager.Instance.InteractableTilePrefab, tile.GetObj.transform);
-            interTile.transform.position = new Vector3(tile.GetStandingPos(MovementMode.Ground).x, tile.GetStandingPos(MovementMode.Ground).y + 0.2f, tile.GetStandingPos(MovementMode.Ground).z);
-            tile.CacheOverlayObject(interTile);
-            interTile.gameObject.SetActive(false);
-        }
         OnDoneCreatingRoom?.Invoke();
     }
 
@@ -257,7 +250,6 @@ public class Level : MonoBehaviour
 public class TileData : IHeapItem<TileData>
 {
     [SerializeField] private GameObject Obj;
-    [SerializeField] private InteractableTile overlay;
     [SerializeField] private Vector3Int Pos;
     [SerializeField] private bool occupied = false;
     [SerializeField] private Character subscribedCharacter;
@@ -271,7 +263,6 @@ public class TileData : IHeapItem<TileData>
     public Vector3 GetGroundPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 0.6f, Obj.transform.position.z); }
     public Vector3 GetAirPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y + 1.6f, Obj.transform.position.z); }
     public Vector3 GetWaterPos { get => new Vector3(Obj.transform.position.x, Obj.transform.position.y , Obj.transform.position.z); }
-    public InteractableTile Overly { get => overlay; }
     public bool Occupied { get => occupied; set => occupied = value; }
     public int HeapIndex { get => heapIndex; set => heapIndex = value; }
     public Character SubscribedCharacter { get => subscribedCharacter; }
@@ -298,10 +289,6 @@ public class TileData : IHeapItem<TileData>
         }
     }
 
-    public void CacheOverlayObject(InteractableTile givenTile)
-    {
-        overlay = givenTile;
-    }
     public bool ComparePositons(Vector3Int otherPos)
     {
         if (Pos.x == otherPos.x && Pos.z == otherPos.z)

@@ -9,6 +9,7 @@ public class DropPanel : MonoBehaviour
     [SerializeField] private Image selectedFood;
     [SerializeField] private Image selectedBiomeDrop;
     [SerializeField] private AnimalUnlockPopup unlockPopup;
+    [SerializeField] private Sprite baseSlotSprite;
     private BasicDropSO selectedFoodSO;
     private BasicDropSO selectedBiomeDropSO;
     private AnimalCreator animalCreator =  new AnimalCreator();
@@ -64,13 +65,12 @@ public class DropPanel : MonoBehaviour
     public void Craft()
     {
         Animal animalToAdd = animalCreator.CraftAnimal(selectedFoodSO as FoodDropSO, selectedBiomeDropSO as BiomeDropSO);
-        selectedBiomeDrop.sprite = null;
-        selectedFood.sprite = null;
+        selectedBiomeDrop.sprite = baseSlotSprite;
+        selectedFood.sprite = baseSlotSprite;
         if (!ReferenceEquals(animalToAdd, null))
         {
             GameManager.Instance.PlayerWrapper.DropsInventory.RemoveDrop(selectedBiomeDropSO);
             GameManager.Instance.PlayerWrapper.DropsInventory.RemoveDrop(selectedFoodSO);
-            Debug.Log("added " + animalToAdd.name);
             GameManager.Instance.PlayerWrapper.AnimalInventory.AddAnimal(animalToAdd);
             unlockPopup.Setup(animalToAdd.Portrait);
             unlockPopup.gameObject.SetActive(true);

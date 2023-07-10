@@ -85,6 +85,9 @@ Transform:
   - {fileID: 4687247348568220710}
   - {fileID: 231424633127842145}
   - {fileID: 1696114173766631072}
+  - {fileID: 4067683696175012361}
+  - {fileID: 2404117804848163430}
+  - {fileID: 4976552546463358741}
   m_Father: {fileID: 7457097703888485070}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -109,6 +112,9 @@ MonoBehaviour:
   poisonBlastPool: {fileID: 7894446053805958851}
   iceBlastPool: {fileID: 9120150685562307781}
   dropPool: {fileID: 860450362154378210}
+  deathPool: {fileID: 6022811733926158543}
+  hitPool: {fileID: 1291678833177434426}
+  levelUpPool: {fileID: 7710765590048221227}
 --- !u!1 &2051840757
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +161,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledObjects: []
   PrefabToPool: {fileID: 955452753655836874, guid: ef480d5b451f98e43824592159ebb701, type: 3}
+  NumToPool: 10
+--- !u!1 &1189835139978668357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4067683696175012361}
+  - component: {fileID: 6022811733926158543}
+  m_Layer: 0
+  m_Name: DeathPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4067683696175012361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189835139978668357}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1114814535}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6022811733926158543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189835139978668357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e985579eaaddd4ba87d8d3b2bf1a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  PrefabToPool: {fileID: 6783850821565403984, guid: 9ab307616dfb70144803d75829a4ea8f, type: 3}
   NumToPool: 10
 --- !u!1 &1826960196734514492
 GameObject:
@@ -294,6 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d920645d2bdcbb94eb745f92e70bea31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fileName: 
 --- !u!1 &4386420811125978776
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +394,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledObjects: []
   PrefabToPool: {fileID: 955452753655836874, guid: 94ffb81614c5a14489cf4af1f9f2262d, type: 3}
+  NumToPool: 10
+--- !u!1 &4771398843059772548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4976552546463358741}
+  - component: {fileID: 7710765590048221227}
+  m_Layer: 0
+  m_Name: LevelUpPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4976552546463358741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4771398843059772548}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1114814535}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7710765590048221227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4771398843059772548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e985579eaaddd4ba87d8d3b2bf1a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  PrefabToPool: {fileID: -7670957286636405090, guid: 9fb0bd73da3d30c48ae10eb2c594b112, type: 3}
   NumToPool: 10
 --- !u!1 &5976067083845191049
 GameObject:
@@ -901,6 +1002,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontCam: {fileID: 0}
   topCam: {fileID: 0}
+--- !u!1 &7485909567571736697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2404117804848163430}
+  - component: {fileID: 1291678833177434426}
+  m_Layer: 0
+  m_Name: HitPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2404117804848163430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7485909567571736697}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1114814535}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1291678833177434426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7485909567571736697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e985579eaaddd4ba87d8d3b2bf1a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  PrefabToPool: {fileID: 4429993731304268148, guid: 8181fad4427300f45aaaf67863c0361c, type: 3}
+  NumToPool: 10
 --- !u!1 &9006469611228031229
 GameObject:
   m_ObjectHideFlags: 0

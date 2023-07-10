@@ -27,6 +27,10 @@ public class EnemyCreator : ScriptableObject
         }
         return closesMaxvalue.AnimalToSpawn;
     }
+    //list of animals that can spawn, 
+    //sort animals by rarity
+    //roll chance and get a random animal by rarity 
+    //todo tmr
     public List<BiomeSpawnData> SpawnData { get => spawnData;}
 }
 [System.Serializable]

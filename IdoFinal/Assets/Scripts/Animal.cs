@@ -38,7 +38,7 @@ public enum AnimalClass
     Fish,
     Reptile,
     Amphibian,
-    Cephalopod,
+    Mollusc,
     Crustacean
 }
 

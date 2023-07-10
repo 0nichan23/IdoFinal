@@ -67,9 +67,6 @@ public class LevelManager : MonoBehaviour
             }
 
             tile.HitTile(givenAttack, dealer.DamageDealer);
-
-            tile.Overly.gameObject.SetActive(true);
-            tile.Overly.DamageColor();
         }
     }
 

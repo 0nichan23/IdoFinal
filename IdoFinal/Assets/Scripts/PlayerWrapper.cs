@@ -52,6 +52,7 @@ public class PlayerWrapper : Character
         attackHandler.OnAttackSwitched.AddListener(PlayerHud.SwitchIcon.StartCountDown);
         DamageDealer.OnKill.AddListener(GainXp);
         Level.OnLevelUp.AddListener(LevelUpReset);
+        Level.OnLevelUp.AddListener(PlayLevelUpEffect);
     }
 
     public void StartGame()//called every time a RUN starts
@@ -219,6 +220,13 @@ public class PlayerWrapper : Character
     {
         Level.GainXp(target.RefCharacter.Level.Level);
         UpdateBar();
+    }
+
+    private void PlayLevelUpEffect(Character character)
+    {
+        ParticleEvents particle = GameManager.Instance.PoolManager.LevelUpPool.GetPooledObject();
+        particle.transform.position = transform.position;
+        particle.gameObject.SetActive(true);
     }
 
     [ContextMenu("test cleanse")]

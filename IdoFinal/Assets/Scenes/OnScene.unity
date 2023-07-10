@@ -637,9 +637,6 @@ PrefabInstance:
 
         jungle, savannah.
 
-        turn charge
-        into SO.
-
         enemy spawners.
 
 '
@@ -1212,6 +1209,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7457097704105066224, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
+      propertyPath: width
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457097704105066224, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
+      propertyPath: length
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457097704105066224, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: biomeData.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -1225,7 +1230,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 67017e40b0b44d94db86d58229cf3089, type: 2}
     - target: {fileID: 7457097704239078800, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}
       propertyPath: amount
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03cf4313cd2f19149bb07d824705e337, type: 3}

@@ -9617,6 +9617,7 @@ MonoBehaviour:
   selectedFood: {fileID: 1693837501507932986}
   selectedBiomeDrop: {fileID: 7667569846577702527}
   unlockPopup: {fileID: 7552200582534616891}
+  baseSlotSprite: {fileID: 21300000, guid: 9fefeb74dbddb9b4480cb4cfc8a6e0b0, type: 3}
 --- !u!1 &8679957718443851960
 GameObject:
   m_ObjectHideFlags: 0

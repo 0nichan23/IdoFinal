@@ -81,8 +81,11 @@ public class Charger : MonoBehaviour
     {
         targeter.AttackTiles(dir, blastZone.GetPos, attack, emitter);
         Explosion exp = GetBlastFromElement(attack.Blast);
-        exp.transform.position = transform.position;
-        exp.gameObject.SetActive(true);
+        if (!ReferenceEquals(exp, null))
+        {
+            exp.transform.position = transform.position;
+            exp.gameObject.SetActive(true);
+        }
         //place particle effect at the end depending on element
     }
     private Vector3Int GetLookDirVector(LookDirections direction)
