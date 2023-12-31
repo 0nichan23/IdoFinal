@@ -19,7 +19,7 @@ public class BaseStateHandler : MonoBehaviour
         stunned = false;
         SortStates();
         SubscribeHandler();
-        //StartCoroutine(RunStateMachine());
+        StartCoroutine(RunStateMachine());
     }
 
     //need to start enemies only when the player is within some king of range from them
